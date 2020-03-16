@@ -33,7 +33,14 @@ namespace Math_Module
         {
             get
             {
-                return Convert.ToBoolean(new Exception());
+                if ((znach.count == 1)&&(znach[0] == 0))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
         }
 
@@ -95,6 +102,28 @@ namespace Math_Module
 
         private static byte COM_NN_D(N first, N second)
         {
+            if (first.znach.Count > second.znach.Count)
+            {
+                return 2;
+            }
+            if (first.znach.Count < second.znach.Count)
+            {
+                return 1;
+            }
+            for (int i = first.znach.count; i == 0;i--)
+            {
+                if (first.znach[i] <= second.znach[i])
+                    {
+                    if (first.znach[i] != second.znach[i])
+                    {
+                        return 1;
+                    }
+                }
+                else
+                {
+                    return 2;
+                }
+            }
             return 0;
         }
 
