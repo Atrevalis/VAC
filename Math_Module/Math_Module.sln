@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28307.572
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Math_Module", "Math_Module\Math_Module.csproj", "{33FF082D-B55D-4634-823D-3B9BB791A6C6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Math_Module_Test", "Math_Module_Test\Math_Module_Test.csproj", "{CA859437-B94A-4BC6-BD9F-B5EE5C45DAE5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,26 @@ Global
 		{33FF082D-B55D-4634-823D-3B9BB791A6C6}.Release|x64.Build.0 = Release|x64
 		{33FF082D-B55D-4634-823D-3B9BB791A6C6}.Release|x86.ActiveCfg = Release|x86
 		{33FF082D-B55D-4634-823D-3B9BB791A6C6}.Release|x86.Build.0 = Release|x86
+		{CA859437-B94A-4BC6-BD9F-B5EE5C45DAE5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA859437-B94A-4BC6-BD9F-B5EE5C45DAE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA859437-B94A-4BC6-BD9F-B5EE5C45DAE5}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{CA859437-B94A-4BC6-BD9F-B5EE5C45DAE5}.Debug|ARM.Build.0 = Debug|Any CPU
+		{CA859437-B94A-4BC6-BD9F-B5EE5C45DAE5}.Debug|ARM64.ActiveCfg = Debug|Any CPU
+		{CA859437-B94A-4BC6-BD9F-B5EE5C45DAE5}.Debug|ARM64.Build.0 = Debug|Any CPU
+		{CA859437-B94A-4BC6-BD9F-B5EE5C45DAE5}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{CA859437-B94A-4BC6-BD9F-B5EE5C45DAE5}.Debug|x64.Build.0 = Debug|Any CPU
+		{CA859437-B94A-4BC6-BD9F-B5EE5C45DAE5}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{CA859437-B94A-4BC6-BD9F-B5EE5C45DAE5}.Debug|x86.Build.0 = Debug|Any CPU
+		{CA859437-B94A-4BC6-BD9F-B5EE5C45DAE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA859437-B94A-4BC6-BD9F-B5EE5C45DAE5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA859437-B94A-4BC6-BD9F-B5EE5C45DAE5}.Release|ARM.ActiveCfg = Release|Any CPU
+		{CA859437-B94A-4BC6-BD9F-B5EE5C45DAE5}.Release|ARM.Build.0 = Release|Any CPU
+		{CA859437-B94A-4BC6-BD9F-B5EE5C45DAE5}.Release|ARM64.ActiveCfg = Release|Any CPU
+		{CA859437-B94A-4BC6-BD9F-B5EE5C45DAE5}.Release|ARM64.Build.0 = Release|Any CPU
+		{CA859437-B94A-4BC6-BD9F-B5EE5C45DAE5}.Release|x64.ActiveCfg = Release|Any CPU
+		{CA859437-B94A-4BC6-BD9F-B5EE5C45DAE5}.Release|x64.Build.0 = Release|Any CPU
+		{CA859437-B94A-4BC6-BD9F-B5EE5C45DAE5}.Release|x86.ActiveCfg = Release|Any CPU
+		{CA859437-B94A-4BC6-BD9F-B5EE5C45DAE5}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -3,14 +3,14 @@ using System.Collections.Generic;
 
 namespace Math_Module
 {
-    class N : Math_Field
+    public class N : Math_Field
     {
 
         #region Поля
         private List<uint> znach;
         #endregion
 
-        #region Констркуторы
+        #region Конструторы
 
         public N(List<string> s)
         {
