@@ -29,7 +29,7 @@ namespace Math_Module
             }
         }
 
-        private bool NZER_N_B
+        private bool NZER_N_B//проверка на ноль
         {
             get
             {

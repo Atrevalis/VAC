@@ -1,21 +1,17 @@
 using NUnit.Framework;
 
-namespace Math_Module_Test
-{
-    public class Tests
-    { 
-
-        [Test]
-        public void Test1()
-        {
-            Assert.Pass();
-        }
-        [Test]
-        public void TestGetOne()
+    namespace Math_Module_Test
+    {
+        public class Tests
         {
 
-            //Assert.AreEqual(,);
+ 
+            [Test]
+            public void PlusPlusTest()
+            {
 
+               // Assert.AreEqual(N++,);
+
+            }
         }
     }
-}
