@@ -59,8 +59,19 @@ namespace Math_Module
 
         public static N operator ++(N value) // Александр Баталин 9370
         {
-            value.znach.Count++;
-            return null;
+            for (i = 0; i < value.znach.count; i++)
+            {
+                if(value.znach[i] == uint_size)
+                {
+                    value.znach[i] = 0;
+                    value_s++;
+                }
+                else if ((value.znach[i] >= 0) && (value.znach[i] < uint_size))
+                {
+                    value.znach[i]++;
+                    return;
+                }
+            }
         }
 
         public static N operator +(N first, N second)
