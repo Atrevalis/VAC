@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Math_Module
 {
-    class Z : Math_Field
+    public class Z : Math_Field
     {
         #region Конструкторы
 
