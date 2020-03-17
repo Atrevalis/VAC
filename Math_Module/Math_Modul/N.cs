@@ -57,6 +57,7 @@ namespace Math_Module
 
         public static N operator ++(N value) // Александр Баталин 9370
         {
+            value.znach.Count++;
             return null;
         }
 
