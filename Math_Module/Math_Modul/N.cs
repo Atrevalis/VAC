@@ -58,6 +58,7 @@ namespace Math_Module
 
         public static N operator ++(N value) //ADD_1N_N
         {
+            value.znach.Count++;
             return null;
         }
 
