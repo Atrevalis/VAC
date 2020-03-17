@@ -10,4 +10,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Properties\Math_Module.rd.xml" />
   </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Startup.cs" />
+    <Compile Remove="Program.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="Properties\launchSettings.json" />
+    <Content Remove="Properties\launchSettings.json" />
+  </ItemGroup>
 </Project>
