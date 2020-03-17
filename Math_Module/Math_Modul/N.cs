@@ -8,6 +8,8 @@ namespace Math_Module
 
         #region Поля
         private List<uint> znach;
+
+        const uint uint_size = 99999999;
         #endregion
 
         #region Конструторы
