@@ -18,7 +18,7 @@ namespace Math_Module
         }
     }
 
-    class P:Math_Field
+    public class P:Math_Field
     {
         #region Конструкторы
 

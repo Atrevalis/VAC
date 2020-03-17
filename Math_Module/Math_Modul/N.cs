@@ -12,7 +12,7 @@ namespace Math_Module
 
         #region Конструторы
 
-        public N(List<string> s)
+        public N(List<string> s) // Александр Рассохин 9370
         {
 
         }
@@ -21,19 +21,18 @@ namespace Math_Module
 
         #region Свойства
 
-        protected override bool isDown
+        protected override bool isDown // Евгений Куликов 9370
         {
             get
             {
                 return Convert.ToBoolean(new Exception());
             }
         }
-
-        private bool NZER_N_B//проверка на ноль
+        private bool NZER_N_B // Проверка на ноль - Шлемин Роман 9370
         {
             get
             {
-                if ((znach.count == 1)&&(znach[0] == 0))
+                if ((znach.Count == 1)&&(znach[0] == 0))
                 {
                     return true;
                 }
@@ -56,37 +55,37 @@ namespace Math_Module
 
         #region Перегрузки
 
-        public static N operator ++(N value) //ADD_1N_N
+        public static N operator ++(N value) // Александр Баталин 9370
         {
             return null;
         }
 
-        public static N operator +(N first, N second) //ADD_NN_N
+        public static N operator +(N first, N second)
         {
             return null;
         }
 
-        public static N operator -(N first, N second) //SUB_NN_N
+        public static N operator -(N first, N second)
         {
             return null;
         }
 
-        public static N operator *(N first, N second) //MUL_NN_N
+        public static N operator *(N first, N second)
         {
             return null;
         }
 
-        public static N operator /(N first, N second) //DIV_NN_N
+        public static N operator /(N first, N second)
         {
             return null;
         }
 
-        public static N operator %(N first, N second) //MOD_NN_N
+        public static N operator %(N first, N second)
         {
             return null;
         }
 
-        public static implicit operator List<string>(N value)
+        public static implicit operator List<string>(N value) // Александр Рассохин 9370
         {
             return null;
         }
@@ -100,7 +99,7 @@ namespace Math_Module
 
         #region Методы
 
-        private static byte COM_NN_D(N first, N second)
+        private static byte COM_NN_D(N first, N second) // Сравнение двух чисел - Шлемин Роман 9370
         {
             if (first.znach.Count > second.znach.Count)
             {
@@ -110,7 +109,7 @@ namespace Math_Module
             {
                 return 1;
             }
-            for (int i = first.znach.count; i == 0;i--)
+            for (int i = first.znach.Count; i == 0;i--)
             {
                 if (first.znach[i] <= second.znach[i])
                     {
@@ -127,12 +126,12 @@ namespace Math_Module
             return 0;
         }
 
-        private N MUL_ND_N(byte value)
+        private N MUL_ND_N(byte value) // Умножеине числа на цифру - Дмитрий Панченко 9370
         {
             return null;
         }
 
-        private N MUL_Nk_N(N value)
+        private N MUL_Nk_N(N value) // Умножение числа на 10^value - Дмитрий Панченко 9370
         {
             return null;
         }
