@@ -8,13 +8,16 @@ namespace Math_Module
 
         #region Поля
         private List<uint> znach;
+
+        const uint uint_size = 99999999;
         #endregion
 
         #region Конструторы
 
         public N(List<string> s) // Александр Рассохин 9370
         {
-
+            for (int i=0; i < s.Count;i++)
+                znach.Add(Convert.ToUInt32(s[i]));
         }
 
         #endregion
@@ -57,19 +60,20 @@ namespace Math_Module
 
         public static N operator ++(N value) // Александр Баталин 9370
         {
-            for (i = 0; i < value.znach.count; i++)
+            for (i = 0; i < value.znach.Count; i++)
             {
                 if(value.znach[i] == uint_size)
                 {
                     value.znach[i] = 0;
-                    value_s++;
                 }
-                else if ((value.znach[i] >= 0) && (value.znach[i] < uint_size))
+                else
                 {
                     value.znach[i]++;
-                    return;
+                    return value;
                 }
             }
+            value.znach.Add(1);
+            return value;
         }
 
         public static N operator +(N first, N second)
@@ -99,7 +103,9 @@ namespace Math_Module
 
         public static implicit operator List<string>(N value) // Александр Рассохин 9370
         {
-            return null;
+            List<string> S = new List<string>();
+            S = value.znach.ConvertAll<string>(delegate (uint i) { return i.ToString(); });
+            return S;
         }
 
         public static implicit operator Z(N value)
