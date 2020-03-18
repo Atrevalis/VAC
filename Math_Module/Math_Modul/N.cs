@@ -62,7 +62,7 @@ namespace Math_Module
         {
             for (i = 0; i < value.znach.Count; i++)
             {
-                if(value.znach[i] == uint_size)
+                if (value.znach[i] == uint_size)
                 {
                     value.znach[i] = 0;
                 }
