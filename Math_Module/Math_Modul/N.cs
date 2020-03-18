@@ -60,19 +60,20 @@ namespace Math_Module
 
         public static N operator ++(N value) // Александр Баталин 9370
         {
-            for (i = 0; i < value.znach.count; i++)
+           for (i = 0; i < value.znach.Count; i++)
             {
-                if(value.znach[i] == uint_size)
+                if (value.znach[i] == uint_size)
                 {
                     value.znach[i] = 0;
-                    value_s++;
                 }
-                else if ((value.znach[i] >= 0) && (value.znach[i] < uint_size))
+                else
                 {
                     value.znach[i]++;
-                    return;
+                    return value;
                 }
             }
+            value.znach.Add(1);
+            return value;
         }
 
         public static N operator +(N first, N second) // Шлемин Роман 9370
