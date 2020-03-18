@@ -60,7 +60,7 @@ namespace Math_Module
 
         public static N operator ++(N value) // Александр Баталин 9370
         {
-           for (i = 0; i < value.znach.Count; i++)
+           for (int i = 0; i < value.znach.Count; i++)
             {
                 if (value.znach[i] == uint_size)
                 {
