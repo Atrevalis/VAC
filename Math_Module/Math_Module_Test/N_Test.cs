@@ -19,10 +19,8 @@ namespace Math_Module_Test
 
         [Test]
         public void nConstructTest()
-        {
-
+        { 
             // Assert.AreEqual(n++, output);
-
         }
 
         [Test]

@@ -16,7 +16,8 @@ namespace Math_Module
 
         public N(List<string> s) // Александр Рассохин 9370
         {
-            for (int i=0; i < s.Count;i++)
+            znach = new List<uint>();
+            for (int i = 0; i < s.Count; i++)
                 znach.Add(Convert.ToUInt32(s[i]));
         }
 
@@ -61,7 +62,7 @@ namespace Math_Module
         public static N operator ++(N value) // Александр Баталин 9370
         {
            for (int i = 0; i < value.znach.Count; i++)
-            {
+           {
                 if (value.znach[i] == uint_size)
                 {
                     value.znach[i] = 0;
@@ -71,7 +72,7 @@ namespace Math_Module
                     value.znach[i]++;
                     return value;
                 }
-            }
+           }
             value.znach.Add(1);
             return value;
         }
