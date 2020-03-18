@@ -1,4 +1,6 @@
 using NUnit.Framework;
+using Math_Module;
+using System.Collections.Generic;
 
     namespace Math_Module_Test
     {
@@ -9,8 +11,8 @@ using NUnit.Framework;
             [Test]
             public void PlusPlusTest()
             {
-
-                //Assert.AreEqual(N++,);
+            N s = new N(new List<string>()); 
+                Assert.AreEqual(s++,new N(new List<string>()));
 
             }
         }

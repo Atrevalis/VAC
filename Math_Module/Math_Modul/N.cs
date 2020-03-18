@@ -75,12 +75,12 @@ namespace Math_Module
             }
         }
 
-        public static N operator +(N first, N second)
+        public static N operator +(N first, N second) // Шлемин Роман 9370
         {
             return null;
         }
 
-        public static N operator -(N first, N second)
+        public static N operator -(N first, N second) // Шлемин Роман 9370
         {
             return null;
         }
