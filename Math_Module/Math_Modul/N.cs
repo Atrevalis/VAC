@@ -113,6 +113,11 @@ namespace Math_Module
             return null;
         }
 
+        public static implicit operator N(List<string> v)
+        {
+            throw new NotImplementedException();
+        }
+
         #endregion
 
         #region Методы
