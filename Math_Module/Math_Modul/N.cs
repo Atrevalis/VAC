@@ -16,7 +16,8 @@ namespace Math_Module
 
         public N(List<string> s) // Александр Рассохин 9370
         {
-
+            for (int i=0; i < s.Count;i++)
+                znach.Add(Convert.ToUInt32(s[i]));
         }
 
         #endregion
@@ -101,7 +102,9 @@ namespace Math_Module
 
         public static implicit operator List<string>(N value) // Александр Рассохин 9370
         {
-            return null;
+            List<string> S = new List<string>();
+            S = value.znach.ConvertAll<string>(delegate (uint i) { return i.ToString(); });
+            return S;
         }
 
         public static implicit operator Z(N value)
