@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\VAC2\VAC\Visual_Model\Visual_Model.csproj" />
     <ProjectReference Include="..\External module\External module.csproj" />
     <ProjectReference Include="..\Visual_Model\Visual_Model.csproj" />
   </ItemGroup>

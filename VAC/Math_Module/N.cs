@@ -7,9 +7,11 @@ namespace Math_Module
     {
 
         #region Поля
+
         private List<uint> znach;
 
         const uint uint_size = 99999999;
+
         #endregion
 
         #region Конструторы
@@ -17,7 +19,7 @@ namespace Math_Module
         public N(List<string> s) // Александр Рассохин 9370
         {
             znach = new List<uint>();
-            for (int i = 0; i < s.Count; i++)
+            for (int i = s.Count-1; i >= 0; i--)
                 znach.Add(Convert.ToUInt32(s[i]));
         }
 
