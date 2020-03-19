@@ -8,5 +8,9 @@ namespace External_module
 {
     class N_operator : Operators
     {
+        public N_operator() : base()
+        {
+            count_of_up_connection = -1;
+        }
     }
 }

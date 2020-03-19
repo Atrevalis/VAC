@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace External_module
 {
-    class if_operator : Operators
+    class if_operator : Noda
     {
     }
 }
