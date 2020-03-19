@@ -108,7 +108,9 @@ namespace Math_Module
         public static implicit operator List<string>(N value) // Александр Рассохин 9370
         {
             List<string> S = new List<string>();
-            S = value.znach.ConvertAll<string>(delegate (uint i) { return i.ToString(); });
+            List<uint> temp = new List<uint>(new uint[value.znach.Count]);
+            temp = value.znach;
+            S = temp.ConvertAll<string>(delegate (uint i) { return i.ToString(); });
             return S;
         }
 
