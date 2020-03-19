@@ -12,9 +12,27 @@ namespace External_module
        protected int count_of_up_connection;
        protected int index_of_Operator;
 
-        protected Operators()
+        protected List<Working_data> up_connection;
+
+        public bool is_up_conection
+        {
+            get
+            {
+                return up_connection.Count < count_of_up_connection;
+            }
+        }
+
+        protected Operators() 
         {
             index_of_Operator = count_of_operator4s_index++;
+        }
+
+        public void up_Conected(Working_data data)
+        {
+            if(up_connection.Count < count_of_up_connection)
+            {
+                up_connection.Add(data);
+            }
         }
 
     }
