@@ -8,6 +8,11 @@ namespace External_module
 {
     abstract public class Noda
     {
+        public abstract void Delite();
 
+        public abstract bool isDelite
+        {
+            get;
+        }
     }
 }

@@ -8,5 +8,17 @@ namespace External_module
 {
     class if_operator : Noda
     {
+        public override bool isDelite
+        {
+            get
+            {
+                return false;
+            }
+        }
+
+        public override void Delite()
+        {
+
+        }
     }
 }

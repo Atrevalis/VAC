@@ -8,5 +8,6 @@ namespace External_module
 {
     class Data : Working_data
     {
+        public string data_name;
     }
 }
