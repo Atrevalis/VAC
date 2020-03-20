@@ -31,7 +31,7 @@ namespace Math_Module
 
         #region Свойства
 
-        protected override bool isDown
+        protected override bool isDown // Евгений Куликов 9370
         {
             get
             {
@@ -39,7 +39,7 @@ namespace Math_Module
             }
         }
 
-        public N ABS_Z_N
+        public N ABS_Z_N // Евгений Куликов 9370
         {
             get
             {
@@ -47,7 +47,7 @@ namespace Math_Module
             }
         }
 
-        public byte POZ_Z_D
+        public byte POZ_Z_D // Евгений Куликов 9370
         {
             get
             {
@@ -59,7 +59,7 @@ namespace Math_Module
 
         #region Перегрузки
 
-        public static Z operator -(Z value) // MUL_ZM_Z
+        public static Z operator -(Z value) // MUL_ZM_Z Евгений Куликов 9370
         {
             return null;
         }
@@ -100,6 +100,15 @@ namespace Math_Module
         }
 
         public static explicit operator N(Z value)
+        {
+            return null;
+        }
+
+        #endregion
+
+        #region Методы
+
+        public Z Clone() // Александр Баталин 9370
         {
             return null;
         }
