@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
 
 namespace Math_Module
 {
@@ -108,9 +109,23 @@ namespace Math_Module
         public static implicit operator List<string>(N value) // Александр Рассохин 9370
         {
             List<string> S = new List<string>();
-            List<uint> temp = new List<uint>(new uint[value.znach.Count]);
-            temp = value.znach;
-            S = temp.ConvertAll<string>(delegate (uint i) { return i.ToString(); });
+            StringBuilder temp = new StringBuilder();
+            int i;
+            for (i = 0; i < value.znach.Count / uint_size_div; i++)
+            {
+                for (long j = value.znach.Count -1 - (uint_size_div * i); j >= value.znach.Count - uint_size_div * (i + 1); j--) 
+                    temp.Append(Convert.ToString(value.znach[Convert.ToInt32(j)]));
+                
+                S.Add(Convert.ToString(temp));
+                temp.Clear();
+            }
+
+            if (value.znach.Count % uint_size_div != 0)
+            {
+                for (long j = value.znach.Count - 1 - (uint_size_div * i); j >= 0; j--)
+                    temp.Append(Convert.ToString(value.znach[Convert.ToInt32(j)]));
+                S.Add(Convert.ToString(temp));
+            }
             return S;
         }
 
