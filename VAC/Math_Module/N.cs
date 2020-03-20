@@ -32,7 +32,7 @@ namespace Math_Module
         {
             get
             {
-                return Convert.ToBoolean(new Exception());
+                return false;
             }
         }
         private bool NZER_N_B // Проверка на ноль - Шлемин Роман 9370
