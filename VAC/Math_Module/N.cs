@@ -180,6 +180,11 @@ namespace Math_Module
             return null;
         }
 
+        public N Clone() // Александр Баталин 9370
+        {
+            return null;
+        }
+
         #endregion
     }
 }
