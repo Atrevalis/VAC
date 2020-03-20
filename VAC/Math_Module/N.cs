@@ -109,24 +109,28 @@ namespace Math_Module
         public static implicit operator List<string>(N value) // Александр Рассохин 9370
         {
             List<string> S = new List<string>();
-            StringBuilder temp = new StringBuilder();
-            int i;
-            for (i = 0; i < value.znach.Count / uint_size_div; i++)
-            {
-                for (long j = value.znach.Count -1 - (uint_size_div * i); j >= value.znach.Count - uint_size_div * (i + 1); j--) 
-                    temp.Append(Convert.ToString(value.znach[Convert.ToInt32(j)]));
-                
-                S.Add(Convert.ToString(temp));
-                temp.Clear();
-            }
+        List<uint> temp = new List<uint>(new uint[value.znach.Count]);
+        temp = value.znach;
+        S = temp.ConvertAll<string>(delegate (uint i) { return i.ToString(); });
+        StringBuilder temp = new StringBuilder();
+        int i;
+        for (i = 0; i < value.znach.Count / uint_size_div; i++) // Цикл выполняется столько раз, сколько разрядов uint_size_div входит в число
+        {
+            for (long j = value.znach.Count - 1 - (uint_size_div * i); j >= value.znach.Count - uint_size_div * (i + 1); j--) // каждый цикл у числа забираются следующие uint_size_div разрядов
+                temp.Append(Convert.ToString(value.znach[Convert.ToInt32(j)]));     // построение временной string, куда будут записываться эти uint_size_div разрядов
 
-            if (value.znach.Count % uint_size_div != 0)
-            {
-                for (long j = value.znach.Count - 1 - (uint_size_div * i); j >= 0; j--)
-                    temp.Append(Convert.ToString(value.znach[Convert.ToInt32(j)]));
-                S.Add(Convert.ToString(temp));
-            }
-            return S;
+            S.Add(Convert.ToString(temp));  // добавление построенной string в элемент списка
+            temp.Clear();                   // очищение временной строки
+        }
+
+        if (value.znach.Count % uint_size_div != 0)     // запись в строку оставшихся разрядов, если число не делится на uint_div_size нацело
+        {
+            for (long j = value.znach.Count - 1 - (uint_size_div * i); j >= 0; j--) // цикл, для записи оставшихся разрядов
+                temp.Append(Convert.ToString(value.znach[Convert.ToInt32(j)]));     // построение временной string с элементами числа
+            S.Add(Convert.ToString(temp));                                          // добавление построенной string в элемент списка
+        }
+        return S;
+    }
         }
 
         public static implicit operator Z(N value)
