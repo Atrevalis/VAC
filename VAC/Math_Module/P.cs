@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Math_Module
 {
-    struct M
+    public struct M
     {
         Q coaf;
         N step;
@@ -119,6 +119,16 @@ namespace Math_Module
         public static explicit operator Q(P value)
         {
             return null;
+        }
+
+        public override bool Equals(object obj)
+        {
+            if(obj.GetType() == GetType() && this != null && obj != null)
+            {
+                P sec = obj as P;
+                if (Ms.Equals(sec.Ms)) return true;
+            }
+            return false;
         }
 
         #endregion

@@ -100,11 +100,21 @@ namespace Math_Module
             return null;
         }
 
-        #endregion
+        public override bool Equals(object obj)
+        {
+            if (obj.GetType() == GetType() && this != null && obj != null)
+            {
+                Q sec = obj as Z;
+                if (ch.Equals(sec.ch) && zn.Equals(sec.zn)) return true;
+            }
+            return false;
+        }
 
-        #region Методы 
+                #endregion
 
-        private void RED_Q_Q()
+                #region Методы 
+
+                private void RED_Q_Q()
         {
 
         }

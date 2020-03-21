@@ -33,7 +33,8 @@ namespace Math_Module_Test
             N n = new N(input);
             N t = new N(output);
             Assert.AreEqual(n++, t);
-
+            input.Clear();
+            output.Clear();
         }
 
         [Test]
@@ -48,6 +49,8 @@ namespace Math_Module_Test
             N n = new N(input);
             N t = new N(output);
             Assert.AreEqual(n++, t);
+            input.Clear();
+            output.Clear();
 
         }
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Math_Module
 {
@@ -132,6 +133,17 @@ namespace Math_Module
         {
             return null;
         }
+
+
+        public override bool Equals(object obj)
+        {
+            if (obj.GetType() == GetType() && this != null && obj != null)
+            {
+                if(znach.SequenceEqual((obj as N).znach)) return true;
+            }
+            return false;
+        }
+
 
         #endregion
 

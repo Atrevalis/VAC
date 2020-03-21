@@ -104,11 +104,21 @@ namespace Math_Module
             return null;
         }
 
-        #endregion
+        public override bool Equals(object obj)
+        {
+            if (obj.GetType() == GetType() && this != null && obj != null)
+            {
+                Z sec = obj as Z;
+                if (Abs.Equals(sec.Abs) && isN.Equals(sec.isN)) return true;
+            }
+            return false;
+        }
 
-        #region Методы
+                #endregion
 
-        public Z Clone() // Александр Баталин 9370
+                #region Методы
+
+                public Z Clone() // Александр Баталин 9370
         {
             return null;
         }
