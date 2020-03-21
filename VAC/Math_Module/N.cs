@@ -109,21 +109,21 @@ namespace Math_Module
         public static implicit operator List<string>(N value) // Александр Рассохин 9370
         {
             List<string> S = new List<string>();
-            System.Text.StringBuilder temp = new System.Text.StringBuilder();
+            System.Text.StringBuilder temp = new System.Text.StringBuilder();  // временная переменная для записи разрядов
 
-            for (int i = value.znach.Count - 1; i >= 0; i--)
+            for (int i = value.znach.Count - 1; i >= 0; i--)            // Цикл идет с конца списка до первого элемента
             {
-                temp.Append(Convert.ToString(value.znach[i]));
-                int size = temp.Length;
-                if (size != uint_size_div && i != value.znach.Count - 1)
+                temp.Append(Convert.ToString(value.znach[i]));          // Запись элемента списка во временную переменную
+                int size = temp.Length; 
+                if (size != uint_size_div && i != value.znach.Count - 1) // Если кол-во разрядов меньше чем нужно   
                 {
                     temp.Clear();
-                    for (int k = 0; k < uint_size_div - size; k++)
+                    for (int k = 0; k<uint_size_div - size; k++)        // Добавление нулей для заполнения разрядов
                         temp.Append("0");
 
-                    temp.Append(Convert.ToString(value.znach[i]));
+                    temp.Append(Convert.ToString(value.znach[i]));  
                 }
-                S.Add(Convert.ToString(temp));
+                S.Add(Convert.ToString(temp));  // Присваивание временной переменной элементу списка
                 temp.Clear();
             }
             return S;
