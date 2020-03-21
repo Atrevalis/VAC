@@ -63,12 +63,51 @@ namespace Math_Module
 
         public static N operator +(N first, N second) //ADD_NN_N
         {
-            return null;
+            ref N newfirst = ref first.Clone();
+            if (newfirst.znach.Count >= second.znach.Count)
+            {
+                for (int i = 0; i == second.znach.Count; i++)
+                {
+                    newfirst.znach[i] = newfirst.znach[i] + second.znach[i];
+                    if (newfirst.znach[i].Count > uint_size)
+                    {
+                        newfirst.znach[i+1] = newfirst.znach[i+1] + 1;
+                    }
+                }
+            }
+            else
+            {
+                for (int i = 0; i == newfirst.znach.Count; i++)
+                {
+                    newfirst.znach[i] = newfirst.znach[i] + second.znach[i];
+                    if (newfirst.znach[i].Count > uint_size)
+                    {
+                        newfirst.znach[i+1] = newfirst.znach[i+1] + 1;
+                    }
+                }
+            }
+            return ref newfirst;
         }
 
         public static N operator -(N first, N second) //SUB_NN_N
         {
-            return null;
+            ref N newfirst = ref first.Clone();
+            if (newfirst.znach.Count >= second.znach.Count)
+            {
+                for (int i = 0; i == second.znach.Count; i++)
+                {
+                    if (newfirst.znach[i] < second.znach[i])
+                    {
+                        newfirst.znach[i+1] = newfirst.znach[i+1] - 1;
+                        newfirst.znach[i] = Math.Pow(10, uint_size) + newfirst.znach[i] - second.znach[i];
+                    }
+                }
+                return ref newfirst;
+            }
+            else
+            {
+                return null;
+            }
         }
 
         public static N operator *(N first, N second) //MUL_NN_N
@@ -110,7 +149,7 @@ namespace Math_Module
             {
                 return 1;
             }
-            for (int i = first.znach.count; i == 0;i--)
+            for (int i = first.znach.Count; i == 0;i--)
             {
                 if (first.znach[i] <= second.znach[i])
                     {
