@@ -118,6 +118,8 @@ namespace Math_Module
 
         #region Методы
 
+        /* Более не используется
+
         public Z Clone() // Александр Баталин 9370
         {
             Z clone = new Z(new List<string>());
@@ -125,6 +127,8 @@ namespace Math_Module
             clone.isN = isN; 
             return clone;
         }
+
+        */
 
         #endregion
     }

@@ -206,12 +206,16 @@ namespace Math_Module
             return null;
         }
 
+        /* Более не используется
+
         public N Clone() // Александр Баталин 9370
         {
             N clone = new N(new List<string>());
             clone.znach = new List<uint>(znach);
             return clone;
         }
+
+        */
 
         #endregion
     }
