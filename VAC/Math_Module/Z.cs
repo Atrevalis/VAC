@@ -114,13 +114,16 @@ namespace Math_Module
             return false;
         }
 
-                #endregion
+        #endregion
 
-                #region Методы
+        #region Методы
 
         public Z Clone() // Александр Баталин 9370
         {
-            return null;
+            Z clone = new Z(new List<string>());
+            clone.Abs = new N(Abs);
+            clone.isN = isN; 
+            return clone;
         }
 
         #endregion
