@@ -1,6 +1,8 @@
 using NUnit.Framework;
 using Math_Module;
 using System.Collections.Generic;
+using System;
+using FluentAssertions;
 
 namespace Math_Module_Test
 {
@@ -11,21 +13,20 @@ namespace Math_Module_Test
         [SetUp]
         public void Setup()
         {
-
         }
 
-        List<string> input = new List<string>();// { "12", "99999999" }
-        List<string> output = new List<string>();// { "12", "99999999" }
 
         [Test]
         public void nConstructTest()
-        { 
+        {
             // Assert.AreEqual(n++, output);
         }
 
         [Test]
-        public void plusPlusTestOne()
+        public void plusPlusTest1()
         {
+            List<string> input = new List<string>();
+            List<string> output = new List<string>();
             input.Add("12");
             input.Add("99999999");
             output.Add("13");
@@ -38,8 +39,10 @@ namespace Math_Module_Test
         }
 
         [Test]
-        public void plusPlusTestTwo()
+        public void plusPlusTest2()
         {
+            List<string> input = new List<string>();
+            List<string> output = new List<string>();
             input.Add("12");
             input.Add("00000000");
             input.Add("00000000");
@@ -51,9 +54,26 @@ namespace Math_Module_Test
             Assert.AreEqual(n++, t);
             input.Clear();
             output.Clear();
-
+        }
+        [Test]
+        public void plusPlusTest3()
+        {
+            List<string> input = new List<string>();
+            List<string> output = new List<string>();
+            input.Add("12");
+            input.Add("00000000");
+            input.Add("00000009");
+            output.Add("12");
+            output.Add("00000000");
+            output.Add("00000010");
+            N n = new N(input);
+            N t = new N(output);
+            Assert.AreEqual(n++, t);
+            input.Clear();
+            output.Clear();
         }
 
     }
+
 
 }
