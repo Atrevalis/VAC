@@ -208,7 +208,9 @@ namespace Math_Module
 
         public N Clone() // Александр Баталин 9370
         {
-            return null;
+            N clone = new N(new List<string>());
+            clone.znach = new List<uint>(znach);
+            return clone;
         }
 
         #endregion
