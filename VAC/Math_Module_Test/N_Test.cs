@@ -59,18 +59,13 @@ namespace Math_Module_Test
         public void plusPlusTest3()
         {
             List<string> input = new List<string>();
-            List<string> output = new List<string>();
             input.Add("12");
             input.Add("00000000");
             input.Add("00000009");
-            output.Add("12");
-            output.Add("00000000");
-            output.Add("00000010");
             N n = new N(input);
-            N t = new N(output);
-            Assert.AreEqual(n++, t);
+            N t = new N(n);
+            Assert.AreEqual(n, t);
             input.Clear();
-            output.Clear();
         }
 
     }

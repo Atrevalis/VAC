@@ -129,7 +129,7 @@ namespace Math_Module
             return S;
         }
 
-        public static implicit operator Z(N value)
+        public static implicit operator Z(N value) // Александр Рассохин 9370
         {
             return null;
         }

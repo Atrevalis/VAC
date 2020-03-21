@@ -15,7 +15,7 @@ namespace Math_Module
 
         }
 
-        public Z(N value)
+        public Z(N value) // Александр Рассохин 9370
         {
 
         }
@@ -118,7 +118,7 @@ namespace Math_Module
 
                 #region Методы
 
-                public Z Clone() // Александр Баталин 9370
+        public Z Clone() // Александр Баталин 9370
         {
             return null;
         }
