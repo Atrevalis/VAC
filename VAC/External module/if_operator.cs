@@ -10,6 +10,25 @@ namespace External_module
     {
 
         int count_of_up_connection;
+
+        List<Working_data> up_connection = new List<Working_data>();
+
+        public int Count_of_up_connection
+        {
+            set
+            {
+                count_of_up_connection = value;
+            }
+        }
+
+        public void Up_connected(Working_data data)
+        {
+            if(up_connection.Count < count_of_up_connection)
+            {
+                up_connection.Add(data);
+            }
+        }
+
         public override bool isDelite
         {
             get

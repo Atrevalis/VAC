@@ -10,10 +10,11 @@ namespace Math_Module_Test
     public class N_Test
     {
 
+
         [Test]
         public void nConstructTest()//отложено на потом
         {
-
+            
         }
         //++Test
         [Test]
@@ -28,7 +29,8 @@ namespace Math_Module_Test
             N n = new N(input);
             N t = new N(output);
             Assert.AreEqual(n++, t);
-          
+            input.Clear();
+            output.Clear();
         }
 
         [Test]
@@ -45,9 +47,9 @@ namespace Math_Module_Test
             N n = new N(input);
             N t = new N(output);
             Assert.AreEqual(n++, t);
-          
+            input.Clear();
+            output.Clear();
         }
-        
         [Test]
         public void plusPlusTestEx()
         {
@@ -58,53 +60,49 @@ namespace Math_Module_Test
             input.Add("00000009");
             N n = new N(input);
             Assert.AreNotEqual(n++, null);
-           
-
+            input.Clear();
+            output.Clear();
         }
-        //++Test
-
         //NinStringTest
         [Test]
         public void NConvertToStringTest1()
         {
-       
+            List<string> input = new List<string>();
             List<string> output = new List<string>();
             output.Add("12");
             output.Add("00000000");
             output.Add("00000009");
             N n = new N(output);
             Assert.AreEqual((List<string>)n, output);
-
+            input.Clear();
+            output.Clear();
         }
         [Test]
         public void NConvertToStringTest2()
         {
-        
+            List<string> input = new List<string>();
             List<string> output = new List<string>();
             output.Add("12");
             N n = new N(output);
             List<string> s = n;
             Assert.AreEqual(s, output);
-            
-            
-
+            input.Clear();
+            output.Clear();
         }
 
         [Test]
         public void NConvertToStringTestEx()
         {
-           
+            List<string> input = new List<string>();
             List<string> output = new List<string>();
             output.Add("12");
             output.Add("00000009");
             N n = new N(output);
             Assert.AreNotEqual((List<string>)n, null);
-
-         
+            input.Clear();
+            output.Clear();
         }
-        //NinStringTest
-
-        //+Test
+        //+
         [Test]
         public void plusTest1()
         {
@@ -120,7 +118,8 @@ namespace Math_Module_Test
             N i = new N(input);
             N t = new N(output);
             Assert.AreEqual(n + i, t);
-
+            input.Clear();
+            output.Clear();
         }
 
         [Test]
@@ -130,15 +129,14 @@ namespace Math_Module_Test
             List<string> output = new List<string>();
             input.Add("49999999");
             input.Add("50000000");
-            output.Add("1");
-            output.Add("00000000");
+            output.Add("99999999");
             output.Add("00000000");
             N n = new N(input);
             N i = new N(input);
             N t = new N(output);
-            Assert.AreEqual(n + i, t);
-
-            
+            Assert.AreEqual(n+i, t);
+            input.Clear();
+            output.Clear();
         }
         [Test]
         public void plusTestEx()
@@ -150,77 +148,12 @@ namespace Math_Module_Test
             N n = new N(input);
             N i = new N(input);
             Assert.AreNotEqual(n + i, null);
-
+            input.Clear();
+            output.Clear();
         }
-        //+Test
-
-        //-Test
+        //-
         [Test]
         public void minusTest1()
-        {
-            List<string> input = new List<string>();
-            List<string> output = new List<string>();
-            input.Add("142");
-            input.Add("12345678");
-            N n = new N(input);
-            input.Insert(0, "131");
-            input.Insert(1, "12000000");
-
-           
-            N i = new N(input);
-
-            output.Add("11");
-            output.Add("00345678");
-            N t = new N(output);
-
-            Assert.AreEqual(n - i, t);
-         
-        }
-        /// <summary>
-        /// ///////////////////////v
-        /// </summary>
-      [Test]
-        public void minusTest2()
-        {
-            List<string> input = new List<string>();
-            List<string> output = new List<string>();
-              input.Add("2");
-            N i = new N(input);
-
-            input.Insert(0,"1");
-            input.Add("00000000");
-            N n = new N(input);
-
-            output.Add("99999998");
-            N t = new N(output);
-
-            Assert.AreEqual(n - i, t);
-            
-        }
-        [Test]
-        public void minusTestEx()
-        {
-            List<string> input = new List<string>();
-            List<string> output = new List<string>();
-           input.Add("2");
-            N i = new N(input);
-            input.Insert(0,"1");
-            input.Add("00000000");
-            N n = new N(input);
-
-            
-
-            output.Add("99999998");
-            N t = new N(output);
-
-            Assert.AreNotEqual(n - i, null);
-    
-        }
-        //-Test
-        /*
-        //*Test
-        [Test]
-        public void multiplicationTest1()
         {
             List<string> input = new List<string>();
             List<string> output = new List<string>();
@@ -243,7 +176,7 @@ namespace Math_Module_Test
         }
 
         [Test]
-        public void multiplicationTest2()
+        public void minusTest2()
         {
             List<string> input = new List<string>();
             List<string> output = new List<string>();
@@ -263,7 +196,7 @@ namespace Math_Module_Test
             output.Clear();
         }
         [Test]
-        public void multiplicationTestEx()
+        public void minusTestEx()
         {
             List<string> input = new List<string>();
             List<string> output = new List<string>();
@@ -282,8 +215,7 @@ namespace Math_Module_Test
             input.Clear();
             output.Clear();
         }
-        //*  Test
-       */ 
-        
     }
+
+
 }
