@@ -31,7 +31,7 @@ namespace Math_Module
 
         #region Свойства
 
-        protected override bool isDown // Евгений Куликов 9370
+        public override bool isDown // Евгений Куликов 9370
         {
             get
             {

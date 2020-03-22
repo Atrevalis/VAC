@@ -9,7 +9,7 @@ namespace Math_Module
 
         #region Поля
 
-        private List<uint> znach;
+        private List<uint> znach;//
 
         private const uint uint_size = 99999999;
         private const uint uint_size_div = 8;
@@ -29,7 +29,7 @@ namespace Math_Module
 
         #region Свойства
 
-        protected override bool isDown // Евгений Куликов 9370
+        public override bool isDown // Евгений Куликов 9370
         {
             get
             {
@@ -174,7 +174,7 @@ namespace Math_Module
                 {
                     return 2;
                 }
-            }
+            }   
             return 0;
         }
 

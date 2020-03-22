@@ -31,7 +31,7 @@ namespace Math_Module
 
         #region Свойства 
 
-        protected override bool isDown
+        public override bool isDown
         {
             get
             {
