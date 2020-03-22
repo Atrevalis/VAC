@@ -86,7 +86,7 @@ namespace Math_Module
             return null;
         }
 
-        public static N operator -(N first, N second) // Шлемин Роман 9370//Есть тесты 
+        public static N operator -(N first, N second) // Шлемин Роман 9370
         {
             return null;
         }
