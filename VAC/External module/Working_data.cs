@@ -39,7 +39,10 @@ namespace External_module
 
         public override void Delete()
         {
-            down_contacts.Clear();
+            while(down_contacts.Count != 0)
+            {
+                down_contacts.RemoveAt(0);
+            }
         }
 
     }

@@ -12,6 +12,7 @@ namespace External_module
         int count_of_up_connection;
 
         List<Working_data> up_connection = new List<Working_data>();
+        List<Noda>[] exits;
 
         public int Count_of_up_connection
         {
@@ -29,17 +30,35 @@ namespace External_module
             }
         }
 
-        public override bool isDelite
+        public void Down_connection(byte exit, Noda noda)
         {
-            get
+            if (noda.GetType() != Type.GetType("Data"))
             {
-                return false;
+                exits[exit].Add(noda);
             }
         }
 
-        public override void Delite()
+        public override bool isDelete
         {
+            get
+            {
+                bool isTrue;
+                for(int i = 0; i < exits.Length; i++) 
+                    if(exits[i].Count != 0)
+                    {
+                        return false;
+                    }
+                return up_connection.Count == 0;
+            }
+        }
 
+        public override void Delete()
+        {
+            while (up_connection.Count != 0) up_connection.RemoveAt(0);
+            for(int i = 0; i < exits.Length; i++)
+            {
+                while (exits[i].Count != 0) exits[i].RemoveAt(0);
+            }
         }
     }
 }

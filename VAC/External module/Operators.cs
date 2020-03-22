@@ -14,6 +14,7 @@ namespace External_module
         protected string name_of_operators;
 
         protected List<Working_data> up_connection;
+        List<if_operator> if_Operators;
 
         public bool is_up_conection
         {
@@ -47,18 +48,26 @@ namespace External_module
             }
         }
 
+        public void If_operator_conected(if_operator if_)
+        {
+            if_Operators.Add(if_);
+        }
+
         public override bool isDelete
         {
             get
             {
-                return base.isDelite && up_connection.Count == 0;
+                return base.isDelete && up_connection.Count == 0;
             }
         }
 
         public override void Delete()
         {
-            base.Delite();
-            up_Conection.Clear();
+            base.Delete();
+            while(up_connection.Count != 0)
+            {
+                up_connection.RemoveAt(0);
+            }
         }
 
     }
