@@ -8,6 +8,8 @@ namespace External_module
 {
     class if_operator : Noda
     {
+
+        int count_of_up_connection;
         public override bool isDelite
         {
             get
