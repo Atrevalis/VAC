@@ -64,12 +64,12 @@ namespace Math_Module
             return null;
         }
 
-        public static Z operator +(Z first, Z second) // ADD_ZZ_Z
+        public static Z operator +(Z first, Z second) // ADD_ZZ_Z Александр Баталин 9370
         {
             return null;
         }
 
-        public static Z operator -(Z first, Z second) // SUB_ZZ_Z
+        public static Z operator -(Z first, Z second) // SUB_ZZ_Z Александр Баталин 9370
         {
             return null;
         }
