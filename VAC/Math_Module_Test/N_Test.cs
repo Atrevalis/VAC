@@ -84,7 +84,7 @@ namespace Math_Module_Test
             output.Add("12");
             N n = new N(output);
             List<string> s = n;
-            Assert.AreEqual(s, output);
+            Assert.AreEqual(output, s);
             
             
 
@@ -159,41 +159,40 @@ namespace Math_Module_Test
         public void minusTest1()
         {
             List<string> input = new List<string>();
+            List<string> input1 = new List<string>();
             List<string> output = new List<string>();
-            input.Add("142");
+            input.Add("142");//142
             input.Add("12345678");
             N n = new N(input);
-            input.Insert(0, "131");
-            input.Insert(1, "12000000");
+            input1.Add( "131");
+            input1.Add("12000000");
 
            
-            N i = new N(input);
+            N i = new N(input1);
 
             output.Add("11");
             output.Add("00345678");
             N t = new N(output);
 
-            Assert.AreEqual(n - i, t);
+            Assert.AreEqual(t, n - i);
          
         }
-        /// <summary>
-        /// ///////////////////////v
-        /// </summary>
+        
       [Test]
         public void minusTest2()
         {
             List<string> input = new List<string>();
+            List<string> input1 = new List<string>();
             List<string> output = new List<string>();
               input.Add("2");
             N i = new N(input);
 
-            input.Insert(0,"1");
-            input.Add("00000000");
-            N n = new N(input);
+            input1.Add("1");
+            input1.Add("00000000");
+            N n = new N(input1);
 
             output.Add("99999998");
             N t = new N(output);
-
             Assert.AreEqual(n - i, t);
             
         }
@@ -201,12 +200,13 @@ namespace Math_Module_Test
         public void minusTestEx()
         {
             List<string> input = new List<string>();
+            List<string> input1 = new List<string>();
             List<string> output = new List<string>();
-           input.Add("2");
+            input.Add("2");
             N i = new N(input);
-            input.Insert(0,"1");
-            input.Add("00000000");
-            N n = new N(input);
+            input1.Add("1");
+            input1.Add("00000000");
+            N n = new N(input1);
 
             
 

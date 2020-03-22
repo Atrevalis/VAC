@@ -159,7 +159,7 @@ namespace Math_Module
             {
                 return 1;
             }
-            for (int i = first.znach.Count; i == 0;i--)
+            for (int i = first.znach.Count-1; i >= 0;i--)
             {
                 if (first.znach[i] <= second.znach[i])
                     {
