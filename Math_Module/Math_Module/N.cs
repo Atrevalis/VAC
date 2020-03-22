@@ -63,46 +63,76 @@ namespace Math_Module
 
         public static N operator +(N first, N second) //ADD_NN_N
         {
-            ref N newfirst = ref first.Clone();
-            if (newfirst.znach.Count >= second.znach.Count)
+            switch(COM_NN_D(first, second))
             {
-                for (int i = 0; i == second.znach.Count; i++)
+                case 0:
+                    bigger = new N(second);
+                    smaller = new N(first);
+                    break;
+                case 1:
+                    bigger = new N(second);
+                    smaller = new N(first);
+                    break;
+                case 2:
+                    bigger = new N(first);
+                    smaller = new N(second);
+                    break;
+            }
+            for (int i = 0; i < smaller.znach.Count; i++)
+            {
+                bigger.znach[i] = bigger.znach[i] + smaller.znach[i];
+                if (bigger.znach[i] > uint_size)
                 {
-                    newfirst.znach[i] = newfirst.znach[i] + second.znach[i];
-                    if (newfirst.znach[i].Count > uint_size)
+                    bigger.znach[i] = bigger.znach[i] - uint_size - 1;
+                    if (i != (smaller.znach.Count - 1))
                     {
-                        newfirst.znach[i+1] = newfirst.znach[i+1] + 1;
+                        bigger.znach[i+1] += 1;
+                    }
+                    else
+                    {
+                        bigger.znach.Add(1);
                     }
                 }
             }
-            else
-            {
-                for (int i = 0; i == newfirst.znach.Count; i++)
-                {
-                    newfirst.znach[i] = newfirst.znach[i] + second.znach[i];
-                    if (newfirst.znach[i].Count > uint_size)
-                    {
-                        newfirst.znach[i+1] = newfirst.znach[i+1] + 1;
-                    }
-                }
-            }
-            return ref newfirst;
+            return bigger;
         }
 
         public static N operator -(N first, N second) //SUB_NN_N
         {
-            ref N newfirst = ref first.Clone();
-            if (newfirst.znach.Count >= second.znach.Count)
+            if (first.znach.Count >= second.znach.Count)
             {
-                for (int i = 0; i == second.znach.Count; i++)
+                newfirst = new N(first);
+                for (int i = (second.znach.Count - 1); i >= 0; i--)
                 {
-                    if (newfirst.znach[i] < second.znach[i])
+                    if (newfirst.znach[i] < second.znach[i])    //i-ая строка 1-ого поля меньше
                     {
-                        newfirst.znach[i+1] = newfirst.znach[i+1] - 1;
-                        newfirst.znach[i] = Math.Pow(10, uint_size) + newfirst.znach[i] - second.znach[i];
+                        if (i == (newfirst.znach.Count - 1))     //условие при котором невозможно из 1 числа вычесть 2 с положительным остатком
+                        {
+                            return null;
+                        }
+                        else
+                        {
+                            newfirst.znach[i] = unit_size + 1 - second.znach[i];    //вычитаем из i-ой строки 1-ого поля i-ую строку 2-ого поля
+                            for (int j = i; newfirst.znach[j] == 0; j++)        //находим строку значение в которой 1-ого поля отлично от нуля
+                            {
+                                newfirst.znach[j] = uint_size;      //забираем один разряд, недостаточный для вычитания i-ой строки 2-го поля из 1-ого
+                            }
+                            if (newfirst.znach[newfirst.znach.Count - 1] == 0)      //проверка на наличия в начале поля незначащего нуля
+                            {
+                                newfirst.znach.RemoveAt(newfirst.znach.Count - 1);
+                            }
+                        }
+                    }
+                    if (newfirst.znach[i] > second.znach[i])
+                    {
+                        newfirst.znach[i] = newfirst.znach[i] - second.znach[i];
+                    }
+                    if (newfirst.znach[i] == second.znach[i])
+                    {
+                        newfirst.znach.RemoveAt(i);
                     }
                 }
-                return ref newfirst;
+                return newfirst;
             }
             else
             {
