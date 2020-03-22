@@ -29,7 +29,7 @@ namespace External_module
             }
         }
 
-        public override bool isDelite
+        public override bool isDelete
         {
             get
             {
@@ -37,7 +37,7 @@ namespace External_module
             }
         }
 
-        public override void Delite()
+        public override void Delete()
         {
             down_contacts.Clear();
         }
