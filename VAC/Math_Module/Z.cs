@@ -17,7 +17,9 @@ namespace Math_Module
 
         public Z(N value) // Александр Рассохин 9370
         {
-
+            N temp = new N(value);
+            Abs = new N(temp);
+            isN = true;
         }
 
         #endregion
