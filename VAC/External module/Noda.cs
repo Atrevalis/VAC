@@ -8,9 +8,9 @@ namespace External_module
 {
     abstract public class Noda
     {
-        public abstract void Delete();
+        public abstract void Delite();
 
-        public abstract bool isDelete
+        public abstract bool isDelite
         {
             get;
         }

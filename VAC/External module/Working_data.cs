@@ -8,7 +8,7 @@ namespace External_module
 {
     abstract class Working_data : Noda
     {
-        private List<Noda> down_contacts = new List<Noda>();
+        private List<Noda> down_contacts;
 
         public Noda down_contacted
         {
@@ -29,7 +29,7 @@ namespace External_module
             }
         }
 
-        public override bool isDelete
+        public override bool isDelite
         {
             get
             {
@@ -37,12 +37,9 @@ namespace External_module
             }
         }
 
-        public override void Delete()
+        public override void Delite()
         {
-            while(down_contacts.Count != 0)
-            {
-                down_contacts.RemoveAt(0);
-            }
+            down_contacts.Clear();
         }
 
     }

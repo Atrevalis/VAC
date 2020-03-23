@@ -42,7 +42,7 @@ namespace Math_Module
 
         #region Свойства
 
-        public override bool isDown
+        protected override bool isDown
         {
             get
             {

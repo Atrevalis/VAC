@@ -15,11 +15,9 @@ namespace Math_Module
 
         }
 
-        public Z(N value) // Александр Рассохин 9370 // Проверено Игорь
-       
+        public Z(N value) // Александр Рассохин 9370
         {
-            Abs = new N(value);
-            isN = true;
+
         }
 
         #endregion
@@ -33,7 +31,7 @@ namespace Math_Module
 
         #region Свойства
 
-        public override bool isDown // Евгений Куликов 9370
+        protected override bool isDown // Евгений Куликов 9370
         {
             get
             {
@@ -66,7 +64,7 @@ namespace Math_Module
             return null;
         }
 
-        public static Z operator +(Z first, Z second) // ADD_ZZ_Z Александр Баталин 9370
+        public static Z operator +(Z first, Z second) // ADD_ZZ_Z
         {
             Z sum = new Z(first);
             if(first.isN != second.isN)
@@ -86,7 +84,7 @@ namespace Math_Module
             return sum;
         }
 
-        public static Z operator -(Z first, Z second) // SUB_ZZ_Z Александр Баталин 9370
+        public static Z operator -(Z first, Z second) // SUB_ZZ_Z
         {
             return null;
         }

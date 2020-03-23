@@ -11,10 +11,9 @@ namespace External_module
         static int count_of_operator4s_index = 1;
        protected int count_of_up_connection;
        protected int index_of_Operator;
-        public string name_of_operators;
+        protected string name_of_operators;
 
         protected List<Working_data> up_connection;
-        List<if_operator> if_Operators;
 
         public bool is_up_conection
         {
@@ -48,26 +47,18 @@ namespace External_module
             }
         }
 
-        public void If_operator_conected(if_operator if_)
-        {
-            if_Operators.Add(if_);
-        }
-
-        public override bool isDelete
+        public override bool isDelite
         {
             get
             {
-                return base.isDelete && up_connection.Count == 0;
+                return base.isDelite && up_connection.Count == 0;
             }
         }
 
-        public override void Delete()
+        public override void Delite()
         {
-            base.Delete();
-            while(up_connection.Count != 0)
-            {
-                up_connection.RemoveAt(0);
-            }
+            base.Delite();
+            up_Conection.Clear();
         }
 
     }
