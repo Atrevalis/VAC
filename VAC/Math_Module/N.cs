@@ -129,7 +129,6 @@ namespace Math_Module
                     return equal;
                 case 1:
                     return null;
-                    break;
                 case 2:
                     bigger = first;
                     break;

@@ -271,10 +271,6 @@ namespace Math_Module_Test
 <<<<<<< Updated upstream
 
         //RoflTest */
-=======
-        //
-        //RoflTest
->>>>>>> Stashed changes
       [Test]
       public void RofloTest()
       {
@@ -282,9 +278,6 @@ namespace Math_Module_Test
             N n = new N(input);
             Assert.AreEqual(false,n.isDown);
       }
-      
-      
-    */
         //
 
     }
