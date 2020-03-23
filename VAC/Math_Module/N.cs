@@ -140,7 +140,7 @@ namespace Math_Module
                 {
                     bigger.znach[i] = uint_size + 1 - second.znach[i];      //вычитаем из i-ой строки большего поля i-ую строку меньшего
                     int j;
-                    for (int j = (i + 1); bigger.znach[j] == 0; j++)        //находим строки значениея которых равны нулю
+                    for (j = (i + 1); bigger.znach[j] == 0; j++)        //находим строки значениея которых равны нулю
                     {
                         bigger.znach[j] = uint_size;      //забираем один разряд, недостаточный для вычитания i-ой строки 
                     }

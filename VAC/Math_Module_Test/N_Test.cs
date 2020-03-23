@@ -219,6 +219,8 @@ namespace Math_Module_Test
         //-Test
 
         //*Test
+
+            /*
         [Test]
         public void multiplicationTest1()
         {
@@ -284,14 +286,14 @@ namespace Math_Module_Test
         }
         //*  Test
 
-        //RoflTest
+        //RoflTest */
       [Test]
       public void RofloTest()
-        {
+      {
             List<string> input = new List<string>();
             N n = new N(input);
             Assert.AreEqual(false,n.isDown);
-        }
+      }
       
       
     
