@@ -45,7 +45,7 @@ namespace Math_Module
         {
             get
             {
-                return null;
+                return new N(Abs);
             }
         }
 
