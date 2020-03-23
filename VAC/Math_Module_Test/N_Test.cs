@@ -10,11 +10,6 @@ namespace Math_Module_Test
     public class N_Test
     {
 
-        [Test]
-        public void nConstructTest()//отложено на потом
-        {
-
-        }
         //++Test
         [Test]
         public void plusPlusTest1()
@@ -128,10 +123,8 @@ namespace Math_Module_Test
         {
             List<string> input = new List<string>();
             List<string> output = new List<string>();
-            input.Add("49999999");
             input.Add("50000000");
             output.Add("1");
-            output.Add("00000000");
             output.Add("00000000");
             N n = new N(input);
             N i = new N(input);
@@ -217,7 +210,7 @@ namespace Math_Module_Test
 
         }
         //-Test
-
+        /*
         //*Test
 
             /*
@@ -226,19 +219,9 @@ namespace Math_Module_Test
         {
             List<string> input = new List<string>();
             List<string> output = new List<string>();
-            input.Add("142");
+            input.Add("12");
             input.Add("12345678");
-            N n = new N(input);
-            input.Clear();
-
-            input.Add("131");
-            input.Add("12000000");
-            N i = new N(input);
-
-            output.Add("11");
-            output.Add("00345678");
-            N t = new N(output);
-
+            input.Add("");
             Assert.AreEqual(n - i, t);
             input.Clear();
             output.Clear();
@@ -285,8 +268,13 @@ namespace Math_Module_Test
             output.Clear();
         }
         //*  Test
+<<<<<<< Updated upstream
 
         //RoflTest */
+=======
+        //
+        //RoflTest
+>>>>>>> Stashed changes
       [Test]
       public void RofloTest()
       {
@@ -296,7 +284,7 @@ namespace Math_Module_Test
       }
       
       
-    
+    */
         //
 
     }
