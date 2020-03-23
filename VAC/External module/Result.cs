@@ -10,6 +10,7 @@ namespace External_module
     {
         private Working_data up_connection;
         private static int count_of_results_index = 1;
+        List<if_operator> if_Operators;
         private int index_of_result;
 
         public Result()
@@ -41,7 +42,12 @@ namespace External_module
             }
         }
 
-        public override bool isDelite
+        public void If_operator_conected(if_operator if_)
+        {
+            if_Operators.Add(if_);
+        }
+
+        public override bool isDelete
         {
             get
             {
@@ -49,7 +55,7 @@ namespace External_module
             }
         }
 
-        public override void Delite()
+        public override void Delete()
         {
             up_connection = null;
         }

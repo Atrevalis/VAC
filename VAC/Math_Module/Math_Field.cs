@@ -2,6 +2,6 @@
 {
     abstract public class Math_Field
     {
-        abstract protected bool isDown { get; }
+        abstract public bool isDown { get; }
     }
 }
