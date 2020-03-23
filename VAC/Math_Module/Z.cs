@@ -68,7 +68,22 @@ namespace Math_Module
 
         public static Z operator +(Z first, Z second) // ADD_ZZ_Z Александр Баталин 9370
         {
-            return null;
+            Z sum = new Z(first);
+            if(first.isN != second.isN)
+            {
+                if (COM_NN_D(first.Abs, second.Abs) = 2)
+                {
+                    sum.Abs -= second.Abs;
+                }
+                else
+                {
+                    sum.Abs = second.Abs - first.Abs;
+                    sum.isN = second.isN;
+                }
+            }
+            else
+                sum.Abs += second.Abs;
+            return sum;
         }
 
         public static Z operator -(Z first, Z second) // SUB_ZZ_Z Александр Баталин 9370
