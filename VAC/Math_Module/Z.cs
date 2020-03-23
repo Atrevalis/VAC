@@ -16,7 +16,7 @@ namespace Math_Module
         }
 
         public Z(N value) // Александр Рассохин 9370 // Проверено Игорь
-       
+
         {
             Abs = new N(value);
             isN = true;
@@ -68,7 +68,7 @@ namespace Math_Module
 
         public static Z operator +(Z first, Z second) // ADD_ZZ_Z Александр Баталин 9370
         {
-            Z sum = new Z(first);
+            Z sum = first.Clone();
             if(first.isN != second.isN)
             {
                 if (N.COM_NN_D(first.Abs, second.Abs) == 2)
@@ -135,8 +135,6 @@ namespace Math_Module
 
         #region Методы
 
-        /* Более не используется
-
         public Z Clone() // Александр Баталин 9370
         {
             Z clone = new Z(new List<string>());
@@ -145,7 +143,6 @@ namespace Math_Module
             return clone;
         }
 
-        */
 
         #endregion
     }

@@ -5,13 +5,15 @@ VisualStudioVersion = 16.0.29911.84
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "External module", "External module\External module.csproj", "{4B1F166B-A124-4369-B184-5FAA179BD863}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "External_Controller", "External_Controller\External_Controller.csproj", "{EDB96C4D-6D3A-4919-9D99-8470BD98B04D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "External_Controller", "External_Controller\External_Controller.csproj", "{EDB96C4D-6D3A-4919-9D99-8470BD98B04D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interpretation_Controller", "Interpretation_Controller\Interpretation_Controller.csproj", "{459CFFE0-F4D4-40C0-8D5A-80D11C758BD2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Interpretation_Controller", "Interpretation_Controller\Interpretation_Controller.csproj", "{459CFFE0-F4D4-40C0-8D5A-80D11C758BD2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Math_Module", "Math_Module\Math_Module.csproj", "{C575F555-5F1E-4CB8-A5AB-3289D8F6FD4B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Math_Module", "Math_Module\Math_Module.csproj", "{C575F555-5F1E-4CB8-A5AB-3289D8F6FD4B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Math_Module_Test", "Math_Module_Test\Math_Module_Test.csproj", "{710B7A71-831C-4903-9DE7-178099F9179B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Math_Module_Test", "Math_Module_Test\Math_Module_Test.csproj", "{710B7A71-831C-4903-9DE7-178099F9179B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp1", "ConsoleApp1\ConsoleApp1.csproj", "{EB6016A3-9916-48DD-80CB-B26BE0776F4B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{710B7A71-831C-4903-9DE7-178099F9179B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{710B7A71-831C-4903-9DE7-178099F9179B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{710B7A71-831C-4903-9DE7-178099F9179B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB6016A3-9916-48DD-80CB-B26BE0776F4B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB6016A3-9916-48DD-80CB-B26BE0776F4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB6016A3-9916-48DD-80CB-B26BE0776F4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB6016A3-9916-48DD-80CB-B26BE0776F4B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

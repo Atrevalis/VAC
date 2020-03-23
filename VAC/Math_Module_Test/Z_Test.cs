@@ -17,10 +17,10 @@ namespace Math_Module_Test
             output.Add("10000012");
             output.Add("10000000");
             N x = new N(input);
+            input.Add("00000000");
             N i = new N(input);
             N t = new N(output);
             Z X = new Z(x);
-            input.Add("00000000");
             Z I = new Z(i);
             Z T = new Z(t);
             Assert.AreEqual(T, X + I);
