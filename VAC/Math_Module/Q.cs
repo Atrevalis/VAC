@@ -24,8 +24,8 @@ namespace Math_Module
 
         #region Поля
 
-        private Z ch;
-        private Z zn;
+        private Z ch;//NUMERATOR
+        private Z zn;//DENOMINATOR
 
         #endregion
 

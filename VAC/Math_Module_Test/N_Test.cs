@@ -93,7 +93,7 @@ namespace Math_Module_Test
             output.Add("12");
             output.Add("00000009");
             N n = new N(output);
-            Assert.AreNotEqual((List<string>)n, null);
+            Assert.AreNotEqual(null,(List<string>)n );
 
 
         }
@@ -114,7 +114,7 @@ namespace Math_Module_Test
             input.Add("00000000");
             N i = new N(input);
             N t = new N(output);
-            Assert.AreEqual(n + i, t);
+            Assert.AreEqual(t, n + i);
 
         }
 
@@ -129,7 +129,7 @@ namespace Math_Module_Test
             N n = new N(input);
             N i = new N(input);
             N t = new N(output);
-            Assert.AreEqual(n + i, t);
+            Assert.AreEqual( t,n + i);
 
 
         }
@@ -142,7 +142,7 @@ namespace Math_Module_Test
             input.Add("50000000");
             N n = new N(input);
             N i = new N(input);
-            Assert.AreNotEqual(n + i, null);
+            Assert.AreNotEqual(null,n + i );
 
         }
         //+Test
@@ -186,7 +186,7 @@ namespace Math_Module_Test
 
             output.Add("99999998");
             N t = new N(output);
-            Assert.AreEqual(n - i, t);
+            Assert.AreEqual(t,n - i );
 
         }
         [Test]
@@ -200,77 +200,66 @@ namespace Math_Module_Test
             input1.Add("1");
             input1.Add("00000000");
             N n = new N(input1);
-
-
-
             output.Add("99999998");
             N t = new N(output);
 
-            Assert.AreNotEqual(n - i, null);
+            Assert.AreNotEqual(null, n - i);
 
         }
         //-Test
-        /*
+        
         //*Test
-
-            /*
+    
         [Test]
         public void multiplicationTest1()
         {
             List<string> input = new List<string>();
+            List<string> input1 = new List<string>();
             List<string> output = new List<string>();
             input.Add("12");
             input.Add("12345678");
-            input.Add("");
-            Assert.AreEqual(n - i, t);
-            input.Clear();
-            output.Clear();
+            input1.Add("2345678");
+            output.Add("28437725");
+            output.Add("85279684");
+            N n = new N(input);
+            N i = new N(input1);
+            N t = new N(output);
+            Assert.AreEqual(t, n* i);
+            
         }
-
+/*
         [Test]
         public void multiplicationTest2()
         {
             List<string> input = new List<string>();
+            List<string> input1 = new List<string>();
             List<string> output = new List<string>();
             input.Add("1");
-            input.Add("00000000");
+            input1.Add("2");
+            output.Add("2");
             N n = new N(input);
-            input.Clear();
-
-            input.Add("2");
-            N i = new N(input);
-
-            output.Add("99999998");
+            N i = new N(input1);
             N t = new N(output);
-
-            Assert.AreEqual(n - i, t);
-            input.Clear();
-            output.Clear();
+            Assert.AreEqual( t,n * i);
         }
+        */
         [Test]
         public void multiplicationTestEx()
         {
             List<string> input = new List<string>();
-            List<string> output = new List<string>();
+            
             input.Add("1");
             input.Add("00000000");
             N n = new N(input);
-            input.Clear();
-
-            input.Add("2");
             N i = new N(input);
-
-            output.Add("99999998");
-            N t = new N(output);
-
-            Assert.AreNotEqual(n - i, null);
-            input.Clear();
-            output.Clear();
+            Assert.AreNotEqual(null,n * i );
         }
         //*  Test
-<<<<<<< Updated upstream
 
-        //RoflTest */
+
+
+        //RoflTest 
+
       [Test]
       public void RofloTest()
       {
@@ -278,7 +267,68 @@ namespace Math_Module_Test
             N n = new N(input);
             Assert.AreEqual(false,n.isDown);
       }
-        //
+        //COM_NN_D(equalForN)Test
+        [Test]
+        public void COM_NN_DBiggerTest1()
+        {
+            List<string> input = new List<string>();
+            List<string> input1 = new List<string>();
+            input.Add("1");
+            input.Add("12345678");
+            input1.Add("12345678");
+            N n = new N(input);
+            N i = new N(input1);
+            byte t = N.COM_NN_D(n, i);
+            Assert.AreEqual(2, t);
+        }
+        [Test]
+        public void COM_NN_DBiggerTest2()
+        {
+            List<string> input = new List<string>();
+            List<string> input1 = new List<string>();
+            input.Add("12345679");
+            input1.Add("12345678");
+            N n = new N(input);
+            N i = new N(input1);
+            byte t = N.COM_NN_D(n, i);
+            Assert.AreEqual(2, t);
+        }
+        [Test]
+        public void COM_NN_DLessTest1()
+        {
+            List<string> input = new List<string>();
+            List<string> input1 = new List<string>();
+            input.Add("12345678");
+            input1.Add("1");
+            input1.Add("12345678");
+            N n = new N(input);
+            N i = new N(input1);
+            byte t = N.COM_NN_D(n, i);
+            Assert.AreEqual(1, t);
+        }
+        [Test]
+        public void COM_NN_DLessTest2()
+        {
+            List<string> input = new List<string>();
+            List<string> input1 = new List<string>();
+            input.Add("12345678");
+            input1.Add("12345679");
+            N n = new N(input);
+            N i = new N(input1);
+            byte t = N.COM_NN_D(n, i);
+            Assert.AreEqual(1, t);
+        }
+        [Test]
+        public void COM_NN_DEqualTest()
+        {
+            List<string> input = new List<string>();
+            input.Add("1");
+            input.Add("12345678");
+            N n = new N(input);
+            N i = new N(input);
+            byte t = N.COM_NN_D(n, i);
+            Assert.AreEqual(0, t);
+        }
 
     }
 }
