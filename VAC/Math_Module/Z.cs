@@ -138,7 +138,7 @@ namespace Math_Module
         public Z Clone() // Александр Баталин 9370
         {
             Z clone = new Z(new List<string>());
-            clone.Abs = new N(Abs);
+            clone.Abs = Abs.Clone();
             clone.isN = isN; 
             return clone;
         }

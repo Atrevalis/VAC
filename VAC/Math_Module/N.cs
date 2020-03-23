@@ -87,13 +87,13 @@ namespace Math_Module
             N smaller;
             if (COM_NN_D(first, second) != 2)
             {
-                bigger = second;
-                smaller = first;
+                bigger = second.Clone();
+                smaller = first.Clone();
             }
             else
             {
-                bigger = first;
-                smaller = second;
+                bigger = first.Clone();
+                smaller = second.Clone();
             }
             for (int i = 0; i < smaller.znach.Count; i++)
             {
@@ -130,7 +130,7 @@ namespace Math_Module
                 case 1:
                     return null;
                 case 2:
-                    bigger = first;
+                    bigger = first.Clone();
                     break;
             }
             for (int i = (second.znach.Count - 1); i >= 0; i--)
@@ -279,16 +279,12 @@ namespace Math_Module
             return null;
         }
 
-        /* Более не используется
-
         public N Clone() // Александр Баталин 9370
         {
             N clone = new N(new List<string>());
             clone.znach = new List<uint>(znach);
             return clone;
         }
-
-        */
 
         #endregion
     }
