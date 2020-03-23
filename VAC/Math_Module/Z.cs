@@ -18,8 +18,8 @@ namespace Math_Module
         public Z(N value) // Александр Рассохин 9370
         {
             N temp = new N(value);
-            for (int i = 0; i < temp.Znach.Count; i++)
-                Abs.Znach.Add(temp.Znach[i]);  
+            Abs = new N(temp);
+            isN = true;
         }
 
         #endregion
