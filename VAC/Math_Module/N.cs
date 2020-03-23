@@ -83,12 +83,79 @@ namespace Math_Module
 
         public static N operator +(N first, N second) // Шлемин Роман 9370
         {
-            return null;
+            N bigger;
+            N smaller;
+            if (COM_NN_D(first, second) != 2)
+            {
+                N bigger = new N(second);
+                N smaller = new N(first);
+            }
+            else
+            {
+                N bigger = new N(first);
+                N smaller = new N(second);
+            }
+            for (int i = 0; i < smaller.znach.Count; i++)
+            {
+                bigger.znach[i] = bigger.znach[i] + smaller.znach[i];
+                if (bigger.znach[i] > uint_size)
+                {
+                    bigger.znach[i] = bigger.znach[i] - uint_size - 1;
+                    if (i != (smaller.znach.Count - 1))
+                    {
+                        bigger.znach[i+1] += 1;
+                    }
+                    else
+                    {
+                        bigger.znach.Add(1);
+                    }
+                }
+            }
+            return bigger;
         }
 
         public static N operator -(N first, N second) // Шлемин Роман 9370//Есть тесты 
         {
-            return null;
+            N bigger;
+            bigger = null;
+            switch (COM_NN_D(first, second))
+            {
+                case 0:
+                    List<string> zero = new List<string>();
+                    zero.Add("0");
+                    N equal = new N(zero);
+                    return equal;
+                case 1:
+                    return null;
+                    break;
+                case 2:
+                    bigger = first;
+                    break;
+            }
+            for (int i = (second.znach.Count - 1); i >= 0; i--)
+            {
+                if (bigger.znach[i] < second.znach[i])    //i-ая строка большего поля меньше
+                { 
+                    bigger.znach[i] = uint_size + 1 - second.znach[i];    //вычитаем из i-ой строки большего поля i-ую строку меньшего
+                    for (int j = i; bigger.znach[j] == 0; j++)        //находим строку значение в которой большего поля отлично от нуля
+                    {
+                        bigger.znach[j] = uint_size;      //забираем один разряд, недостаточный для вычитания i-ой строки 
+                    }
+                    if (bigger.znach[bigger.znach.Count - 1] == 0)      //проверка на наличия в начале поля незначащего нуля
+                    {
+                        bigger.znach.RemoveAt(bigger.znach.Count - 1);
+                    }
+                }
+                if (bigger.znach[i] > second.znach[i])
+                {
+                    bigger.znach[i] = bigger.znach[i] - second.znach[i];
+                }
+                if (bigger.znach[i] == second.znach[i])
+                {
+                    bigger.znach.RemoveAt(i);
+                }
+            }
+            return bigger;
         }
 
         public static N operator *(N first, N second)
