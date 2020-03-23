@@ -151,7 +151,7 @@ namespace Math_Module
 
         #region Методы
 
-        private static byte COM_NN_D(N first, N second) // Сравнение двух чисел - Шлемин Роман 9370
+        public static byte COM_NN_D(N first, N second) // Сравнение двух чисел - Шлемин Роман 9370
         {
             if (first.znach.Count > second.znach.Count)
             {
