@@ -15,7 +15,7 @@ namespace Math_Module
 
         }
 
-        public Z(N value) // Александр Рассохин 9370 //не проверено Илья
+        public Z(N value) // Александр Рассохин 9370 // Проверено Игорь
        
         {
             Abs = new N(value);
