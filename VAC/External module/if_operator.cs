@@ -12,7 +12,7 @@ namespace External_module
         int count_of_up_connection;
 
         List<Working_data> up_connection = new List<Working_data>();
-        List<Noda>[] exits;
+        public List<Noda>[] exits;
 
         public int Count_of_up_connection
         {

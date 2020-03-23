@@ -11,7 +11,7 @@ namespace External_module
         static int count_of_operator4s_index = 1;
        protected int count_of_up_connection;
        protected int index_of_Operator;
-        protected string name_of_operators;
+        public string name_of_operators;
 
         protected List<Working_data> up_connection;
         List<if_operator> if_Operators;

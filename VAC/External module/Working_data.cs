@@ -8,7 +8,7 @@ namespace External_module
 {
     abstract class Working_data : Noda
     {
-        private List<Noda> down_contacts;
+        private List<Noda> down_contacts = new List<Noda>();
 
         public Noda down_contacted
         {
