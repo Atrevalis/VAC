@@ -150,13 +150,16 @@ namespace Math_Module
                         bigger.znach.RemoveAt(bigger.znach.Count - 1);
                     }
                 }
-                if (bigger.znach[i] > second.znach[i])
+                else
                 {
-                    bigger.znach[i] = bigger.znach[i] - second.znach[i];
-                }
-                if (bigger.znach[i] == second.znach[i])
-                {
-                    bigger.znach.RemoveAt(i);
+                    if (bigger.znach[i] > second.znach[i])
+                    {
+                        bigger.znach[i] = bigger.znach[i] - second.znach[i];
+                    }
+                    else
+                    {
+                        bigger.znach.RemoveAt(i);
+                    }
                 }
             }
             return bigger;
