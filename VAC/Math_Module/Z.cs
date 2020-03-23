@@ -71,7 +71,7 @@ namespace Math_Module
             Z sum = new Z(first);
             if(first.isN != second.isN)
             {
-                if (COM_NN_D(first.Abs, second.Abs) = 2)
+                if (N.COM_NN_D(first.Abs, second.Abs) == 2)
                 {
                     sum.Abs -= second.Abs;
                 }
