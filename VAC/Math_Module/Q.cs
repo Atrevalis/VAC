@@ -114,7 +114,7 @@ namespace Math_Module
 
                 #region Методы 
 
-                private void RED_Q_Q()
+        private void RED_Q_Q()
         {
 
         }

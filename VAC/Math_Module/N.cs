@@ -164,7 +164,7 @@ namespace Math_Module
             return bigger;
         }
 
-        public static N operator *(N first, N second)
+        public static N operator *(N first, N second) // Шлемин Роман 9370
         {
             return null;
         }
@@ -259,12 +259,12 @@ namespace Math_Module
             return null;
         }
 
-        private static N SUB_NDN_N(N first, N second, byte k)
+        private static N SUB_NDN_N(N first, N second, byte k) // Александр Баталин 9370
         {
             return null;
         }
 
-        private static N DIV_NN_Dk(N first, N second)
+        private static N DIV_NN_Dk(N first, N second) // Шлемин Роман 9370
         {
             return null;
         }
