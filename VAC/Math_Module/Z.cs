@@ -88,7 +88,7 @@ namespace Math_Module
 
         public static Z operator -(Z first, Z second) // SUB_ZZ_Z Александр Баталин 9370
         {
-            return null;
+            return first + (-second);
         }
 
         public static Z operator *(Z first, Z second) // MUL_ZZ_Z
