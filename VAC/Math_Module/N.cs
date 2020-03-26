@@ -265,7 +265,14 @@ namespace Math_Module
 
         private N MUL_ND_N(byte value) // Умножеине числа на цифру - Дмитрий Панченко 9370
         {
-            return null;
+            N k = Clone(); uint g = 0;
+            for (int i = 0; i < znach.Count; i++)
+            {
+                k.znach[i] = k.znach[i] * value + g;
+                g = k.znach[i] / uint_size + 1;
+            }
+
+            return k;
         }
 
         private N MUL_Nk_N(N value) // Умножение числа на 10^value - Дмитрий Панченко 9370
