@@ -118,8 +118,7 @@ namespace Math_Module
 
         public static N operator -(N first, N second) // Шлемин Роман 9370//Есть тесты
         {
-            N bigger;
-            bigger = null;
+            N bigger = null;
             switch (COM_NN_D(first, second))
             {
                 case 0:
