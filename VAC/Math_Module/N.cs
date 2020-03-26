@@ -204,7 +204,7 @@ namespace Math_Module
 
         public static implicit operator Z(N value) // Александр Рассохин 9370
         {
-            return null;
+            return new Z(value);
         }
 
 
