@@ -181,6 +181,7 @@ namespace Math_Module
                     now = now / 10;
                 }
             }
+            return product;
         }
 
         public static N operator /(N first, N second)
