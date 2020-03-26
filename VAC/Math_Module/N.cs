@@ -166,7 +166,21 @@ namespace Math_Module
 
         public static N operator *(N first, N second) // Шлемин Роман 9370
         {
-            return null;
+            List<string> zero = new List<string>();
+            zero.Add("0");
+            N product = new N(zero);
+            for (int i = 0; i < second.znach.Count; i++)
+            {
+                N value = new N(zero);
+                uint now = second.znach[i];
+                while (now <> 0)
+                {
+                    uint factor = now % 10;
+                    product += (first.MUL_ND_N(factor)).MUL_Nk_N(value);
+                    value++;
+                    now = now / 10;
+                }
+            }
         }
 
         public static N operator /(N first, N second)
