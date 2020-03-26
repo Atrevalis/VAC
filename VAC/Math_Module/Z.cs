@@ -37,7 +37,7 @@ namespace Math_Module
         {
             get
             {
-                return Convert.ToBoolean(new Exception());
+                return isN;
             }
         }
 
@@ -53,7 +53,18 @@ namespace Math_Module
         {
             get
             {
+                if (Abs.NZER_N_B)
+                {
                 return 0;
+                }
+                if (isN)
+                {
+                return 2;
+                }
+               else
+               {
+               return 1;
+               }
             }
         }
 
@@ -63,7 +74,9 @@ namespace Math_Module
 
         public static Z operator -(Z value) // MUL_ZM_Z Евгений Куликов 9370
         {
-            return null;
+            Z Clone = new Z(value);
+            Clone.isN = !Clone.isN;
+            return Clone;
         }
 
         public static Z operator +(Z first, Z second) // ADD_ZZ_Z Александр Баталин 9370
