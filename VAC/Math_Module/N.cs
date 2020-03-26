@@ -282,7 +282,7 @@ namespace Math_Module
 
         private static N SUB_NDN_N(N first, N second, byte k) // Александр Баталин 9370
         {
-            N sec = MUL_ND_N(second, k);
+            N sec = second.MUL_ND_N(k);
             if (COM_NN_D(first, sec) != 1)
             {
                 return first - sec;
