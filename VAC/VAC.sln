@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Math_Module", "Math_Module\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Math_Module_Test", "Math_Module_Test\Math_Module_Test.csproj", "{710B7A71-831C-4903-9DE7-178099F9179B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Visual_Module", "Visual_Module\Visual_Module.csproj", "{3384DF9C-6970-4034-9832-88642C356FFC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{710B7A71-831C-4903-9DE7-178099F9179B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{710B7A71-831C-4903-9DE7-178099F9179B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{710B7A71-831C-4903-9DE7-178099F9179B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3384DF9C-6970-4034-9832-88642C356FFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3384DF9C-6970-4034-9832-88642C356FFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3384DF9C-6970-4034-9832-88642C356FFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3384DF9C-6970-4034-9832-88642C356FFC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
