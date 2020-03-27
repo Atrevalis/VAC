@@ -12,7 +12,9 @@ namespace Math_Module
 
         public Z(List<string> s)
         {
-
+            List<uint> a = new List<uint>();
+            for (int i = s.Count - 1; i >= 0; i--)
+                a.Add(Convert.ToUInt32(s[i]));
         }
 
         public Z(N value) // Александр Рассохин 9370 // Проверено Игорь
