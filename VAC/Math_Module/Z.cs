@@ -106,7 +106,17 @@ namespace Math_Module
 
         public static Z operator *(Z first, Z second) // MUL_ZZ_Z
         {
-            return null;
+            Z mult = first.Clone();
+            mult.Abs *= second.Abs;
+            if (first.isN != second.isN)
+            {
+                mult.isN = false;
+            }
+            else
+            {
+                mult.isN = true;
+            } 
+            return mult;
         }
 
         public static Z operator /(Z first, Z second) // DIV_ZZ_Z
