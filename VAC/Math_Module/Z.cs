@@ -12,7 +12,12 @@ namespace Math_Module
 
         public Z(List<string> s)
         {
-
+            Abs = new N(s);
+            int check = Convert.ToInt32(s[0]);
+            if (check < 0)
+                isN = false;
+            else
+                isN = true;
         }
 
         public Z(N value) // Александр Рассохин 9370 // Проверено Игорь
