@@ -168,9 +168,9 @@ namespace Math_Module
             List<string> zero = new List<string>();
             zero.Add("0");
             N product = new N(zero);
+            N value = new N(zero);
             for (int i = 0; i < second.znach.Count; i++) //Перебираем все элементы 2-ого поля
             {
-                N value = new N(zero);
                 uint now = second.znach[i];
                 while (now != 0)    //Перебираем все цифры элемента
                 {
