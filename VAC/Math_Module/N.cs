@@ -277,7 +277,36 @@ namespace Math_Module
 
         private N MUL_Nk_N(N value) // Умножение числа на 10^value - Дмитрий Панченко 9370//тест невозможен
         {
-            return null;
+            List<string> s = new List<string>();
+            s.Add(Convert.ToString(uint_size_div));
+            N k = this.Clone(), usdn = new N(s);
+            int count = 0;
+            while (COM_NN_D(value, usdn) != 1)
+            {
+                k.znach.Insert(0, 0);
+                value -= usdn;
+                count++;
+            }
+            string change = ""; uint uvalue = value.znach[0];
+            for (int i = count; i < k.znach.Count; i++)
+            {
+                string now = Convert.ToString(k.znach[i]);
+                while (now.Length < uint_size_div)
+                {
+                    now = "0" + now;
+                }
+                now += change;
+                char[] stupid = new char[0];
+                now.CopyTo(0, stupid, 0, Convert.ToInt32(uvalue));
+                change = new string(stupid);
+                now = now.Remove(0, Convert.ToInt32(uvalue));
+                k.znach[i] = Convert.ToUInt32(now);
+                if (i + 1 == k.znach.Count && change.Split('0').Length - 1 != uvalue)
+                {
+                    k.znach.Add(0);
+                }
+            }
+            return k; 
         }
 
         private static N SUB_NDN_N(N first, N second, byte k) // Александр Баталин 9370 //тест невозможен
