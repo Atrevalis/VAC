@@ -14,7 +14,7 @@ namespace Math_Module
         {
             if (s[0].Contains("-"))
             {
-                s[0].Remove(0, 1);
+                s[0] = s[0].Remove(0, 1);
                 isN = false;
             }
             else
