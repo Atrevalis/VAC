@@ -367,7 +367,7 @@ namespace Math_Module_Test
         }
 
         [Test]
-        public void GCF_NN_NTest2()
+        public void GCF_NN_NTest2()//не готово
         {
             List<string> input = new List<string>(); //  
             List<string> input1 = new List<string>();// 
