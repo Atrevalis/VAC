@@ -29,14 +29,14 @@ namespace Math_Module
 
         #region Свойства
 
-        public override bool isDown // Евгений Куликов 9370
+        public override bool isDown // Евгений Куликов 9370 / Тест есть
         {
             get
             {
                 return false;
             }
         }
-        private bool NZER_N_B // Проверка на ноль - Шлемин Роман 9370
+        private bool NZER_N_B // Проверка на ноль - Шлемин Роман 9370//тест невозможен
         {
             get
             {
@@ -63,7 +63,7 @@ namespace Math_Module
 
         #region Перегрузки
 
-        public static N operator ++(N value) // Александр Баталин 9370
+        public static N operator ++(N value) // Александр Баталин 9370 / Есть тесты
         {
            for (int i = 0; i < value.znach.Count; i++)
            {
@@ -163,7 +163,7 @@ namespace Math_Module
             return bigger;
         }
 
-        public static N operator *(N first, N second) // Шлемин Роман 9370
+        public static N operator *(N first, N second) // Шлемин Роман 9370 //тест закомитен до починки функции
         {
             List<string> zero = new List<string>();
             zero.Add("0");
@@ -216,7 +216,7 @@ namespace Math_Module
             return S;
         }
 
-        public static implicit operator Z(N value) // Александр Рассохин 9370
+        public static implicit operator Z(N value) // Александр Рассохин 9370//тест под вопросом
         {
             return new Z(value);
         }
@@ -236,7 +236,7 @@ namespace Math_Module
 
         #region Методы
 
-        public static byte COM_NN_D(N first, N second) // Сравнение двух чисел - Шлемин Роман 9370
+        public static byte COM_NN_D(N first, N second) // Сравнение двух чисел - Шлемин Роман 9370//Тест есть
         {
             if (first.znach.Count > second.znach.Count)
             {
@@ -263,7 +263,7 @@ namespace Math_Module
             return 0;
         }
 
-        private N MUL_ND_N(byte value) // Умножеине числа на цифру - Дмитрий Панченко 9370
+        private N MUL_ND_N(byte value) // Умножеине числа на цифру - Дмитрий Панченко 9370 //тест невозможен
         {
             N k = Clone(); uint g = 0;
             for (int i = 0; i < znach.Count; i++)
@@ -275,12 +275,12 @@ namespace Math_Module
             return k;
         }
 
-        private N MUL_Nk_N(N value) // Умножение числа на 10^value - Дмитрий Панченко 9370
+        private N MUL_Nk_N(N value) // Умножение числа на 10^value - Дмитрий Панченко 9370//тест невозможен
         {
             return null;
         }
 
-        private static N SUB_NDN_N(N first, N second, byte k) // Александр Баталин 9370
+        private static N SUB_NDN_N(N first, N second, byte k) // Александр Баталин 9370 //тест невозможен
         {
             N sec = second.MUL_ND_N(k);
             if (COM_NN_D(first, sec) != 1)
@@ -291,7 +291,7 @@ namespace Math_Module
                 return null;
         }
 
-        private static N DIV_NN_Dk(N first, N second) // Шлемин Роман 9370
+        private static N DIV_NN_Dk(N first, N second) // Шлемин Роман 9370//тест невозможен
         {
             return null;
         }

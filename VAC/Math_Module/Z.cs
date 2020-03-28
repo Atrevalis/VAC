@@ -117,7 +117,7 @@ namespace Math_Module
                 mult.isN = true;
             } 
             return mult;
-        }
+        } 
 
         public static Z operator /(Z first, Z second) // DIV_ZZ_Z
         {
