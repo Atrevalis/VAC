@@ -12,15 +12,14 @@ namespace Math_Module
 
         public Z(List<string> s)
         {
-            int check = Convert.ToInt32(s[0]);
-            if (check < 0)
+            if (s[0].Contains("-"))
             {
-                s[0] = Convert.ToString(check * (-1));
+                s[0].Remove(0, 1);
                 isN = false;
             }
             else
                 isN = true;
-
+                
             Abs = new N(s);
         }
 
