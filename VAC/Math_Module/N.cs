@@ -174,7 +174,7 @@ namespace Math_Module
                 uint now = second.znach[i];
                 while (now != 0)    //Перебираем все цифры элемента
                 {
-                    uint factor = now % 10;
+                    byte factor = Convert.ToByte(now % 10);
                     product += (first.MUL_ND_N(factor)).MUL_Nk_N(value); //Сохраняем результат умножение 1-ого поля на цифру
                     value++;
                     now = now / 10;
