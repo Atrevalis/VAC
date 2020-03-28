@@ -61,7 +61,7 @@ namespace Math_Module
         {
             get
             {
-                if (Abs.NZER_N_B)
+                if (Abs.COM_NN_D)
                 {
                 return 0;
                 }
