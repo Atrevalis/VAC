@@ -1,12 +1,13 @@
-﻿using NUnit.Framework;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Math_Module;
 using System.Collections.Generic;
 using System;
 namespace Math_Module_Test
 {
+    [TestClass]
     public class Z_Test
     {
-        [Test]
+        [TestMethod]
         public void plusTest1()
         {
             List<string> input = new List<string>();
@@ -27,7 +28,7 @@ namespace Math_Module_Test
 
         }
 
-        [Test]
+        [TestMethod]
         public void plusTest2()
         {
             List<string> input = new List<string>();
@@ -47,7 +48,7 @@ namespace Math_Module_Test
             Assert.AreEqual(T, X + I);
 
         }
-        [Test]
+        [TestMethod]
         public void plusTestEx()
         {
             List<string> input = new List<string>();

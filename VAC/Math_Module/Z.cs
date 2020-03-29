@@ -24,7 +24,6 @@ namespace Math_Module
         }
 
         public Z(N value) // Александр Рассохин 9370 // Проверено Игорь
-
         {
             Abs = new N(value);
             isN = true;
@@ -61,18 +60,20 @@ namespace Math_Module
         {
             get
             {
-                if (Abs.COM_NN_D)
+                List<string> s = new List<string>();
+                s.Add("0");
+                if (N.COM_NN_D(Abs, new N(s)) == 0)
                 {
-                return 0;
+                    return 0;
                 }
                 if (isN)
                 {
-                return 2;
+                    return 2;
                 }
-               else
-               {
-               return 1;
-               }
+                else
+                {
+                    return 1;
+                }
             }
         }
 
