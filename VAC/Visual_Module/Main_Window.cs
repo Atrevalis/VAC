@@ -10,11 +10,18 @@ using System.Windows.Forms;
 
 namespace Visual_Module
 {
-    public partial class Form1 : Form
+    public partial class Main_Window : Form
     {
-        public Form1()
+        public Main_Window()
         {
             InitializeComponent();
+        }
+
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            Create_new_project new_Project = new Create_new_project(this);
+            new_Project.Show();
+            Enabled = false;
         }
     }
 }
