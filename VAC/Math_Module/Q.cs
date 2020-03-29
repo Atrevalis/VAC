@@ -112,7 +112,7 @@ namespace Math_Module
 
                 #endregion
 
-                #region Методы 
+        #region Методы 
 
         private void RED_Q_Q()
         {

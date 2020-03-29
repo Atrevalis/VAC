@@ -1,17 +1,17 @@
-using NUnit.Framework;
 using Math_Module;
 using System.Collections.Generic;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 
 namespace Math_Module_Test
 {
 
-
+    [TestClass]
     public class N_Test
     {
 
         //++Test
-        [Test]
+        [TestMethod]
         public void plusPlusTest1()
         {
             List<string> input = new List<string>();
@@ -26,7 +26,7 @@ namespace Math_Module_Test
 
         }
 
-        [Test]
+        [TestMethod]
         public void plusPlusTest2()
         {
             List<string> input = new List<string>();
@@ -43,7 +43,7 @@ namespace Math_Module_Test
 
         }
 
-        [Test]
+        [TestMethod]
         public void plusPlusTestEx()
         {
             List<string> input = new List<string>();
@@ -59,7 +59,7 @@ namespace Math_Module_Test
         //++Test
 
         //NinStringTest
-        [Test]
+        [TestMethod]
         public void NConvertToStringTest1()
         {
 
@@ -71,7 +71,7 @@ namespace Math_Module_Test
             Assert.AreEqual((List<string>)n, output);
 
         }
-        [Test]
+        [TestMethod]
         public void NConvertToStringTest2()
         {
 
@@ -85,7 +85,7 @@ namespace Math_Module_Test
 
         }
 
-        [Test]
+        [TestMethod]
         public void NConvertToStringTestEx()
         {
 
@@ -100,7 +100,7 @@ namespace Math_Module_Test
         //NinStringTest
 
         //+Test
-        [Test]
+        [TestMethod]
         public void plusTest1()
         {
             List<string> input = new List<string>();
@@ -118,7 +118,7 @@ namespace Math_Module_Test
 
         }
 
-        [Test]
+        [TestMethod]
         public void plusTest2()
         {
             List<string> input = new List<string>();
@@ -133,7 +133,7 @@ namespace Math_Module_Test
 
 
         }
-        [Test]
+        [TestMethod]
         public void plusTestEx()
         {
             List<string> input = new List<string>();
@@ -148,7 +148,7 @@ namespace Math_Module_Test
         //+Test
 
         //-Test
-        [Test]
+        [TestMethod]
         public void minusTest1()
         {
             List<string> input = new List<string>();
@@ -171,7 +171,7 @@ namespace Math_Module_Test
 
         }
 
-        [Test]
+        [TestMethod]
         public void minusTest2()
         {
             List<string> input = new List<string>();
@@ -189,7 +189,7 @@ namespace Math_Module_Test
             Assert.AreEqual(t, n - i);
 
         }
-        [Test]
+        [TestMethod]
         public void minusTestEx()
         {
             List<string> input = new List<string>();
@@ -260,7 +260,7 @@ namespace Math_Module_Test
 
         //RoflTest 
 
-        [Test]
+        [TestMethod]
         public void RofloTest()
         {
             List<string> input = new List<string>();
@@ -268,7 +268,7 @@ namespace Math_Module_Test
             Assert.AreEqual(false, n.isDown);
         }
         //COM_NN_D(equalForN)Test
-        [Test]
+        [TestMethod]
         public void COM_NN_DBiggerTest1()
         {
             List<string> input = new List<string>();
@@ -281,7 +281,7 @@ namespace Math_Module_Test
             byte t = N.COM_NN_D(n, i);
             Assert.AreEqual(2, t);
         }
-        [Test]
+        [TestMethod]
         public void COM_NN_DBiggerTest2()
         {
             List<string> input = new List<string>();
@@ -293,7 +293,7 @@ namespace Math_Module_Test
             byte t = N.COM_NN_D(n, i);
             Assert.AreEqual(2, t);
         }
-        [Test]
+        [TestMethod]
         public void COM_NN_DLessTest1()
         {
             List<string> input = new List<string>();
@@ -306,7 +306,7 @@ namespace Math_Module_Test
             byte t = N.COM_NN_D(n, i);
             Assert.AreEqual(1, t);
         }
-        [Test]
+        [TestMethod]
         public void COM_NN_DLessTest2()
         {
             List<string> input = new List<string>();
@@ -318,7 +318,7 @@ namespace Math_Module_Test
             byte t = N.COM_NN_D(n, i);
             Assert.AreEqual(1, t);
         }
-        [Test]
+        [TestMethod]
         public void COM_NN_DEqualTest()
         {
             List<string> input = new List<string>();
@@ -329,7 +329,7 @@ namespace Math_Module_Test
             byte t = N.COM_NN_D(n, i);
             Assert.AreEqual(0, t);
         }
-        [Test]
+        [TestMethod]
         public void CloneTest(){
             List<string> input = new List<string>();
             input.Add("1");
@@ -338,7 +338,7 @@ namespace Math_Module_Test
             N nClone = n.Clone();
             Assert.AreEqual(nClone, n);
         }
-        [Test]
+        [TestMethod]
         public void CloneTestReference()
         {
             List<string> input = new List<string>();
@@ -348,7 +348,7 @@ namespace Math_Module_Test
             N nClone = n.Clone();
             Assert.AreEqual(false, n == nClone); 
         }
-        [Test]
+        [TestMethod]
         public void GCF_NN_NTest1()
         {
             List<string> input = new List<string>();//  102833424
@@ -366,7 +366,7 @@ namespace Math_Module_Test
             Assert.AreEqual(o, gcfN);
         }
 
-        [Test]
+        [TestMethod]
         public void GCF_NN_NTest2()//не готово
         {
             List<string> input = new List<string>(); //  

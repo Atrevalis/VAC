@@ -16,10 +16,5 @@ namespace Visual_Module
         {
             InitializeComponent();
         }
-
-        private void menu_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-
-        }
     }
 }

@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // Общие сведения об этой сборке предоставляются следующим набором
 // набора атрибутов. Измените значения этих атрибутов для изменения сведений,
 // связанные со сборкой.
-[assembly: AssemblyTitle("Math_Module")]
+[assembly: AssemblyTitle("Interpretation_Controller")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Math_Module")]
+[assembly: AssemblyProduct("Interpretation_Controller")]
 [assembly: AssemblyCopyright("Copyright ©  2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // Следующий GUID служит для идентификации библиотеки типов, если этот проект будет видимым для COM
-[assembly: Guid("49016b09-7e20-44a9-af4d-65c95ddb5d32")]
+[assembly: Guid("835dc3c4-9ef4-4c02-b01f-ae821807f73b")]
 
 // Сведения о версии сборки состоят из указанных ниже четырех значений:
 //
