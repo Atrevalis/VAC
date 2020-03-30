@@ -163,7 +163,7 @@ namespace Math_Module
             return bigger;
         }
 
-        public static N operator *(N first, N second) // Шлемин Роман 9370 //тест закомитен до починки функции
+        public static N operator *(N first, N second) // Шлемин Роман 9370 //тест есть 
         {
             List<string> zero = new List<string>();
             zero.Add("0");
@@ -320,7 +320,7 @@ namespace Math_Module
                 return null;
         }
 
-        public static N DIV_NN_Dk(N first, N second) // Шлемин Роман 9370//тест невозможен
+        private static N DIV_NN_Dk(N first, N second) // Шлемин Роман 9370//тест невозможен но есть
         {
             N divided = null;
             N divider = null;
