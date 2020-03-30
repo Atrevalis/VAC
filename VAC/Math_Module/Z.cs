@@ -140,7 +140,21 @@ namespace Math_Module
 
         public static implicit operator List<string>(Z value)
         {
-            return null;
+            List<string> S = value.Abs;
+            
+            if (value.isN == false)
+            {
+                if (S[0].Length < value.Abs.uint_size_div)
+                {
+                    System.Text.StringBuilder temp = new System.Text.StringBuilder();
+                    temp.Append(Convert.ToString("-"));
+                    temp.Append(Convert.ToString(S[0]));
+                    S[0] = Convert.ToString(temp);
+                }
+                else if (S[0].Length == value.Abs.uint_size_div)
+                    S.Insert(0, "-");
+            }
+            return S;
         }
 
         public static implicit operator Q(Z value)
