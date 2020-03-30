@@ -68,7 +68,7 @@ namespace Math_Module_Test
             output.Add("00000000");
             output.Add("00000009");
             N n = new N(output);
-            Assert.AreEqual((List<string>)n, output);
+            CollectionAssert.AreEqual((List<string>)n, output);
 
         }
         [TestMethod]
@@ -79,10 +79,7 @@ namespace Math_Module_Test
             output.Add("12");
             N n = new N(output);
             List<string> s = n;
-            Assert.AreEqual(output, s);
-
-
-
+            CollectionAssert.AreEqual(s, output);
         }
 
         [TestMethod]
@@ -406,6 +403,7 @@ namespace Math_Module_Test
             Assert.AreEqual(t, l);
 
         }
+        /*
         [TestMethod]
         public void DIV_NN_DkTest2()
         {
@@ -424,6 +422,7 @@ namespace Math_Module_Test
             Assert.AreEqual(t, l);
 
         }
+        */
         [TestMethod]
         public void DIV_NN_DkTestEx()
         {
