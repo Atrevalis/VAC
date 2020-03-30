@@ -390,7 +390,7 @@ namespace Math_Module_Test
             Assert.AreEqual(o, gcfN);
         }*/
 
-      /*  [TestMethod]
+       [TestMethod]
         public void DIV_NN_DkTest1()
 		{
             List<string> input = new List<string>();
@@ -429,6 +429,7 @@ namespace Math_Module_Test
         {
             List<string> input = new List<string>();
             List<string> input1 = new List<string>();
+            List<string> output = new List<string>();
             input.Add("3456");
             input1.Add("45");
             output.Add("70");
@@ -437,6 +438,6 @@ namespace Math_Module_Test
             N l = N.DIV_NN_Dk(x, i);
             Assert.AreNotEqual(null, l);
 
-        }*/
+        }
     }
 }

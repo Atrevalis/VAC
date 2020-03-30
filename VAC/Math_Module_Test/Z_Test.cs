@@ -18,9 +18,9 @@ namespace Math_Module_Test
             input1.Add("-");
             input1.Add("12");
             input1.Add("10000000");
-            Z X = new Z("input");
+            Z X = new Z(input);
             Z I = -X;
-            Z T = ("input");
+            Z T = new Z(input);
             Assert.AreEqual(T, I);
         }
         [TestMethod]

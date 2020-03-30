@@ -320,7 +320,7 @@ namespace Math_Module
                 return null;
         }
 
-        private static N DIV_NN_Dk(N first, N second) // Шлемин Роман 9370//тест невозможен
+        public static N DIV_NN_Dk(N first, N second) // Шлемин Роман 9370//тест невозможен
         {
             N divided = null;
             N divider = null;
