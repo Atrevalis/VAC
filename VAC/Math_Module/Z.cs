@@ -138,7 +138,7 @@ namespace Math_Module
             return null;
         }
 
-        public static implicit operator List<string>(Z value)
+        public static implicit operator List<string>(Z value)//есть тесты
         {
             List<string> S = value.Abs;
             

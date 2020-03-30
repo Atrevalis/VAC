@@ -210,7 +210,7 @@ namespace Math_Module_Test
 
         //*Test
 
-        /* [Test] //сломана перегрузка оператора умножения
+        [Test] //сломана перегрузка оператора умножения
          public void multiplicationTest1()
          {
              List<string> input = new List<string>();
@@ -227,7 +227,7 @@ namespace Math_Module_Test
              Assert.AreEqual(t, n* i);
 
          }
- /*
+
          [Test]
          public void multiplicationTest2()
          {
@@ -253,8 +253,8 @@ namespace Math_Module_Test
              N n = new N(input);
              N i = new N(input);
              Assert.AreNotEqual(null,n * i );
-         } */
-        //*  Test 
+         } 
+        // Test 
 
 
 
@@ -366,7 +366,7 @@ namespace Math_Module_Test
             Assert.AreEqual(o, gcfN);
         }
 
-        [TestMethod]
+        /*[TestMethod]
         public void GCF_NN_NTest2()//не готово
         {
             List<string> input = new List<string>(); //  
@@ -382,6 +382,6 @@ namespace Math_Module_Test
             N o = new N(output);
             N gcfN = N.GCF_NN_N(n, i);
             Assert.AreEqual(o, gcfN);
-        }
+        }*/
     }
 }
