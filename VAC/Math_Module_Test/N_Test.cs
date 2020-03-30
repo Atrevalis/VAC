@@ -209,54 +209,54 @@ namespace Math_Module_Test
 
         [TestMethod] //сломана перегрузка оператора умножения
 
-         public void multiplicationTest1()
+        public void multiplicationTest1()
 
-         {
-             List<string> input = new List<string>();
-             List<string> input1 = new List<string>();
-             List<string> output = new List<string>();
-             input.Add("12");
-             input.Add("12345678");
-             input1.Add("2345678");
-             output.Add("28437725");
-             output.Add("85279684");
-             N n = new N(input);
-             N i = new N(input1);
-             N t = new N(output);
-             Assert.AreEqual(t, n* i);
+        {
+            List<string> input = new List<string>();
+            List<string> input1 = new List<string>();
+            List<string> output = new List<string>();
+            input.Add("12");
+            input.Add("12345678");
+            input1.Add("2345678");
+            output.Add("28437725");
+            output.Add("85279684");
+            N n = new N(input);
+            N i = new N(input1);
+            N t = new N(output);
+            Assert.AreEqual(t, n * i);
 
-         }
+        }
 
 
-         [TestMethod]
-         public void multiplicationTest2()
+        [TestMethod]
+        public void multiplicationTest2()
 
-         {
-             List<string> input = new List<string>();
-             List<string> input1 = new List<string>();
-             List<string> output = new List<string>();
-             input.Add("1");
-             input1.Add("2");
-             output.Add("2");
-             N n = new N(input);
-             N i = new N(input1);
-             N t = new N(output);
-             Assert.AreEqual( t,n * i);
-         }
+        {
+            List<string> input = new List<string>();
+            List<string> input1 = new List<string>();
+            List<string> output = new List<string>();
+            input.Add("1");
+            input1.Add("2");
+            output.Add("2");
+            N n = new N(input);
+            N i = new N(input1);
+            N t = new N(output);
+            Assert.AreEqual(t, n * i);
+        }
 
 
         [TestMethod]
         public void multiplicationTestEx()
 
-         {
-             List<string> input = new List<string>();
+        {
+            List<string> input = new List<string>();
 
-             input.Add("1");
-             input.Add("00000000");
-             N n = new N(input);
-             N i = new N(input);
-             Assert.AreNotEqual(null,n * i );
-         } 
+            input.Add("1");
+            input.Add("00000000");
+            N n = new N(input);
+            N i = new N(input);
+            Assert.AreNotEqual(null, n * i);
+        }
         // Test 
 
 
@@ -333,7 +333,8 @@ namespace Math_Module_Test
             Assert.AreEqual(0, t);
         }
         [TestMethod]
-        public void CloneTest(){
+        public void CloneTest()
+        {
             List<string> input = new List<string>();
             input.Add("1");
             input.Add("12345678");
@@ -349,7 +350,7 @@ namespace Math_Module_Test
             input.Add("12345678");
             N n = new N(input);
             N nClone = n.Clone();
-            Assert.AreEqual(false, n == nClone); 
+            Assert.AreEqual(false, n == nClone);
         }
         [TestMethod]
         public void GCF_NN_NTest1()
@@ -365,7 +366,7 @@ namespace Math_Module_Test
             N n = new N(input);
             N i = new N(input1);
             N o = new N(output);
-            N gcfN = N.GCF_NN_N(n,i);
+            N gcfN = N.GCF_NN_N(n, i);
             Assert.AreEqual(o, gcfN);
         }
 
@@ -386,7 +387,7 @@ namespace Math_Module_Test
             N gcfN = N.GCF_NN_N(n, i);
             Assert.AreEqual(o, gcfN);
         }*/
-
+        /*
        [TestMethod]
         public void DIV_NN_DkTest1()
 		{
@@ -428,15 +429,79 @@ namespace Math_Module_Test
         {
             List<string> input = new List<string>();
             List<string> input1 = new List<string>();
-            List<string> output = new List<string>();
             input.Add("3456");
             input1.Add("45");
-            output.Add("70");
             N x = new N(input);
             N i = new N(input1);
             N l = N.DIV_NN_Dk(x, i);
             Assert.AreNotEqual(null, l);
-
+           
+        } */
+        /* [TestMethod]
+         public void MUL_ND_NTest1()
+         {
+             List<string> input = new List<string>();
+             List<string> output = new List<string>();
+             byte input1 = 3;
+             input.Add("87654321");
+             output.Add("1");
+             output.Add("75308642");
+             N x = new N(input);
+             N t = new N(output);
+             N i = x.MUL_ND_N(input1);
+             Assert.AreEqual(t, i);
+         }
+         [TestMethod]
+         public void MUL_ND_NTestEx()
+         {
+             List<string> input = new List<string>();
+             List<string> output = new List<string>();
+             byte input1 = 3;
+             input.Add("87654321");
+             output.Add("1");
+             output.Add("75308642");
+             N x = new N(input);
+             N t = new N(output);
+             N i = x.MUL_ND_N(input1);
+             Assert.AreNotEqual(null, i);
+         }*/
+     /*   [TestMethod]
+        public void MUL_Nk_NTest1()
+        {
+            List<string> input = new List<string>();
+            List<string> input1 = new List<string>();
+            List<string> output = new List<string>();
+            input.Add("1");
+            input.Add("10000000");
+            input1.Add("10");
+            input1.Add("00000000");
+            output.Add("11");
+            output.Add("00000000");
+            input1.Add("00000000");
+            N x = new N(input);
+            N value = new N(input1);
+            N t = new N(output);
+            N i = x.MUL_ND_N(value);
+            Assert.AreEqual(t, i);
         }
+        [TestMethod]
+        public void MUL_Nk_NTestEx()
+        {
+            List<string> input = new List<string>();
+            List<string> input1 = new List<string>();
+            List<string> output = new List<string>();
+            input.Add("1");
+            input.Add("10000000");
+            input1.Add("10");
+            input1.Add("00000000");
+            output.Add("11");
+            output.Add("00000000");
+            input1.Add("00000000");
+            N x = new N(input);
+            N value = new N(input1);
+            N t = new N(output);
+            N i = x.MUL_ND_N(value);
+            Assert.AreNotEqual(null, i);
+        }*/
     }
 }
