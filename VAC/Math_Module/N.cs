@@ -322,7 +322,57 @@ namespace Math_Module
 
         private static N DIV_NN_Dk(N first, N second) // Шлемин Роман 9370//тест невозможен
         {
-            return null;
+            N divided = null;
+            N divider = null;
+            switch (COM_NN_D(first, second))
+            {
+                case 0:
+                    List<string> one = new List<string>();
+                    one.Add("1");
+                    N equal = new N(one);
+                    return equal;
+                case 1:
+                    divided = second.Clone();
+                    divider = first.Clone();
+                    break;
+                case 2:
+                    divider = second.Clone();
+                    divided = first.Clone();
+                    break;
+            }
+            List<string> zero = new List<string>();
+            zero.Add("0");
+            N result = new N(zero);
+            while (COM_NN_D(divided, divider) == 2)
+            {
+                divided -= divider;
+                result++;
+            }
+            int i = (divided.znach.Count - 1);
+            string qwerty = i.ToString();
+            string perviy = null;
+            string vtoroy = null;
+            long ost = qwerty.Length % uint_size_div;
+            for (int j = 0; j < ost; j++)
+            {
+                perviy += qwerty[j];
+            }
+            List<string> qwaserty = new List<string>();
+            qwaserty.Add(perviy);
+            for (int k = Convert.ToInt32(ost); k < qwerty.Length; k++)
+            {
+                vtoroy += qwerty[k];
+            }
+            qwaserty.Add(vtoroy);
+            N value = new N(qwaserty);
+            value.MUL_ND_N(Convert.ToByte(uint_size_div));
+            uint now = divided.znach[i];
+            while (now != 0)
+            {
+                value++;
+                now = now / 10;
+            }
+            return result.MUL_Nk_N(value);
         }
 
         public static N GCF_NN_N(N first, N second)
