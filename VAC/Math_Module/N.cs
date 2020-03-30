@@ -12,7 +12,7 @@ namespace Math_Module
         private List<uint> znach;//
 
         private const uint uint_size = 99999999;
-        private const uint uint_size_div = 8;
+        public const uint uint_size_div = 8;
 
         #endregion
 

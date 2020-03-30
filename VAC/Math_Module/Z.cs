@@ -144,14 +144,14 @@ namespace Math_Module
             
             if (value.isN == false)
             {
-                if (S[0].Length < value.Abs.uint_size_div)
+                if (S[0].Length < N.uint_size_div)
                 {
                     System.Text.StringBuilder temp = new System.Text.StringBuilder();
                     temp.Append(Convert.ToString("-"));
                     temp.Append(Convert.ToString(S[0]));
                     S[0] = Convert.ToString(temp);
                 }
-                else if (S[0].Length == value.Abs.uint_size_div)
+                else if (S[0].Length == N.uint_size_div)
                     S.Insert(0, "-");
             }
             return S;

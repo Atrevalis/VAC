@@ -23,5 +23,31 @@ namespace Visual_Module
             new_Project.Show();
             Enabled = false;
         }
+
+        private void toolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog open = new OpenFileDialog();
+            open.Multiselect = false;
+            open.ShowDialog();
+            External_Controller.Controller.name_of_now_project = open.SafeFileName;
+            External_Controller.Controller.path_of_now_project = open.FileName.Replace(open.SafeFileName,"");
+        }
+
+        private void toolStripMenuItem4_Click(object sender, EventArgs e)
+        {
+            External_Controller.Controller.Save();
+        }
+
+        private void toolStripMenuItem5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Main_Window_Shown(object sender, EventArgs e)
+        {
+            Visible = false;
+            Hello_Form hello = new Hello_Form(this);
+            hello.Show();
+        }
     }
 }

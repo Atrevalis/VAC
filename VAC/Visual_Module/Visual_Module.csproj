@@ -52,6 +52,12 @@
     <Compile Include="Create_new_project.Designer.cs">
       <DependentUpon>Create_new_project.cs</DependentUpon>
     </Compile>
+    <Compile Include="Hello_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Hello_Form.Designer.cs">
+      <DependentUpon>Hello_Form.cs</DependentUpon>
+    </Compile>
     <Compile Include="Main_Window.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -62,6 +68,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Create_new_project.resx">
       <DependentUpon>Create_new_project.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Hello_Form.resx">
+      <DependentUpon>Hello_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main_Window.resx">
       <DependentUpon>Main_Window.cs</DependentUpon>
