@@ -389,5 +389,54 @@ namespace Math_Module_Test
             N gcfN = N.GCF_NN_N(n, i);
             Assert.AreEqual(o, gcfN);
         }*/
+
+      /*  [TestMethod]
+        public void DIV_NN_DkTest1()
+		{
+            List<string> input = new List<string>();
+            List<string> input1 = new List<string>();
+            List<string> output = new List<string>();
+            input.Add("3456");
+            input1.Add("45");
+            output.Add("70");
+            N x = new N(input);
+            N i = new N(input1);
+            N t = new N(output);
+            N l = N.DIV_NN_Dk(x,i);
+            Assert.AreEqual(t, l);
+
+        }
+        [TestMethod]
+        public void DIV_NN_DkTest2()
+        {
+            List<string> input = new List<string>();
+            List<string> input1 = new List<string>();
+            List<string> output = new List<string>();
+            input.Add("23");
+            input.Add("87654321");
+            input1.Add("11");
+            input1.Add("12345678");
+            output.Add("2");
+            N x = new N(input);
+            N i = new N(input1);
+            N t = new N(output);
+            N l = N.DIV_NN_Dk(x, i);
+            Assert.AreEqual(t, l);
+
+        }
+        [TestMethod]
+        public void DIV_NN_DkTestEx()
+        {
+            List<string> input = new List<string>();
+            List<string> input1 = new List<string>();
+            input.Add("3456");
+            input1.Add("45");
+            output.Add("70");
+            N x = new N(input);
+            N i = new N(input1);
+            N l = N.DIV_NN_Dk(x, i);
+            Assert.AreNotEqual(null, l);
+
+        }*/
     }
 }
