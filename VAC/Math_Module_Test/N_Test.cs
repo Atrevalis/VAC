@@ -211,7 +211,9 @@ namespace Math_Module_Test
         //*Test
 
         [TestMethod] //сломана перегрузка оператора умножения
+
          public void multiplicationTest1()
+
          {
              List<string> input = new List<string>();
              List<string> input1 = new List<string>();
@@ -228,8 +230,10 @@ namespace Math_Module_Test
 
          }
 
+
          [TestMethod]
          public void multiplicationTest2()
+
          {
              List<string> input = new List<string>();
              List<string> input1 = new List<string>();
@@ -243,8 +247,10 @@ namespace Math_Module_Test
              Assert.AreEqual( t,n * i);
          }
 
-         [TestMethod]
-         public void multiplicationTestEx()
+
+        [TestMethod]
+        public void multiplicationTestEx()
+
          {
              List<string> input = new List<string>();
 
