@@ -12,7 +12,7 @@ namespace Math_Module
 
         public Z(List<string> s)
         {
-            if (s[0].Contains("-"))
+            if (s[0].Contains("-")) 
             {
                 s[0] = s[0].Remove(0, 1);
                 isN = false;
@@ -183,8 +183,7 @@ namespace Math_Module
 
         public Z Clone() // Александр Баталин 9370
         {
-            Z clone = new Z(new List<string>());
-            clone.Abs = Abs.Clone();
+            Z clone = new Z(Abs.Clone());
             clone.isN = isN; 
             return clone;
         }

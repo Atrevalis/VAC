@@ -96,6 +96,7 @@ namespace Math_Module_Test
             input1.Add("-");
             input1.Add("10000000");
             output.Add("12");
+            output.Add("00000000");
             Z X = new Z(input);
             Z I = new Z(input1);
             Z T = new Z(output);
