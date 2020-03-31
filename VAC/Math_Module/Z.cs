@@ -45,7 +45,7 @@ namespace Math_Module
 
         #region Свойства
 
-        public override bool isDown // Евгений Куликов 9370
+        public override bool isDown // Евгений Куликов 9370//есть тесты
         {
             get
             {
@@ -86,14 +86,14 @@ namespace Math_Module
 
         #region Перегрузки
 
-        public static Z operator -(Z value) // MUL_ZM_Z Евгений Куликов 9370
+        public static Z operator -(Z value) // MUL_ZM_Z Евгений Куликов 9370//есть тесты
         {
             Z Clone = new Z(value);
             Clone.isN = !Clone.isN;
             return Clone;
         }
 
-        public static Z operator +(Z first, Z second) // ADD_ZZ_Z Александр Баталин 9370
+        public static Z operator +(Z first, Z second) // ADD_ZZ_Z Александр Баталин 9370//есть тесты
         {
             Z sum = first.Clone();
             if(first.isN != second.isN)
@@ -113,12 +113,12 @@ namespace Math_Module
             return sum;
         }
 
-        public static Z operator -(Z first, Z second) // SUB_ZZ_Z Александр Баталин 9370
+        public static Z operator -(Z first, Z second) // SUB_ZZ_Z Александр Баталин 9370//есть тесты
         {
             return first + (-second);
         }
 
-        public static Z operator *(Z first, Z second) // MUL_ZZ_Z
+        public static Z operator *(Z first, Z second) // MUL_ZZ_Z//
         {
             Z mult = first.Clone();
             mult.Abs *= second.Abs;

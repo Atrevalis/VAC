@@ -24,7 +24,7 @@ namespace Math_Module_Test
             Assert.AreEqual(T, I);
         }
         [TestMethod]
-        public void PlusMinusUnarTest1()
+        public void MinusUnarMinusTest()
         {
             List<string> input = new List<string>();
             List<string> input1 = new List<string>();
@@ -45,7 +45,7 @@ namespace Math_Module_Test
 
         }
         [TestMethod]
-        public void PlusMinusUnarTest2()
+        public void PlusUnarMinusTest()
         {
             List<string> input = new List<string>();
             List<string> input1 = new List<string>();
@@ -124,7 +124,7 @@ namespace Math_Module_Test
    
             Z X = new Z(input);
             output = (List<string>)X;
-            Assert.AreEqual(output,input);
+            CollectionAssert.AreEqual(output,input);
         }
 
         [TestMethod]
@@ -133,10 +133,33 @@ namespace Math_Module_Test
             List<string> input = new List<string>();
             input.Add("12");
             input.Add("00000009");
-            Z n = new Z(input);
-            Assert.AreNotEqual(null, (List<string>)n);
+            Z z = new Z(input);
+            CollectionAssert.AreNotEqual(null, (List<string>)z);
         }
 
+        [TestMethod]
+        public void isDownTest()
+		{
+            List<string> input = new List<string>();
+            input.Add("12");
+            input.Add("00000009");
+            Z z = new Z(input);
+            N n = new N(input);
+            N ZtoN = z.isDown;
+            Assert.AreEqual(n,ZtoN);
+
+        }
+
+        [TestMethod]
+        public void isDownTestEx()
+        {
+            List<string> input = new List<string>();
+            input.Add("12");
+            input.Add("00000009");
+            Z z = new Z(input);
+            N ZtoN = z.isDown;
+            Assert.AreNotEqual(null,ZtoN);
+        }
 
 
     }
