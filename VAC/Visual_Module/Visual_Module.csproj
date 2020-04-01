@@ -105,6 +105,10 @@
       <Project>{111c4c42-787b-4808-b378-06205bd79ba1}</Project>
       <Name>External_Controller</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MVS_Controller\MVS_Controller.csproj">
+      <Project>{2383ddc7-852b-4a9c-99b0-93d5bac031c7}</Project>
+      <Name>MVS_Controller</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Logo.ico" />

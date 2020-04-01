@@ -88,7 +88,7 @@ namespace Math_Module
 
         public static Z operator -(Z value) // MUL_ZM_Z Евгений Куликов 9370//есть тесты
         {
-            Z Clone = new Z(value);
+            Z Clone = value.Clone();
             Clone.isN = !Clone.isN;
             return Clone;
         }

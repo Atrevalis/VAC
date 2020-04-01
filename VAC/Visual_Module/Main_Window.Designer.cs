@@ -126,6 +126,7 @@
             this.toolStripMenuItem7.Name = "toolStripMenuItem7";
             this.toolStripMenuItem7.Size = new System.Drawing.Size(186, 22);
             this.toolStripMenuItem7.Text = "Натуральные числа";
+            this.toolStripMenuItem7.Click += new System.EventHandler(this.toolStripMenuItem7_Click);
             // 
             // toolStripMenuItem10
             // 

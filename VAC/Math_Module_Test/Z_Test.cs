@@ -20,7 +20,7 @@ namespace Math_Module_Test
             input1.Add("10000000");
             Z X = new Z(input);
             Z I = -X;
-            Z T = new Z(input);
+            Z T = new Z(output);
             Assert.AreEqual(T, I);
         }
         [TestMethod]

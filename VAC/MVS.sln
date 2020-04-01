@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "External_Controller", "Exte
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interpretation_Controller", "Interpretation_Controller\Interpretation_Controller.csproj", "{835DC3C4-9EF4-4C02-B01F-AE821807F73B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVS_Controller", "MVS_Controller\MVS_Controller.csproj", "{2383DDC7-852B-4A9C-99B0-93D5BAC031C7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{835DC3C4-9EF4-4C02-B01F-AE821807F73B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{835DC3C4-9EF4-4C02-B01F-AE821807F73B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{835DC3C4-9EF4-4C02-B01F-AE821807F73B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2383DDC7-852B-4A9C-99B0-93D5BAC031C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2383DDC7-852B-4A9C-99B0-93D5BAC031C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2383DDC7-852B-4A9C-99B0-93D5BAC031C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2383DDC7-852B-4A9C-99B0-93D5BAC031C7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MVS_Controller;
 
 namespace Visual_Module
 {
@@ -48,6 +49,13 @@ namespace Visual_Module
             Visible = false;
             Hello_Form hello = new Hello_Form(this);
             hello.Show();
+        }
+
+        private void toolStripMenuItem7_Click(object sender, EventArgs e)
+        {
+            Working_data working_Data = new Working_data(this);
+            working_Data.Show();
+            Controls.Add(working_Data);
         }
     }
 }
