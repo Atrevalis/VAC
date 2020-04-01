@@ -164,7 +164,7 @@ namespace Math_Module
 
         public static implicit operator Q(Z value)
         {
-            return null;
+            return new Q(value);
         }
 
         public static explicit operator N(Z value)
