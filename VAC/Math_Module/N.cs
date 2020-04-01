@@ -190,8 +190,17 @@ namespace Math_Module
 
         public static N operator %(N first, N second)
         {
-            return null;
+            N temp;
+
+            if (COM_NN_D(first, second) == 1)
+                return first;
+            else
+            {
+                temp = first -((first / second)*second);
+                return temp;
+            }
         }
+        
 
         public static implicit operator List<string>(N value) // Александр Рассохин 9370
         {
