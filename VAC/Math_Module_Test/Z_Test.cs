@@ -314,5 +314,26 @@ namespace Math_Module_Test
             byte i = z.POZ_Z_D;
             Assert.AreNotEqual(null, i);
         }
+        [TestMethod]
+        public void CloneTest()
+        {
+            List<string> input = new List<string>();
+            input.Add("1");
+            input.Add("12345678");
+            N z = new N(input);
+            N zClone = z.Clone();
+            Assert.AreEqual(zClone, z);
+        }
+        [TestMethod]
+        public void CloneTestReference()
+        {
+            List<string> input = new List<string>();
+            input.Add("1");
+            input.Add("12345678");
+            Z z = new Z(input);
+            Z zClone = z.Clone();
+            Assert.AreEqual(false, z == zClone);
+        }
+
     }
 }

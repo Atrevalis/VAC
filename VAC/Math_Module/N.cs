@@ -263,7 +263,7 @@ namespace Math_Module
             return 0;
         }
 
-        private N MUL_ND_N(byte value) // Умножеине числа на цифру - Дмитрий Панченко 9370 //тест невозможен
+        private N MUL_ND_N(byte value) // Умножение числа на цифру - Дмитрий Панченко 9370 //тест есть(закоммичен)
         {
             N k = Clone(); uint g = 0;
             for (int i = 0; i < znach.Count; i++)
@@ -275,7 +275,7 @@ namespace Math_Module
             return k;
         }
 
-        private N MUL_Nk_N(N value) // Умножение числа на 10^value - Дмитрий Панченко 9370//тест невозможен
+        private N MUL_Nk_N(N value) // Умножение числа на 10^value - Дмитрий Панченко 9370//тест есть(закоммичен)
         {
             List<string> s = new List<string>();
             s.Add(Convert.ToString(uint_size_div));
@@ -320,7 +320,7 @@ namespace Math_Module
                 return null;
         }
 
-        private static N DIV_NN_Dk(N first, N second) // Шлемин Роман 9370//тест невозможен но есть
+        private static N DIV_NN_Dk(N first, N second) // Шлемин Роман 9370//тест есть(закоммичен)
         {
             N divided = null;
             N divider = null;
@@ -385,7 +385,7 @@ namespace Math_Module
             return null;
         }
 
-        public N Clone() // Александр Баталин 9370
+        public N Clone() // Александр Баталин 9370//есть тесты
         {
             N clone = new N(new List<string>());
             clone.znach = new List<uint>(znach);

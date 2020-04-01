@@ -61,7 +61,7 @@ namespace Math_Module
             }
         }
 
-        public byte POZ_Z_D // Евгений Куликов 9370//
+        public byte POZ_Z_D // Евгений Куликов 9370//есть тесты
         {
             get
             {
