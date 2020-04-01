@@ -164,12 +164,15 @@ namespace Math_Module
 
         public static implicit operator Q(Z value) // Александр Рассохин
         {
-            return null;
+            return new Q(value);
         }
 
         public static explicit operator N(Z value) // Александр Рассохин
         {
-            return null;
+            if (!value.isDown)
+                return null;
+            else
+                return new N(value.Abs);
         }
 
         public override bool Equals(object obj)
