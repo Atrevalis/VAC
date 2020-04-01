@@ -164,7 +164,10 @@ namespace Math_Module
 
         public static implicit operator Q(Z value)
         {
-            return new Q(value);
+            if (!value.isDown)
+                return null;
+            else
+                return new N(value.Abs);
         }
 
         public static explicit operator N(Z value)
