@@ -185,7 +185,39 @@ namespace Math_Module
 
         public static N operator /(N first, N second)
         {
-            return null;
+            List<string> zero = new List<string>();
+            zero.Add("0");
+            N div = new N(zero);
+            if(COM_NN_D(first, second) != 1)
+            {
+                N result = first.Clone();
+                if (COM_NN_D(first, second) == 2)
+                {
+                    while (COM_NN_D(first, second) == 2)
+                    {;
+                        result -= second;
+                        div++;
+                    }
+                    return div;
+                }
+                else
+                {
+                    List<string> one = new List<string>();
+                    one.Add("1");
+                    N result = new N(one);
+                    return result;
+                }
+            }
+            else
+            {
+                N result = second.Clone();
+                while (COM_NN_D(second, first) == 2)
+                {
+                    result -= first;
+                    div++;
+                }
+                return div;
+            }
         }
 
         public static N operator %(N first, N second)
