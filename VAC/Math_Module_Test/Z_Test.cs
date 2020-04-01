@@ -137,6 +137,8 @@ namespace Math_Module_Test
             CollectionAssert.AreNotEqual(null, (List<string>)z);
         }
 
+        /*
+
         [TestMethod]
         public void isDownTest()
         {
@@ -150,6 +152,10 @@ namespace Math_Module_Test
 
         }
 
+            */
+
+        /*
+
         [TestMethod]
         public void isDownTestEx()
         {
@@ -160,6 +166,8 @@ namespace Math_Module_Test
             N ZtoN = z.isDown;
             Assert.AreNotEqual(null, ZtoN);
         }
+
+    */
         [TestMethod]
         public void multiplicationTest1()
         {
@@ -175,7 +183,7 @@ namespace Math_Module_Test
             output.Add("00000000");
             Z z = new Z(input);
             Z x = new Z(input1);
-            z t = new z(output);
+            Z t = new Z(output);
             Assert.AreEqual(t,z*x);
         }
         [TestMethod]
@@ -194,8 +202,8 @@ namespace Math_Module_Test
             output.Add("00000000");
             Z z = new Z(input);
             Z x = new Z(input1);
-            z t = new z(output);
-            Z t = -t;
+            Z t = new Z(output);
+            t = -t;
             Assert.AreEqual(t, z * x);
         }
         [TestMethod]
@@ -215,7 +223,7 @@ namespace Math_Module_Test
             output.Add("00000000");
             Z z = new Z(input);
             Z x = new Z(input1);
-            z t = new z(output);
+            Z t = new Z(output);
             Assert.AreEqual(t, z * x);
         }
         [TestMethod]

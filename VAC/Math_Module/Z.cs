@@ -162,12 +162,12 @@ namespace Math_Module
             return S;
         }
 
-        public static implicit operator Q(Z value)
+        public static implicit operator Q(Z value) // Александр Рассохин
         {
             return null;
         }
 
-        public static explicit operator N(Z value)
+        public static explicit operator N(Z value) // Александр Рассохин
         {
             return null;
         }
