@@ -18,10 +18,10 @@ namespace Visual_Module
         {
             InitializeComponent();
             main = main_;
-            ClientSize = new System.Drawing.Size(622, 395);
+            ClientSize = new System.Drawing.Size(800, 440);
             pictureBox1.Image = Image.FromFile(Directory.GetCurrentDirectory() + "\\Resources\\Image\\Logo.jpg");
             Timer timer = new Timer();
-            timer.Interval = 3000;
+            timer.Interval = 5000;
             timer.Tick += new EventHandler(this.timer_Tick);
             timer.Start();
         }
