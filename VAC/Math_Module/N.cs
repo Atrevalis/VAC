@@ -329,7 +329,7 @@ namespace Math_Module
                 return null;
         }
 
-        private static N DIV_NN_Dk(N first, N second) // Шлемин Роман 9370//тест есть(закоммичен)
+        private static N DIV_NN_Dk(N first, N second) // Шлемин Роман 9370//тест есть(закоммичен) (нужно деление)
         {
             N divided = null;
             N divider = null;
@@ -352,13 +352,20 @@ namespace Math_Module
             List<string> zero = new List<string>();
             zero.Add("0");
             N result = new N(zero);
-            while (COM_NN_D(divided, divider) == 2)
+            while (COM_NN_D(divided, divider) == 2) //вычитаем из большего меньшее, пока большее не станет меньше
             {
                 divided -= divider;
                 result++;
             }
-            int i = (divided.znach.Count - 1);
-            string qwerty = i.ToString();
+            List<string> ten = new List<string>();
+            ten.Add("10");
+            N gran = new N(ten);
+            while (COM_NN_D(result, gran) != 1) //находим 1 цифру деления
+            {
+                result /= gran;
+            }
+            int i = (divided.znach.Count - 1);  //счиитаем степень k
+            string qwerty = Convert.ToString(i);
             string perviy = null;
             string vtoroy = null;
             long ost = qwerty.Length % uint_size_div;
@@ -381,7 +388,7 @@ namespace Math_Module
                 value++;
                 now = now / 10;
             }
-            return result.MUL_Nk_N(value);
+            return result.MUL_Nk_N(value);  //получаем результат
         }
 
         public static N GCF_NN_N(N first, N second)
