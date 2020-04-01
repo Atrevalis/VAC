@@ -169,7 +169,7 @@ namespace Math_Module
 
         public static explicit operator N(Z value)
         {
-            return null;
+            return new N(value.Abs);
         }
 
         public override bool Equals(object obj)
