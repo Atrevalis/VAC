@@ -53,7 +53,7 @@ namespace Math_Module
             }
         }
 
-        public N ABS_Z_N // Евгений Куликов 9370
+        public N ABS_Z_N // Евгений Куликов 9370//есть тесты  
         {
             get
             {
@@ -61,7 +61,7 @@ namespace Math_Module
             }
         }
 
-        public byte POZ_Z_D // Евгений Куликов 9370
+        public byte POZ_Z_D // Евгений Куликов 9370//
         {
             get
             {
@@ -118,7 +118,7 @@ namespace Math_Module
             return first + (-second);
         }
 
-        public static Z operator *(Z first, Z second) // MUL_ZZ_Z//
+        public static Z operator *(Z first, Z second) // MUL_ZZ_Z//есть тесты
         {
             Z mult = first.Clone();
             mult.Abs *= second.Abs;

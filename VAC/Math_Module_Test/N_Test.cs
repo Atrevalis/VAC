@@ -207,7 +207,7 @@ namespace Math_Module_Test
 
         //*Test
 
-        [TestMethod] //сломана перегрузка оператора умножения
+        [TestMethod] 
 
         public void multiplicationTest1()
 

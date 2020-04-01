@@ -8,8 +8,8 @@ namespace Math_Module_Test
     public class Z_Test
     {
         [TestMethod]
-        public void minusUnarEx()   
-		{
+        public void minusUnarEx()
+        {
             List<string> input = new List<string>();
             List<string> input1 = new List<string>();
             List<string> output = new List<string>();
@@ -62,7 +62,7 @@ namespace Math_Module_Test
             Assert.AreEqual(T, X + I);
 
         }
-       
+
 
         [TestMethod]
         public void plusTest1()
@@ -121,15 +121,15 @@ namespace Math_Module_Test
             List<string> output = new List<string>();
             input.Add("12");
             input.Add("10000000");
-   
+
             Z X = new Z(input);
             output = (List<string>)X;
-            CollectionAssert.AreEqual(output,input);
+            CollectionAssert.AreEqual(output, input);
         }
 
         [TestMethod]
         public void ZConvertToStringTestEx()
-        { 
+        {
             List<string> input = new List<string>();
             input.Add("12");
             input.Add("00000009");
@@ -139,14 +139,14 @@ namespace Math_Module_Test
 
         [TestMethod]
         public void isDownTest()
-		{
+        {
             List<string> input = new List<string>();
             input.Add("12");
             input.Add("00000009");
             Z z = new Z(input);
             N n = new N(input);
             N ZtoN = z.isDown;
-            Assert.AreEqual(n,ZtoN);
+            Assert.AreEqual(n, ZtoN);
 
         }
 
@@ -158,9 +158,161 @@ namespace Math_Module_Test
             input.Add("00000009");
             Z z = new Z(input);
             N ZtoN = z.isDown;
-            Assert.AreNotEqual(null,ZtoN);
+            Assert.AreNotEqual(null, ZtoN);
         }
-
-
+        [TestMethod]
+        public void multiplicationTest1()
+        {
+            List<string> input = new List<string>();
+            List<string> input1 = new List<string>();
+            List<string> output = new List<string>();
+            input.Add("2");
+            input.Add("00000000");
+            input1.Add("134");
+            input1.Add("00000000");
+            output.Add("268");
+            output.Add("00000000"); 
+            output.Add("00000000");
+            Z z = new Z(input);
+            Z x = new Z(input1);
+            z t = new z(output);
+            Assert.AreEqual(t,z*x);
+        }
+        [TestMethod]
+        public void multiplicationTest2()
+        {
+            List<string> input = new List<string>();
+            List<string> input1 = new List<string>();
+            List<string> output = new List<string>();
+            input.Add("-");
+            input.Add("2");
+            input.Add("00000000");
+            input1.Add("134");
+            input1.Add("00000000");
+            output.Add("268");
+            output.Add("00000000");
+            output.Add("00000000");
+            Z z = new Z(input);
+            Z x = new Z(input1);
+            z t = new z(output);
+            Z t = -t;
+            Assert.AreEqual(t, z * x);
+        }
+        [TestMethod]
+        public void multiplicationTest3()
+        {
+            List<string> input = new List<string>();
+            List<string> input1 = new List<string>();
+            List<string> output = new List<string>();
+            input.Add("-");
+            input.Add("2");
+            input.Add("00000000");
+            input1.Add("134");
+            input1.Add("00000000");
+            output.Add("-");
+            output.Add("268");
+            output.Add("00000000");
+            output.Add("00000000");
+            Z z = new Z(input);
+            Z x = new Z(input1);
+            z t = new z(output);
+            Assert.AreEqual(t, z * x);
+        }
+        [TestMethod]
+        public void multiplicationTestEx()
+        {
+            List<string> input = new List<string>();
+            List<string> input1 = new List<string>();
+            input.Add("2");
+            input.Add("00000000");
+            input1.Add("134");
+            input1.Add("00000000");
+            Z z = new Z(input);
+            Z x = new Z(input1);
+            Assert.AreNotEqual(null, z * x);
+        }
+        
+            [TestMethod]
+        public void ABS_Z_NTest1()
+        {
+            List<string> input = new List<string>();
+            List<string> output = new List<string>();
+            input.Add("-");
+            input.Add("145");
+            input.Add("00000002");
+            output.Add("145");
+            output.Add("00000002");
+            Z z = new Z(input);
+            N n = z.ABS_Z_N;
+            N t = new N(output);
+            Assert.AreEqual(t, n);
+        }
+        [TestMethod]
+        public void ABS_Z_NTest2()
+        {
+            List<string> input = new List<string>();
+            List<string> output = new List<string>();
+            input.Add("-");
+            input.Add("2");
+            output.Add("2");
+            Z z = new Z(input);
+            N n = z.ABS_Z_N;
+            N t = new N(output);
+            Assert.AreEqual(t, n);
+        }
+        [TestMethod]
+        public void ABS_Z_NTestEx()
+        {
+            List<string> input = new List<string>();
+            input.Add("-");
+            input.Add("145");
+            input.Add("00000002");
+            Z z = new Z(input);
+            N n = z.ABS_Z_N;
+            Assert.AreNotEqual(null, n);
+        }
+        
+            [TestMethod]
+        public void POZ_Z_DTest1()
+        {
+            List<string> input = new List<string>();
+            input.Add("145");
+            input.Add("00000002");
+            Z z = new Z(input);
+            byte i = z.POZ_Z_D;
+            byte t = 2;
+            Assert.AreEqual(t, i);
+        }
+        [TestMethod]
+        public void POZ_Z_DTest2()
+        {
+            List<string> input = new List<string>();
+            input.Add("-");
+            input.Add("145");
+            input.Add("00000002");
+            Z z = new Z(input);
+            byte i = z.POZ_Z_D;
+            byte t = 1;
+            Assert.AreEqual(t, i);
+        }
+        [TestMethod]
+        public void POZ_Z_DTest3()
+        {
+            List<string> input = new List<string>();
+            input.Add("0");
+            Z z = new Z(input);
+            byte i = z.POZ_Z_D;
+            byte t = 0;
+            Assert.AreEqual(t, i);
+        }
+        [TestMethod]
+        public void POZ_Z_DTestEx()
+        {
+            List<string> input = new List<string>();
+            input.Add("0");
+            Z z = new Z(input);
+            byte i = z.POZ_Z_D;
+            Assert.AreNotEqual(null, i);
+        }
     }
 }
