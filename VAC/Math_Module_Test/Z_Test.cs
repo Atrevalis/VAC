@@ -65,7 +65,7 @@ namespace Math_Module_Test
 
         }
         [TestMethod]
-        public void MinusUnarMinusTest()
+        public void MinusUnarMinusTest1()
         {
             List<string> input = new List<string>();
             List<string> input1 = new List<string>();

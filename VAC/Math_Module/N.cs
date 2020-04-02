@@ -241,7 +241,10 @@ namespace Math_Module
         public static N operator %(N first, N second)//есть тесты
         {
             N temp;
-
+            if(second.NZER_N_B)
+            {
+                return null;
+            }
             if (COM_NN_D(first, second) == 1)
                 return first;
             else
