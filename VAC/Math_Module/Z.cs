@@ -133,12 +133,12 @@ namespace Math_Module
             return mult;
         } 
 
-        public static Z operator /(Z first, Z second) // DIV_ZZ_Z
+        public static Z operator /(Z first, Z second) // DIV_ZZ_Z //есть тесты
         {
             return null;
         }
 
-        public static Z operator %(Z first, Z second) // MOD_ZZ_Z
+        public static Z operator %(Z first, Z second) // MOD_ZZ_Z//
         {
             return null;
         }
