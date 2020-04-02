@@ -20,9 +20,11 @@ namespace MVS_Controller
             SizeChanged += new EventHandler(SizeChange);
             Controls.Add(down_contacts);
             BackColor = Color.FromArgb(50, 50, 50);
+            down_contacts.FlatStyle = FlatStyle.Popup;
+            down_contacts.BackgroundImageLayout = ImageLayout.Stretch;
             down_contacts.Location = new Point((int)(Width - (Width*0.16)), 0);
             down_contacts.Size = new Size((int)(Width * 0.16), Height);
-            down_contacts.Image = Image.FromFile(Directory.GetCurrentDirectory() + "\\Resources\\Image\\Start.png");
+            down_contacts.BackgroundImage = Image.FromFile(Directory.GetCurrentDirectory() + "\\Resources\\Image\\Start.png");
             down_contacts.Show();
         }
 
