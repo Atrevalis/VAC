@@ -37,15 +37,24 @@ namespace MVS_Controller
 
                 case MouseButtons.Left:
                     {
-                        if (Active != (sender as Noda))
+                        if (Active == null)
                         {
                             (sender as Noda).BackColor = Color.FromArgb(200, 200, 200);
                             Active = sender as Noda;
                         }
                         else
                         {
-                            Active = null;
-                            (sender as Noda).BackColor = Color.FromArgb(50, 50, 50);
+                            if (Active == sender as Noda)
+                            {
+                                Active = null;
+                                (sender as Noda).BackColor = Color.FromArgb(50, 50, 50);
+                            }
+                            else
+                            {
+                                Active.BackColor = Color.FromArgb(50, 50, 50);
+                                Active = sender as Noda;
+                                (sender as Noda).BackColor = Color.FromArgb(200, 200, 200);
+                            }
                         }
                     }
                     break;

@@ -12,7 +12,6 @@ namespace Math_Module_Test
         {
             List<string> input = new List<string>();
             List<string> input1 = new List<string>();
-            List<string> output = new List<string>();
             input.Add("12");
             input.Add("10000000");
             input1.Add("-");
@@ -20,7 +19,7 @@ namespace Math_Module_Test
             input1.Add("10000000");
             Z X = new Z(input);
             Z I = -X;
-            Z T = new Z(output);
+            Z T = new Z(input1);
             Assert.AreEqual(T, I);
         }
         [TestMethod]

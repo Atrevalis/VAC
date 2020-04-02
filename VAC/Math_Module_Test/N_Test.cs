@@ -587,8 +587,8 @@ namespace Math_Module_Test
             Assert.AreNotEqual(null, lcmN);
         }
         
-        [TestMethod]
-        [Ignore]//проверить игнор
+       // [TestMethod]
+        /*
         public void DIV_NN_DkTest1()
         {
             List<string> input = new List<string>();
@@ -636,7 +636,7 @@ namespace Math_Module_Test
                        N l = N.DIV_NN_Dk(x, i);
                        Assert.AreNotEqual(null, l);
 
-                   } 
+                   } */
             /* [TestMethod]
              public void MUL_ND_NTest1()
              {
@@ -704,13 +704,13 @@ namespace Math_Module_Test
                    Assert.AreNotEqual(null, i);
                }*/
         //ТЕСТЫ ПРИВАТОВ
-        /* [TestMethod]
+        /*[TestMethod]
         public void SUB_NDN_NTest1()
          {
              List<string> input = new List<string>(); //  
              List<string> input1 = new List<string>();// 
              List<string> output = new List<string>();
-             byte i = "2";
+             byte i = 2;
              input.Add("12");
              input.Add("12345678");
              input1.Add("01172839");
@@ -727,7 +727,7 @@ namespace Math_Module_Test
          {
              List<string> input = new List<string>(); //  
              List<string> input1 = new List<string>();// 
-             byte i = "2";
+             byte i = 2;
              input.Add("12");
              input.Add("12345678");
              input1.Add("1172839");
@@ -742,7 +742,7 @@ namespace Math_Module_Test
          {
              List<string> input = new List<string>(); //  
              List<string> input1 = new List<string>();// 
-             byte i = "2";
+             byte i = 2;
              input.Add("12");
              input.Add("12345678");
              input1.Add("01172839");
