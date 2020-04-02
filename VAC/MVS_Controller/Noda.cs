@@ -14,6 +14,8 @@ namespace MVS_Controller
     {
         static public Noda Active = null;
         static public Noda Size_change = null;
+        static public Noda enter = null;
+        static public Noda Loc_change = null;
         public Noda(Form parent, Panel panel)
         {
             InitializeComponent();
@@ -23,6 +25,7 @@ namespace MVS_Controller
             MouseDown += new MouseEventHandler(Noda_click);
             MouseUp += new MouseEventHandler(Noda_up);
             MouseEnter += new EventHandler(Noda_enter);
+            MouseLeave += new EventHandler(Noda_leave);
         }
 
         private static void  Noda_click(object sender, MouseEventArgs e)
@@ -75,7 +78,12 @@ namespace MVS_Controller
 
         private static void Noda_enter(object sender, EventArgs e)
         {
+            enter = (sender as Noda);
+        }
 
+        private static void Noda_leave(object sender, EventArgs e)
+        {
+            enter = null;
         }
     }
 }
