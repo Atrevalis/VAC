@@ -183,7 +183,7 @@ namespace Math_Module
             return product;
         }
 
-        public static N operator /(N first, N second)
+        public static N operator /(N first, N second)//    //Есть тесты
         {
              List<string> zero = new List<string>(); //создаем список с нулём
             zero.Add("0");
@@ -423,7 +423,9 @@ namespace Math_Module
             return result.MUL_Nk_N(value);  //получаем результат
         }
 
-        public static N GCF_NN_N(N first, N second)// Дмитрий Панченко 9370
+
+        public static N GCF_NN_N(N first, N second)// Дмитрий Панченко 9370 //есть тесты
+
         {
             N a = first.Clone(), b = second.Clone();
             while (!(a.NZER_N_B) || !(b.NZER_N_B))
