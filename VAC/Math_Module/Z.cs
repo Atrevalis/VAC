@@ -138,15 +138,20 @@ namespace Math_Module
             Z res = first.Clone(); //задём временную переменную
             Z res1 = second.Clone(); //задём времнную переменную
             res.isN = true;
-            res1.isN = false;
+            res1.isN = true;
             if (N.COM_NN_D(first.Abs, second.Abs) != 1) //если второе небольше первого
             {
                 if (N.COM_NN_D(first.Abs, second.Abs) == 2) //если первое больше второго
                 {
-                    res.Abs /= second.Abs; //выполняем деление
-                    if (first.isN != second.isN)
-                        res.isN = false; //присваимваем знак в случае их различия у делителя и делимого
-                    return res; //возвращаем div
+                    if (second.POZ_Z_D != 0)
+                    {
+                        res.Abs /= second.Abs; //выполняем деление
+                        if (first.isN != second.isN)
+                            res.isN = false; //присваимваем знак в случае их различия у делителя и делимого
+                        return res; //возвращаем div
+                    }
+                    else
+                        return null;
                 }
                 else //если первое равно второму
                 {
@@ -160,10 +165,15 @@ namespace Math_Module
             }
             else //если второе больше первого
             {
-                res1.Abs /= first.Abs; //выполняем деление
-                if (first.isN != second.isN)
-                    res1.isN = false; //присваимваем знак в случае их различия у делителя и делимого
-                return res1; //возвращаем div
+                if (first.POZ_Z_D != 0)
+                {
+                    res1.Abs /= first.Abs; //выполняем деление
+                    if (first.isN != second.isN)
+                        res1.isN = false; //присваимваем знак в случае их различия у делителя и делимого
+                    return res1; //возвращаем div
+                }
+                else
+                    return null;
             }
         }
 
