@@ -79,7 +79,7 @@ namespace Math_Module_Test
             input1.Add("00000000");
             output.Add("-");
             output.Add("12");
-            output.Add("20000000");
+            output.Add("00000000");
             output.Add("00000000");
             Z X = new Z(input);
             Z I = new Z(input1);
