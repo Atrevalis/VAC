@@ -193,19 +193,18 @@ namespace Math_Module
             List<string> zero = new List<string>(); //создаем список с нулём
             zero.Add("0");
             N div = new N(zero); //зануляем перменную счётчик
-            N divres; //переменная для ответа
+            N divres = new N(zero); //переменная для ответа
             if (COM_NN_D(first, second) != 1) //если первое больше второго либо они равны
             {
                 if (COM_NN_D(first, second) == 2) //если первое больше второго 
                 {
                     N result = first.Clone(); //создаем временную переменную
-                    while (COM_NN_D(result, second) == 2) //пока первое больше второго выполняем цикл
+                    while (COM_NN_D(result, second) != 1) //пока первое больше второго выполняем цикл
                     {
-                        div += DIV_NN_Dk(result, second); //наращиваем div первыми цифрами деления
-                        result -= second; //выполняем последовательное понижение большего
+                        div = DIV_NN_Dk(result, second); //наращиваем div первыми цифрами деления
+                        result -= div*second; //выполняем последовательное понижение большего
+                        divres += div;
                     }
-                    byte k = Convert.ToByte(div.znach[div.znach.Count - 1]); //переводим в byte последний элемент div
-                    divres = SUB_NDN_N(first, second, k); //вычитаем из большего меньшее, умноженное на последний элемент div
                     return divres; //возвращаем divres
                 }
                 else // если они равны
@@ -216,16 +215,15 @@ namespace Math_Module
                     return result1; //возвращаем result1
                 }
             }
-            else //если второе больше первого
+            else    //если второе больше первого
             {
                 N result = second.Clone(); //создаем временную переменную
-                while (COM_NN_D(result, first) == 2) //пока первое больше второго выполняем цикл
+                while (COM_NN_D(result, first) != 1) //пока первое больше второго выполняем цикл
                 {
-                    div += DIV_NN_Dk(result, first);  //наращиваем div первыми цифрами деления
-                    result -= first; //выполняем последовательное понижение большего
+                    div = DIV_NN_Dk(result, first);  //наращиваем div первыми цифрами деления
+                    result -= div*first; //выполняем последовательное понижение большего
+                    divres += div;
                 }
-                byte k = Convert.ToByte(div.znach[div.znach.Count - 1]); //переводим в byte последний элемент div
-                divres = SUB_NDN_N(second, first, k); //вычитаем из большего меньшее, умноженное на последний элемент div
                 return divres; //возвращаем divres
             }
         }
@@ -432,7 +430,7 @@ namespace Math_Module
             List<string> rez3 = new List<string>();
             rez3.Add(r);
             N razm2 = new N(rez3);
-            while (COM_NN_D(smaller, divider) == 2) //вычитаем из большего меньшее, пока большее не станет меньше
+            while (COM_NN_D(smaller, divider) != 1) //вычитаем из большего меньшее, пока большее не станет меньше
             {
                 smaller -= divider;
                 result++;
