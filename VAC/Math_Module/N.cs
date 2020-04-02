@@ -183,9 +183,41 @@ namespace Math_Module
             return product;
         }
 
-        public static N operator /(N first, N second)
+        public static N operator /(N first, N second)//    //Есть тесты
         {
-            return null;
+             List<string> zero = new List<string>(); //создаем список с нулём
+            zero.Add("0");
+            N div = new N(zero); //зануляем перменную счётчик
+            if(COM_NN_D(first, second) != 1) //если первое больше второго либо они равны
+            {
+                N result = first.Clone(); //создаем временную переменную
+                if (COM_NN_D(first, second) == 2) //если первое больше второго 
+                {
+                    while (COM_NN_D(first, second) == 2) //пока первое больше второго выполняем цикл
+                    {;
+                        result -= second; //выполняем последовательное вычитание из большего меньшее
+                        div++; //наращиваем div
+                    }
+                    return div; //возвращаем div
+                }
+                else // если они равны
+                {
+                    List<string> one = new List<string>(); //создаем новый список 
+                    one.Add("1"); //добавляем туда единицу
+                    N result1 = new N(one); //задаём значение result1
+                    return result1; //возвращаем result1
+                }
+            }
+            else //если второе больше первого
+            {
+                N result = second.Clone(); //создаем временную переменную
+                while (COM_NN_D(second, first) == 2) //пока второе больше первого выполняем цикл
+                {
+                    result -= first; //выполняем последовательное вычитание из большего меньшее
+                    div++; //наращиваем div
+                }
+                return div; //возвращаем div
+            }
         }
 
         public static N operator %(N first, N second)
@@ -366,6 +398,7 @@ namespace Math_Module
             }
             int i = (divided.znach.Count - 1);  //счиитаем степень k
             string qwerty = Convert.ToString(i);
+
             string perviy = null;
             string vtoroy = null;
             long ost = qwerty.Length % uint_size_div;
@@ -391,9 +424,18 @@ namespace Math_Module
             return result.MUL_Nk_N(value);  //получаем результат
         }
 
-        public static N GCF_NN_N(N first, N second)
+
+        public static N GCF_NN_N(N first, N second)// Дмитрий Панченко 9370 //есть тесты
+
         {
-            return null;
+            N a = first.Clone(), b = second.Clone();
+            while (!(a.NZER_N_B) || !(b.NZER_N_B))
+            {
+                if (COM_NN_D(a, b) == 2)
+                    a %= b;
+                else b %= a;
+            }
+            return a + b;
         }
 
         public static N LCM_NN_N(N first, N second)

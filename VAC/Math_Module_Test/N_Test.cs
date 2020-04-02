@@ -259,6 +259,74 @@ namespace Math_Module_Test
         }
         // Test 
 
+        [TestMethod]
+        public void devisionTest1()
+		{
+            List<string> input = new List<string>();
+            List<string> input1 = new List<string>();
+            List<string> output = new List<string>();
+            input.Add("1");
+            input.Add("12345675");
+            input.Add("00000000");
+            input1.Add("1");
+            input1.Add("12345675");
+            output.Add("1");
+            output.Add("00000000");
+            N n = new N(input);
+            N i = new N(input1);
+            N t = new N(output);
+            Assert.AreEqual(t, n / i);
+
+        }
+        [TestMethod]
+        public void devisionTest2()
+        {
+            List<string> input = new List<string>();
+            List<string> input1 = new List<string>();
+            List<string> output = new List<string>();
+            input.Add("1");
+            input.Add("11111111");
+            input1.Add("1");
+            input1.Add("11111111");
+            output.Add("1");
+            N n = new N(input);
+            N i = new N(input1);
+            N t = new N(output);
+            Assert.AreEqual(t, n / i);
+
+        }
+        [TestMethod]
+        public void devisionTest3()
+        {
+            List<string> input = new List<string>();
+            List<string> input1 = new List<string>();
+            List<string> output = new List<string>();
+            input.Add("2");
+            input.Add("22222222");
+            input1.Add("1");
+            input1.Add("11111111");
+            output.Add("2");
+            N n = new N(input);
+            N i = new N(input1);
+            N t = new N(output);
+            Assert.AreEqual(t, n / i);
+
+        }
+        [TestMethod]
+        public void devisionTestEx()
+        {
+            List<string> input = new List<string>();
+            List<string> input1 = new List<string>();
+            input.Add("1");
+            input.Add("12345675");
+            input.Add("00000000");
+            input1.Add("1");
+            input1.Add("12345675");
+            N n = new N(input);
+            N i = new N(input1);
+            Assert.AreNotEqual(null, n / i);
+
+        }
 
 
         //RoflTest 
@@ -355,8 +423,8 @@ namespace Math_Module_Test
         [TestMethod]
         public void GCF_NN_NTest1()
         {
-            List<string> input = new List<string>();//  102833424
-            List<string> input1 = new List<string>();// 1110775896
+            List<string> input = new List<string>();//   1 02833424
+            List<string> input1 = new List<string>();// 11 10775896
             List<string> output = new List<string>();// 72
             input.Add("1");
             input.Add("02833424");
@@ -370,12 +438,29 @@ namespace Math_Module_Test
             Assert.AreEqual(o, gcfN);
         }
 
-        /*[TestMethod]
-        public void GCF_NN_NTest2()//не готово
+        [TestMethod]
+        public void GCF_NN_NTest2()
+        {
+            List<string> input = new List<string>(); //  83 76371580
+            List<string> input1 = new List<string>();//  20 84747570
+            List<string> output = new List<string>();//  170
+            input.Add("83");
+            input.Add("76371580");
+            input1.Add("20");
+            input1.Add("84747570");
+            output.Add("170");
+            N n = new N(input);
+            N i = new N(input1);
+            N t = new N(output);
+            N gcfN = N.GCF_NN_N(n, i);
+            Assert.AreEqual(t, gcfN);
+        }
+        [TestMethod]
+        public void GCF_NN_NTestEx()
         {
             List<string> input = new List<string>(); //  
             List<string> input1 = new List<string>();// 
-            List<string> output = new List<string>();// 456456456
+            List<string> output = new List<string>();// 
             input.Add("1");
             input.Add("02833424");
             input1.Add("11");
@@ -383,10 +468,9 @@ namespace Math_Module_Test
             output.Add("72");
             N n = new N(input);
             N i = new N(input1);
-            N o = new N(output);
             N gcfN = N.GCF_NN_N(n, i);
-            Assert.AreEqual(o, gcfN);
-        }*/
+            Assert.AreNotEqual(null, gcfN);
+        }
         /*
        [TestMethod]
         public void DIV_NN_DkTest1()
@@ -449,7 +533,7 @@ namespace Math_Module_Test
              N x = new N(input);
              N t = new N(output);
              N i = x.MUL_ND_N(input1);
-             Assert.AreEqual(t, i);
+             Assert.AreEqual(t,i);
          }
          [TestMethod]
          public void MUL_ND_NTestEx()
