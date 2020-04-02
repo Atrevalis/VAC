@@ -220,7 +220,7 @@ namespace Math_Module
             }
         }
 
-        public static N operator %(N first, N second)
+        public static N operator %(N first, N second)//есть тесты
         {
             N temp;
 
@@ -234,7 +234,7 @@ namespace Math_Module
         }
         
 
-        public static implicit operator List<string>(N value) // Александр Рассохин 9370
+        public static implicit operator List<string>(N value) // Александр Рассохин 9370//есть тесты
         {
             List<string> S = new List<string>();
             System.Text.StringBuilder temp = new System.Text.StringBuilder();  // временная переменная для записи разрядов
@@ -438,7 +438,7 @@ namespace Math_Module
             return a + b;
         }
 
-        public static N LCM_NN_N(N first, N second)
+        public static N LCM_NN_N(N first, N second)//есть тесты 
         {
             return null;
         }

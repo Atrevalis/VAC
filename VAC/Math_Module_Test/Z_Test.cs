@@ -137,7 +137,7 @@ namespace Math_Module_Test
             CollectionAssert.AreNotEqual(null, (List<string>)z);
         }
 
-        /*
+       
 
         [TestMethod]
         public void isDownTest()
@@ -146,15 +146,22 @@ namespace Math_Module_Test
             input.Add("12");
             input.Add("00000009");
             Z z = new Z(input);
-            N n = new N(input);
-            N ZtoN = z.isDown;
-            Assert.AreEqual(n, ZtoN);
-
+            bool i = z.isDown;
+            Assert.AreEqual(true, i);
         }
 
-            */
-
-        /*
+           
+        [TestMethod]
+        public void isDownTest2()
+        {
+            List<string> input = new List<string>();
+            input.Add("-");
+            input.Add("12");
+            input.Add("00000009");
+            Z z = new Z(input);
+            bool i = z.isDown;
+            Assert.AreEqual(false, i);
+        }
 
         [TestMethod]
         public void isDownTestEx()
@@ -163,11 +170,12 @@ namespace Math_Module_Test
             input.Add("12");
             input.Add("00000009");
             Z z = new Z(input);
-            N ZtoN = z.isDown;
-            Assert.AreNotEqual(null, ZtoN);
+            bool i = z.isDown;
+            Assert.AreNotEqual(null, i);
+
         }
 
-    */
+
         [TestMethod]
         public void multiplicationTest1()
         {
