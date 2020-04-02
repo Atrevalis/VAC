@@ -191,7 +191,6 @@ namespace Math_Module_Test
         {
             List<string> input = new List<string>();
             List<string> input1 = new List<string>();
-            List<string> output = new List<string>();
             input.Add("2");
             input1.Add("1");
             input1.Add("00000000");
@@ -587,8 +586,8 @@ namespace Math_Module_Test
             Assert.AreNotEqual(null, lcmN);
         }
         
-       // [TestMethod]
-        /*
+        [TestMethod]
+        [Ignore]//проверить игнор
         public void DIV_NN_DkTest1()
         {
             List<string> input = new List<string>();
@@ -636,75 +635,87 @@ namespace Math_Module_Test
                        N l = N.DIV_NN_Dk(x, i);
                        Assert.AreNotEqual(null, l);
 
-                   } */
-            /* [TestMethod]
-             public void MUL_ND_NTest1()
-             {
-                 List<string> input = new List<string>();
-                 List<string> output = new List<string>();
-                 byte input1 = 3;
-                 input.Add("87654321");
-                 output.Add("1");
-                 output.Add("75308642");
-                 N x = new N(input);
-                 N t = new N(output);
-                 N i = x.MUL_ND_N(input1);
-                 Assert.AreEqual(t,i);
-             }
+                   }
+        /* [TestMethod]
+         public void MUL_ND_NTest1()
+         {
+             List<string> input = new List<string>();
+             List<string> output = new List<string>();
+             byte input1 = 3;
+             input.Add("87654321");
+             output.Add("1");
+             output.Add("75308642");
+             N x = new N(input);
+             N t = new N(output);
+             N i = x.MUL_ND_N(input1);
+             Assert.AreEqual(t,i);
+         }
+         [TestMethod]
+         public void MUL_ND_NTestEx()
+         {
+             List<string> input = new List<string>();
+             List<string> output = new List<string>();
+             byte input1 = 3;
+             input.Add("87654321");
+             output.Add("1");
+             output.Add("75308642");
+             N x = new N(input);
+             N t = new N(output);
+             N i = x.MUL_ND_N(input1);
+             Assert.AreNotEqual(null, i);
+         }*/
+        /*   [TestMethod]
+           public void MUL_Nk_NTest1()
+           {
+               List<string> input = new List<string>();
+               List<string> input1 = new List<string>();
+               List<string> output = new List<string>();
+               input.Add("1");
+               input.Add("10000000");
+               input1.Add("10");
+               output.Add("110");
+               output.Add("00000000");
+               output.Add("00000000");
+               N x = new N(input);
+               N value = new N(input1);
+               N t = new N(output);
+               N i = x.MUL_Nk_N(value);
+               Assert.AreEqual(t, i);
+           }
+
              [TestMethod]
-             public void MUL_ND_NTestEx()
-             {
-                 List<string> input = new List<string>();
-                 List<string> output = new List<string>();
-                 byte input1 = 3;
-                 input.Add("87654321");
-                 output.Add("1");
-                 output.Add("75308642");
-                 N x = new N(input);
-                 N t = new N(output);
-                 N i = x.MUL_ND_N(input1);
-                 Assert.AreNotEqual(null, i);
-             }*/
-            /*   [TestMethod]
-               public void MUL_Nk_NTest1()
-               {
-                   List<string> input = new List<string>();
-                   List<string> input1 = new List<string>();
-                   List<string> output = new List<string>();
-                   input.Add("1");
-                   input.Add("10000000");
-                   input1.Add("10");
-                   input1.Add("00000000");
-                   output.Add("11");
-                   output.Add("00000000");
-                   input1.Add("00000000");
-                   N x = new N(input);
-                   N value = new N(input1);
-                   N t = new N(output);
-                   N i = x.MUL_Nk_N(value);
-                   Assert.AreEqual(t, i);
-               }
-               [TestMethod]
-               public void MUL_Nk_NTestEx()
-               {
-                   List<string> input = new List<string>();
-                   List<string> input1 = new List<string>();
-                   List<string> output = new List<string>();
-                   input.Add("1");
-                   input.Add("10000000");
-                   input1.Add("10");
-                   input1.Add("00000000");
-                   output.Add("11");
-                   output.Add("00000000");
-                   input1.Add("00000000");
-                   N x = new N(input);
-                   N value = new N(input1);
-                   N t = new N(output);
-                   N i = x.MUL_Nk_N(value);
-                   Assert.AreNotEqual(null, i);
-               }*/
+           public void MUL_Nk_NTest2()
+           {
+               List<string> input = new List<string>();
+               List<string> input1 = new List<string>();
+               List<string> output = new List<string>();
+               input.Add("1");
+               input.Add("10000000");
+               input1.Add("0");
+               input1.Add("1");
+               input1.Add("10000000");
+               N x = new N(input);
+               N value = new N(input1);
+               N t = new N(output);
+               N i = x.MUL_Nk_N(value);
+               Assert.AreEqual(t, i);
+           }
+          
+           [TestMethod]
+           public void MUL_Nk_NTestEx()
+           {
+               List<string> input = new List<string>();
+               List<string> input1 = new List<string>();
+               input.Add("1");
+               input.Add("10000000");
+               input1.Add("10");
+               N x = new N(input);
+               N value = new N(input1);
+               N i = x.MUL_Nk_N(value);
+               Assert.AreNotEqual(null, i);
+           }*/
         //ТЕСТЫ ПРИВАТОВ
-        /*[TestMethod]
+        /* [TestMethod]
         public void SUB_NDN_NTest1()
          {
              List<string> input = new List<string>(); //  

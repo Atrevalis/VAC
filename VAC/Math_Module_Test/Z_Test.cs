@@ -8,7 +8,7 @@ namespace Math_Module_Test
     public class Z_Test
     {
         [TestMethod]
-        public void minusUnarEx()
+        public void minusUnar()
         {
             List<string> input = new List<string>();
             List<string> input1 = new List<string>();
