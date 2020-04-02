@@ -18,6 +18,8 @@ namespace MVS_Controller
             InitializeComponent();
             Controls.Add(down_contacts);
             BackColor = Color.FromArgb(50, 50, 50);
+            down_contacts.Location = new Point((int)(Width - (Width*0.16)), 0);
+            down_contacts.Size = new Size((int)(Width * 0.16), Height);
             down_contacts.Show();
         }
     }
