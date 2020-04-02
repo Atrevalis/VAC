@@ -304,6 +304,20 @@ namespace Math_Module_Test
 
         }
         [TestMethod]
+        public void devisionByZeroTest4()
+        {
+            List<string> input = new List<string>();
+            List<string> input1 = new List<string>();
+            input.Add("-");
+            input.Add("2");
+            input.Add("22222222");
+            input1.Add("0");
+            Z n = new Z(input);
+            Z i = new Z(input1);
+            Assert.AreEqual(null, n / i);
+
+        }
+        [TestMethod]
         public void devisionTestEx()
         {
             List<string> input = new List<string>();
@@ -368,6 +382,18 @@ namespace Math_Module_Test
             Z i = new Z(input1);
             Z t = new Z(output);
             Assert.AreEqual(t, n % i);
+        }
+        public void remainderByZeroTest()
+        {
+            List<string> input = new List<string>();
+            List<string> input1 = new List<string>();
+            input.Add("-");
+            input.Add("10");
+            input.Add("00000002");
+            input1.Add("0");
+            Z n = new Z(input);
+            Z i = new Z(input1);
+            Assert.AreEqual(null, n % i);
         }
         [TestMethod]
         public void remainderTestEx()
@@ -488,6 +514,43 @@ namespace Math_Module_Test
             Z z = new Z(input);
             Z zClone = z.Clone();
             Assert.AreEqual(false, z == zClone);
+        }
+        [TestMethod]
+        public void ZtoNTest1()
+        {
+            List<string> input = new List<string>();
+            List<string> output = new List<string>();
+            input.Add("1234");
+            input.Add("12345678");
+            Z z = new Z(input);
+            N t = new N(input);
+            N c = (N)z;
+            Assert.AreEqual(t, c);
+        }
+
+        [TestMethod]
+        public void ZtoNTest2()
+        {
+            List<string> input = new List<string>();
+            List<string> output = new List<string>();
+            input.Add("-");
+            input.Add("1234");
+            input.Add("12345678");
+            Z z = new Z(input);
+            N c = (N)z;
+            Assert.AreEqual(null, c);
+        }
+        [TestMethod]
+        public void ZtoNTestEx()
+        {
+            List<string> input = new List<string>();
+            List<string> output = new List<string>();
+            input.Add("1234");
+            input.Add("12345678");
+            Z z = new Z(input);
+            N t = new N(input);
+            N c = (N)z;
+            Assert.AreNotEqual(null, c);
         }
 
     }
