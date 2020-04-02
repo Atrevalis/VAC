@@ -309,7 +309,7 @@ namespace Math_Module
             return k;
         }
 
-        private N MUL_Nk_N(N value) // Умножение числа на 10^value - Дмитрий Панченко 9370//тест есть(закоммичен)
+        public N MUL_Nk_N(N value) // Умножение числа на 10^value - Дмитрий Панченко 9370//тест есть(закоммичен)
         {
             List<string> s = new List<string>();
             s.Add(Convert.ToString(uint_size_div));
