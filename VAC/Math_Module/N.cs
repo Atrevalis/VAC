@@ -430,6 +430,10 @@ namespace Math_Module
                 }
                 f--;
                 step = Convert.ToString(divided.znach[f]);
+                while (step.Length < uint_size_div)
+                {
+                    step = "0" + step;
+                }
             }
             N result = new N(zero);
             string w = Convert.ToString(smaller.znach.Count - 1);
