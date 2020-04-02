@@ -164,13 +164,25 @@ namespace Math_Module
             N value = new N(zero);
             for (int i = 0; i < second.znach.Count; i++) //Перебираем все элементы 2-ого поля
             {
+                if (second.znach[i] == 0)
+                {
+                    product.znach.Insert(0, 0);
+                    for (int q = 0; q < uint_size_div; q++) value++;
+                    continue;
+                }
                 uint now = second.znach[i];
+                int j = 0;
                 while (now != 0)    //Перебираем все цифры элемента
                 {
                     byte factor = Convert.ToByte(now % 10);
                     product += (first.MUL_ND_N(factor)).MUL_Nk_N(value); //Сохраняем результат умножение 1-ого поля на цифру
                     value++;
+                    j++;
                     now = now / 10;
+                }
+                for(int k = j; k < uint_size_div; k++)
+                {
+                    value++;
                 }
             }
             return product;
@@ -308,7 +320,7 @@ namespace Math_Module
             for (int i = 0; i < znach.Count; i++)
             {
                 k.znach[i] = k.znach[i] * value + g;
-                g = k.znach[i] / uint_size + 1;
+                g = k.znach[i] / (uint_size + 1);
             }
 
             return k;
@@ -326,7 +338,12 @@ namespace Math_Module
                 value -= usdn;
                 count++;
             }
-            string change = ""; uint uvalue = value.znach[0];
+            string change = "";
+            uint uvalue = value.znach[0];
+            for(int i = 0; i < uvalue; i++)
+            {
+                change += "0";
+            }
             for (int i = count; i < k.znach.Count; i++)
             {
                 string now = Convert.ToString(k.znach[i]);
@@ -335,7 +352,7 @@ namespace Math_Module
                     now = "0" + now;
                 }
                 now += change;
-                char[] stupid = new char[uint_size_div];
+                char[] stupid = new char[uvalue];
                 now.CopyTo(0, stupid, 0, Convert.ToInt32(uvalue));
                 change = new string(stupid);
                 now = now.Remove(0, Convert.ToInt32(uvalue));
