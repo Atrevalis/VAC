@@ -192,20 +192,25 @@ namespace Math_Module
         {
             List<string> zero = new List<string>(); //создаем список с нулём
             zero.Add("0");
-            N div = new N(zero); //зануляем перменную счётчик
+            N div; //зануляем перменную счётчик
             N divres = new N(zero); //переменная для ответа
             if (COM_NN_D(first, second) != 1) //если первое больше второго либо они равны
             {
                 if (COM_NN_D(first, second) == 2) //если первое больше второго 
                 {
-                    N result = first.Clone(); //создаем временную переменную
-                    while (COM_NN_D(result, second) != 1) //пока первое больше второго выполняем цикл
+                    if (!(second.NZER_N_B))
                     {
-                        div = DIV_NN_Dk(result, second); //наращиваем div первыми цифрами деления
-                        result -= div*second; //выполняем последовательное понижение большего
-                        divres += div;
+                        N result = first.Clone(); //создаем временную переменную
+                        while (COM_NN_D(result, second) != 1) //пока первое больше второго выполняем цикл
+                        {
+                            div = DIV_NN_Dk(result, second); //наращиваем div первыми цифрами деления
+                            result -= div * second; //выполняем последовательное понижение большего
+                            divres += div;
+                        }
+                        return divres; //возвращаем divres
                     }
-                    return divres; //возвращаем divres
+                    else
+                        return null;
                 }
                 else // если они равны
                 {
@@ -215,16 +220,21 @@ namespace Math_Module
                     return result1; //возвращаем result1
                 }
             }
-            else    //если второе больше первого
+            else //если второе больше первого
             {
-                N result = second.Clone(); //создаем временную переменную
-                while (COM_NN_D(result, first) != 1) //пока первое больше второго выполняем цикл
+                if (!(first.NZER_N_B))
                 {
-                    div = DIV_NN_Dk(result, first);  //наращиваем div первыми цифрами деления
-                    result -= div*first; //выполняем последовательное понижение большего
-                    divres += div;
+                    N result = second.Clone(); //создаем временную переменную
+                    while (COM_NN_D(result, first) != 1) //пока первое больше второго выполняем цикл
+                    {
+                        div = DIV_NN_Dk(result, first);  //наращиваем div первыми цифрами деления
+                        result -= div * first; //выполняем последовательное понижение большего
+                        divres += div;
+                    }
+                    return divres; //возвращаем divres
                 }
-                return divres; //возвращаем divres
+                else
+                    return null;
             }
         }
 
@@ -420,6 +430,10 @@ namespace Math_Module
                 }
                 f--;
                 step = Convert.ToString(divided.znach[f]);
+                while (step.Length < uint_size_div)
+                {
+                    step = "0" + step;
+                }
             }
             N result = new N(zero);
             string w = Convert.ToString(smaller.znach.Count - 1);
@@ -451,16 +465,28 @@ namespace Math_Module
 
 
         public static N GCF_NN_N(N first, N second)// Дмитрий Панченко 9370 //есть тесты
-
         {
-            N a = first.Clone(), b = second.Clone();
+            N a = first.Clone();
+            N b = second.Clone();
             while (!(a.NZER_N_B) || !(b.NZER_N_B))
             {
-                if (COM_NN_D(a, b) == 2)
+                if (COM_NN_D(a, b) != 1)
+                {
                     a %= b;
-                else b %= a;
+                }
+                else
+                {
+                    b %= a;
+                }
             }
-            return a + b;
+            if (COM_NN_D(a, b) == 2)
+            {
+                return a;
+            }
+            else
+            {
+                return b;
+            }
         }
 
         public static N LCM_NN_N(N first, N second)//есть тесты 
