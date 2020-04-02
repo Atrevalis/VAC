@@ -19,6 +19,7 @@ namespace Visual_Module
         public Main_Window()
         {
             InitializeComponent();
+            timer1.Start();
         }
 
         private void toolStripMenuItem2_Click(object sender, EventArgs e)
@@ -110,6 +111,18 @@ namespace Visual_Module
         {
             if (panel1.Location.X + e.Delta <= 0 && panel1.Location.X + panel1.Width >= Width)
                 panel1.Location = new Point(panel1.Location.X + e.Delta, panel1.Location.Y);
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if(Noda.enter != null)
+            {
+                toolStripStatusLabel1.Text = Noda.enter.ToString();
+            }
+            else
+            {
+                toolStripStatusLabel1.Text = "";
+            }
         }
     }
 }

@@ -14,7 +14,7 @@ namespace MVS_Controller
     {
         static public Noda Active = null;
         static private Noda Size_change = null;
-        static private Noda enter = null;
+        static public Noda enter = null;
         static private Noda Loc_change = null;
         static private Point Mouse_pos = new Point(0, 0);
 

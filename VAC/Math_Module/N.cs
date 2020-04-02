@@ -452,17 +452,18 @@ namespace Math_Module
         }
 
 
-        public static N GCF_NN_N(N first, N second)// Дмитрий Панченко 9370 //есть тесты
-
+        public static N GCF_NN_N(N first, N second)// Дмитрий Панченко 9370 //есть те
         {
             N a = first.Clone(), b = second.Clone();
             while (!(a.NZER_N_B) || !(b.NZER_N_B))
             {
-                if (COM_NN_D(a, b) == 2)
+                if (COM_NN_D(a, b) != 1)
                     a %= b;
                 else b %= a;
             }
-            return a + b;
+            if (COM_NN_D(a, b) == 2)
+                return a;
+            else return b;
         }
 
         public static N LCM_NN_N(N first, N second)//есть тесты 
