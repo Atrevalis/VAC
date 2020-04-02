@@ -330,7 +330,7 @@ namespace Math_Module
                     now = "0" + now;
                 }
                 now += change;
-                char[] stupid = new char[8];
+                char[] stupid = new char[uint_size_div];
                 now.CopyTo(0, stupid, 0, Convert.ToInt32(uvalue));
                 change = new string(stupid);
                 now = now.Remove(0, Convert.ToInt32(uvalue));
