@@ -246,8 +246,148 @@ namespace Math_Module_Test
             Z x = new Z(input1);
             Assert.AreNotEqual(null, z * x);
         }
-        
-            [TestMethod]
+        [TestMethod]
+        public void devisionTest1()
+        {
+            List<string> input = new List<string>();
+            List<string> input1 = new List<string>();
+            List<string> output = new List<string>();
+            input.Add("1");
+            input.Add("12345675");
+            input.Add("00000000");
+            input1.Add("1");
+            input1.Add("12345675");
+            output.Add("1");
+            output.Add("00000000");
+            Z n = new Z(input);
+            Z i = new Z(input1);
+            Z t = new Z(output);
+            Assert.AreEqual(t, n / i);
+
+        }
+        [TestMethod]
+        public void devisionTest2()
+        {
+            List<string> input = new List<string>();
+            List<string> input1 = new List<string>();
+            List<string> output = new List<string>();
+            input.Add("-");
+            input.Add("1");
+            input.Add("11111111");
+            input1.Add("1");
+            input1.Add("11111111");
+            output.Add("-");
+            output.Add("1");
+            Z n = new Z(input);
+            Z i = new Z(input1);
+            Z t = new Z(output);
+            Assert.AreEqual(t, n / i);
+
+        }
+        [TestMethod]
+        public void devisionTest3()
+        {
+            List<string> input = new List<string>();
+            List<string> input1 = new List<string>();
+            List<string> output = new List<string>();
+            input.Add("-");
+            input.Add("2");
+            input.Add("22222222");
+            input1.Add("-");
+            input1.Add("1");
+            input1.Add("11111111");
+            output.Add("2");
+            Z n = new Z(input);
+            Z i = new Z(input1);
+            Z t = new Z(output);
+            Assert.AreEqual(t, n / i);
+
+        }
+        [TestMethod]
+        public void devisionTestEx()
+        {
+            List<string> input = new List<string>();
+            List<string> input1 = new List<string>();
+            input.Add("1");
+            input.Add("12345675");
+            input.Add("00000000");
+            input1.Add("1");
+            input1.Add("12345675");
+            Z n = new Z(input);
+            Z i = new Z(input1);
+            Assert.AreNotEqual(null, n / i);
+
+        }
+
+        [TestMethod]//%
+        public void remainderTest1()
+        {
+            List<string> input = new List<string>();
+            List<string> input1 = new List<string>();
+            List<string> output = new List<string>();
+            input.Add("145");
+            input.Add("56543564");
+            input1.Add("1");
+            input1.Add("00003564");//145 00516780
+            output.Add("56026784");
+            Z n = new Z(input);
+            Z i = new Z(input1);
+            Z t = new Z(output);
+            Assert.AreEqual(t, n % i);
+        }
+        [TestMethod]
+        public void remainderTest2()
+        {
+            List<string> input = new List<string>();
+            List<string> input1 = new List<string>();
+            List<string> output = new List<string>();
+            input.Add("1");
+            input.Add("00000000");
+            input1.Add("1");
+            input1.Add("00000000");
+            output.Add("0");
+            Z n = new Z(input);
+            Z i = new Z(input1);
+            Z t = new Z(output);
+            Assert.AreEqual(t, n % i);
+        }
+        [TestMethod]//%
+        public void remainderTest3()
+        {
+            List<string> input = new List<string>();
+            List<string> input1 = new List<string>();
+            List<string> output = new List<string>();
+            input.Add("-");
+            input.Add("10");
+            input.Add("00000002");
+            input1.Add("5");
+            input1.Add("00000000");
+            output.Add("4");
+            output.Add("99999998");
+            Z n = new Z(input);
+            Z i = new Z(input1);
+            Z t = new Z(output);
+            Assert.AreEqual(t, n % i);
+        }
+        [TestMethod]
+        public void remainderTestEx()
+        {
+            List<string> input = new List<string>();
+            List<string> input1 = new List<string>();
+            List<string> output = new List<string>();
+            input.Add("1");
+            input.Add("00000000");
+            input1.Add("1");
+            input1.Add("00000000");
+            Z n = new Z(input);
+            Z i = new Z(input1);
+           
+            Assert.AreNotEqual(null, n % i);
+        }
+
+
+
+        [TestMethod]
         public void ABS_Z_NTest1()
         {
             List<string> input = new List<string>();
