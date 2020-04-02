@@ -361,7 +361,7 @@ namespace Math_Module
                 return null;
         }
 
-        private static N DIV_NN_Dk(N first, N second) // Шлемин Роман 9370//тест есть(закоммичен)
+        private static N DIV_NN_Dk(N first, N second) // Шлемин Роман 9370//тест есть(закоммичен) (нужно деление)
         {
             N divided = null;
             N divider = null;
@@ -397,7 +397,8 @@ namespace Math_Module
                 result /= gran;
             }
             int i = (divided.znach.Count - 1);  //счиитаем степень k
-            string qwerty = i.ToString();
+            string qwerty = Convert.ToString(i);
+
             string perviy = null;
             string vtoroy = null;
             long ost = qwerty.Length % uint_size_div;
