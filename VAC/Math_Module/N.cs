@@ -192,20 +192,25 @@ namespace Math_Module
         {
             List<string> zero = new List<string>(); //создаем список с нулём
             zero.Add("0");
-            N div = new N(zero); //зануляем перменную счётчик
+            N div; //зануляем перменную счётчик
             N divres = new N(zero); //переменная для ответа
             if (COM_NN_D(first, second) != 1) //если первое больше второго либо они равны
             {
                 if (COM_NN_D(first, second) == 2) //если первое больше второго 
                 {
-                    N result = first.Clone(); //создаем временную переменную
-                    while (COM_NN_D(result, second) != 1) //пока первое больше второго выполняем цикл
+                    if (!(second.NZER_N_B))
                     {
-                        div = DIV_NN_Dk(result, second); //наращиваем div первыми цифрами деления
-                        result -= div*second; //выполняем последовательное понижение большего
-                        divres += div;
+                        N result = first.Clone(); //создаем временную переменную
+                        while (COM_NN_D(result, second) != 1) //пока первое больше второго выполняем цикл
+                        {
+                            div = DIV_NN_Dk(result, second); //наращиваем div первыми цифрами деления
+                            result -= div * second; //выполняем последовательное понижение большего
+                            divres += div;
+                        }
+                        return divres; //возвращаем divres
                     }
-                    return divres; //возвращаем divres
+                    else
+                        return null;
                 }
                 else // если они равны
                 {
@@ -215,16 +220,21 @@ namespace Math_Module
                     return result1; //возвращаем result1
                 }
             }
-            else    //если второе больше первого
+            else //если второе больше первого
             {
-                N result = second.Clone(); //создаем временную переменную
-                while (COM_NN_D(result, first) != 1) //пока первое больше второго выполняем цикл
+                if (!(first.NZER_N_B))
                 {
-                    div = DIV_NN_Dk(result, first);  //наращиваем div первыми цифрами деления
-                    result -= div*first; //выполняем последовательное понижение большего
-                    divres += div;
+                    N result = second.Clone(); //создаем временную переменную
+                    while (COM_NN_D(result, first) != 1) //пока первое больше второго выполняем цикл
+                    {
+                        div = DIV_NN_Dk(result, first);  //наращиваем div первыми цифрами деления
+                        result -= div * first; //выполняем последовательное понижение большего
+                        divres += div;
+                    }
+                    return divres; //возвращаем divres
                 }
-                return divres; //возвращаем divres
+                else
+                    return null;
             }
         }
 
