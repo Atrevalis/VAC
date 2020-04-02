@@ -135,7 +135,56 @@ namespace Math_Module
 
         public static Z operator /(Z first, Z second) // DIV_ZZ_Z //есть тесты
         {
-            return null;
+             List<string> zero = new List<string>(); //создаем список с нулём
+            zero.Add("0");
+            Z div = new Z(zero); //зануляем перменную счётчик
+            div.isN = true;
+            if (N.COM_NN_D(first.Abs, second.Abs) != 1) //если второе небольше первого
+            {
+                if (second.POZ_Z_D != 0) //проверка на ноль
+                {
+                    if (N.COM_NN_D(first.Abs, second.Abs) == 2) //если первое больше второго
+                    {
+                        Z res = first.Clone(); //задём временную переменную
+                        while (N.COM_NN_D(res.Abs, second.Abs) == 2) //пока первое больше второго
+                        {
+                            res.Abs -= second.Abs; //выполняем последовательное вычитание
+                            div.Abs++; //наращиваем div
+                        }
+                        if (first.isN != second.isN)
+                            div.isN = false; //присваимваем знак в случае их различия у делителя и делимого
+                        return div; //возвращаем div
+                    }
+                    else //если первое равно второму
+                    {
+                        List<string> one = new List<string>(); //создаем новый список 
+                        one.Add("1"); //добавляем туда единицу
+                        Z result = new Z(one); //задаём значение result
+                        if (first.isN != second.isN)
+                            result.isN = false; //присваимваем знак в случае их различия у делителя и делимого
+                        return result; //возвращаем result
+                    }
+                }
+                else //если ноль возвращаем null
+                    return null;
+            }
+            else //если второе больше первого
+            {
+                if (first.POZ_Z_D != 0) //проверка на ноль
+                {
+                    Z res = second.Clone(); //задём времнную переменную
+                    while (N.COM_NN_D(res.Abs, first.Abs) == 2) //пока первое больше второго
+                    {
+                        res.Abs -= first.Abs; //выполняем последовательное вычитание
+                        div.Abs++; //наращиваем div
+                    }
+                    if (first.isN != second.isN)
+                        div.isN = false; //присваимваем знак в случае их различия у делителя и делимого
+                    return div; //возвращаем div
+                }
+                else //если ноль возвращаем null
+                    return null;
+            }
         }
 
         public static Z operator %(Z first, Z second) // MOD_ZZ_Z //есть тесты
