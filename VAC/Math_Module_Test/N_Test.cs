@@ -9,7 +9,7 @@ namespace Math_Module_Test
     [TestClass]
     public class N_Test
     {
-
+        
         //++Test
         [TestMethod]
         public void plusPlusTest1()
@@ -207,7 +207,7 @@ namespace Math_Module_Test
 
         //*Test
 
-        [TestMethod] 
+        [TestMethod]
 
         public void multiplicationTest1()
 
@@ -258,10 +258,10 @@ namespace Math_Module_Test
             Assert.AreNotEqual(null, n * i);
         }
         // Test 
-
+        ///
         [TestMethod]
         public void devisionTest1()
-		{
+        {
             List<string> input = new List<string>();
             List<string> input1 = new List<string>();
             List<string> output = new List<string>();
@@ -326,6 +326,52 @@ namespace Math_Module_Test
             N i = new N(input1);
             Assert.AreNotEqual(null, n / i);
 
+        }
+        [TestMethod]//%
+        public void remainderTest1()
+		{
+            List<string> input = new List<string>();
+            List<string> input1 = new List<string>();
+            List<string> output = new List<string>();
+            input.Add("145");
+            input.Add("56543564");
+            input1.Add("1");
+            input1.Add("00003564");//145 00516780
+            output.Add("56026784");
+            N n = new N(input);
+            N i = new N(input1);
+            N t = new N(output);
+            Assert.AreEqual(t, n % i);
+        }
+        [TestMethod]
+        public void remainderTest2()
+        {
+            List<string> input = new List<string>();
+            List<string> input1 = new List<string>();
+            List<string> output = new List<string>();
+            input.Add("1");
+            input.Add("00000000");
+            input1.Add("1");
+            input1.Add("00000000");
+            output.Add("1");
+            N n = new N(input);
+            N i = new N(input1);
+            N t = new N(output);
+            Assert.AreEqual(t, n % i);
+        }
+        [TestMethod]
+        public void remainderTestEx()
+        {
+            List<string> input = new List<string>();
+            List<string> input1 = new List<string>();
+            List<string> output = new List<string>();
+            input.Add("1");
+            input.Add("00000000");
+            input1.Add("1");
+            input1.Add("00000000");
+            N n = new N(input);
+            N i = new N(input1);
+            Assert.AreNotEqual(null, n % i);
         }
 
 
@@ -471,8 +517,64 @@ namespace Math_Module_Test
             N gcfN = N.GCF_NN_N(n, i);
             Assert.AreNotEqual(null, gcfN);
         }
-        /*
-       [TestMethod]
+        [TestMethod]
+        public void LCM_NN_NTest1()
+		{
+            List<string> input = new List<string>(); //  
+            List<string> input1 = new List<string>();// 
+            List<string> output = new List<string>();//8879239 63067648
+            input.Add("11");
+            input.Add("35676288");
+            input1.Add("1");
+            input1.Add("00076288");
+            output.Add("8879239");
+            output.Add("63067648");
+            N n = new N(input);
+            N i = new N(input1);
+            N t = new N(output);
+            N lcmN = N.LCM_NN_N(n, i);
+            Assert.AreEqual(t,lcmN);
+        }
+        [TestMethod]
+        public void LCM_NN_NTest2()
+        {
+            List<string> input = new List<string>(); //          7 44447775
+            List<string> input1 = new List<string>();//          1 00011188
+            List<string> output = new List<string>();// 7 44531063 81706700
+            input.Add("7");
+            input.Add("44447775");
+            input1.Add("1");
+            input1.Add("00011188");
+            output.Add("7");
+            output.Add("44531063");
+            output.Add("81706700");
+            N n = new N(input);
+            N i = new N(input1);
+            N t = new N(output);
+            N lcmN = N.LCM_NN_N(n, i);
+            Assert.AreEqual(t, lcmN);
+        }
+        [TestMethod]
+        public void LCM_NN_NTestEx()
+        {
+            List<string> input = new List<string>(); //  
+            List<string> input1 = new List<string>();// 
+            List<string> output = new List<string>();//8879239 63067648
+            input.Add("11");
+            input.Add("35676288");
+            input1.Add("1");
+            input1.Add("00076288");
+            output.Add("8879239");
+            output.Add("63067648");
+            N n = new N(input);
+            N i = new N(input1);
+            N t = new N(output);
+            N lcmN = N.LCM_NN_N(n, i);
+            Assert.AreNotEqual(null, lcmN);
+        }
+
+
+        [TestMethod][Ignore]//проверить игнор
         public void DIV_NN_DkTest1()
 		{
             List<string> input = new List<string>();
@@ -486,7 +588,7 @@ namespace Math_Module_Test
             N t = new N(output);
             N l = N.DIV_NN_Dk(x,i);
             Assert.AreEqual(t, l);
-
+ /*ТЕСТЫ ПРИВАТОВ
         }
         /*
         [TestMethod]
