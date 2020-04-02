@@ -57,5 +57,23 @@ namespace Visual_Module
             working_Data.Show();
             Controls.Add(working_Data);
         }
+
+        private void Main_Window_ClientSizeChanged(object sender, EventArgs e)
+        {
+            Update();
+            for (int i = 0; i < Controls.Count; i++)
+            {
+                Controls[i].Update();
+            }
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+            for (int i = 0; i < Controls.Count; i++)
+            {
+                string s = Controls[i].ToString();
+                Controls[i].Update();
+            }
+        }
     }
 }
