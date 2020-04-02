@@ -326,6 +326,20 @@ namespace Math_Module_Test
 
         }
         [TestMethod]
+        public void devisionByZeroTest()
+        {
+            List<string> input = new List<string>();
+            List<string> input1 = new List<string>();
+            List<string> output = new List<string>();
+            input.Add("2");
+            input.Add("22222222");
+            input1.Add("0");
+            N n = new N(input);
+            N i = new N(input1);
+            Assert.AreEqual(null, n / i);
+
+        }
+        [TestMethod]
         public void devisionTestEx()
         {
             List<string> input = new List<string>();
@@ -371,6 +385,18 @@ namespace Math_Module_Test
             N i = new N(input1);
             N t = new N(output);
             Assert.AreEqual(t, n % i);
+        }
+        [TestMethod]
+        public void remainderByZeroTest()
+        {
+            List<string> input = new List<string>();
+            List<string> input1 = new List<string>();
+            input.Add("1");
+            input.Add("00000000");
+            input1.Add("0");
+            N n = new N(input);
+            N i = new N(input1);
+            Assert.AreEqual(null, n % i);
         }
         [TestMethod]
         public void remainderTestEx()
@@ -877,3 +903,8 @@ namespace Math_Module_Test
            */
     }
 }
+
+
+
+
+
