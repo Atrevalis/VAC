@@ -366,7 +366,7 @@ namespace Math_Module_Test
             input.Add("00000000");
             input1.Add("1");
             input1.Add("00000000");
-            output.Add("1");
+            output.Add("0");
             N n = new N(input);
             N i = new N(input1);
             N t = new N(output);

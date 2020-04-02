@@ -319,6 +319,72 @@ namespace Math_Module_Test
 
         }
 
+        [TestMethod]//%
+        public void remainderTest1()
+        {
+            List<string> input = new List<string>();
+            List<string> input1 = new List<string>();
+            List<string> output = new List<string>();
+            input.Add("145");
+            input.Add("56543564");
+            input1.Add("1");
+            input1.Add("00003564");//145 00516780
+            output.Add("56026784");
+            Z n = new Z(input);
+            Z i = new Z(input1);
+            Z t = new Z(output);
+            Assert.AreEqual(t, n % i);
+        }
+        [TestMethod]
+        public void remainderTest2()
+        {
+            List<string> input = new List<string>();
+            List<string> input1 = new List<string>();
+            List<string> output = new List<string>();
+            input.Add("1");
+            input.Add("00000000");
+            input1.Add("1");
+            input1.Add("00000000");
+            output.Add("0");
+            Z n = new Z(input);
+            Z i = new Z(input1);
+            Z t = new Z(output);
+            Assert.AreEqual(t, n % i);
+        }
+        [TestMethod]//%
+        public void remainderTest3()
+        {
+            List<string> input = new List<string>();
+            List<string> input1 = new List<string>();
+            List<string> output = new List<string>();
+            input.Add("-");
+            input.Add("10");
+            input.Add("00000002");
+            input1.Add("5");
+            input1.Add("00000000");
+            output.Add("4");
+            output.Add("99999998");
+            Z n = new Z(input);
+            Z i = new Z(input1);
+            Z t = new Z(output);
+            Assert.AreEqual(t, n % i);
+        }
+        [TestMethod]
+        public void remainderTestEx()
+        {
+            List<string> input = new List<string>();
+            List<string> input1 = new List<string>();
+            List<string> output = new List<string>();
+            input.Add("1");
+            input.Add("00000000");
+            input1.Add("1");
+            input1.Add("00000000");
+            Z n = new Z(input);
+            Z i = new Z(input1);
+           
+            Assert.AreNotEqual(null, n % i);
+        }
+
 
 
         [TestMethod]
