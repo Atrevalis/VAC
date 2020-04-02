@@ -423,9 +423,16 @@ namespace Math_Module
             return result.MUL_Nk_N(value);  //получаем результат
         }
 
-        public static N GCF_NN_N(N first, N second)
+        public static N GCF_NN_N(N first, N second)// Дмитрий Панченко 9370
         {
-            return null;
+            N a = first.Clone(), b = second.Clone();
+            while (!(a.NZER_N_B) || !(b.NZER_N_B))
+            {
+                if (COM_NN_D(a, b) == 2)
+                    a %= b;
+                else b %= a;
+            }
+            return a + b;
         }
 
         public static N LCM_NN_N(N first, N second)
