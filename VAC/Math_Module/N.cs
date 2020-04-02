@@ -204,8 +204,8 @@ namespace Math_Module
                 {
                     List<string> one = new List<string>(); //создаем новый список 
                     one.Add("1"); //добавляем туда единицу
-                    N result = new N(one); //задаём значение result
-                    return result; //возвращаем result
+                    N result1 = new N(one); //задаём значение result1
+                    return result1; //возвращаем result1
                 }
             }
             else //если второе больше первого
