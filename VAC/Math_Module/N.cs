@@ -178,20 +178,23 @@ namespace Math_Module
 
         public static N operator /(N first, N second)//    //Есть тесты
         {
-             List<string> zero = new List<string>(); //создаем список с нулём
+            List<string> zero = new List<string>(); //создаем список с нулём
             zero.Add("0");
             N div = new N(zero); //зануляем перменную счётчик
-            if(COM_NN_D(first, second) != 1) //если первое больше второго либо они равны
+            N divres; //переменная для ответа
+            if (COM_NN_D(first, second) != 1) //если первое больше второго либо они равны
             {
-                N result = first.Clone(); //создаем временную переменную
                 if (COM_NN_D(first, second) == 2) //если первое больше второго 
                 {
-                    while (COM_NN_D(first, second) == 2) //пока первое больше второго выполняем цикл
-                    {;
-                        result -= second; //выполняем последовательное вычитание из большего меньшее
-                        div++; //наращиваем div
+                    N result = first.Clone(); //создаем временную переменную
+                    while (COM_NN_D(result, second) == 2) //пока первое больше второго выполняем цикл
+                    {
+                        div += DIV_NN_Dk(result, second); //наращиваем div первыми цифрами деления
+                        result -= second; //выполняем последовательное понижение большего
                     }
-                    return div; //возвращаем div
+                    byte k = Convert.ToByte(div.znach[div.znach.Count - 1]); //переводим в byte последний элемент div
+                    divres = SUB_NDN_N(first, second, k); //вычитаем из большего меньшее, умноженное на последний элемент div
+                    return divres; //возвращаем divres
                 }
                 else // если они равны
                 {
@@ -204,12 +207,14 @@ namespace Math_Module
             else //если второе больше первого
             {
                 N result = second.Clone(); //создаем временную переменную
-                while (COM_NN_D(second, first) == 2) //пока второе больше первого выполняем цикл
+                while (COM_NN_D(result, first) == 2) //пока первое больше второго выполняем цикл
                 {
-                    result -= first; //выполняем последовательное вычитание из большего меньшее
-                    div++; //наращиваем div
+                    div += DIV_NN_Dk(result, first);  //наращиваем div первыми цифрами деления
+                    result -= first; //выполняем последовательное понижение большего
                 }
-                return div; //возвращаем div
+                byte k = Convert.ToByte(div.znach[div.znach.Count - 1]); //переводим в byte последний элемент div
+                divres = SUB_NDN_N(second, first, k); //вычитаем из большего меньшее, умноженное на последний элемент div
+                return divres; //возвращаем divres
             }
         }
 
