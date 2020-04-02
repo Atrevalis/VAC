@@ -467,7 +467,10 @@ namespace Math_Module
 
         public static N LCM_NN_N(N first, N second)//есть тесты 
         {
-            return null;
+            N a = first.Clone();
+            N b = second.Clone();
+            N result = a * b / GCF_NN_N(a, b);
+            return result;
         }
 
         public N Clone() // Александр Баталин 9370//есть тесты
