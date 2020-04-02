@@ -61,6 +61,11 @@ namespace MVS_Controller
                         }
                     }
                     break;
+                case MouseButtons.Right:
+                    {
+                        Loc_change = sender as Noda;
+                    }
+                    break;
             }
         }
 
@@ -71,6 +76,12 @@ namespace MVS_Controller
                 case MouseButtons.Middle:
                     {
                         Size_change = null;
+                    }
+                    break;
+
+                case MouseButtons.Right:
+                    {
+                        Loc_change = null;
                     }
                     break;
             }
