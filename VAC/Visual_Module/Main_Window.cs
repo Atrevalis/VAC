@@ -89,7 +89,7 @@ namespace Visual_Module
                             float deltaZoom = zoom != 1 ? zoom / (zoom - 1) : (float)(1)/3;
                             float tr = zoom != 1 ? 1 : -3;
                             bufer.Size = new Size((int)(bufer.Width * deltaZoom), (int)(bufer.Height * deltaZoom));
-                            bufer.Location = new Point(bufer.Location.X + (int)((bufer.Location.X - e.Location.X)*deltaZoom * tr), bufer.Location.Y + (int)((bufer.Location.Y - e.Location.Y) * deltaZoom * tr));
+                            bufer.Location = new Point(bufer.Location.X + (int)((bufer.Location.X - e.Location.X)*deltaZoom / tr), bufer.Location.Y + (int)((bufer.Location.Y - e.Location.Y) * deltaZoom / tr));
                             if (bufer.Location.X < 0) bufer.Location = new Point(0, bufer.Location.Y);
                             if (bufer.Location.Y < 0) bufer.Location = new Point(bufer.Location.X, 0);
                             if (bufer.Location.X + bufer.Width > panel1.Width) bufer.Location = new Point(bufer.Location.X + bufer.Width, bufer.Location.Y);
