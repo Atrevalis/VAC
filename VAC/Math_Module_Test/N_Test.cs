@@ -192,11 +192,11 @@ namespace Math_Module_Test
             List<string> input = new List<string>();
             List<string> input1 = new List<string>();
             List<string> output = new List<string>();
-            N n = new N(input);
-            N i = new N(input1);
             input.Add("2");
             input1.Add("1");
             input1.Add("00000000");
+            N n = new N(input);
+            N i = new N(input1);
             Assert.AreEqual(null, n - i);
 
         }
