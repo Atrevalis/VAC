@@ -573,7 +573,7 @@ namespace Math_Module_Test
             Assert.AreNotEqual(null, lcmN);
         }
 
-
+        
         [TestMethod]
         [Ignore]//проверить игнор
         public void DIV_NN_DkTest1()
@@ -590,9 +590,8 @@ namespace Math_Module_Test
             N l = N.DIV_NN_Dk(x, i);
             Assert.AreEqual(t, l);
         }
-            /*ТЕСТЫ ПРИВАТОВ
-                   }
-                   /*
+        
+                   
                    [TestMethod]
                    public void DIV_NN_DkTest2()
                    {
@@ -624,7 +623,7 @@ namespace Math_Module_Test
                        N l = N.DIV_NN_Dk(x, i);
                        Assert.AreNotEqual(null, l);
 
-                   } */
+                   } 
             /* [TestMethod]
              public void MUL_ND_NTest1()
              {

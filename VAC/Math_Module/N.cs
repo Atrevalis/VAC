@@ -361,7 +361,7 @@ namespace Math_Module
                 return null;
         }
 
-        private static N DIV_NN_Dk(N first, N second) // Шлемин Роман 9370//тест есть(закоммичен) (нужно деление)
+        public static N DIV_NN_Dk(N first, N second) // Шлемин Роман 9370//тест есть(закоммичен) (нужно деление)
         {
             N divided = null;
             N divider = null;

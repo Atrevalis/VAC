@@ -14,12 +14,12 @@ namespace MVS_Controller
     {
         static public Noda Active = null;
         static public Noda Size_change = null;
-        public Noda(Form parent)
+        public Noda(Form parent, Panel panel)
         {
             InitializeComponent();
             Height = 100;
             Width = 100;
-            Location = new Point(1200, 600);
+            Location = new Point(parent.Width/2 - 50 - panel.Location.X, parent.Height/2 - 50 - panel.Location.Y);
             MouseDown += new MouseEventHandler(Noda_click);
             MouseUp += new MouseEventHandler(Noda_up);
             MouseEnter += new EventHandler(Noda_enter);

@@ -53,9 +53,9 @@ namespace Visual_Module
 
         private void toolStripMenuItem7_Click(object sender, EventArgs e)
         {
-            Working_data working_Data = new Working_data(this);
+            Working_data working_Data = new Working_data(this, panel1);
             working_Data.Show();
-            Controls.Add(working_Data);
+            panel1.Controls.Add(working_Data);
         }
 
         private void Main_Window_ClientSizeChanged(object sender, EventArgs e)
