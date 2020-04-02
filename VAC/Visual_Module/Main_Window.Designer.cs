@@ -194,10 +194,10 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(65535, 45000);
             this.panel1.TabIndex = 2;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
             this.panel1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseUp);
+            this.panel1.MouseWheel += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseWheel);
             // 
             // Main_Window
             // 
@@ -215,7 +215,6 @@
             this.Name = "Main_Window";
             this.Text = "MVS";
             this.Shown += new System.EventHandler(this.Main_Window_Shown);
-            this.ClientSizeChanged += new System.EventHandler(this.Main_Window_ClientSizeChanged);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.statusStrip1.ResumeLayout(false);

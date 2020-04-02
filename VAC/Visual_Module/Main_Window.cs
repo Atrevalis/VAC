@@ -61,24 +61,6 @@ namespace Visual_Module
             panel1.Controls.Add(working_Data);
         }
 
-        private void Main_Window_ClientSizeChanged(object sender, EventArgs e)
-        {
-            Update();
-            for (int i = 0; i < Controls.Count; i++)
-            {
-                Controls[i].Update();
-            }
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-            for (int i = 0; i < Controls.Count; i++)
-            {
-                string s = Controls[i].ToString();
-                Controls[i].Update();
-            }
-        }
-
         private void panel1_MouseDown(object sender, MouseEventArgs e)
         {
             switch(e.Button)
@@ -118,10 +100,16 @@ namespace Visual_Module
             if(panel_move == true)
             {
                 Point newLoc = new Point(panel1.Location.X + delta.X, panel1.Location.Y + delta.Y);
-                if(newLoc.X<0 && newLoc.Y < 0 && newLoc.X + panel1.Width > Width && newLoc.Y + panel1.Height > Height)
+                if(newLoc.X <= 0 && newLoc.Y <= 0 && newLoc.X + panel1.Width >= Width && newLoc.Y + panel1.Height >= Height)
                 panel1.Location = newLoc;
             }
             Mouse_pos = e.Location;
+        }
+
+        private void panel1_MouseWheel(object sender, MouseEventArgs e)
+        {
+            if (panel1.Location.X + e.Delta <= 0 && panel1.Location.X + panel1.Width >= Width)
+                panel1.Location = new Point(panel1.Location.X + e.Delta, panel1.Location.Y);
         }
     }
 }
