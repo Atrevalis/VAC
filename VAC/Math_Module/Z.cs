@@ -113,7 +113,7 @@ namespace Math_Module
             return sum;
         }
 
-        public static Z operator -(Z first, Z second) // SUB_ZZ_Z Александр Баталин 9370//(есть тесты не до конца)
+        public static Z operator -(Z first, Z second) // SUB_ZZ_Z Александр Баталин 9370 //есть тесты 
         {
             return first + (-second);
         }
@@ -196,7 +196,7 @@ namespace Math_Module
             return new Q(value);
         }
 
-        public static explicit operator N(Z value) // Александр Рассохин
+        public static explicit operator N(Z value) // Александр Рассохин //есть тесты
         {
             if (!value.isDown)
                 return null;
@@ -218,7 +218,7 @@ namespace Math_Module
 
         #region Методы
 
-        public Z Clone() // Александр Баталин 9370//
+        public Z Clone() // Александр Баталин 9370 //есть тесты
         {
             Z clone = new Z(Abs.Clone());
             clone.isN = isN; 

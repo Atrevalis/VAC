@@ -44,6 +44,50 @@ namespace Math_Module_Test
 
         }
         [TestMethod]
+        public void minusTest()
+        {
+            List<string> input = new List<string>();
+            List<string> input1 = new List<string>();
+            List<string> output = new List<string>();
+            input.Add("12");
+            input.Add("10000000");
+            input.Add("00000000");
+           
+            input1.Add("10000000");
+            input1.Add("00000000");
+            output.Add("12");
+            output.Add("00000000");
+            output.Add("00000000");
+            Z X = new Z(input);
+            Z I = new Z(input1);
+            Z T = new Z(output);
+            Assert.AreEqual(T, X - I);
+
+        }
+        [TestMethod]
+        public void MinusUnarMinusTest()
+        {
+            List<string> input = new List<string>();
+            List<string> input1 = new List<string>();
+            List<string> output = new List<string>();
+            input.Add("-");
+            input.Add("12");
+            input.Add("10000000");
+            input.Add("00000000");
+            input1.Add("-");
+            input1.Add("10000000");
+            input1.Add("00000000");
+            output.Add("-");
+            output.Add("12");
+            output.Add("20000000");
+            output.Add("00000000");
+            Z X = new Z(input);
+            Z I = new Z(input1);
+            Z T = new Z(output);
+            Assert.AreEqual(T, X - I);
+
+        }
+        [TestMethod]
         public void PlusUnarMinusTest()
         {
             List<string> input = new List<string>();
