@@ -13,9 +13,11 @@ namespace MVS_Controller
     public partial class Noda : UserControl
     {
         static public Noda Active = null;
-        static public Noda Size_change = null;
-        static public Noda enter = null;
-        static public Noda Loc_change = null;
+        static private Noda Size_change = null;
+        static private Noda enter = null;
+        static private Noda Loc_change = null;
+        static private Point Mouse_pos = new Point(0, 0);
+
         public Noda(Form parent, Panel panel)
         {
             InitializeComponent();
@@ -26,6 +28,7 @@ namespace MVS_Controller
             MouseUp += new MouseEventHandler(Noda_up);
             MouseEnter += new EventHandler(Noda_enter);
             MouseLeave += new EventHandler(Noda_leave);
+            MouseMove += new MouseEventHandler(Noda_MoseMove);
         }
 
         private static void  Noda_click(object sender, MouseEventArgs e)
@@ -95,6 +98,24 @@ namespace MVS_Controller
         private static void Noda_leave(object sender, EventArgs e)
         {
             enter = null;
+        }
+
+        private static void Noda_MoseMove(object sender, MouseEventArgs e)
+        {
+            Point delta = new Point((e.Location.X - Mouse_pos.X), (e.Location.Y - Mouse_pos.Y));
+            Noda nod = sender as Noda;
+            if (Size_change != null)
+            {
+                nod.Size = new Size( nod.Width + delta.X, nod.Height + delta.Y);
+            }
+            else
+            {
+                if(Loc_change != null)
+                {
+                    nod.DoDragDrop(nod, DragDropEffects.Move);
+                }
+            }
+            Mouse_pos = e.Location;
         }
     }
 }

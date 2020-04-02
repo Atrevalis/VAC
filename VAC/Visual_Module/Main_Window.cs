@@ -13,6 +13,9 @@ namespace Visual_Module
 {
     public partial class Main_Window : Form
     {
+        static Point Mouse_pos = new Point(0, 0);
+        static bool panel_move = false;
+        static byte zoom = 1;
         public Main_Window()
         {
             InitializeComponent();
@@ -74,6 +77,51 @@ namespace Visual_Module
                 string s = Controls[i].ToString();
                 Controls[i].Update();
             }
+        }
+
+        private void panel1_MouseDown(object sender, MouseEventArgs e)
+        {
+            switch(e.Button)
+            {
+                case MouseButtons.Left:
+                    {
+                        panel_move = true;
+                    }
+                    break;
+
+                case MouseButtons.Right:
+                    {
+                        if(zoom < 3)
+                        {
+                            zoom++;
+                        }
+                        else
+                        {
+                            zoom = 1;
+                        }
+                    }
+                    break;
+            }
+        }
+
+        private void panel1_MouseUp(object sender, MouseEventArgs e)
+        {
+            if(e.Button == MouseButtons.Left)
+            {
+                panel_move = false;
+            }
+        }
+
+        private void panel1_MouseMove(object sender, MouseEventArgs e)
+        {
+            Point delta = new Point((e.Location.X/2 - Mouse_pos.X/2), (e.Location.Y/2 - Mouse_pos.Y/2));
+            if(panel_move == true)
+            {
+                Point newLoc = new Point(panel1.Location.X + delta.X, panel1.Location.Y + delta.Y);
+                if(newLoc.X<0 && newLoc.Y < 0 && newLoc.X + panel1.Width > Width && newLoc.Y + panel1.Height > Height)
+                panel1.Location = newLoc;
+            }
+            Mouse_pos = e.Location;
         }
     }
 }

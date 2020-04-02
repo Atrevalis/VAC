@@ -586,7 +586,7 @@ namespace Math_Module_Test
             Assert.AreNotEqual(null, lcmN);
         }
 
-        /*
+        
         [TestMethod]
         public void DIV_NN_DkTest1()
         {
@@ -635,7 +635,7 @@ namespace Math_Module_Test
                        N l = N.DIV_NN_Dk(x, i);
                        Assert.AreNotEqual(null, l);
 
-                   } */
+                   } 
         /* [TestMethod]
          public void MUL_ND_NTest1()
          {
@@ -664,6 +664,7 @@ namespace Math_Module_Test
              N i = x.MUL_ND_N(input1);
              Assert.AreNotEqual(null, i);
          }*/
+         /*
            [TestMethod]
            public void MUL_Nk_NTest1()
            {
@@ -713,7 +714,7 @@ namespace Math_Module_Test
                N value = new N(input1);
                N i = x.MUL_Nk_N(value);
                Assert.AreNotEqual(null, i);
-           }
+           } */
         //ТЕСТЫ ПРИВАТОВ
         /*
         [TestMethod]

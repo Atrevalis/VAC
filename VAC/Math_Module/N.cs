@@ -314,7 +314,7 @@ namespace Math_Module
             return k;
         }
 
-        public N MUL_Nk_N(N value) // Умножение числа на 10^value - Дмитрий Панченко 9370//тест есть(закоммичен)
+        private N MUL_Nk_N(N value) // Умножение числа на 10^value - Дмитрий Панченко 9370//тест есть(закоммичен)
         {
             List<string> s = new List<string>();
             s.Add(Convert.ToString(uint_size_div));
@@ -359,7 +359,7 @@ namespace Math_Module
                 return null;
         }
 
-        private static N DIV_NN_Dk(N first, N second) // Шлемин Роман 9370//тест есть(закоммичен) (нужно деление)
+        public static N DIV_NN_Dk(N first, N second) // Шлемин Роман 9370//тест есть(закоммичен) (нужно деление)
         {
             N divided = null;
             N divider = null;
