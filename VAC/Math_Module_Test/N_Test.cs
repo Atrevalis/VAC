@@ -692,8 +692,8 @@ namespace Math_Module_Test
                input.Add("1");
                input.Add("10000000");
                input1.Add("0");
-               input1.Add("1");
-               input1.Add("10000000");
+               output.Add("1");
+               output.Add("10000000");
                N x = new N(input);
                N value = new N(input1);
                N t = new N(output);
