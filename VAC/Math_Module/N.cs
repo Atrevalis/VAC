@@ -143,22 +143,15 @@ namespace Math_Module
                         bigger.znach[j] = uint_size;      //забираем один разряд, недостаточный для вычитания i-ой строки 
                     }
                     bigger.znach[j] -= 1;
-                    if (bigger.znach[bigger.znach.Count - 1] == 0)      //проверка на наличия в начале поля незначащего нуля
-                    {
-                        bigger.znach.RemoveAt(bigger.znach.Count - 1);
-                    }
                 }
                 else
                 {
-                    if (bigger.znach[i] > second.znach[i])
-                    {
-                        bigger.znach[i] = bigger.znach[i] - second.znach[i];
-                    }
-                    else
-                    {
-                        bigger.znach.RemoveAt(i);
-                    }
+                    bigger.znach[i] = bigger.znach[i] - second.znach[i];
                 }
+            }
+            while (bigger.znach[bigger.znach.Count - 1] == 0)      //проверка на наличия в начале поля незначащего нуля
+            {
+                bigger.znach.RemoveAt(bigger.znach.Count - 1);
             }
             return bigger;
         }
