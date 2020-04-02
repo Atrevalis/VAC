@@ -398,22 +398,40 @@ namespace Math_Module
             }
             List<string> zero = new List<string>();
             zero.Add("0");
-            N result = new N(zero);
-            while (COM_NN_D(divided, divider) == 2) //вычитаем из большего меньшее, пока большее не станет меньше
+            N smaller = new N(zero);
+            List<string> ten = new List<string>();
+            ten.Add("1");
+            N o = new N(ten);
+            N element = new N(ten);
+            int f = divided.znach.Count - 1;
+            string step = Convert.ToString(divided.znach[f]);
+            while (COM_NN_D(smaller, divider) == 1)
             {
-                divided -= divider;
+                for (int m = 0; m < step.Length; m++)
+                {
+
+                    element.znach[0] = Convert.ToUInt32(Convert.ToString(step[m]));
+                    smaller = smaller.MUL_Nk_N(o) + element;
+                    if (COM_NN_D(smaller, divider) == 2)
+                    {
+                        break;
+                    }
+                }
+                if (COM_NN_D(smaller, divider) == 2)
+                {
+                    break;
+                }
+                f--;
+                step = Convert.ToString(divided.znach[f]);
+            }
+            N result = new N(zero);
+            while (COM_NN_D(smaller, divider) == 2) //вычитаем из большего меньшее, пока большее не станет меньше
+            {
+                smaller -= divider;
                 result++;
             }
-            List<string> ten = new List<string>();
-            ten.Add("10");
-            N gran = new N(ten);
-            while (COM_NN_D(result, gran) != 1) //находим 1 цифру деления
-            {
-                result /= gran;
-            }
-            int i = (divided.znach.Count - 1);  //счиитаем степень k
+            int i = (smaller.znach.Count - 1);  //счиитаем степень k
             string qwerty = Convert.ToString(i);
-
             string perviy = null;
             string vtoroy = null;
             long ost = qwerty.Length % uint_size_div;
@@ -430,13 +448,14 @@ namespace Math_Module
             qwaserty.Add(vtoroy);
             N value = new N(qwaserty);
             value.MUL_ND_N(Convert.ToByte(uint_size_div));
-            uint now = divided.znach[i];
+            uint now = smaller.znach[i];
             while (now != 0)
             {
                 value++;
                 now = now / 10;
             }
-            return result.MUL_Nk_N(value);  //получаем результат
+            result = result.MUL_Nk_N(value);
+            return result;  //получаем результат
         }
 
 

@@ -112,7 +112,7 @@ namespace MVS_Controller
             {
                 if(Loc_change != null)
                 {
-                    nod.DoDragDrop(nod, DragDropEffects.Move);
+                    nod.Location = new Point(nod.Location.X + delta.X, nod.Location.Y + delta.Y);
                 }
             }
             Mouse_pos = e.Location;
