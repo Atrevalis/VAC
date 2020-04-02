@@ -10,15 +10,11 @@ using System.Windows.Forms;
 
 namespace MVS_Controller
 {
-    public partial class Working_data : Noda
+    public partial class Operators : UserControl
     {
-        Button down_contacts = new Button();
-        public Working_data(Form parent, Panel panel) : base(parent, panel)
+        public Operators()
         {
             InitializeComponent();
-            Controls.Add(down_contacts);
-            BackColor = Color.FromArgb(50, 50, 50);
-            down_contacts.Show();
         }
     }
 }
