@@ -15,7 +15,7 @@ namespace Visual_Module
     {
         static Point Mouse_pos = new Point(0, 0);
         static bool panel_move = false;
-        static byte zoom = 1;
+        static float zoom = 1;
         public Main_Window()
         {
             InitializeComponent();
@@ -82,6 +82,19 @@ namespace Visual_Module
                         {
                             zoom = 1;
                         }
+
+                        for(int i = 0; i < panel1.Controls.Count; i++)
+                        {
+                            Control bufer = panel1.Controls[i]; 
+                            float deltaZoom = zoom != 1 ? zoom / (zoom - 1) : (float)(-1)/3;
+                            bufer.Size = new Size((int)(bufer.Width * deltaZoom), (int)(bufer.Height * deltaZoom));
+                            bufer.Location = new Point(bufer.Location.X + (int)((bufer.Location.X - e.Location.X)*deltaZoom), bufer.Location.Y + (int)((bufer.Location.Y - e.Location.Y) * deltaZoom));
+                            if (bufer.Location.X < 0) bufer.Location = new Point(0, bufer.Location.Y);
+                            if (bufer.Location.Y < 0) bufer.Location = new Point(bufer.Location.X, 0);
+                            if (bufer.Location.X + bufer.Width > panel1.Width) bufer.Location = new Point(bufer.Location.X + bufer.Width, bufer.Location.Y);
+                            if (bufer.Location.X + bufer.Width > panel1.Width) bufer.Location = new Point(bufer.Location.X, bufer.Location.Y + bufer.Height);
+                        }
+
                     }
                     break;
             }
