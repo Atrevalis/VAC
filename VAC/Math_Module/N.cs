@@ -409,7 +409,6 @@ namespace Math_Module
             {
                 for (int m = 0; m < step.Length; m++)
                 {
-
                     element.znach[0] = Convert.ToUInt32(Convert.ToString(step[m]));
                     smaller = smaller.MUL_Nk_N(o) + element;
                     if (COM_NN_D(smaller, divider) == 2)
@@ -425,35 +424,29 @@ namespace Math_Module
                 step = Convert.ToString(divided.znach[f]);
             }
             N result = new N(zero);
+            string w = Convert.ToString(smaller.znach.Count - 1);
+            List<string> rez2 = new List<string>();
+            rez2.Add(w);
+            N razm1 = new N(rez2);
+            string r = Convert.ToString(Convert.ToString(smaller.znach[smaller.znach.Count - 1]).Length);
+            List<string> rez3 = new List<string>();
+            rez3.Add(r);
+            N razm2 = new N(rez3);
             while (COM_NN_D(smaller, divider) == 2) //вычитаем из большего меньшее, пока большее не станет меньше
             {
                 smaller -= divider;
                 result++;
             }
-            int i = (smaller.znach.Count - 1);  //счиитаем степень k
-            string qwerty = Convert.ToString(i);
-            string perviy = null;
-            string vtoroy = null;
-            long ost = qwerty.Length % uint_size_div;
-            for (int j = 0; j < ost; j++)
-            {
-                perviy += qwerty[j];
-            }
-            List<string> qwaserty = new List<string>();
-            qwaserty.Add(perviy);
-            for (int k = Convert.ToInt32(ost); k < qwerty.Length; k++)
-            {
-                vtoroy += qwerty[k];
-            }
-            qwaserty.Add(vtoroy);
-            N value = new N(qwaserty);
-            value.MUL_ND_N(Convert.ToByte(uint_size_div));
-            uint now = smaller.znach[i];
-            while (now != 0)
-            {
-                value++;
-                now = now / 10;
-            }
+            string q = Convert.ToString(divided.znach.Count - 1);
+            List<string> rez = new List<string>();
+            rez.Add(q);
+            N value = new N(rez);
+            string p = Convert.ToString(Convert.ToString(divided.znach[divided.znach.Count - 1]).Length);
+            List<string> rez1 = new List<string>();
+            rez1.Add(p);
+            N razm = new N(rez1);
+            value = value.MUL_ND_N(Convert.ToByte(uint_size_div)) + razm;
+            value = value - razm1.MUL_ND_N(Convert.ToByte(uint_size_div)) - razm2;
             result = result.MUL_Nk_N(value);
             return result;  //получаем результат
         }
@@ -474,7 +467,10 @@ namespace Math_Module
 
         public static N LCM_NN_N(N first, N second)//есть тесты 
         {
-            return null;
+            N a = first.Clone();
+            N b = second.Clone();
+            N result = a * b / GCF_NN_N(a, b);
+            return result;
         }
 
         public N Clone() // Александр Баталин 9370//есть тесты
