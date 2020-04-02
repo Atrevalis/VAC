@@ -118,6 +118,13 @@ namespace Math_Module
         {
 
         }
+        
+        public Q Clone() // Александр Баталин 9370//
+        {
+            Q clone = new Q(ch.Clone());
+            clone.zn = zn.Clone();
+            return clone;
+        }
 
         #endregion
     }
