@@ -36,7 +36,7 @@ namespace Math_Module
                 return false;
             }
         }
-        private bool NZER_N_B // Проверка на ноль - Шлемин Роман 9370//тест невозможен
+        private bool NZER_N_B // Проверка на ноль - Шлемин Роман 9370//тест есть(закоммичен)
         {
             get
             {
@@ -350,7 +350,7 @@ namespace Math_Module
             return k; 
         }
 
-        private static N SUB_NDN_N(N first, N second, byte k) // Александр Баталин 9370 //тест невозможен
+        private static N SUB_NDN_N(N first, N second, byte k) // Александр Баталин 9370 //тест есть(закоммичен)
         {
             N sec = second.MUL_ND_N(k);
             if (COM_NN_D(first, sec) != 1)
