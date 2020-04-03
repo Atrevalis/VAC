@@ -18,7 +18,10 @@ namespace Visual_Module
         {
             main = main_;
             InitializeComponent();
-            if (!butt3) button3.Enabled = false;
+            if (!butt3)
+            {
+
+            }
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -60,6 +63,11 @@ namespace Visual_Module
             FolderBrowserDialog folder = new FolderBrowserDialog();
             folder.ShowDialog();
             path_of_project.Text =  folder.SelectedPath;
+        }
+
+        private static void Exit(object sender, EventArgs e)
+        {
+            ((sender as Button).Parent as Create_new_project).main.Close();
         }
     }
 }
