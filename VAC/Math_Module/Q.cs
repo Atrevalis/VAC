@@ -46,7 +46,10 @@ namespace Math_Module
         {
             get
             {
-                if (Denominator == Numerator.ABS_Z_N)
+                List<string> den = new N(Denominator);
+                List<string> one = new List<string>();
+                one.Add("1");
+                if (den == one)
                     return true;
                 else
                     return false;
