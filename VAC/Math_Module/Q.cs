@@ -10,7 +10,7 @@ namespace Math_Module
     {
         #region Конструкторы
 
-        public Q(List<string> s)
+        public Q(List<string> first, List<string> second)
         {
 
         }
