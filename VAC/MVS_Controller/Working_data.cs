@@ -29,8 +29,6 @@ namespace MVS_Controller
             down_contacts.BackColor = Color.Gray;
             down_contacts.Click += new EventHandler(Connect_start);
             down_contacts.Show();
-            label.MouseDown += new MouseEventHandler(Label_click);
-            label.MouseUp += new MouseEventHandler(Label_up);
         }
 
         private static void SizeChange(object sender, EventArgs e)
@@ -54,16 +52,6 @@ namespace MVS_Controller
                 (sender as Button).BackgroundImage = butt_image;
                 conect_nod = null;
             }
-        }
-
-        private static void Label_click(object sender, MouseEventArgs e)
-        {
-            Noda_click((sender as Label).Parent, e);
-        }
-
-        private static void Label_up(object sender, MouseEventArgs e)
-        {
-            Noda_up((sender as Label).Parent, e);
         }
 
 

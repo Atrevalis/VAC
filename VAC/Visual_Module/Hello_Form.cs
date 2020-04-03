@@ -43,6 +43,7 @@ namespace Visual_Module
             main.Show();
             main.Enabled = false;
             Create_new_project create = new Create_new_project(main);
+            
             create.Show();
             Close();
         }
@@ -52,10 +53,17 @@ namespace Visual_Module
             OpenFileDialog open = new OpenFileDialog();
             open.Multiselect = false;
             open.ShowDialog();
-            External_Controller.Controller.name_of_now_project = open.SafeFileName;
-            External_Controller.Controller.path_of_now_project = open.FileName.Replace(open.SafeFileName, "");
-            main.Show();
-            Close();
+            try
+            {
+                External_Controller.Controller.name_of_now_project = open.SafeFileName;
+                External_Controller.Controller.path_of_now_project = open.FileName.Replace(open.SafeFileName, "");
+                main.Show();
+                Close();
+            }
+            catch
+            {
+                MessageBox.Show("Ошибка загрузки файла", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

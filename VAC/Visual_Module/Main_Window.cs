@@ -34,8 +34,15 @@ namespace Visual_Module
             OpenFileDialog open = new OpenFileDialog();
             open.Multiselect = false;
             open.ShowDialog();
-            External_Controller.Controller.name_of_now_project = open.SafeFileName;
-            External_Controller.Controller.path_of_now_project = open.FileName.Replace(open.SafeFileName,"");
+            try
+            {
+                External_Controller.Controller.name_of_now_project = open.SafeFileName;
+                External_Controller.Controller.path_of_now_project = open.FileName.Replace(open.SafeFileName, "");
+            }
+            catch
+            {
+                MessageBox.Show("Файл не выбран", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void toolStripMenuItem4_Click(object sender, EventArgs e)

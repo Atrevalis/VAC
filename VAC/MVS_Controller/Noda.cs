@@ -39,9 +39,13 @@ namespace MVS_Controller
             label.TextAlign = ContentAlignment.TopCenter;
             label.Text = "N";
             Controls.Add(label);
+            label.MouseDown += new MouseEventHandler(Label_click);
+            label.MouseUp += new MouseEventHandler(Label_up);
+            label.MouseMove += new MouseEventHandler(Label_Mouse_Move);
+            label.MouseEnter += new EventHandler(Label_Mouse_Enter);
         }
 
-        protected static void  Noda_click(object sender, MouseEventArgs e)
+        private static void  Noda_click(object sender, MouseEventArgs e)
         {
             switch(e.Button)
             {
@@ -82,7 +86,7 @@ namespace MVS_Controller
             }
         }
 
-        protected static void Noda_up(object sender, MouseEventArgs e)
+        private static void Noda_up(object sender, MouseEventArgs e)
         {
             switch(e.Button)
             {
@@ -142,6 +146,26 @@ namespace MVS_Controller
             {
 
             }
+        }
+
+        private static void Label_click(object sender, MouseEventArgs e)
+        {
+            Noda_click((sender as Label).Parent, e);
+        }
+
+        private static void Label_up(object sender, MouseEventArgs e)
+        {
+            Noda_up((sender as Label).Parent, e);
+        }
+
+        private static void Label_Mouse_Move(object sender, MouseEventArgs e)
+        {
+            Noda_MoseMove((sender as Label).Parent, e);
+        }
+
+        private static void Label_Mouse_Enter(object sender, EventArgs e)
+        {
+            Noda_enter((sender as Label).Parent, e);
         }
     }
 }
