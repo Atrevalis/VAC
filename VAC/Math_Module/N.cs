@@ -93,7 +93,7 @@ namespace Math_Module
                 if (bigger.znach[i] > uint_size)
                 {
                     bigger.znach[i] = bigger.znach[i] - uint_size - 1;
-                    if (i != (smaller.znach.Count - 1))
+                    if (i != (bigger.znach.Count - 1))
                     {
                         bigger.znach[i + 1] += 1;
                     }
@@ -241,7 +241,17 @@ namespace Math_Module
                 return first;
             else
             {
-                temp = first -((first / second)*second);
+                N f = (first / second);
+                if (f.znach.Count == 1 && f.znach[0] == 55)
+                {
+
+                }
+                N S = f * second;
+                if(COM_NN_D(first, S) == 1)
+                {
+
+                }
+                temp = first - S;
                 return temp;
             }
         }

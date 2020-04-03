@@ -179,7 +179,36 @@ namespace Math_Module
 
         public static Z operator %(Z first, Z second) // MOD_ZZ_Z //есть тесты
         {
-            return null;
+            Z Trash = first.Clone();
+            List<string> nol = new List<string>();
+            nol.Add("0");
+            N pog = new N(nol);
+            List<string> odin = new List<string>();
+            odin.Add("0");
+            N one = new N(odin);
+            if (second.POZ_Z_D != 0)
+            {
+                if (N.COM_NN_D(first.Abs, second.Abs) == 2)
+                {
+                    if ((N.COM_NN_D(first.Abs, pog) == 2 && N.COM_NN_D(second.Abs, pog) == 2) || (N.COM_NN_D(first.Abs, pog) == 2 && N.COM_NN_D(second.Abs, pog) == 1))
+                    {
+                        Trash = first - (first / second) * second;
+                    }
+                    if (N.COM_NN_D(first.Abs, pog) == 1 && N.COM_NN_D(second.Abs, pog) == 1)
+                    {
+                        Trash = first - ((first / second) + one) * second;
+                    }
+                    if (N.COM_NN_D(first.Abs, pog) == 1 && N.COM_NN_D(second.Abs, pog) == 2)
+                    {
+                        Trash = first - ((first / second) - one) * second;
+                    }
+                    return Trash;
+                }
+
+                else return pog;
+            }
+            else return null;
+        
         }
 
         public static implicit operator List<string>(Z value)//есть тесты
