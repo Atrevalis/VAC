@@ -20,13 +20,20 @@ namespace Visual_Module
             InitializeComponent();
             if (!butt3)
             {
-
+                button3.Text = "Выход";
+                button3.Click -= button3_Click;
+                button3.Click += new EventHandler(Exit);
+            }
+            else
+            {
+                MessageBox.Show("Создание нового проекта, приведет к потере изменений", "Предупреждение", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             main.Enabled = true;
+            main.Show();
             Close();
         }
 
