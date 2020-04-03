@@ -42,6 +42,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include=".Designer.cs" />
+    <Compile Include="if_operator.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="if_operator.Designer.cs">
+      <DependentUpon>if_operator.cs</DependentUpon>
+    </Compile>
     <Compile Include="Noda.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -49,6 +56,12 @@
       <DependentUpon>Noda.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Result.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Result.Designer.cs">
+      <DependentUpon>Result.cs</DependentUpon>
+    </Compile>
     <Compile Include="Working_data.cs">
       <SubType>UserControl</SubType>
     </Compile>
