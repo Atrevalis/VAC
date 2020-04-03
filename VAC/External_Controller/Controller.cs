@@ -23,6 +23,122 @@ namespace External_Controller
 
         }
 
+        public static string Create_new_Nod(string name, object Visual_nod)
+        {
+            return null;
+        }
+
+        #region Структуры
+
+        public struct Data
+        {
+            External_module.Data information;
+            object Visul;
+
+            public Data(External_module.Data data, object e)
+            {
+                information = data;
+                Visul = e;
+            }
+        }
+
+        public struct Operators
+        {
+            External_module.Operators information;
+            object Visul;
+
+            public Operators(External_module.Operators data, object e)
+            {
+                information = data;
+                Visul = e;
+            }
+        }
+
+        public struct Bin_operator
+        {
+            External_module.Bin_operator information;
+            object Visul;
+
+            public Bin_operator(External_module.Bin_operator data, object e)
+            {
+                information = data;
+                Visul = e;
+            }
+        }
+
+        public struct if_operator
+        {
+            External_module.if_operator information;
+            object Visul;
+
+            public if_operator(External_module.if_operator data, object e)
+            {
+                information = data;
+                Visul = e;
+            }
+        }
+
+        public struct N_operator
+        {
+            External_module.N_operator information;
+            object Visul;
+
+            public N_operator(External_module.N_operator data, object e)
+            {
+                information = data;
+                Visul = e;
+            }
+        }
+
+        public struct Noda
+        {
+            External_module.Noda information;
+            object Visul;
+
+            public Noda(External_module.Noda data, object e)
+            {
+                information = data;
+                Visul = e;
+            }
+        }
+
+        public struct Result
+        {
+            External_module.Result information;
+            object Visul;
+
+            public Result(External_module.Result data, object e)
+            {
+                information = data;
+                Visul = e;
+            }
+        }
+
+        public struct Uno_operator
+        {
+            External_module.Uno_operator information;
+            object Visul;
+
+            public Uno_operator(External_module.Uno_operator data, object e)
+            {
+                information = data;
+                Visul = e;
+            }
+        }
+
+        public struct Working_data
+        {
+            External_module.Working_data information;
+            object Visul;
+
+            public Working_data(External_module.Working_data data, object e)
+            {
+                information = data;
+                Visul = e;
+            }
+        }
+
+        #endregion
 
     }
 }
