@@ -611,7 +611,7 @@ namespace Math_Module_Test
             N lcmN = N.LCM_NN_N(n, i);
             Assert.AreNotEqual(null, lcmN);
         }
-
+/*
         
         [TestMethod]
         public void DIV_NN_DkTest1()
@@ -662,6 +662,7 @@ namespace Math_Module_Test
                        Assert.AreNotEqual(null, l);
 
                    } 
+                   */
         /* [TestMethod]
          public void MUL_ND_NTest1()
          {
