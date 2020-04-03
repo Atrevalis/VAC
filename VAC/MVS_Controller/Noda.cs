@@ -12,7 +12,7 @@ namespace MVS_Controller
 {
     public partial class Noda : UserControl
     {
-        public Noda conect_nod = null;
+        public static Noda conect_nod = null;
         public Label label = new Label(); 
         static public Noda Active = null;
         static private Noda Size_change = null;
@@ -37,10 +37,11 @@ namespace MVS_Controller
             label.Font = new System.Drawing.Font("Trebuchet MS", label.Height>label.Width? label.Width/3.5f:label.Height/3.5f, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             label.ForeColor = Color.White;
             label.TextAlign = ContentAlignment.TopCenter;
+            label.Text = "N";
             Controls.Add(label);
         }
 
-        private static void  Noda_click(object sender, MouseEventArgs e)
+        protected static void  Noda_click(object sender, MouseEventArgs e)
         {
             switch(e.Button)
             {
@@ -81,7 +82,7 @@ namespace MVS_Controller
             }
         }
 
-        private static void Noda_up(object sender, MouseEventArgs e)
+        protected static void Noda_up(object sender, MouseEventArgs e)
         {
             switch(e.Button)
             {

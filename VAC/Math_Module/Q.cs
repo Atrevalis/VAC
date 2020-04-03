@@ -14,7 +14,6 @@ namespace Math_Module
         {
 
         }
-
         public Q(Z value)
         {
 

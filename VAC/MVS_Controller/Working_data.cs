@@ -14,7 +14,7 @@ namespace MVS_Controller
     public partial class Working_data : Noda
     {
         Button down_contacts = new Button();
-        Image butt_image = Image.FromFile(Directory.GetCurrentDirectory() + "\\Resources\\Image\\Start.png");
+        static Image butt_image = Image.FromFile(Directory.GetCurrentDirectory() + "\\Resources\\Image\\Start.png");
         public Working_data(Form parent, Panel panel) : base(parent, panel)
         {
             InitializeComponent();
@@ -26,8 +26,11 @@ namespace MVS_Controller
             down_contacts.Location = new Point((int)(Width - (Width*0.16)), 0);
             down_contacts.Size = new Size((int)(Width * 0.16), Height);
             down_contacts.BackgroundImage = butt_image;
+            down_contacts.BackColor = Color.Gray;
             down_contacts.Click += new EventHandler(Connect_start);
             down_contacts.Show();
+            label.MouseDown += new MouseEventHandler(Label_click);
+            label.MouseUp += new MouseEventHandler(Label_up);
         }
 
         private static void SizeChange(object sender, EventArgs e)
@@ -38,8 +41,31 @@ namespace MVS_Controller
 
         private static void Connect_start(object sender, EventArgs e)
         {
-            (sender as Button).BackgroundImage = null;
-            (sender as Button).BackColor = Color.Gray;
+            if (conect_nod != (sender as Button).Parent as Noda)
+            {
+                if (conect_nod == null)
+                {
+                    (sender as Button).BackgroundImage = null;
+                    conect_nod = (sender as Button).Parent as Noda;
+                }
+            }
+            else
+            {
+                (sender as Button).BackgroundImage = butt_image;
+                conect_nod = null;
+            }
         }
+
+        private static void Label_click(object sender, MouseEventArgs e)
+        {
+            Noda_click((sender as Label).Parent, e);
+        }
+
+        private static void Label_up(object sender, MouseEventArgs e)
+        {
+            Noda_up((sender as Label).Parent, e);
+        }
+
+
     }
 }
