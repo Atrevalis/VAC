@@ -58,14 +58,14 @@ namespace Math_Module
             get
             {
                  if (INT_Q_B == true)
-                {
+                 {
                     if (Numerator.POZ_Z_D == 2)
                         return 1;
                     else if (Numerator.POZ_Z_D == 1)
                         return 2;
                     else
                         return 0;
-                }
+                 }
                 else
                     return 0;
             }
