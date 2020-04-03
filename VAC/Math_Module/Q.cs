@@ -24,8 +24,8 @@ namespace Math_Module
 
         #region Поля
 
-        private Z ch;//NUMERATOR
-        private N zn;//DENOMINATOR
+        private Z Numerator;
+        private N Denominator;
 
         #endregion
 
@@ -110,7 +110,7 @@ namespace Math_Module
             if (obj.GetType() == GetType() && this != null && obj != null)
             {
                 Q sec = obj as Z;
-                if (ch.Equals(sec.ch) && zn.Equals(sec.zn)) return true;
+                if (Numerator.Equals(sec.Numerator) && Numerator.Equals(sec.Numerator)) return true;
             }
             return false;
         }
@@ -126,8 +126,8 @@ namespace Math_Module
         
         public Q Clone() // Александр Баталин 9370//
         {
-            Q clone = new Q(ch.Clone());
-            clone.zn = zn.Clone();
+            Q clone = new Q(Numerator.Clone());
+            clone.Denominator = Denominator.Clone();
             return clone;
         }
 

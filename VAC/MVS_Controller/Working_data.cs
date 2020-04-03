@@ -14,6 +14,7 @@ namespace MVS_Controller
     public partial class Working_data : Noda
     {
         Button down_contacts = new Button();
+        Image butt_image = Image.FromFile(Directory.GetCurrentDirectory() + "\\Resources\\Image\\Start.png");
         public Working_data(Form parent, Panel panel) : base(parent, panel)
         {
             InitializeComponent();
@@ -24,7 +25,8 @@ namespace MVS_Controller
             down_contacts.BackgroundImageLayout = ImageLayout.Stretch;
             down_contacts.Location = new Point((int)(Width - (Width*0.16)), 0);
             down_contacts.Size = new Size((int)(Width * 0.16), Height);
-            down_contacts.BackgroundImage = Image.FromFile(Directory.GetCurrentDirectory() + "\\Resources\\Image\\Start.png");
+            down_contacts.BackgroundImage = butt_image;
+            down_contacts.Click += new EventHandler(Connect_start);
             down_contacts.Show();
         }
 
@@ -32,6 +34,12 @@ namespace MVS_Controller
         {
             (sender as Working_data).down_contacts.Location = new Point((int)((sender as Working_data).Width - ((sender as Working_data).Width * 0.16)), 0);
             (sender as Working_data).down_contacts.Size = new Size((int)((sender as Working_data).Width * 0.16), (sender as Working_data).Height);
+        }
+
+        private static void Connect_start(object sender, EventArgs e)
+        {
+            (sender as Button).BackgroundImage = null;
+            (sender as Button).BackColor = Color.Gray;
         }
     }
 }
