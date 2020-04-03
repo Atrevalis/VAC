@@ -85,6 +85,11 @@ namespace Math_Module
             return null;
         }
 
+        public static Q operator %(Q first, Q second)
+        {
+            return null;
+        }
+
         public static implicit operator List<string>(Q value)
         {
             return null;
