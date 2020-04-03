@@ -46,10 +46,9 @@ namespace Math_Module
         {
             get
             {
-                List<string> den = new N(Denominator);
                 List<string> one = new List<string>();
                 one.Add("1");
-                if (den == one)
+                if (N.COM_NN_D(Denominator, new N(one)) == 0)
                     return true;
                 else
                     return false;
