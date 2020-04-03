@@ -241,17 +241,7 @@ namespace Math_Module
                 return first;
             else
             {
-                N f = (first / second);
-                if (f.znach.Count == 1 && f.znach[0] == 55)
-                {
-
-                }
-                N S = f * second;
-                if(COM_NN_D(first, S) == 1)
-                {
-
-                }
-                temp = first - S;
+                temp = first - (first / second) * second;
                 return temp;
             }
         }

@@ -243,6 +243,7 @@
             // 
             // toolStripMenuItem13
             // 
+            this.toolStripMenuItem13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(132)))), ((int)(((byte)(127)))));
             this.toolStripMenuItem13.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.модульЧислаToolStripMenuItem,
             this.минусToolStripMenuItem,
@@ -257,6 +258,7 @@
             // 
             // toolStripMenuItem14
             // 
+            this.toolStripMenuItem14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(132)))), ((int)(((byte)(127)))));
             this.toolStripMenuItem14.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem18,
             this.делениеToolStripMenuItem,
@@ -267,6 +269,7 @@
             // 
             // toolStripMenuItem15
             // 
+            this.toolStripMenuItem15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(132)))), ((int)(((byte)(127)))));
             this.toolStripMenuItem15.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.суммаToolStripMenuItem,
             this.произведениеToolStripMenuItem,
@@ -278,6 +281,7 @@
             // 
             // toolStripMenuItem16
             // 
+            this.toolStripMenuItem16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(132)))), ((int)(((byte)(127)))));
             this.toolStripMenuItem16.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.сравнениеToolStripMenuItem,
             this.определениеЗнакаToolStripMenuItem});
@@ -287,12 +291,14 @@
             // 
             // toolStripMenuItem17
             // 
+            this.toolStripMenuItem17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(132)))), ((int)(((byte)(127)))));
             this.toolStripMenuItem17.Name = "toolStripMenuItem17";
             this.toolStripMenuItem17.Size = new System.Drawing.Size(46, 22);
             this.toolStripMenuItem17.Text = "Пуск";
             // 
             // минусToolStripMenuItem
             // 
+            this.минусToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(132)))), ((int)(((byte)(127)))));
             this.минусToolStripMenuItem.Name = "минусToolStripMenuItem";
             this.минусToolStripMenuItem.Size = new System.Drawing.Size(336, 22);
             this.минусToolStripMenuItem.Text = "Противоположное число";
@@ -300,24 +306,28 @@
             // 
             // справкаToolStripMenuItem
             // 
+            this.справкаToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(132)))), ((int)(((byte)(127)))));
             this.справкаToolStripMenuItem.Name = "справкаToolStripMenuItem";
             this.справкаToolStripMenuItem.Size = new System.Drawing.Size(65, 22);
             this.справкаToolStripMenuItem.Text = "Справка";
             // 
             // toolStripMenuItem18
             // 
+            this.toolStripMenuItem18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(132)))), ((int)(((byte)(127)))));
             this.toolStripMenuItem18.Name = "toolStripMenuItem18";
             this.toolStripMenuItem18.Size = new System.Drawing.Size(181, 22);
             this.toolStripMenuItem18.Text = "Вычитание";
             // 
             // делениеToolStripMenuItem
             // 
+            this.делениеToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(132)))), ((int)(((byte)(127)))));
             this.делениеToolStripMenuItem.Name = "делениеToolStripMenuItem";
             this.делениеToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
             this.делениеToolStripMenuItem.Text = "Деление";
             // 
             // производнаяToolStripMenuItem
             // 
+            this.производнаяToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(132)))), ((int)(((byte)(127)))));
             this.производнаяToolStripMenuItem.Name = "производнаяToolStripMenuItem";
             this.производнаяToolStripMenuItem.Size = new System.Drawing.Size(336, 22);
             this.производнаяToolStripMenuItem.Text = "Производная";
