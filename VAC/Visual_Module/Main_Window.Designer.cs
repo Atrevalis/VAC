@@ -375,6 +375,7 @@
             this.определениеЗнакаToolStripMenuItem.Name = "определениеЗнакаToolStripMenuItem";
             this.определениеЗнакаToolStripMenuItem.Size = new System.Drawing.Size(336, 22);
             this.определениеЗнакаToolStripMenuItem.Text = "Проверка возможности понижения множества";
+            this.определениеЗнакаToolStripMenuItem.Click += new System.EventHandler(this.определениеЗнакаToolStripMenuItem_Click);
             // 
             // toolStripMenuItem9
             // 
@@ -383,6 +384,7 @@
             this.toolStripMenuItem9.Name = "toolStripMenuItem9";
             this.toolStripMenuItem9.Size = new System.Drawing.Size(72, 22);
             this.toolStripMenuItem9.Text = "Результат";
+            this.toolStripMenuItem9.Click += new System.EventHandler(this.toolStripMenuItem9_Click);
             // 
             // toolStripMenuItem17
             // 

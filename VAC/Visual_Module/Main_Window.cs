@@ -198,7 +198,7 @@ namespace Visual_Module
         private void производнаяToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Working_data working_Data = new Working_data(this, panel1);
-            Controller.Create_new_Nod("f '(x)", "Uno_operator", working_Data);
+            Controller.Create_new_Nod("DIF", "Uno_operator", working_Data);
             working_Data.label.Text = "f '(x)";
             working_Data.Show();
             panel1.Controls.Add(working_Data);
@@ -225,7 +225,7 @@ namespace Visual_Module
         private void вынесениеНОКЧислителяИНОДЗнаменателяToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Working_data working_Data = new Working_data(this, panel1);
-            Controller.Create_new_Nod("НОД/\nНОК", "Uno_operator", working_Data);
+            Controller.Create_new_Nod("FAC", "Uno_operator", working_Data);
             working_Data.label.Text = "НОД/\nНОК";
             working_Data.Show();
             panel1.Controls.Add(working_Data);
@@ -235,7 +235,7 @@ namespace Visual_Module
         private void toolStripMenuItem19_Click(object sender, EventArgs e)
         {
             Working_data working_Data = new Working_data(this, panel1);
-            Controller.Create_new_Nod("⊆", "Uno_operator", working_Data);
+            Controller.Create_new_Nod("Down", "Uno_operator", working_Data);
             working_Data.label.Text = "⊆";
             working_Data.Show();
             panel1.Controls.Add(working_Data);
@@ -244,7 +244,7 @@ namespace Visual_Module
         private void toolStripMenuItem20_Click(object sender, EventArgs e)
         {
             Working_data working_Data = new Working_data(this, panel1);
-            Controller.Create_new_Nod("∈", "Uno_operator", working_Data);
+            Controller.Create_new_Nod("up", "Uno_operator", working_Data);
             working_Data.label.Text = "∈";
             working_Data.Show();
             panel1.Controls.Add(working_Data);
@@ -253,7 +253,7 @@ namespace Visual_Module
         private void toolStripMenuItem18_Click(object sender, EventArgs e)
         {
             Working_data working_Data = new Working_data(this, panel1);
-            Controller.Create_new_Nod("SUB", "Bin_operator", working_Data);
+            Controller.Create_new_Nod("-", "Bin_operator", working_Data);
             working_Data.label.Text = "SUB";
             working_Data.Show();
             panel1.Controls.Add(working_Data);
@@ -262,7 +262,7 @@ namespace Visual_Module
         private void делениеToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Working_data working_Data = new Working_data(this, panel1);
-            Controller.Create_new_Nod("DIV", "Bin_operator", working_Data);
+            Controller.Create_new_Nod("/", "Bin_operator", working_Data);
             working_Data.label.Text = "DIV";
             working_Data.Show();
             panel1.Controls.Add(working_Data);
@@ -271,7 +271,7 @@ namespace Visual_Module
         private void остатокОтДеленияToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Working_data working_Data = new Working_data(this, panel1);
-            Controller.Create_new_Nod("MOD", "Bin_operator", working_Data);
+            Controller.Create_new_Nod("%", "Bin_operator", working_Data);
             working_Data.label.Text = "MOD";
             working_Data.Show();
             panel1.Controls.Add(working_Data);
@@ -280,7 +280,7 @@ namespace Visual_Module
         private void суммаToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Working_data working_Data = new Working_data(this, panel1);
-            Controller.Create_new_Nod("∑", "N_operator", working_Data);
+            Controller.Create_new_Nod("+", "N_operator", working_Data);
             working_Data.label.Text = "∑";
             working_Data.Show();
             panel1.Controls.Add(working_Data);
@@ -289,7 +289,7 @@ namespace Visual_Module
         private void произведениеToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Working_data working_Data = new Working_data(this, panel1);
-            Controller.Create_new_Nod("Π", "N_operator", working_Data);
+            Controller.Create_new_Nod("*", "N_operator", working_Data);
             working_Data.label.Text = "Π";
             working_Data.Show();
             panel1.Controls.Add(working_Data);
@@ -307,7 +307,7 @@ namespace Visual_Module
         private void нОКToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Working_data if_Operator = new Working_data(this, panel1);
-            Controller.Create_new_Nod("><=", "if_operator", if_Operator);
+            Controller.Create_new_Nod("НОД", "N_operator", if_Operator);
             if_Operator.label.Text = "НОК";
             if_Operator.Show();
             panel1.Controls.Add(if_Operator);
@@ -316,10 +316,28 @@ namespace Visual_Module
         private void сравнениеToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if_operator if_Operator = new if_operator(this, panel1);
-            Controller.Create_new_Nod("НОК", "if_operator", if_Operator);
-            if_Operator.label.Text = "НОК";
+            Controller.Create_new_Nod("COM_NN_D", "if_operator", if_Operator);
+            if_Operator.label.Text = "><=";
             if_Operator.Show();
             panel1.Controls.Add(if_Operator);
+        }
+
+        private void определениеЗнакаToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if_operator if_Operator = new if_operator(this, panel1);
+            Controller.Create_new_Nod("isDown", "if_operator", if_Operator);
+            if_Operator.label.Text = "isDown";
+            if_Operator.Show();
+            panel1.Controls.Add(if_Operator);
+        }
+
+        private void toolStripMenuItem9_Click(object sender, EventArgs e)
+        {
+            Result result = new Result(this, panel1);
+            Controller.Create_new_Nod("Result", "Result", result);
+            result.label.Text = "Вывод";
+            result.Show();
+            panel1.Controls.Add(result);
         }
     }
 }

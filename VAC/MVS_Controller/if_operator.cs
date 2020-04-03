@@ -21,7 +21,6 @@ namespace MVS_Controller
             InitializeComponent();
             SizeChanged += new EventHandler(SizeChange);
             Controls.Add(down_contacts);
-            BackColor = Color.FromArgb(50, 50, 50);
             down_contacts.FlatStyle = FlatStyle.Popup;
             down_contacts.BackgroundImageLayout = ImageLayout.Stretch;
             down_contacts.Location = new Point((int)(Width - (Width * 0.16)), 0);

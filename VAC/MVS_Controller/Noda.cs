@@ -25,6 +25,7 @@ namespace MVS_Controller
             InitializeComponent();
             Height = 100;
             Width = 100;
+            BackColor = Color.FromArgb(50, 50, 50);
             Location = new Point(parent.Width/2 - 50 - panel.Location.X, parent.Height/2 - 50 - panel.Location.Y);
             MouseDown += new MouseEventHandler(Noda_click);
             MouseUp += new MouseEventHandler(Noda_up);
