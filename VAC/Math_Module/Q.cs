@@ -127,7 +127,15 @@ namespace Math_Module
 
         public static implicit operator List<string>(Q value)
         {
-            return null;
+            List<string> S = new List<string>();
+            List<string> temp = new List<string>();
+            temp = value.Numerator;
+            S.AddRange(temp);
+            S.Add("/");
+            temp = value.Denominator;
+            S.AddRange(temp);
+
+            return S;
         }
 
         public static implicit operator P(Q value)
