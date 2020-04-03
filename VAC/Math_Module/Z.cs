@@ -177,7 +177,7 @@ namespace Math_Module
             }
         }
 
-        public static Z operator %(Z first, Z second) // MOD_ZZ_Z //есть тесты
+        public static N operator %(Z first, Z second) // MOD_ZZ_Z //есть тесты
         {
             Z Trash = first.Clone();
             List<string> nol = new List<string>();
@@ -206,7 +206,7 @@ namespace Math_Module
                     {
                         Trash = first - ((first / second) - one) * second;
                     }
-                    return Trash;
+                    return (N)Trash;
                 }
 
                 else return pog;

@@ -37,6 +37,7 @@ namespace MVS_Controller
                 down_contacts[i].BackColor = Color.Gray;
                 down_contacts[i].Click += new EventHandler(Connect_start);
                 down_contacts[i].Text = args[i];
+                down_contacts[i].Font = new System.Drawing.Font("Trebuchet MS", down_contacts[i].Height > down_contacts[i].Width ? down_contacts[i].Width / 3.5f : down_contacts[i].Height / 3.5f, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
                 down_contacts[i].Show();
             }
         }
@@ -48,6 +49,7 @@ namespace MVS_Controller
             {
                 if_.down_contacts[i].Size = new Size((int)(if_.Width * 0.16), if_.Height/ if_.down_contacts.Length);
                 if_.down_contacts[i].Location = new Point((int)((if_).Width - ((if_).Width * 0.16)), i * (if_.Height / if_.down_contacts.Length));
+                if_.down_contacts[i].Font = new System.Drawing.Font("Trebuchet MS", if_.down_contacts[i].Height > if_.down_contacts[i].Width ? if_.down_contacts[i].Width / 3.5f : if_.down_contacts[i].Height / 3.5f, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             }
         }
 

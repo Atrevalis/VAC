@@ -120,7 +120,7 @@ namespace Math_Module
             return result;
         }
 
-        public static Q operator %(Q first, Q second)
+        public static N operator %(Q first, Q second)
         {
             return null;
         }
