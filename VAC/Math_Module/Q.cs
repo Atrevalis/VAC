@@ -34,7 +34,7 @@ namespace Math_Module
 
         #region Свойства 
 
-        public override bool isDown
+        public override bool isDown//есть тесты
         {
             get
             {
@@ -42,7 +42,7 @@ namespace Math_Module
             }
         }
 
-        bool INT_Q_B
+        bool INT_Q_B//тест идет вместе с isDown 
         {
             get
             {
@@ -78,17 +78,17 @@ namespace Math_Module
         #region Перегрузки 
 
 
-        public static Q operator -(Q value) // MUL_QM_Q
+        public static Q operator -(Q value) // MUL_QM_Q //есть тесты
         {
             return null;
         }
 
-        public static Q operator +(Q first, Q second) // ADD_QQ_Q
+        public static Q operator +(Q first, Q second) // ADD_QQ_Q //есть тесты
         {
             return null;
         }
 
-        public static Q operator -(Q first, Q second) // SUB_QQ_Q
+        public static Q operator -(Q first, Q second) // SUB_QQ_Q //есть тесты
         {
             Q result;
             result = first + (-second);
@@ -96,7 +96,7 @@ namespace Math_Module
             return result;
         }
 
-        public static Q operator *(Q first, Q second) // MUL_QQ_Q
+        public static Q operator *(Q first, Q second) // MUL_QQ_Q //есть тесты
         {
             Q result = first.Clone();
             result.Denominator *= second.Denominator;
@@ -169,7 +169,7 @@ namespace Math_Module
 
         #region Методы 
 
-        private void RED_Q_Q()
+        private void RED_Q_Q() //есть тесты
         {
             N nod = N.GCF_NN_N(Numerator.ABS_Z_N, Denominator);
             Numerator = Numerator / nod;

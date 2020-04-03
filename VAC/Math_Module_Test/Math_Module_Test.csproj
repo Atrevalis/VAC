@@ -55,6 +55,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="Q_Test.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Math_Module\Math_Module.csproj">
