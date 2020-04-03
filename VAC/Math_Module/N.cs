@@ -136,7 +136,7 @@ namespace Math_Module
             {
                 if (bigger.znach[i] < second.znach[i])    //i-ая строка большего поля меньше
                 {
-                    bigger.znach[i] = uint_size + 1 - second.znach[i];      //вычитаем из i-ой строки большего поля i-ую строку меньшего
+                    bigger.znach[i] = bigger.znach[i] + uint_size + 1 - second.znach[i];      //вычитаем из i-ой строки большего поля i-ую строку меньшего
                     int j;
                     for (j = (i + 1); bigger.znach[j] == 0; j++)        //находим строки значениея которых равны нулю
                     {
