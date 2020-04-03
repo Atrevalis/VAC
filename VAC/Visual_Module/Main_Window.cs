@@ -24,7 +24,7 @@ namespace Visual_Module
 
         private void toolStripMenuItem2_Click(object sender, EventArgs e)
         {
-            Create_new_project new_Project = new Create_new_project(this);
+            Create_new_project new_Project = new Create_new_project(this, true);
             new_Project.Show();
             Enabled = false;
         }

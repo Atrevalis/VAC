@@ -42,8 +42,7 @@ namespace Visual_Module
         {
             main.Show();
             main.Enabled = false;
-            Create_new_project create = new Create_new_project(main);
-            
+            Create_new_project create = new Create_new_project(main, false);
             create.Show();
             Close();
         }

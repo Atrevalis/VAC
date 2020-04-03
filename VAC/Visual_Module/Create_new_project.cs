@@ -14,10 +14,11 @@ namespace Visual_Module
     public partial class Create_new_project : Form
     {
         Main_Window main;
-        public Create_new_project(Main_Window main_)
+        public Create_new_project(Main_Window main_, bool butt3)
         {
             main = main_;
             InitializeComponent();
+            if (!butt3) button3.Enabled = false;
         }
 
         private void button3_Click(object sender, EventArgs e)
