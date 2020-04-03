@@ -34,8 +34,8 @@ namespace MVS_Controller
 
         private static void SizeChange(object sender, EventArgs e)
         {
-            (sender as if_operator).down_contacts.Location = new Point((int)((sender as Working_data).Width - ((sender as Working_data).Width * 0.16)), 0);
-            (sender as if_operator).down_contacts.Size = new Size((int)((sender as Working_data).Width * 0.16), (sender as Working_data).Height);
+            (sender as if_operator).down_contacts.Location = new Point((int)((sender as if_operator).Width - ((sender as if_operator).Width * 0.16)), 0);
+            (sender as if_operator).down_contacts.Size = new Size((int)((sender as if_operator).Width * 0.16), (sender as if_operator).Height);
         }
 
         private static void Connect_start(object sender, EventArgs e)

@@ -231,56 +231,21 @@ namespace Visual_Module
             panel1.Controls.Add(working_Data);
         }
 
+
+        private void toolStripMenuItem19_Click(object sender, EventArgs e)
+        {
+            Working_data working_Data = new Working_data(this, panel1);
+            Controller.Create_new_Nod("⊆", "Uno_operator", working_Data);
+            working_Data.label.Text = "⊆";
+            working_Data.Show();
+            panel1.Controls.Add(working_Data);
+        }
+
         private void toolStripMenuItem20_Click(object sender, EventArgs e)
         {
             Working_data working_Data = new Working_data(this, panel1);
-            Controller.Create_new_Nod("N -> Z", "Uno_operator", working_Data);
-            working_Data.label.Text = "N -> Z";
-            working_Data.Show();
-            panel1.Controls.Add(working_Data);
-        }
-
-        private void toolStripMenuItem21_Click(object sender, EventArgs e)
-        {
-            Working_data working_Data = new Working_data(this, panel1);
-            Controller.Create_new_Nod("Z -> N", "Uno_operator", working_Data);
-            working_Data.label.Text = "Z -> N";
-            working_Data.Show();
-            panel1.Controls.Add(working_Data);
-        }
-
-        private void toolStripMenuItem22_Click(object sender, EventArgs e)
-        {
-            Working_data working_Data = new Working_data(this, panel1);
-            Controller.Create_new_Nod("Z -> Q", "Uno_operator", working_Data);
-            working_Data.label.Text = "Z -> Q";
-            working_Data.Show();
-            panel1.Controls.Add(working_Data);
-        }
-
-        private void toolStripMenuItem23_Click(object sender, EventArgs e)
-        {
-            Working_data working_Data = new Working_data(this, panel1);
-            Controller.Create_new_Nod("Q -> Z", "Uno_operator", working_Data);
-            working_Data.label.Text = "Q -> Z";
-            working_Data.Show();
-            panel1.Controls.Add(working_Data);
-        }
-
-        private void toolStripMenuItem24_Click(object sender, EventArgs e)
-        {
-            Working_data working_Data = new Working_data(this, panel1);
-            Controller.Create_new_Nod("Q -> P", "Uno_operator", working_Data);
-            working_Data.label.Text = "Q -> P";
-            working_Data.Show();
-            panel1.Controls.Add(working_Data);
-        }
-
-        private void toolStripMenuItem25_Click(object sender, EventArgs e)
-        {
-            Working_data working_Data = new Working_data(this, panel1);
-            Controller.Create_new_Nod("P -> Q", "Uno_operator", working_Data);
-            working_Data.label.Text = "P -> Q";
+            Controller.Create_new_Nod("∈", "Uno_operator", working_Data);
+            working_Data.label.Text = "∈";
             working_Data.Show();
             panel1.Controls.Add(working_Data);
         }
@@ -341,11 +306,20 @@ namespace Visual_Module
 
         private void нОКToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Working_data working_Data = new Working_data(this, panel1);
-            Controller.Create_new_Nod("НОК", "N_operator", working_Data);
-            working_Data.label.Text = "НОК";
-            working_Data.Show();
-            panel1.Controls.Add(working_Data);
+            Working_data if_Operator = new Working_data(this, panel1);
+            Controller.Create_new_Nod("><=", "if_operator", if_Operator);
+            if_Operator.label.Text = "НОК";
+            if_Operator.Show();
+            panel1.Controls.Add(if_Operator);
+        }
+
+        private void сравнениеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if_operator if_Operator = new if_operator(this, panel1);
+            Controller.Create_new_Nod("НОК", "if_operator", if_Operator);
+            if_Operator.label.Text = "НОК";
+            if_Operator.Show();
+            panel1.Controls.Add(if_Operator);
         }
     }
 }
