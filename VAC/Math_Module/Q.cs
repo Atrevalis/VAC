@@ -12,11 +12,15 @@ namespace Math_Module
 
         public Q(List<string> first, List<string> second)
         {
-
+            Numerator = new Z(first);
+            Denominator = new N(second);
         }
         public Q(Z value)
         {
-
+            Numerator = new Z(value);
+            List<string> S = new List<string>();
+            S.Add("1");
+            Denominator = new N(S);
         }
 
         #endregion
