@@ -72,17 +72,36 @@ namespace Math_Module
 
         public static Q operator -(Q first, Q second) // SUB_QQ_Q
         {
-            return null;
+            Q result;
+            result = first + (-second);
+            result.RED_Q_Q();
+            return result;
         }
 
         public static Q operator *(Q first, Q second) // MUL_QQ_Q
         {
-            return null;
+            Q result;
+            result = first;
+            result.Denominator *= second.Denominator;
+            result.Numerator *= second.Numerator;
+            result.RED_Q_Q();
+            return result;
         }
 
         public static Q operator /(Q first, Q second) // DIV_QQ_Q
         {
-            return null;
+            Q result;
+            Q divider = null;
+            result = first;
+            divider.Denominator = second.Numerator.ABS_Z_N;
+            divider.Numerator = second.Denominator;
+            if (divider.Numerator.isDown != second.Numerator.isDown)
+            {
+                divider = - divider;
+            }
+            result *= divider;
+            result.RED_Q_Q();
+            return result;
         }
 
         public static Q operator %(Q first, Q second)
