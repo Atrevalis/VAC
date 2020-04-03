@@ -12,7 +12,7 @@ namespace MVS_Controller
 {
     public partial class Noda : UserControl
     {
-        public static Noda conect_nod = null;
+        public static Button conect_nod = null;
         public Label label = new Label(); 
         static public Noda Active = null;
         static private Noda Size_change = null;

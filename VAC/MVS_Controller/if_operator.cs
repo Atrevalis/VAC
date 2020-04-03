@@ -53,16 +53,16 @@ namespace MVS_Controller
 
         private static void Connect_start(object sender, EventArgs e)
         {
-            if (conect_nod != (sender as Button).Parent as Noda)
+            if (conect_nod != (sender as Button))
             {
                 if (conect_nod == null)
                 {
                     (sender as Button).BackgroundImage = null;
-                    conect_nod = (sender as Button).Parent as Noda;
+                    conect_nod = (sender as Button);
                 }
                 else
                 {
-                    (sender as Button).BackgroundImage = butt_image;
+                    conect_nod.BackgroundImage = butt_image;
                     conect_nod = null;
                 }
             }
