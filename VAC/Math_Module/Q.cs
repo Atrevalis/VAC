@@ -12,7 +12,8 @@ namespace Math_Module
 
         public Q(List<string> first, List<string> second)
         {
-
+            Numerator = new Z(first);
+            Denominator = new N(second);
         }
         public Q(Z value)
         {
