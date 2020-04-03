@@ -42,7 +42,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include=".Designer.cs" />
     <Compile Include="if_operator.cs">
       <SubType>UserControl</SubType>
     </Compile>
