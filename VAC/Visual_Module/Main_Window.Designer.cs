@@ -162,7 +162,7 @@
             // toolStripMenuItem9
             // 
             this.toolStripMenuItem9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(132)))), ((int)(((byte)(127)))));
-            this.toolStripMenuItem9.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.toolStripMenuItem9.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.toolStripMenuItem9.Name = "toolStripMenuItem9";
             this.toolStripMenuItem9.Size = new System.Drawing.Size(125, 22);
             this.toolStripMenuItem9.Text = "toolStripMenuItem9";

@@ -12,7 +12,7 @@ namespace MVS_Controller
 {
     public partial class Noda : UserControl
     {
-        Label label = new Label(); 
+        public Label label = new Label(); 
         static public Noda Active = null;
         static private Noda Size_change = null;
         static public Noda enter = null;
@@ -30,12 +30,13 @@ namespace MVS_Controller
             MouseEnter += new EventHandler(Noda_enter);
             MouseLeave += new EventHandler(Noda_leave);
             MouseMove += new MouseEventHandler(Noda_MoseMove);
-            label.Text = "label";
-            label.Location = new Point((int)(Width*0.16), (int)(Height * 0.01));
+            ClientSizeChanged += new EventHandler(Size_chenge);
+            label.Location = new Point((int)(Width*0.16), (int)(Height * 0.25));
+            label.Size = new Size((int)(Width * 0.62), Height/2);
+            label.Font = new System.Drawing.Font("Trebuchet MS", label.Height>label.Width? label.Width/3.5f:label.Height/3.5f, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             label.ForeColor = Color.White;
-            label.Visible = true;
-            label.Size = new Size(100,100);
-            label.Show();
+            label.TextAlign = ContentAlignment.TopCenter;
+            Controls.Add(label);
         }
 
         private static void  Noda_click(object sender, MouseEventArgs e)
@@ -123,6 +124,22 @@ namespace MVS_Controller
                 }
             }
             Mouse_pos = e.Location;
+        }
+
+        private static void Size_chenge(object sender, EventArgs e)
+        {
+            Noda nod = sender as Noda;
+            Label label = nod.Controls[0] as Label;
+            label.Location = new Point((int)(nod.Width * 0.16), (int)(nod.Height * 0.25));
+            label.Size = new Size((int)(nod.Width * 0.62), nod.Height / 2);
+            try
+            {
+                label.Font = new System.Drawing.Font("Trebuchet MS", label.Height > label.Width ? label.Width / 3.5f : label.Height / 3.5f, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            }
+            catch
+            {
+
+            }
         }
     }
 }
