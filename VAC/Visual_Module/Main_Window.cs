@@ -138,5 +138,10 @@ namespace Visual_Module
                 toolStripStatusLabel1.Text = "";
             }
         }
+
+        private void минусToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
