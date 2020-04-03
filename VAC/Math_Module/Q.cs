@@ -115,12 +115,19 @@ namespace Math_Module
 
         public static implicit operator P(Q value)
         {
-            return null;
+            return new P(value);
         }
 
         public static explicit operator Z(Q value)
         {
-            return null;
+            if (value.isDown)
+            {
+                return new Z(value.Numerator);
+            }
+            else
+            {
+                return null;
+            }
         }
 
         public override bool Equals(object obj)
