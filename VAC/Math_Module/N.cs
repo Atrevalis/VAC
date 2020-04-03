@@ -329,13 +329,22 @@ namespace Math_Module
 
         private N MUL_ND_N(byte value) // Умножение числа на цифру - Дмитрий Панченко 9370 //тест есть(закоммичен)
         {
-            N k = Clone(); uint g = 0;
+            N k = Clone(); 
+            uint g = 0;
+            uint f;
             for (int i = 0; i < znach.Count; i++)
             {
                 k.znach[i] = k.znach[i] * value + g;
                 g = k.znach[i] / (uint_size + 1);
+                if (g != 0)
+                {
+                    k.znach[i] -= (uint_size + 1) * g;
+                }
+                if ((i == znach.Count - 1) && (g != 0))
+                {
+                    k.znach.Add(g);
+                }
             }
-
             return k;
         }
 
