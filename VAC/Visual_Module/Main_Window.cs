@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MVS_Controller;
+using External_Controller;
 
 namespace Visual_Module
 {

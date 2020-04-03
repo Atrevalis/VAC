@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace External_module
 {
-    class Uno_operator : Operators
+    public class Uno_operator : Operators
     {
         public Uno_operator() :base()
         {

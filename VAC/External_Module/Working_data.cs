@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace External_module
 {
-    abstract class Working_data : Noda
+    public abstract class Working_data : Noda
     {
         private List<Noda> down_contacts = new List<Noda>();
 

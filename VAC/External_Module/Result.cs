@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace External_module
 {
-    class Result : Noda
+    public class Result : Noda
     {
         private Working_data up_connection;
         private static int count_of_results_index = 1;

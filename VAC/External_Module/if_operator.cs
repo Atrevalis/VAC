@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace External_module
 {
-    class if_operator : Noda
+    public class if_operator : Noda
     {
 
         int count_of_up_connection;

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace External_module
 {
-    abstract class Operators : Working_data
+    public abstract class Operators : Working_data
     {
         static int count_of_operator4s_index = 1;
        protected int count_of_up_connection;

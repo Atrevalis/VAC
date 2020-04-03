@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace External_module
 {
-    class Bin_operator : Operators
+    public class Bin_operator : Operators
     {
         public Bin_operator() : base()
         {
