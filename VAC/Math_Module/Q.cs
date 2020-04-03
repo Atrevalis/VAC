@@ -16,7 +16,10 @@ namespace Math_Module
         }
         public Q(Z value)
         {
-
+            Numerator = new Z(value);
+            List<string> S = new List<string>();
+            S.Add("1");
+            Denominator = new N(S);
         }
 
         #endregion
