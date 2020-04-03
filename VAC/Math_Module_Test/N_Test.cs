@@ -130,24 +130,6 @@ namespace Math_Module_Test
 
 
         }
-
-        [TestMethod]
-        public void plusTest1()
-        {
-            List<string> input = new List<string>();
-            List<string> output = new List<string>();
-            input.Add("12");
-            input.Add("10000000");
-            output.Add("12");
-            output.Add("10000012");
-            output.Add("10000000");
-            N n = new N(input);
-            input.Add("00000000");
-            N i = new N(input);
-            N t = new N(output);
-            Assert.AreEqual(t, n + i);
-
-        }
         [TestMethod]
         public void plusTest3()
         {
