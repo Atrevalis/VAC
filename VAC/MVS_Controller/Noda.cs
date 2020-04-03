@@ -12,6 +12,7 @@ namespace MVS_Controller
 {
     public partial class Noda : UserControl
     {
+        Label label = new Label(); 
         static public Noda Active = null;
         static private Noda Size_change = null;
         static public Noda enter = null;
@@ -29,6 +30,12 @@ namespace MVS_Controller
             MouseEnter += new EventHandler(Noda_enter);
             MouseLeave += new EventHandler(Noda_leave);
             MouseMove += new MouseEventHandler(Noda_MoseMove);
+            label.Text = "label";
+            label.Location = new Point((int)(Width*0.16), (int)(Height * 0.01));
+            label.ForeColor = Color.White;
+            label.Visible = true;
+            label.Size = new Size(100,100);
+            label.Show();
         }
 
         private static void  Noda_click(object sender, MouseEventArgs e)

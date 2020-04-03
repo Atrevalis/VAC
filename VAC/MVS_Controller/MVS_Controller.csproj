@@ -42,37 +42,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Bin_operator.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Bin_operator.Designer.cs">
-      <DependentUpon>Bin_operator.cs</DependentUpon>
-    </Compile>
     <Compile Include="Noda.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Noda.Designer.cs">
       <DependentUpon>Noda.cs</DependentUpon>
     </Compile>
-    <Compile Include="N_operator.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="N_operator.Designer.cs">
-      <DependentUpon>N_operator.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Operators.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Operators.Designer.cs">
-      <DependentUpon>Operators.cs</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Uno_operator.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Uno_operator.Designer.cs">
-      <DependentUpon>Uno_operator.cs</DependentUpon>
-    </Compile>
     <Compile Include="Working_data.cs">
       <SubType>UserControl</SubType>
     </Compile>
