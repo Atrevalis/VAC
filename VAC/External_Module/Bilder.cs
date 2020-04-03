@@ -15,15 +15,23 @@ namespace External_module
             return data;
         }
 
-        public static if_operator Bild_if_Operator(string name)
+        public static if_operator Bild_if_Operator(string name, ref string[] args)
         {
             if_operator if_ = new if_operator();
             switch(name)
             {
-                case "":
+                case "COM_NN_D":
+                    {
+                        if_.Count_of_up_connection = 2;
+                        if_.exits = new List<Noda>[3];
+                        args = new string[] { ">", "=", "<" };
+                    }
+                    break;
+                case "isDown":
                     {
                         if_.Count_of_up_connection = 1;
-                        if_.exits = new List<Noda>[1];
+                        if_.exits = new List<Noda>[2];
+                        args = new string[] { "true", "false"};
                     }
                     break;
             }

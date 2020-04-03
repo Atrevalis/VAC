@@ -13,28 +13,42 @@ namespace MVS_Controller
 {
     public partial class if_operator : Noda
     {
-        Button down_contacts = new Button();
+        Button[] down_contacts;
         static Image butt_image = Image.FromFile(Directory.GetCurrentDirectory() + "\\Resources\\Image\\Start.png");
         public if_operator(Form parent, Panel panel) : base(parent, panel)
         {
             InitializeComponent();
             InitializeComponent();
             SizeChanged += new EventHandler(SizeChange);
-            Controls.Add(down_contacts);
-            down_contacts.FlatStyle = FlatStyle.Popup;
-            down_contacts.BackgroundImageLayout = ImageLayout.Stretch;
-            down_contacts.Location = new Point((int)(Width - (Width * 0.16)), 0);
-            down_contacts.Size = new Size((int)(Width * 0.16), Height);
-            down_contacts.BackgroundImage = butt_image;
-            down_contacts.BackColor = Color.Gray;
-            down_contacts.Click += new EventHandler(Connect_start);
-            down_contacts.Show();
+        }
+
+        public void Butt_ini(string[] args)
+        {
+            down_contacts = new Button[args.Length];
+            for (int i = 0; i < args.Length; i++)
+            {
+                down_contacts[i] = new Button();
+                Controls.Add(down_contacts[i]);
+                down_contacts[i].FlatStyle = FlatStyle.Popup;
+                down_contacts[i].BackgroundImageLayout = ImageLayout.Stretch;
+                down_contacts[i].Size = new Size((int)(Width * 0.16), Height/args.Length);
+                down_contacts[i].Location = new Point((int)(Width - (Width * 0.16)), i*(Height/args.Length));
+                down_contacts[i].BackgroundImage = butt_image;
+                down_contacts[i].BackColor = Color.Gray;
+                down_contacts[i].Click += new EventHandler(Connect_start);
+                down_contacts[i].Text = args[i];
+                down_contacts[i].Show();
+            }
         }
 
         private static void SizeChange(object sender, EventArgs e)
         {
-            (sender as if_operator).down_contacts.Location = new Point((int)((sender as if_operator).Width - ((sender as if_operator).Width * 0.16)), 0);
-            (sender as if_operator).down_contacts.Size = new Size((int)((sender as if_operator).Width * 0.16), (sender as if_operator).Height);
+            if_operator if_ = sender as if_operator;
+            for (int i = 0; i < if_.down_contacts.Length; i++)
+            {
+                if_.down_contacts[i].Size = new Size((int)(if_.Width * 0.16), if_.Height/ if_.down_contacts.Length);
+                if_.down_contacts[i].Location = new Point((int)((if_).Width - ((if_).Width * 0.16)), i * (if_.Height / if_.down_contacts.Length));
+            }
         }
 
         private static void Connect_start(object sender, EventArgs e)
@@ -45,6 +59,11 @@ namespace MVS_Controller
                 {
                     (sender as Button).BackgroundImage = null;
                     conect_nod = (sender as Button).Parent as Noda;
+                }
+                else
+                {
+                    (sender as Button).BackgroundImage = butt_image;
+                    conect_nod = null;
                 }
             }
             else

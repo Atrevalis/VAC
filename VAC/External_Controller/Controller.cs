@@ -23,7 +23,7 @@ namespace External_Controller
 
         }
 
-        public static void Create_new_Nod(string name, string type, object Visual_nod)
+        public static void Create_new_Nod(string name, string type, object Visual_nod, ref string[] ags)
         {
             switch(type)
             {
@@ -60,7 +60,7 @@ namespace External_Controller
                     break;
                 case "if_operator":
                     {
-                        if_Operators.Add(new if_operator(Bilder.Bild_if_Operator(name), Visual_nod));
+                        if_Operators.Add(new if_operator(Bilder.Bild_if_Operator(name, ref ags), Visual_nod));
                         nods.Add(new Noda(if_Operators[if_Operators.Count - 1].information, Visual_nod));
                     }
                     break;
