@@ -42,7 +42,10 @@ namespace Math_Module
         {
             get
             {
-                return Convert.ToBoolean(new Exception());
+                if (Denominator == Numerator.ABS_Z_N)
+                    return true;
+                else
+                    return false;
             }
         }
 
@@ -50,7 +53,17 @@ namespace Math_Module
         {
             get
             {
-                return 0;
+                 if (INT_Q_B == true)
+                {
+                    if (Numerator.POZ_Z_D == 2)
+                        return 1;
+                    else if (Numerator.POZ_Z_D == 1)
+                        return 2;
+                    else
+                        return 0;
+                }
+                else
+                    return 0;
             }
         }
 
@@ -146,7 +159,9 @@ namespace Math_Module
 
         private void RED_Q_Q()
         {
-
+            N nod = N.GCF_NN_N(Numerator.ABS_Z_N, Denominator);
+            Numerator = Numerator / nod;
+            Denominator = Denominator / nod;
         }
         
         public Q Clone() // Александр Баталин 9370//
