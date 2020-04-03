@@ -79,8 +79,7 @@ namespace Math_Module
 
         public static Q operator *(Q first, Q second) // MUL_QQ_Q
         {
-            Q result;
-            result = first;
+            Q result = first.Clone();
             result.Denominator *= second.Denominator;
             result.Numerator *= second.Numerator;
             result.RED_Q_Q();
@@ -89,9 +88,8 @@ namespace Math_Module
 
         public static Q operator /(Q first, Q second) // DIV_QQ_Q
         {
-            Q result;
             Q divider = null;
-            result = first;
+            Q result = first.Clone();
             divider.Denominator = second.Numerator.ABS_Z_N;
             divider.Numerator = second.Denominator;
             if (divider.Numerator.isDown != second.Numerator.isDown)
