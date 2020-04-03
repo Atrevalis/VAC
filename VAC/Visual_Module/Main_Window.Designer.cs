@@ -139,7 +139,7 @@
             this.toolStripMenuItem5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(132)))), ((int)(((byte)(127)))));
             this.toolStripMenuItem5.Name = "toolStripMenuItem5";
             this.toolStripMenuItem5.Size = new System.Drawing.Size(180, 22);
-            this.toolStripMenuItem5.Text = "Свойства проекта";
+            this.toolStripMenuItem5.Text = "Свойства";
             this.toolStripMenuItem5.Click += new System.EventHandler(this.toolStripMenuItem5_Click);
             // 
             // toolStripMenuItem6
@@ -168,6 +168,7 @@
             this.toolStripMenuItem10.Name = "toolStripMenuItem10";
             this.toolStripMenuItem10.Size = new System.Drawing.Size(192, 22);
             this.toolStripMenuItem10.Text = "Целые числа";
+            this.toolStripMenuItem10.Click += new System.EventHandler(this.toolStripMenuItem10_Click);
             // 
             // toolStripMenuItem11
             // 
@@ -175,6 +176,7 @@
             this.toolStripMenuItem11.Name = "toolStripMenuItem11";
             this.toolStripMenuItem11.Size = new System.Drawing.Size(192, 22);
             this.toolStripMenuItem11.Text = "Рациональные числа";
+            this.toolStripMenuItem11.Click += new System.EventHandler(this.toolStripMenuItem11_Click);
             // 
             // toolStripMenuItem12
             // 
@@ -182,6 +184,7 @@
             this.toolStripMenuItem12.Name = "toolStripMenuItem12";
             this.toolStripMenuItem12.Size = new System.Drawing.Size(192, 22);
             this.toolStripMenuItem12.Text = "Полиномы";
+            this.toolStripMenuItem12.Click += new System.EventHandler(this.toolStripMenuItem12_Click);
             // 
             // toolStripMenuItem8
             // 
@@ -206,7 +209,7 @@
             this.вынесениеНОКЧислителяИНОДЗнаменателяToolStripMenuItem,
             this.toolStripMenuItem19});
             this.toolStripMenuItem13.Name = "toolStripMenuItem13";
-            this.toolStripMenuItem13.Size = new System.Drawing.Size(130, 22);
+            this.toolStripMenuItem13.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItem13.Text = "Унарные";
             // 
             // модульЧислаToolStripMenuItem
@@ -215,6 +218,7 @@
             this.модульЧислаToolStripMenuItem.Name = "модульЧислаToolStripMenuItem";
             this.модульЧислаToolStripMenuItem.Size = new System.Drawing.Size(336, 22);
             this.модульЧислаToolStripMenuItem.Text = "Модуль числа";
+            this.модульЧислаToolStripMenuItem.Click += new System.EventHandler(this.модульЧислаToolStripMenuItem_Click);
             // 
             // минусToolStripMenuItem
             // 
@@ -230,6 +234,7 @@
             this.производнаяToolStripMenuItem.Name = "производнаяToolStripMenuItem";
             this.производнаяToolStripMenuItem.Size = new System.Drawing.Size(336, 22);
             this.производнаяToolStripMenuItem.Text = "Производная";
+            this.производнаяToolStripMenuItem.Click += new System.EventHandler(this.производнаяToolStripMenuItem_Click);
             // 
             // старшийКоэфицентToolStripMenuItem
             // 
@@ -237,6 +242,7 @@
             this.старшийКоэфицентToolStripMenuItem.Name = "старшийКоэфицентToolStripMenuItem";
             this.старшийКоэфицентToolStripMenuItem.Size = new System.Drawing.Size(336, 22);
             this.старшийКоэфицентToolStripMenuItem.Text = "Старший коэфицент";
+            this.старшийКоэфицентToolStripMenuItem.Click += new System.EventHandler(this.старшийКоэфицентToolStripMenuItem_Click);
             // 
             // степеньПолиномаToolStripMenuItem
             // 
@@ -244,6 +250,7 @@
             this.степеньПолиномаToolStripMenuItem.Name = "степеньПолиномаToolStripMenuItem";
             this.степеньПолиномаToolStripMenuItem.Size = new System.Drawing.Size(336, 22);
             this.степеньПолиномаToolStripMenuItem.Text = "Степень полинома";
+            this.степеньПолиномаToolStripMenuItem.Click += new System.EventHandler(this.степеньПолиномаToolStripMenuItem_Click);
             // 
             // вынесениеНОКЧислителяИНОДЗнаменателяToolStripMenuItem
             // 
@@ -251,6 +258,7 @@
             this.вынесениеНОКЧислителяИНОДЗнаменателяToolStripMenuItem.Name = "вынесениеНОКЧислителяИНОДЗнаменателяToolStripMenuItem";
             this.вынесениеНОКЧислителяИНОДЗнаменателяToolStripMenuItem.Size = new System.Drawing.Size(336, 22);
             this.вынесениеНОКЧислителяИНОДЗнаменателяToolStripMenuItem.Text = "Вынесение НОК знаменателя и НОД числителя";
+            this.вынесениеНОКЧислителяИНОДЗнаменателяToolStripMenuItem.Click += new System.EventHandler(this.вынесениеНОКЧислителяИНОДЗнаменателяToolStripMenuItem_Click);
             // 
             // toolStripMenuItem19
             // 
@@ -270,43 +278,49 @@
             // 
             this.toolStripMenuItem20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(132)))), ((int)(((byte)(127)))));
             this.toolStripMenuItem20.Name = "toolStripMenuItem20";
-            this.toolStripMenuItem20.Size = new System.Drawing.Size(109, 22);
+            this.toolStripMenuItem20.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItem20.Text = "N ->Z";
+            this.toolStripMenuItem20.Click += new System.EventHandler(this.toolStripMenuItem20_Click);
             // 
             // toolStripMenuItem21
             // 
             this.toolStripMenuItem21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(132)))), ((int)(((byte)(127)))));
             this.toolStripMenuItem21.Name = "toolStripMenuItem21";
-            this.toolStripMenuItem21.Size = new System.Drawing.Size(109, 22);
+            this.toolStripMenuItem21.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItem21.Text = "Z->N";
+            this.toolStripMenuItem21.Click += new System.EventHandler(this.toolStripMenuItem21_Click);
             // 
             // toolStripMenuItem22
             // 
             this.toolStripMenuItem22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(132)))), ((int)(((byte)(127)))));
             this.toolStripMenuItem22.Name = "toolStripMenuItem22";
-            this.toolStripMenuItem22.Size = new System.Drawing.Size(109, 22);
+            this.toolStripMenuItem22.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItem22.Text = "Z -> Q";
+            this.toolStripMenuItem22.Click += new System.EventHandler(this.toolStripMenuItem22_Click);
             // 
             // toolStripMenuItem23
             // 
             this.toolStripMenuItem23.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(132)))), ((int)(((byte)(127)))));
             this.toolStripMenuItem23.Name = "toolStripMenuItem23";
-            this.toolStripMenuItem23.Size = new System.Drawing.Size(109, 22);
+            this.toolStripMenuItem23.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItem23.Text = "Q -> Z";
+            this.toolStripMenuItem23.Click += new System.EventHandler(this.toolStripMenuItem23_Click);
             // 
             // toolStripMenuItem24
             // 
             this.toolStripMenuItem24.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(132)))), ((int)(((byte)(127)))));
             this.toolStripMenuItem24.Name = "toolStripMenuItem24";
-            this.toolStripMenuItem24.Size = new System.Drawing.Size(109, 22);
+            this.toolStripMenuItem24.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItem24.Text = "Q -> P";
+            this.toolStripMenuItem24.Click += new System.EventHandler(this.toolStripMenuItem24_Click);
             // 
             // toolStripMenuItem25
             // 
             this.toolStripMenuItem25.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(132)))), ((int)(((byte)(127)))));
             this.toolStripMenuItem25.Name = "toolStripMenuItem25";
-            this.toolStripMenuItem25.Size = new System.Drawing.Size(109, 22);
+            this.toolStripMenuItem25.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItem25.Text = "P -> Q";
+            this.toolStripMenuItem25.Click += new System.EventHandler(this.toolStripMenuItem25_Click);
             // 
             // toolStripMenuItem14
             // 
@@ -316,7 +330,7 @@
             this.делениеToolStripMenuItem,
             this.остатокОтДеленияToolStripMenuItem});
             this.toolStripMenuItem14.Name = "toolStripMenuItem14";
-            this.toolStripMenuItem14.Size = new System.Drawing.Size(130, 22);
+            this.toolStripMenuItem14.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItem14.Text = "Бинарные";
             // 
             // toolStripMenuItem18
@@ -325,6 +339,7 @@
             this.toolStripMenuItem18.Name = "toolStripMenuItem18";
             this.toolStripMenuItem18.Size = new System.Drawing.Size(181, 22);
             this.toolStripMenuItem18.Text = "Вычитание";
+            this.toolStripMenuItem18.Click += new System.EventHandler(this.toolStripMenuItem18_Click);
             // 
             // делениеToolStripMenuItem
             // 
@@ -332,6 +347,7 @@
             this.делениеToolStripMenuItem.Name = "делениеToolStripMenuItem";
             this.делениеToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
             this.делениеToolStripMenuItem.Text = "Деление";
+            this.делениеToolStripMenuItem.Click += new System.EventHandler(this.делениеToolStripMenuItem_Click);
             // 
             // остатокОтДеленияToolStripMenuItem
             // 
@@ -339,6 +355,7 @@
             this.остатокОтДеленияToolStripMenuItem.Name = "остатокОтДеленияToolStripMenuItem";
             this.остатокОтДеленияToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
             this.остатокОтДеленияToolStripMenuItem.Text = "Остаток от деления";
+            this.остатокОтДеленияToolStripMenuItem.Click += new System.EventHandler(this.остатокОтДеленияToolStripMenuItem_Click);
             // 
             // toolStripMenuItem15
             // 
@@ -349,36 +366,40 @@
             this.нОДToolStripMenuItem,
             this.нОКToolStripMenuItem});
             this.toolStripMenuItem15.Name = "toolStripMenuItem15";
-            this.toolStripMenuItem15.Size = new System.Drawing.Size(130, 22);
+            this.toolStripMenuItem15.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItem15.Text = "N-арные";
             // 
             // суммаToolStripMenuItem
             // 
             this.суммаToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(132)))), ((int)(((byte)(127)))));
             this.суммаToolStripMenuItem.Name = "суммаToolStripMenuItem";
-            this.суммаToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.суммаToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.суммаToolStripMenuItem.Text = "Сумма";
+            this.суммаToolStripMenuItem.Click += new System.EventHandler(this.суммаToolStripMenuItem_Click);
             // 
             // произведениеToolStripMenuItem
             // 
             this.произведениеToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(132)))), ((int)(((byte)(127)))));
             this.произведениеToolStripMenuItem.Name = "произведениеToolStripMenuItem";
-            this.произведениеToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.произведениеToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.произведениеToolStripMenuItem.Text = "Произведение";
+            this.произведениеToolStripMenuItem.Click += new System.EventHandler(this.произведениеToolStripMenuItem_Click);
             // 
             // нОДToolStripMenuItem
             // 
             this.нОДToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(132)))), ((int)(((byte)(127)))));
             this.нОДToolStripMenuItem.Name = "нОДToolStripMenuItem";
-            this.нОДToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.нОДToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.нОДToolStripMenuItem.Text = "НОД";
+            this.нОДToolStripMenuItem.Click += new System.EventHandler(this.нОДToolStripMenuItem_Click);
             // 
             // нОКToolStripMenuItem
             // 
             this.нОКToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(132)))), ((int)(((byte)(127)))));
             this.нОКToolStripMenuItem.Name = "нОКToolStripMenuItem";
-            this.нОКToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.нОКToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.нОКToolStripMenuItem.Text = "НОК";
+            this.нОКToolStripMenuItem.Click += new System.EventHandler(this.нОКToolStripMenuItem_Click);
             // 
             // toolStripMenuItem16
             // 

@@ -37,7 +37,6 @@ namespace MVS_Controller
             label.Font = new System.Drawing.Font("Trebuchet MS", label.Height>label.Width? label.Width/3.5f:label.Height/3.5f, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             label.ForeColor = Color.White;
             label.TextAlign = ContentAlignment.TopCenter;
-            label.Text = "N";
             Controls.Add(label);
             label.MouseDown += new MouseEventHandler(Label_click);
             label.MouseUp += new MouseEventHandler(Label_up);

@@ -15,7 +15,7 @@ namespace External_module
             return data;
         }
 
-        public static if_operator Bild_Operator(string name)
+        public static if_operator Bild_if_Operator(string name)
         {
             if_operator if_ = new if_operator();
             switch(name)

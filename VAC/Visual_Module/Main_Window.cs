@@ -63,13 +63,6 @@ namespace Visual_Module
             hello.Show();
         }
 
-        private void toolStripMenuItem7_Click(object sender, EventArgs e)
-        {
-            Working_data working_Data = new Working_data(this, panel1);
-            working_Data.Show();
-            panel1.Controls.Add(working_Data);
-        }
-
         private void panel1_MouseDown(object sender, MouseEventArgs e)
         {
             switch(e.Button)
@@ -147,9 +140,212 @@ namespace Visual_Module
             }
         }
 
+
+        private void toolStripMenuItem7_Click(object sender, EventArgs e)
+        {
+            Working_data working_Data = new Working_data(this, panel1);
+            Controller.Create_new_Nod("N", "Data", working_Data);
+            working_Data.label.Text = "N";
+            working_Data.Show();
+            panel1.Controls.Add(working_Data);
+        }
+
+        private void toolStripMenuItem10_Click(object sender, EventArgs e)
+        {
+            Working_data working_Data = new Working_data(this, panel1);
+            Controller.Create_new_Nod("Z", "Data", working_Data);
+            working_Data.label.Text = "Z";
+            working_Data.Show();
+            panel1.Controls.Add(working_Data);
+        }
+
+        private void toolStripMenuItem11_Click(object sender, EventArgs e)
+        {
+            Working_data working_Data = new Working_data(this, panel1);
+            Controller.Create_new_Nod("Q", "Data", working_Data);
+            working_Data.label.Text = "Q";
+            working_Data.Show();
+            panel1.Controls.Add(working_Data);
+        }
+
+        private void toolStripMenuItem12_Click(object sender, EventArgs e)
+        {
+            Working_data working_Data = new Working_data(this, panel1);
+            Controller.Create_new_Nod("P", "Data", working_Data);
+            working_Data.label.Text = "P";
+            working_Data.Show();
+            panel1.Controls.Add(working_Data);
+        }
+
+        private void модульЧислаToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Working_data working_Data = new Working_data(this, panel1);
+            Controller.Create_new_Nod("ABS", "Uno_operator", working_Data);
+            working_Data.label.Text = "ABS";
+            working_Data.Show();
+            panel1.Controls.Add(working_Data);
+        }
+
         private void минусToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Working_data working_Data = new Working_data(this, panel1);
+            Controller.Create_new_Nod("(-1)", "Uno_operator", working_Data);
+            working_Data.label.Text = "(-1)";
+            working_Data.Show();
+            panel1.Controls.Add(working_Data);
+        }
 
+        private void производнаяToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Working_data working_Data = new Working_data(this, panel1);
+            Controller.Create_new_Nod("f '(x)", "Uno_operator", working_Data);
+            working_Data.label.Text = "f '(x)";
+            working_Data.Show();
+            panel1.Controls.Add(working_Data);
+        }
+
+        private void старшийКоэфицентToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Working_data working_Data = new Working_data(this, panel1);
+            Controller.Create_new_Nod("LED", "Uno_operator", working_Data);
+            working_Data.label.Text = "LED";
+            working_Data.Show();
+            panel1.Controls.Add(working_Data);
+        }
+
+        private void степеньПолиномаToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Working_data working_Data = new Working_data(this, panel1);
+            Controller.Create_new_Nod("deg", "Uno_operator", working_Data);
+            working_Data.label.Text = "deg";
+            working_Data.Show();
+            panel1.Controls.Add(working_Data);
+        }
+
+        private void вынесениеНОКЧислителяИНОДЗнаменателяToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Working_data working_Data = new Working_data(this, panel1);
+            Controller.Create_new_Nod("НОД/\nНОК", "Uno_operator", working_Data);
+            working_Data.label.Text = "НОД/\nНОК";
+            working_Data.Show();
+            panel1.Controls.Add(working_Data);
+        }
+
+        private void toolStripMenuItem20_Click(object sender, EventArgs e)
+        {
+            Working_data working_Data = new Working_data(this, panel1);
+            Controller.Create_new_Nod("N -> Z", "Uno_operator", working_Data);
+            working_Data.label.Text = "N -> Z";
+            working_Data.Show();
+            panel1.Controls.Add(working_Data);
+        }
+
+        private void toolStripMenuItem21_Click(object sender, EventArgs e)
+        {
+            Working_data working_Data = new Working_data(this, panel1);
+            Controller.Create_new_Nod("Z -> N", "Uno_operator", working_Data);
+            working_Data.label.Text = "Z -> N";
+            working_Data.Show();
+            panel1.Controls.Add(working_Data);
+        }
+
+        private void toolStripMenuItem22_Click(object sender, EventArgs e)
+        {
+            Working_data working_Data = new Working_data(this, panel1);
+            Controller.Create_new_Nod("Z -> Q", "Uno_operator", working_Data);
+            working_Data.label.Text = "Z -> Q";
+            working_Data.Show();
+            panel1.Controls.Add(working_Data);
+        }
+
+        private void toolStripMenuItem23_Click(object sender, EventArgs e)
+        {
+            Working_data working_Data = new Working_data(this, panel1);
+            Controller.Create_new_Nod("Q -> Z", "Uno_operator", working_Data);
+            working_Data.label.Text = "Q -> Z";
+            working_Data.Show();
+            panel1.Controls.Add(working_Data);
+        }
+
+        private void toolStripMenuItem24_Click(object sender, EventArgs e)
+        {
+            Working_data working_Data = new Working_data(this, panel1);
+            Controller.Create_new_Nod("Q -> P", "Uno_operator", working_Data);
+            working_Data.label.Text = "Q -> P";
+            working_Data.Show();
+            panel1.Controls.Add(working_Data);
+        }
+
+        private void toolStripMenuItem25_Click(object sender, EventArgs e)
+        {
+            Working_data working_Data = new Working_data(this, panel1);
+            Controller.Create_new_Nod("P -> Q", "Uno_operator", working_Data);
+            working_Data.label.Text = "P -> Q";
+            working_Data.Show();
+            panel1.Controls.Add(working_Data);
+        }
+
+        private void toolStripMenuItem18_Click(object sender, EventArgs e)
+        {
+            Working_data working_Data = new Working_data(this, panel1);
+            Controller.Create_new_Nod("SUB", "Bin_operator", working_Data);
+            working_Data.label.Text = "SUB";
+            working_Data.Show();
+            panel1.Controls.Add(working_Data);
+        }
+
+        private void делениеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Working_data working_Data = new Working_data(this, panel1);
+            Controller.Create_new_Nod("DIV", "Bin_operator", working_Data);
+            working_Data.label.Text = "DIV";
+            working_Data.Show();
+            panel1.Controls.Add(working_Data);
+        }
+
+        private void остатокОтДеленияToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Working_data working_Data = new Working_data(this, panel1);
+            Controller.Create_new_Nod("MOD", "Bin_operator", working_Data);
+            working_Data.label.Text = "MOD";
+            working_Data.Show();
+            panel1.Controls.Add(working_Data);
+        }
+
+        private void суммаToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Working_data working_Data = new Working_data(this, panel1);
+            Controller.Create_new_Nod("∑", "N_operator", working_Data);
+            working_Data.label.Text = "∑";
+            working_Data.Show();
+            panel1.Controls.Add(working_Data);
+        }
+
+        private void произведениеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Working_data working_Data = new Working_data(this, panel1);
+            Controller.Create_new_Nod("Π", "N_operator", working_Data);
+            working_Data.label.Text = "Π";
+            working_Data.Show();
+            panel1.Controls.Add(working_Data);
+        }
+
+        private void нОДToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Working_data working_Data = new Working_data(this, panel1);
+            Controller.Create_new_Nod("НОД", "N_operator", working_Data);
+            working_Data.label.Text = "НОД";
+            working_Data.Show();
+            panel1.Controls.Add(working_Data);
+        }
+
+        private void нОКToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Working_data working_Data = new Working_data(this, panel1);
+            Controller.Create_new_Nod("НОК", "N_operator", working_Data);
+            working_Data.label.Text = "НОК";
+            working_Data.Show();
+            panel1.Controls.Add(working_Data);
         }
     }
 }

@@ -23,17 +23,63 @@ namespace External_Controller
 
         }
 
-        public static string Create_new_Nod(string name, object Visual_nod)
+        public static void Create_new_Nod(string name, string type, object Visual_nod)
         {
-            return null;
+            switch(type)
+            {
+                case "Data":
+                    {
+                        dates.Add(new Data(Bilder.Bild_Data(name), Visual_nod));
+                        working_Dates.Add(new Working_data(dates[dates.Count - 1].information, Visual_nod));
+                        nods.Add(new Noda(dates[dates.Count - 1].information, Visual_nod));
+                    }
+                    break;
+                case "Bin_operator":
+                    {
+                        bin_Operators.Add(new Bin_operator(Bilder.Bild_bin_op(name), Visual_nod));
+                        operators.Add(new Operators(bin_Operators[bin_Operators.Count - 1].information, Visual_nod));
+                        working_Dates.Add(new Working_data(bin_Operators[bin_Operators.Count - 1].information, Visual_nod));
+                        nods.Add(new Noda(bin_Operators[bin_Operators.Count - 1].information, Visual_nod));
+                    }
+                    break;
+                case "Uno_operator":
+                    {
+                        uno_Operators.Add(new Uno_operator(Bilder.Bild_uno_op(name), Visual_nod));
+                        operators.Add(new Operators(uno_Operators[uno_Operators.Count - 1].information, Visual_nod));
+                        working_Dates.Add(new Working_data(uno_Operators[uno_Operators.Count - 1].information, Visual_nod));
+                        nods.Add(new Noda(uno_Operators[uno_Operators.Count - 1].information, Visual_nod));
+                    }
+                    break;
+                case "N_operator":
+                    {
+                        N_Operators.Add(new N_operator(Bilder.Bild_n_op(name), Visual_nod));
+                        operators.Add(new Operators(N_Operators[N_Operators.Count - 1].information, Visual_nod));
+                        working_Dates.Add(new Working_data(N_Operators[N_Operators.Count - 1].information, Visual_nod));
+                        nods.Add(new Noda(N_Operators[N_Operators.Count - 1].information, Visual_nod));
+                    }
+                    break;
+                case "if_operator":
+                    {
+                        if_Operators.Add(new if_operator(Bilder.Bild_if_Operator(name), Visual_nod));
+                        nods.Add(new Noda(if_Operators[if_Operators.Count - 1].information, Visual_nod));
+                    }
+                    break;
+                case "Result":
+                    {
+                        results.Add(new Result(new External_module.Result(), Visual_nod));
+                        nods.Add(new Noda(results[results.Count - 1].information, Visual_nod));
+                    }
+                    break;
+
+            }
         }
 
         #region Структуры
 
         public struct Data
         {
-            External_module.Data information;
-            object Visul;
+            public External_module.Data information;
+            public object Visul;
 
             public Data(External_module.Data data, object e)
             {
@@ -44,8 +90,8 @@ namespace External_Controller
 
         public struct Operators
         {
-            External_module.Operators information;
-            object Visul;
+            public External_module.Operators information;
+            public object Visul;
 
             public Operators(External_module.Operators data, object e)
             {
@@ -56,8 +102,8 @@ namespace External_Controller
 
         public struct Bin_operator
         {
-            External_module.Bin_operator information;
-            object Visul;
+            public External_module.Bin_operator information;
+            public object Visul;
 
             public Bin_operator(External_module.Bin_operator data, object e)
             {
@@ -68,8 +114,8 @@ namespace External_Controller
 
         public struct if_operator
         {
-            External_module.if_operator information;
-            object Visul;
+            public External_module.if_operator information;
+            public object Visul;
 
             public if_operator(External_module.if_operator data, object e)
             {
@@ -80,8 +126,8 @@ namespace External_Controller
 
         public struct N_operator
         {
-            External_module.N_operator information;
-            object Visul;
+            public External_module.N_operator information;
+            public object Visul;
 
             public N_operator(External_module.N_operator data, object e)
             {
@@ -92,8 +138,8 @@ namespace External_Controller
 
         public struct Noda
         {
-            External_module.Noda information;
-            object Visul;
+            public External_module.Noda information;
+            public object Visul;
 
             public Noda(External_module.Noda data, object e)
             {
@@ -104,8 +150,8 @@ namespace External_Controller
 
         public struct Result
         {
-            External_module.Result information;
-            object Visul;
+            public External_module.Result information;
+            public object Visul;
 
             public Result(External_module.Result data, object e)
             {
@@ -116,8 +162,8 @@ namespace External_Controller
 
         public struct Uno_operator
         {
-            External_module.Uno_operator information;
-            object Visul;
+            public External_module.Uno_operator information;
+            public object Visul;
 
             public Uno_operator(External_module.Uno_operator data, object e)
             {
@@ -128,8 +174,8 @@ namespace External_Controller
 
         public struct Working_data
         {
-            External_module.Working_data information;
-            object Visul;
+            public External_module.Working_data information;
+            public object Visul;
 
             public Working_data(External_module.Working_data data, object e)
             {
