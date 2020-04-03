@@ -10,7 +10,7 @@ namespace Math_Module_Test
 
         [TestMethod]
         public void minusTest1()
-        {
+		{
             List<string> inputNumerator = new List<string>();
             List<string> inputDenominator = new List<string>();
             List<string> inputNumerator1 = new List<string>();
@@ -33,7 +33,7 @@ namespace Math_Module_Test
             Q x = new Q(inputNumerator, inputDenominator);
             Q i = new Q(inputNumerator1, inputDenominator1);
             Q t = new Q(outputNumerator, outputDenominator);
-            Assert.AreEqual(t, x - i);
+            Assert.AreEqual(t,x-i);
         }
         [TestMethod]
         public void minusTest2()
@@ -125,7 +125,7 @@ namespace Math_Module_Test
             Q x = new Q(inputNumerator, inputDenominator);
             Q i = new Q(inputNumerator1, inputDenominator1);
             Q t = new Q(outputNumerator, outputDenominator);
-            Assert.AreEqual(t, x - i);
+            AssertAreEqual(t, x - i);
         }
         [TestMethod]
         public void minusTestEx()
@@ -147,10 +147,10 @@ namespace Math_Module_Test
 
             Q x = new Q(inputNumerator, inputDenominator);
             Q i = new Q(inputNumerator1, inputDenominator1);
-
-            Assert.AreNotEqual(null, x - i);
+            
+            AssertNotEqual(null, x - i);
         }
-
+       
         public void plusTest1()
         {
             List<string> inputNumerator = new List<string>();//   212345678
@@ -177,7 +177,7 @@ namespace Math_Module_Test
             Q x = new Q(inputNumerator, inputDenominator);
             Q i = new Q(inputNumerator1, inputDenominator1);
             Q t = new Q(outputNumerator, outputDenominator);
-            Assert.AreEqual(t, x + i);
+            AssertAreEqual(t, x + i);
         }
         [TestMethod]
         public void plusTest2()
@@ -207,7 +207,7 @@ namespace Math_Module_Test
             Q x = new Q(inputNumerator, inputDenominator);
             Q i = new Q(inputNumerator1, inputDenominator1);
             Q t = new Q(outputNumerator, outputDenominator);
-            Assert.AreEqual(t, x + i);
+            AssertAreEqual(t, x + i);
         }
 
         public void plusTest3()
@@ -240,7 +240,7 @@ namespace Math_Module_Test
             Q x = new Q(inputNumerator, inputDenominator);
             Q i = new Q(inputNumerator1, inputDenominator1);
             Q t = new Q(outputNumerator, outputDenominator);
-            Assert.AreEqual(t, x + i);
+            AssertAreEqual(t, x + i);
         }
         public void plusTest4()
         {
@@ -269,7 +269,7 @@ namespace Math_Module_Test
             Q x = new Q(inputNumerator, inputDenominator);
             Q i = new Q(inputNumerator1, inputDenominator1);
             Q t = new Q(outputNumerator, outputDenominator);
-            Assert.AreEqual(t, x + i);
+            AssertAreEqual(t, x + i);
         }
         [TestMethod]
         public void plusTestEx()
@@ -292,7 +292,7 @@ namespace Math_Module_Test
             Q x = new Q(inputNumerator, inputDenominator);
             Q i = new Q(inputNumerator1, inputDenominator1);
 
-            Assert.AreNotEqual(null, x + i);
+            AssertNotEqual(null, x + i);
         }
 
         [TestMethod]
@@ -317,7 +317,7 @@ namespace Math_Module_Test
             Q x = new Q(inputNumerator, inputDenominator);
             Q t = new Q(outputNumerator, outputDenominator);
             Q i = -x;
-            Assert.AreEqual(t, i);
+            AssertAreEqual(t,i);
         }
 
         [TestMethod]
@@ -333,7 +333,7 @@ namespace Math_Module_Test
 
             Q x = new Q(inputNumerator, inputDenominator);
             Q i = -x;
-            Assert.AreNotEqual(null, i);
+            AssertAreNotEqual(null, i);
         }
 
         //////
@@ -367,7 +367,7 @@ namespace Math_Module_Test
             Q x = new Q(inputNumerator, inputDenominator);
             Q i = new Q(inputNumerator1, inputDenominator1);
             Q t = new Q(outputNumerator, outputDenominator);
-            Assert.AreEqual(t, x * i);
+            AssertAreEqual(t, x * i);
         }
         [TestMethod]
         public void multiplicationTest2()
@@ -400,7 +400,7 @@ namespace Math_Module_Test
             Q x = new Q(inputNumerator, inputDenominator);
             Q i = new Q(inputNumerator1, inputDenominator1);
             Q t = new Q(outputNumerator, outputDenominator);
-            Assert.AreEqual(t, x * i);
+            AssertAreEqual(t, x * i);
         }
 
         [TestMethod]
@@ -434,7 +434,7 @@ namespace Math_Module_Test
             Q x = new Q(inputNumerator, inputDenominator);
             Q i = new Q(inputNumerator1, inputDenominator1);
             Q t = new Q(outputNumerator, outputDenominator);
-            Assert.AreEqual(t, x * i);
+            AssertAreEqual(t, x * i);
         }
 
         [TestMethod]
@@ -444,7 +444,7 @@ namespace Math_Module_Test
             List<string> inputDenominator = new List<string>();//1 86745678
             List<string> inputNumerator1 = new List<string>();//23 24989000
             List<string> inputDenominator1 = new List<string>();//12 23456008
-
+            
 
             inputNumerator.Add("-");
             inputNumerator.Add("14");
@@ -460,9 +460,26 @@ namespace Math_Module_Test
 
             Q x = new Q(inputNumerator, inputDenominator);
             Q i = new Q(inputNumerator1, inputDenominator1);
-            Assert.AreNotEqual(null, x * i);
+            AssertAreNotEqual(null, x * i);
         }
 
+       
+        [TestMethod]
+        public void isDownTest()
+		{
+            List<string> inputNumerator = new List<string>();//14 24684684
+            List<string> inputDenominator = new List<string>();//1
+
+            inputNumerator.Add("-");
+            inputNumerator.Add("14");
+            inputNumerator.Add("24684684");
+            inputDenominator.Add("1");
+
+            Q x = new Q(inputNumerator,inputDenominator);
+            bool i = x.isDown();
+            bool t = true;
+            Assert.AreEqual(t,i);
+		}
 
         [TestMethod]
         public void isDownTest()
@@ -476,7 +493,7 @@ namespace Math_Module_Test
             inputDenominator.Add("1");
 
             Q x = new Q(inputNumerator, inputDenominator);
-            bool i = x.isDown;
+            bool i = x.isDown();
             bool t = true;
             Assert.AreEqual(t, i);
         }
@@ -492,7 +509,7 @@ namespace Math_Module_Test
             inputDenominator.Add("12");
 
             Q x = new Q(inputNumerator, inputDenominator);
-            bool i = x.isDown;
+            bool i = x.isDown();
             bool t = false;
             Assert.AreEqual(t, i);
         }
@@ -511,10 +528,10 @@ namespace Math_Module_Test
 
             outputNumerator.Add("2");
             outputDenominator.Add("3");
-            Q x = new Q(inputNumerator, inputDenominator);
-            Q t = new Q(outputNumerator, outputDenominator);
+            Q x = new Q(inputNumerator,inputDenominator);
+            Q t = new Q(outputNumerator,outputDenominator);
             x.RED_Q_Q;
-            Assert.AreEqual(t, x);
+            Assert.AreEqual(t,x);
         }
 
         [TestMethod]
@@ -539,8 +556,7 @@ namespace Math_Module_Test
             Q t = new Q(outputNumerator, outputDenominator);
             x.RED_Q_Q;
             Assert.AreEqual(t, x);
-        }
-        */
+        }*/
         /*
         [TestMethod]
         public void space()
