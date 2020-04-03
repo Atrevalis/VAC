@@ -34,7 +34,7 @@ namespace Math_Module
         {
             get
             {
-                return Convert.ToBoolean(new Exception());
+                return INT_Q_B;
             }
         }
 
