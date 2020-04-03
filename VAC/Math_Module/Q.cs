@@ -80,12 +80,46 @@ namespace Math_Module
 
         public static Q operator -(Q value) // MUL_QM_Q //есть тесты
         {
-            return null;
+            Q Clone = value.Clone();
+            Clone.Numerator = -Clone.Numerator;
+            return Clone; 
         }
 
         public static Q operator +(Q first, Q second) // ADD_QQ_Q //есть тесты
         {
-            return null;
+            Q Sum = first.Clone();
+            N ComDen = first.Denominator.Clone();
+            if (N.COM_NN_D(first.Denominator, second.Denominator) == 0)
+            {
+                Sum.Numerator = first.Numerator + second.Numerator;
+                Sum.RED_Q_Q();
+                return Sum;
+            }
+            else
+            {
+                ComDen = N.LCM_NN_N(first.Denominator, second.Denominator);
+                if (N.COM_NN_D(first.Denominator, ComDen) == 0)
+                {
+                    Sum.Denominator = first.Denominator;
+                    second.Numerator *= (first.Denominator / second.Denominator);
+                    Sum.Numerator = first.Numerator + second.Numerator;
+                }
+                if (N.COM_NN_D(second.Denominator, ComDen) == 0)
+                {
+                    Sum.Denominator = second.Denominator;
+                    first.Numerator *= (second.Denominator / first.Denominator);
+                    Sum.Numerator = first.Numerator + second.Numerator;
+                }
+                if (N.COM_NN_D(first.Denominator, ComDen) != 0 && N.COM_NN_D(second.Denominator, ComDen) != 0)
+                {
+                    Sum.Denominator = ComDen;
+                    first.Numerator *= second.Denominator;
+                    second.Numerator *= first.Denominator;
+                    Sum.Numerator = first.Numerator + second.Numerator;
+                }
+                Sum.RED_Q_Q();
+            }
+            return Sum;
         }
 
         public static Q operator -(Q first, Q second) // SUB_QQ_Q //есть тесты
