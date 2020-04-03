@@ -51,14 +51,6 @@ namespace Math_Module
             }
         }
 
-        public List<uint> Znach //Необходимость релизации под вопросом
-        {
-            get
-            {
-                return null;
-            }
-        }
-
         #endregion
 
         #region Перегрузки
