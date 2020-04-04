@@ -615,28 +615,75 @@ namespace Math_Module_Test
             Assert.AreEqual(t, x * i);
         }
 
-        
+
         [TestMethod]
         public void RED_Q_Q1()
         {
             List<string> inputNumerator = new List<string>();//
             List<string> inputDenominator = new List<string>();//
-            List<string> outputNumerator = new List<string>();//        
-            List<string> outputDenominator = new List<string>();//       
+            List<string> outputNumerator = new List<string>();//
+            List<string> outputDenominator = new List<string>();//
 
             inputNumerator.Add("6");
             inputDenominator.Add("9");
 
             outputNumerator.Add("2");
             outputDenominator.Add("3");
-            Q x = new Q(inputNumerator,inputDenominator);
-            Q t = new Q(outputNumerator,outputDenominator);
+            Q x = new Q(inputNumerator, inputDenominator);
+            Q t = new Q(outputNumerator, outputDenominator);
             x.RED_Q_Q();
-            Assert.AreEqual(t,x);
+            Assert.AreEqual(t, x);
         }
 
         [TestMethod]
         public void RED_Q_Q2()
+        {
+            List<string> inputNumerator = new List<string>();// 371 63026560
+            List<string> inputDenominator = new List<string>();// 538 26730400
+            List<string> outputNumerator = new List<string>();// 2 32268916
+            List<string> outputDenominator = new List<string>();//  3 36417065
+
+            inputNumerator.Add("371");
+            inputNumerator.Add("63026560");
+            inputDenominator.Add("3");
+            inputDenominator.Add("36417065");
+
+
+            outputNumerator.Add("74");
+            outputNumerator.Add("32605312");
+            outputDenominator.Add("67283413");
+
+            Q x = new Q(inputNumerator, inputDenominator);
+            Q t = new Q(outputNumerator, outputDenominator);
+            x.RED_Q_Q();
+            Assert.AreEqual(t, x);
+        }
+
+
+        [TestMethod]
+        public void RED_Q_Q3()
+        {
+            List<string> inputNumerator = new List<string>();// 371 63026560
+            List<string> inputDenominator = new List<string>();// 538 26730400
+            List<string> outputNumerator = new List<string>();// 26 37876108
+            List<string> outputDenominator = new List<string>();//  30 30103650
+
+            inputNumerator.Add("26");
+            inputNumerator.Add("37876108");
+            inputDenominator.Add("30");
+            inputDenominator.Add("30103650");
+
+            outputNumerator.Add("62806574");
+            outputDenominator.Add("72145325");
+
+            Q x = new Q(inputNumerator, inputDenominator);
+            Q t = new Q(outputNumerator, outputDenominator);
+            x.RED_Q_Q();
+            Assert.AreEqual(t, x);
+        }
+
+        [TestMethod]
+        public void RED_Q_Q4()
         {
             List<string> inputNumerator = new List<string>();// 371 63026560
             List<string> inputDenominator = new List<string>();// 538 26730400
