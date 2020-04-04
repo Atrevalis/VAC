@@ -173,10 +173,13 @@ namespace Math_Module_Test
             inputDenominator1.Add("6");
             inputDenominator1.Add("75555555");
 
-            outputNumerator.Add("49333774");
-            outputNumerator.Add("80924991");
-            outputDenominator.Add("75218106");
-            outputDenominator.Add("87147634");
+            outputNumerator.Add("3");
+            outputNumerator.Add("94670198");
+            outputNumerator.Add("47399927");
+            outputDenominator.Add("6");
+            outputDenominator.Add("01744854");
+            outputDenominator.Add("97181070");
+
 
             Q x = new Q(inputNumerator, inputDenominator);
             Q i = new Q(inputNumerator1, inputDenominator1);
@@ -202,11 +205,10 @@ namespace Math_Module_Test
             inputDenominator1.Add("3");
             inputDenominator1.Add("23456008");
 
-            outputNumerator.Add("85793807");
-            outputNumerator.Add("61252467");
-            outputDenominator.Add("2");
-            outputDenominator.Add("19696511");
-            outputDenominator.Add("69820840");
+            outputNumerator.Add("42941993");
+            outputNumerator.Add("15653046");
+            outputDenominator.Add("54021645");
+            outputDenominator.Add("73563111");
 
             Q x = new Q(inputNumerator, inputDenominator);
             Q i = new Q(inputNumerator1, inputDenominator1);
@@ -235,11 +237,10 @@ namespace Math_Module_Test
             inputDenominator1.Add("23456008");
 
             outputNumerator.Add("-");
-            outputNumerator.Add("85914708");
-            outputNumerator.Add("06920217");
-            outputDenominator.Add("2");
-            outputDenominator.Add("19696511");
-            outputDenominator.Add("69820840");
+            outputNumerator.Add("42941993");
+            outputNumerator.Add("15653046");
+            outputDenominator.Add("54021645");
+            outputDenominator.Add("73563111");
 
             Q x = new Q(inputNumerator, inputDenominator);
             Q i = new Q(inputNumerator1, inputDenominator1);
@@ -267,10 +268,12 @@ namespace Math_Module_Test
             inputDenominator1.Add("12");
             inputDenominator1.Add("23456008");
 
-            outputNumerator.Add("34019073");
-            outputNumerator.Add("17645193");
-            outputDenominator.Add("3569923");
-            outputDenominator.Add("77683021");
+            outputNumerator.Add("13");
+            outputNumerator.Add("60762927");
+            outputNumerator.Add("05807717");
+            outputDenominator.Add("1");
+            outputDenominator.Add("42796951");
+            outputDenominator.Add("07320839");
 
             Q x = new Q(inputNumerator, inputDenominator);
             Q i = new Q(inputNumerator1, inputDenominator1);
@@ -293,6 +296,7 @@ namespace Math_Module_Test
             inputNumerator1.Add("23");
             inputNumerator1.Add("24989000");
             inputDenominator1.Add("12");
+            inputDenominator1.Add("23456008");
 
 
             Q x = new Q(inputNumerator, inputDenominator);
