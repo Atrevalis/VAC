@@ -142,7 +142,7 @@ namespace Visual_Module
             {
                 toolStripStatusLabel1.Text = "";
             }
-            panel1.Update();
+            Update();
         }
 
 
@@ -369,7 +369,7 @@ namespace Visual_Module
             panel1.Controls.Add(result);
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        private static void panel1_Paint(object sender, PaintEventArgs e)
         {
             Graphics graphics = e.Graphics;
             Pen pen = new Pen(Color.Black, 3);
@@ -384,10 +384,9 @@ namespace Visual_Module
                         if(Controller.nods[k].information == Controller.working_Dates[i].information.down_Contacted[j])
                         {
                             noda = Controller.nods[k].Visul as Noda;
-                            return;
                         }
                     }
-                    graphics.DrawLine(pen, data.Location.X + data.Width, data.Location.Y + (int)(data.Height/2), noda.Location.X, noda.Location.Y + (int)(noda.Height/2));
+                    graphics.DrawLine(pen, data.Location.X + data.Width, data.Location.Y + (data.Height/2), noda.Location.X, noda.Location.Y + (noda.Height/2));
                 }
             }
         }
