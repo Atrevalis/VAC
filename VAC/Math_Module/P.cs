@@ -78,7 +78,25 @@ namespace Math_Module
         {
             get
             {
-                return null;
+                P result = this.Clone();
+                if (result.Ms[Ms.Count - 1].step.NZER_N_B)
+                {
+                    result.Ms.RemoveAt(Ms.Count - 1);
+                }
+                List<string> odin = new List<string>();
+                odin.Add("1");
+                N one = new N(odin);
+                M now;
+                for (int i = result.Ms.Count - 1; i > 0; i--)
+                {
+                    result.Ms.Insert(i, Ms[i]);
+                    now = result.Ms[i];
+                    now.coaf *= (Z)now.step;
+                    now.step -= one;
+                    result.Ms[i] = now;
+                    result.Ms.RemoveAt(i + 1);
+                }
+                return result;
             }
         }
 
@@ -100,13 +118,16 @@ namespace Math_Module
                 result = first.Clone();
                 smaller = second.Clone();
             }
+            M now;
             for (int i = 0; i < smaller.Ms.Count; i++)
             {
                 for (int j = 0; j < result.Ms.Count; j++)
                 {
-                    if (result.Ms[j].step == smaller.Ms[i].step)
+                    if (N.COM_NN_D(result.Ms[j].step, smaller.Ms[i].step) == 0)
                     {
-                        result.Ms[j].coaf += smaller.Ms[i].coaf;
+                        now = result.Ms[j];
+                        now.coaf += smaller.Ms[i].coaf;
+                        result.Ms[j] = now;
                         break;
                     }
                     if (N.COM_NN_D(result.Ms[j].step, smaller.Ms[i].step) == 1)
