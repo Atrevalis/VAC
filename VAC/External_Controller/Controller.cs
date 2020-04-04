@@ -102,22 +102,30 @@ namespace External_Controller
                 {
                     if(first_obj.type == "if")
                     {
-                        switch(second_obj.type)
+                        for (byte i = 0; i < (first_obj as External_module.if_operator).names_of_exits.Length; i++)
+                        {
+                            if ((first_obj as External_module.if_operator).names_of_exits[i] == first.Text)
+                            {
+                                (first_obj as External_module.if_operator).Down_connection(i, second_obj);
+                            }
+                        }
+                        switch (second_obj.type)
                         {
                             case "if":
                                 {
-                                    //for()
-                                    //(first_obj as External_module.if_operator).Down_connection(, second_obj);
+                                    (second_obj as External_module.if_operator).if_Operators.Add(first_obj as External_module.if_operator);
                                 }
                                 break;
+
                             case "Result":
                                 {
-
+                                    (second_obj as External_module.Result).If_operator_conected(first_obj as External_module.if_operator);
                                 }
                                 break;
+
                            default:
                                 {
-
+                                    (second_obj as External_module.Operators).If_operator_conected(first_obj as External_module.if_operator);
                                 }
                                 break;
                         }
