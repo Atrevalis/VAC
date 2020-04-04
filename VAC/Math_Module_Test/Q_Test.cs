@@ -648,10 +648,8 @@ namespace Math_Module_Test
             inputDenominator.Add("2");
             inputDenominator.Add("32268916");
 
-            outputNumerator.Add("2");
-            outputNumerator.Add("32268916");
-            inputDenominator.Add("3");
-            inputDenominator.Add("36417065");
+            outputNumerator.Add("160");
+            outputDenominator.Add("1");
 
             Q x = new Q(inputNumerator, inputDenominator);
             Q t = new Q(outputNumerator, outputDenominator);

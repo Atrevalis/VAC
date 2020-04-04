@@ -111,8 +111,8 @@ namespace Math_Module
                 if (N.COM_NN_D(first.Denominator, ComDen) != 0 && N.COM_NN_D(second.Denominator, ComDen) != 0)
                 {
                     Sum.Denominator = ComDen;
-                    first.Numerator *= second.Denominator;
-                    second.Numerator *= first.Denominator;
+                    first.Numerator *= (ComDen / second.Denominator);
+                    second.Numerator *= (ComDen / first.Denominator);
                     Sum.Numerator = first.Numerator + second.Numerator;
                 }
                 Sum.RED_Q_Q();
