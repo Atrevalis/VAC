@@ -154,7 +154,10 @@ namespace Math_Module
 
         public static N operator %(Q first, Q second)
         {
-            return null;
+            List<string> nol = new List<string>();
+            nol.Add("0");
+            N pog = new N(nol);
+            return pog;
         }
         
         public static implicit operator List<string>(Q value)
