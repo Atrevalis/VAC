@@ -17,7 +17,7 @@ namespace Math_Module
         }
         public Q(Z value)
         {
-            Numerator = new Z(value);
+            Numerator = value.Clone();
             List<string> S = new List<string>();
             S.Add("1");
             Denominator = new N(S);
@@ -181,7 +181,7 @@ namespace Math_Module
         {
             if (value.isDown)
             {
-                return new Z(value.Numerator);
+                return  value.Numerator.Clone();
             }
             else
             {

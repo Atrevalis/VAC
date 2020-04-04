@@ -30,7 +30,7 @@ namespace Math_Module
 
         public Z(N value) // Александр Рассохин 9370 // Проверено Игорь
         {
-            Abs = new N(value);
+            Abs = value.Clone();
             isN = true;
         }
 
@@ -57,7 +57,7 @@ namespace Math_Module
         {
             get
             {
-                return new N(Abs);
+                return Abs.Clone();
             }
         }
 
@@ -244,7 +244,7 @@ namespace Math_Module
             if (!value.isDown)
                 return null;
             else
-                return new N(value.Abs);
+                return value.Abs.Clone();
         }
 
         public override bool Equals(object obj)
