@@ -612,7 +612,7 @@ namespace Math_Module_Test
             Assert.AreEqual(t, x * i);
         }
 
-        /*
+        
         [TestMethod]
         public void RED_Q_Q1()
         {
@@ -654,7 +654,7 @@ namespace Math_Module_Test
             Q t = new Q(outputNumerator, outputDenominator);
             x.RED_Q_Q();
             Assert.AreEqual(t, x);
-        }*/
+        }
         /*
         [TestMethod]
         public void space()

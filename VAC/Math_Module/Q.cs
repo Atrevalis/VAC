@@ -193,8 +193,8 @@ namespace Math_Module
         {
             if (obj.GetType() == GetType() && this != null && obj != null)
             {
-                Q sec = obj as Z;
-                if (Numerator.Equals(sec.Numerator) && Numerator.Equals(sec.Numerator)) return true;
+                Q sec = obj as Q;
+                if (Denominator.Equals(sec.Denominator) && Numerator.Equals(sec.Numerator)) return true;
             }
             return false;
         }
@@ -203,7 +203,7 @@ namespace Math_Module
 
         #region Методы 
 
-        private void RED_Q_Q() //есть тесты
+        public void RED_Q_Q() //есть тесты
         {
             N nod = N.GCF_NN_N(Numerator.ABS_Z_N, Denominator);
             Numerator /= nod;
