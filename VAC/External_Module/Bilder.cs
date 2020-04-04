@@ -25,6 +25,10 @@ namespace External_module
                     {
                         if_.Count_of_up_connection = 2;
                         if_.exits = new List<Noda>[3];
+                        for(int i = 0; i < if_.exits.Length; i++)
+                        {
+                            if_.exits[i] = new List<Noda>();
+                        }
                         if_.Count_of_up_connection = 2;
                         args = new string[] { ">", "=", "<" };
                         if_.names_of_exits = args;
@@ -35,6 +39,10 @@ namespace External_module
                         if_.Count_of_up_connection = 1;
                         if_.Count_of_up_connection = 1;
                         if_.exits = new List<Noda>[2];
+                        for (int i = 0; i < if_.exits.Length; i++)
+                        {
+                            if_.exits[i] = new List<Noda>();
+                        }
                         args = new string[] { "true", "false"};
                         if_.names_of_exits = args;
                     }

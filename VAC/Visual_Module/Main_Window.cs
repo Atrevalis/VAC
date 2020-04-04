@@ -380,7 +380,7 @@ namespace Visual_Module
         private static void panel1_Paint(object sender, PaintEventArgs e)
         {
             Graphics graphics = e.Graphics;
-            Pen pen = new Pen(Color.Black, 6);
+            Pen pen = new Pen(Color.FromArgb(50, 50, 50), 6);
             pen.EndCap = LineCap.ArrowAnchor;
             pen.StartCap = LineCap.Round;
             for (int i = 0; i < Controller.working_Dates.Count; i++)

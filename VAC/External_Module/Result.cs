@@ -13,7 +13,7 @@ namespace External_module
         List<if_operator> if_Operators;
         private int index_of_result;
 
-        public override bool isDowncoonection
+        public override bool isUpcoonection
         {
             get
             {
