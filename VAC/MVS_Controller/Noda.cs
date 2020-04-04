@@ -23,6 +23,7 @@ namespace MVS_Controller
         static public Noda enter = null;
         static private Noda Loc_change = null;
         static private Point Mouse_pos = new Point(0, 0);
+        public static bool Paint = false;
 
         public Noda(Form parent, Panel panel)
         {
@@ -149,6 +150,7 @@ namespace MVS_Controller
                 if(Loc_change != null)
                 {
                     nod.Location = new Point(nod.Location.X + (int)(delta.X* 0.999999), nod.Location.Y + (int)(delta.Y*0.999999));
+                    Paint = true;
                 }
             }
             Mouse_pos = e.Location;
@@ -160,6 +162,7 @@ namespace MVS_Controller
             Label label = nod.Controls[0] as Label;
             label.Location = new Point((int)(nod.Width * 0.16), (int)(nod.Height * 0.25));
             label.Size = new Size((int)(nod.Width * 0.62), nod.Height / 2);
+            Paint = true;
             try
             {
                 label.Font = new System.Drawing.Font("Trebuchet MS", label.Height > label.Width ? label.Width / 3.5f : label.Height / 3.5f, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));

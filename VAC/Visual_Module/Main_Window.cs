@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -133,6 +134,9 @@ namespace Visual_Module
             if(Noda.down_conected != null && Noda.up_conected != null)
             {
                 Controller.new_Conect(Noda.up_conected, Noda.down_conected);
+                Noda.down_conected = null;
+                Noda.up_conected = null;
+                Noda.Paint = true;
             }
             if(Noda.enter != null)
             {
@@ -142,7 +146,11 @@ namespace Visual_Module
             {
                 toolStripStatusLabel1.Text = "";
             }
-            Update();
+            if (Noda.Paint)
+            {
+                Refresh();
+                Noda.Paint = false;
+            }
         }
 
 
@@ -372,7 +380,9 @@ namespace Visual_Module
         private static void panel1_Paint(object sender, PaintEventArgs e)
         {
             Graphics graphics = e.Graphics;
-            Pen pen = new Pen(Color.Black, 3);
+            Pen pen = new Pen(Color.Black, 6);
+            pen.EndCap = LineCap.ArrowAnchor;
+            pen.StartCap = LineCap.Round;
             for (int i = 0; i < Controller.working_Dates.Count; i++)
             {
                 for (int j = 0; j < Controller.working_Dates[i].information.down_Contacted.Count; j++)

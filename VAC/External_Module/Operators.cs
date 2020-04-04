@@ -20,7 +20,7 @@ namespace External_module
         {
             get
             {
-                return up_connection.Count < count_of_up_connection;
+                return up_connection.Count < count_of_up_connection || count_of_up_connection == -1;
             }
         }
 
