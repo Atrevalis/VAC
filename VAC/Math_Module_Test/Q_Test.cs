@@ -28,8 +28,8 @@ namespace Math_Module_Test
             inputDenominator1.Add("6");
             inputDenominator1.Add("75555555");
 
-            outputNumerator.Add("10437601");
-            outputDenominator.Add("17122563");
+            outputNumerator.Add("83500809");
+            outputDenominator.Add("36980503");
 
             Q x = new Q(inputNumerator, inputDenominator);
             Q i = new Q(inputNumerator1, inputDenominator1);
@@ -59,7 +59,7 @@ namespace Math_Module_Test
             outputNumerator.Add("806920217");
             outputDenominator.Add("2");
             outputDenominator.Add("19696511");
-            outputDenominator.Add("69820840");
+            outputDenominator.Add("69820839");
 
             Q x = new Q(inputNumerator, inputDenominator);
             Q i = new Q(inputNumerator1, inputDenominator1);
@@ -92,7 +92,7 @@ namespace Math_Module_Test
             outputNumerator.Add("61252467");
             outputDenominator.Add("2");
             outputDenominator.Add("19696511");
-            outputDenominator.Add("69820840");
+            outputDenominator.Add("69820839");
 
             Q x = new Q(inputNumerator, inputDenominator);
             Q i = new Q(inputNumerator1, inputDenominator1);
@@ -119,10 +119,12 @@ namespace Math_Module_Test
             inputDenominator1.Add("12");
             inputDenominator1.Add("23456008");
 
-            outputNumerator.Add("20450896");
-            outputNumerator.Add("70309124");
-            outputDenominator.Add("3569923");
-            outputDenominator.Add("77683021");
+            outputNumerator.Add("8");
+            outputNumerator.Add("18035868");
+            outputNumerator.Add("12364967");
+            outputDenominator.Add("14");
+            outputDenominator.Add("42796951");
+            outputDenominator.Add("07320839");
 
             Q x = new Q(inputNumerator, inputDenominator);
             Q i = new Q(inputNumerator1, inputDenominator1);
@@ -145,7 +147,7 @@ namespace Math_Module_Test
             inputNumerator1.Add("23");
             inputNumerator1.Add("24989000");
             inputDenominator1.Add("12");
-
+            inputDenominator1.Add("23456008");
 
             Q x = new Q(inputNumerator, inputDenominator);
             Q i = new Q(inputNumerator1, inputDenominator1);
