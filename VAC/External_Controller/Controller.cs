@@ -75,13 +75,54 @@ namespace External_Controller
             }
         }
 
-        public static void new_Conect(object first, object second)
+        public static void new_Conect(Control first, Control second)
         {
-            Noda first_obj = new Noda(), second_obj = new Noda();
+            External_module.Noda first_obj = null, second_obj = null;
             for(int i = 0; i < nods.Count; i++)
             {
-                if (nods[i].Visul == first) first_obj = nods[i];
-                if (nods[i].Visul == second) second_obj = nods[i];
+                if (nods[i].Visul == first.Parent) first_obj = nods[i].information;
+                if (nods[i].Visul == second) second_obj = nods[i].information;
+            }
+
+            if(first_obj.isDowncoonection && second_obj.isUpcoonection)
+            {
+                if(first_obj.type != "if" && second_obj.type != "if")
+                {
+                    (first_obj as External_module.Working_data).down_contacted = second_obj;
+                    if(second_obj.type == "Result")
+                    {
+                        (second_obj as External_module.Result).up_Conected = first_obj as External_module.Working_data;
+                    }
+                    else
+                    {
+                        (second_obj as External_module.Operators).up_Conected = first_obj as External_module.Working_data;
+                    }
+                }
+                else
+                {
+                    if(first_obj.type == "if")
+                    {
+                        switch(second_obj.type)
+                        {
+                            case "if":
+                                {
+                                    //for()
+                                    //(first_obj as External_module.if_operator).Down_connection(, second_obj);
+                                }
+                                break;
+                            case "Result":
+                                {
+
+                                }
+                                break;
+                           default:
+                                {
+
+                                }
+                                break;
+                        }
+                    }
+                }
             }
 
         }

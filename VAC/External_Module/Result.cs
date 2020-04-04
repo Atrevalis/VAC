@@ -30,6 +30,7 @@ namespace External_module
 
         public Result()
         {
+            type = "Result";
             index_of_result = count_of_results_index++;
         }
 
