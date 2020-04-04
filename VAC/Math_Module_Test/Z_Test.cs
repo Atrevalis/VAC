@@ -584,16 +584,53 @@ namespace Math_Module_Test
             N c = (N)z;
             Assert.AreEqual(null, c);
         }
+
         [TestMethod]
         public void ZtoNTestEx()
         {
             List<string> input = new List<string>();
-            List<string> output = new List<string>();
             input.Add("1234");
             input.Add("12345678");
             Z z = new Z(input);
             N t = new N(input);
             N c = (N)z;
+            Assert.AreNotEqual(null, c);
+        }
+
+
+        [TestMethod]
+        public void ZtoQTest1()
+        {
+            List<string> input = new List<string>();
+            List<string> output = new List<string>();
+            List<string> inputNumerator = new List<string>();
+            List<string> inputDenominator = new List<string>();
+            input.Add("1234");
+            input.Add("12345678");
+            inputNumerator.Add("1234");
+            inputNumerator.Add("12345678");
+            inputDenominator.Add("1");
+            Z z = new Z(input);
+            Q t = new Q(inputNumerator,inputDenominator);
+            Q c = (Q)z;
+            Assert.AreEqual(t, c);
+        }
+
+        [TestMethod]
+        public void ZtoQTestEx()
+        {
+            List<string> input = new List<string>();
+            List<string> output = new List<string>();
+            List<string> inputNumerator = new List<string>();
+            List<string> inputDenominator = new List<string>();
+            input.Add("1234");
+            input.Add("12345678");
+            inputNumerator.Add("1234");
+            inputNumerator.Add("12345678");
+            inputDenominator.Add("1");
+            Z z = new Z(input);
+            Q t = new Q(inputNumerator, inputDenominator);
+            Q c = (Q)z;
             Assert.AreNotEqual(null, c);
         }
 
