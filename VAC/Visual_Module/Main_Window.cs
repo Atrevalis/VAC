@@ -378,7 +378,15 @@ namespace Visual_Module
                 for (int j = 0; j < Controller.working_Dates[i].information.down_Contacted.Count; j++)
                 {
                     Working_data data = Controller.working_Dates[i].Visul as Working_data;
-                    Noda noda = Controller.working_Dates[i].information.down_Contacted[j] as Noda;
+                    Noda noda = null;
+                    for (int k = 0; k < Controller.nods.Count; k++)
+                    {
+                        if(Controller.nods[k].information == Controller.working_Dates[i].information.down_Contacted[j])
+                        {
+                            noda = Controller.nods[k].Visul as Noda;
+                            return;
+                        }
+                    }
                     graphics.DrawLine(pen, data.Location.X + data.Width, data.Location.Y + (int)(data.Height/2), noda.Location.X, noda.Location.Y + (int)(noda.Height/2));
                 }
             }
