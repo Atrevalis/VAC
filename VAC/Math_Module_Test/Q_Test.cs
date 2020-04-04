@@ -477,7 +477,7 @@ namespace Math_Module_Test
             inputDenominator.Add("1");
 
             Q x = new Q(inputNumerator,inputDenominator);
-            bool i = x.isDown();
+            bool i = x.isDown;
             bool t = true;
             Assert.AreEqual(t,i);
 		}
@@ -493,7 +493,7 @@ namespace Math_Module_Test
             inputDenominator.Add("12");
 
             Q x = new Q(inputNumerator, inputDenominator);
-            bool i = x.isDown();
+            bool i = x.isDown;
             bool t = false;
             Assert.AreEqual(t, i);
         }
@@ -509,12 +509,12 @@ namespace Math_Module_Test
             inputDenominator.Add("12");
 
             Q x = new Q(inputNumerator, inputDenominator);
-            bool i = x.isDown();
+            bool i = x.isDown;
             Assert.AreNotEqual(null, i);
         }
 
        [TestMethod]
-        public byte POZ_Q_DTest1()
+        public void POZ_Q_DTest1()
 		{
             List<string> inputNumerator = new List<string>();
             List<string> inputDenominator = new List<string>();
@@ -526,12 +526,12 @@ namespace Math_Module_Test
             Q x = new Q(inputNumerator,inputDenominator);
 
             byte t = 2;
-            byte i = x.POZ_Q_D();
+            byte i = x.POZ_Q_D;
             Assert.AreEqual(t,i);
         }
 
         [TestMethod]
-        public byte POZ_Q_DTest2()
+        public void POZ_Q_DTest2()
         {
             List<string> inputNumerator = new List<string>();
             List<string> inputDenominator = new List<string>();
@@ -544,12 +544,12 @@ namespace Math_Module_Test
 
             Q x = new Q(inputNumerator, inputDenominator);
             byte t = 1;
-            byte i = x.POZ_Q_D();
+            byte i = x.POZ_Q_D;
             Assert.AreEqual(t, i);
         }
 
         [TestMethod]
-        public byte POZ_Q_DTest3()
+        public void POZ_Q_DTest3()
         {
             List<string> inputNumerator = new List<string>();
             List<string> inputDenominator = new List<string>();
@@ -560,12 +560,12 @@ namespace Math_Module_Test
 
             Q x = new Q(inputNumerator, inputDenominator);
             byte t = 0;
-            byte i = x.POZ_Q_D();
+            byte i = x.POZ_Q_D;
             Assert.AreEqual(t, i);
         }
 
         [TestMethod]
-        public byte POZ_Q_DTestEx()
+        public void POZ_Q_DTestEx()
         {
             List<string> inputNumerator = new List<string>();
             List<string> inputDenominator = new List<string>();
@@ -575,7 +575,7 @@ namespace Math_Module_Test
             inputDenominator.Add("12345678");
 
             Q x = new Q(inputNumerator, inputDenominator);
-            byte i = x.POZ_Q_D();
+            byte i = x.POZ_Q_D;
             Assert.AreNotEqual(null, i);
         }
 
