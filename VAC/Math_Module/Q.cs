@@ -10,7 +10,7 @@ namespace Math_Module
     {
         #region Конструкторы
 
-        public Q(List<string> first, List<string> second)
+        public Q(List<string> first, List<string> second)///нет исключения - Знаменатель не может быть равен нулю 
         {
             Numerator = new Z(first);
             Denominator = new N(second);
@@ -55,7 +55,7 @@ namespace Math_Module
             }
         }
 
-        public byte POZ_Q_D
+        public byte POZ_Q_D// есть тесты
         {
             get
             {
@@ -139,7 +139,7 @@ namespace Math_Module
             return result;
         }
 
-        public static Q operator /(Q first, Q second) // DIV_QQ_Q
+        public static Q operator /(Q first, Q second) // DIV_QQ_Q // 
         {
             Q divider = null;
             Q result = first.Clone();
@@ -158,7 +158,7 @@ namespace Math_Module
         {
             return null;
         }
-
+        
         public static implicit operator List<string>(Q value)
         {
             List<string> S = new List<string>();
@@ -206,8 +206,8 @@ namespace Math_Module
         private void RED_Q_Q() //есть тесты
         {
             N nod = N.GCF_NN_N(Numerator.ABS_Z_N, Denominator);
-            Numerator = Numerator / nod;
-            Denominator = Denominator / nod;
+            Numerator /= nod;
+            Denominator /= nod;
         }
         
         public Q Clone() // Александр Баталин 9370//

@@ -17,6 +17,7 @@ namespace Math_Module_Test
             List<string> inputDenominator1 = new List<string>();
             List<string> outputNumerator = new List<string>();
             List<string> outputDenominator = new List<string>();
+
             inputNumerator.Add("2");
             inputNumerator.Add("12345678");
             inputDenominator.Add("5");
@@ -463,7 +464,7 @@ namespace Math_Module_Test
             Assert.AreNotEqual(null, x * i);
         }
 
-       /*
+       
         [TestMethod]
         public void isDownTest()
 		{
@@ -497,7 +498,119 @@ namespace Math_Module_Test
             Assert.AreEqual(t, i);
         }
 
-        */
+        [TestMethod]
+        public void isDownTestEx()
+        {
+            List<string> inputNumerator = new List<string>();//14 24684684
+            List<string> inputDenominator = new List<string>();//1
+
+            inputNumerator.Add("14");
+            inputNumerator.Add("24684684");
+            inputDenominator.Add("12");
+
+            Q x = new Q(inputNumerator, inputDenominator);
+            bool i = x.isDown();
+            Assert.AreNotEqual(null, i);
+        }
+
+       [TestMethod]
+        public byte POZ_Q_DTest1()
+		{
+            List<string> inputNumerator = new List<string>();
+            List<string> inputDenominator = new List<string>();
+
+            inputNumerator.Add("1");
+            inputNumerator.Add("12345678");
+            inputDenominator.Add("12");
+            inputDenominator.Add("12345678");
+            Q x = new Q(inputNumerator,inputDenominator);
+
+            byte t = 2;
+            byte i = x.POZ_Q_D();
+            Assert.AreEqual(t,i);
+        }
+
+        [TestMethod]
+        public byte POZ_Q_DTest2()
+        {
+            List<string> inputNumerator = new List<string>();
+            List<string> inputDenominator = new List<string>();
+
+            inputNumerator.Add("-");
+            inputNumerator.Add("1");
+            inputNumerator.Add("12345678");
+            inputDenominator.Add("12");
+            inputDenominator.Add("12345678");
+
+            Q x = new Q(inputNumerator, inputDenominator);
+            byte t = 1;
+            byte i = x.POZ_Q_D();
+            Assert.AreEqual(t, i);
+        }
+
+        [TestMethod]
+        public byte POZ_Q_DTest3()
+        {
+            List<string> inputNumerator = new List<string>();
+            List<string> inputDenominator = new List<string>();
+
+            inputNumerator.Add("0");
+            inputDenominator.Add("12");
+            inputDenominator.Add("12345678");
+
+            Q x = new Q(inputNumerator, inputDenominator);
+            byte t = 0;
+            byte i = x.POZ_Q_D();
+            Assert.AreEqual(t, i);
+        }
+
+        [TestMethod]
+        public byte POZ_Q_DTestEx()
+        {
+            List<string> inputNumerator = new List<string>();
+            List<string> inputDenominator = new List<string>();
+
+            inputNumerator.Add("0");
+            inputDenominator.Add("12");
+            inputDenominator.Add("12345678");
+
+            Q x = new Q(inputNumerator, inputDenominator);
+            byte i = x.POZ_Q_D();
+            Assert.AreNotEqual(null, i);
+        }
+
+        [TestMethod]
+        public void divisionTest1() // не готово
+
+        {
+            List<string> inputNumerator = new List<string>();//1 24684684
+            List<string> inputDenominator = new List<string>();//1 86745678
+            List<string> inputNumerator1 = new List<string>();//2 24989000
+            List<string> inputDenominator1 = new List<string>();//3 23456008
+            List<string> outputNumerator = new List<string>();//       
+            List<string> outputDenominator = new List<string>();//       
+
+            inputNumerator.Add("1");
+            inputNumerator.Add("24684684");
+            inputDenominator.Add("1");
+            inputDenominator.Add("86745678");
+
+            inputNumerator1.Add("2");
+            inputNumerator1.Add("24989000");
+            inputDenominator1.Add("3");
+            inputDenominator1.Add("23456008");
+
+            outputNumerator.Add("");
+            outputNumerator.Add("");
+            outputNumerator.Add("");
+            outputDenominator.Add("");
+            outputDenominator.Add("");
+
+            Q x = new Q(inputNumerator, inputDenominator);
+            Q i = new Q(inputNumerator1, inputDenominator1);
+            Q t = new Q(outputNumerator, outputDenominator);
+            Assert.AreEqual(t, x * i);
+        }
 
         /*
         [TestMethod]
@@ -515,7 +628,7 @@ namespace Math_Module_Test
             outputDenominator.Add("3");
             Q x = new Q(inputNumerator,inputDenominator);
             Q t = new Q(outputNumerator,outputDenominator);
-            x.RED_Q_Q;
+            x.RED_Q_Q();
             Assert.AreEqual(t,x);
         }
 
@@ -539,7 +652,7 @@ namespace Math_Module_Test
 
             Q x = new Q(inputNumerator, inputDenominator);
             Q t = new Q(outputNumerator, outputDenominator);
-            x.RED_Q_Q;
+            x.RED_Q_Q();
             Assert.AreEqual(t, x);
         }*/
         /*

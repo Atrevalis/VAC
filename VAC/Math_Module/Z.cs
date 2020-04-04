@@ -234,7 +234,7 @@ namespace Math_Module
             return S;
         }
 
-        public static implicit operator Q(Z value) // Александр Рассохин
+        public static implicit operator Q(Z value) // Александр Рассохин // есть тесты
         {
             return new Q(value);
         }
