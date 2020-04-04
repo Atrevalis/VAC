@@ -8,8 +8,8 @@ namespace Math_Module
 {
     public struct M
     {
-        Q coaf;
-        N step;
+        public Q coaf;
+        public N step;
 
         public M(Q c, N s)
         {
@@ -88,7 +88,35 @@ namespace Math_Module
 
         public static P operator +(P first, P second) // ADD_PP_P
         {
-            return null;
+            P result;
+            P smaller;
+            if (first.Ms.Count < second.Ms.Count)
+            {
+                result = second.Clone();
+                smaller = first.Clone();
+            }
+            else
+            {
+                result = first.Clone();
+                smaller = second.Clone();
+            }
+            for (int i = 0; i < smaller.Ms.Count; i++)
+            {
+                for (int j = 0; j < result.Ms.Count; j++)
+                {
+                    if (result.Ms[j].step == smaller.Ms[i].step)
+                    {
+                        result.Ms[j].coaf += smaller.Ms[i].coaf;
+                        break;
+                    }
+                    if (N.COM_NN_D(result.Ms[j].step, smaller.Ms[i].step) == 1)
+                    {
+                        result.Ms.Insert(j, smaller.Ms[i]);
+                        break;
+                    }
+                }
+            }
+            return result;
         }
 
         public static P operator -(P first, P second) // SUB_PP_P
@@ -153,6 +181,13 @@ namespace Math_Module
         private void NMR_P_P()
         {
 
+        }
+        
+        public P Clone() // Александр Баталин 9370//
+        {
+            P clone = new P(new List<string>());
+            clone.Ms = new List<M>(Ms);
+            return clone;
         }
 
         #endregion
