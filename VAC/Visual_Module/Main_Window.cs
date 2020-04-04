@@ -142,6 +142,7 @@ namespace Visual_Module
             {
                 toolStripStatusLabel1.Text = "";
             }
+            panel1.Update();
         }
 
 
@@ -366,6 +367,21 @@ namespace Visual_Module
             result.label.Text = "Вывод";
             result.Show();
             panel1.Controls.Add(result);
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+            Graphics graphics = e.Graphics;
+            Pen pen = new Pen(Color.Black, 3);
+            for (int i = 0; i < Controller.working_Dates.Count; i++)
+            {
+                for (int j = 0; j < Controller.working_Dates[i].information.down_Contacted.Count; j++)
+                {
+                    Working_data data = Controller.working_Dates[i].Visul as Working_data;
+                    Noda noda = Controller.working_Dates[i].information.down_Contacted[j] as Noda;
+                    graphics.DrawLine(pen, data.Location.X + data.Width, data.Location.Y + (int)(data.Height/2), noda.Location.X, noda.Location.Y + (int)(noda.Height/2));
+                }
+            }
         }
     }
 }

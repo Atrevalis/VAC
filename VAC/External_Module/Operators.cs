@@ -13,7 +13,7 @@ namespace External_module
        protected int index_of_Operator;
         public string name_of_operators;
 
-        protected List<Working_data> up_connection;
+        protected List<Working_data> up_connection = new List<Working_data>();
         List<if_operator> if_Operators;
 
         public override bool isUpcoonection

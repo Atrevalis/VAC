@@ -11,7 +11,7 @@ namespace External_module
 
         int count_of_up_connection;
 
-        List<Noda> up_connection = new List<Noda>();
+        List<Working_data> up_connection = new List<Working_data>();
         public List<Noda>[] exits;
         public List<if_operator> if_Operators = new List<if_operator>();
         public string[] names_of_exits;
@@ -40,7 +40,7 @@ namespace External_module
             }
         }
 
-        public void Up_connected(Noda data)
+        public void Up_connected(Working_data data)
         {
             if(up_connection.Count < count_of_up_connection)
             {

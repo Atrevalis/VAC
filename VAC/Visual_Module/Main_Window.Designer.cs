@@ -205,7 +205,7 @@
             this.toolStripMenuItem19,
             this.toolStripMenuItem20});
             this.toolStripMenuItem13.Name = "toolStripMenuItem13";
-            this.toolStripMenuItem13.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem13.Size = new System.Drawing.Size(130, 22);
             this.toolStripMenuItem13.Text = "Унарные";
             // 
             // модульЧислаToolStripMenuItem
@@ -280,7 +280,7 @@
             this.делениеToolStripMenuItem,
             this.остатокОтДеленияToolStripMenuItem});
             this.toolStripMenuItem14.Name = "toolStripMenuItem14";
-            this.toolStripMenuItem14.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem14.Size = new System.Drawing.Size(130, 22);
             this.toolStripMenuItem14.Text = "Бинарные";
             // 
             // toolStripMenuItem18
@@ -316,7 +316,7 @@
             this.нОДToolStripMenuItem,
             this.нОКToolStripMenuItem});
             this.toolStripMenuItem15.Name = "toolStripMenuItem15";
-            this.toolStripMenuItem15.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem15.Size = new System.Drawing.Size(130, 22);
             this.toolStripMenuItem15.Text = "N-арные";
             // 
             // суммаToolStripMenuItem
@@ -430,6 +430,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(65535, 45000);
             this.panel1.TabIndex = 2;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
             this.panel1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseUp);

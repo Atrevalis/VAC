@@ -130,6 +130,18 @@ namespace External_Controller
                                 break;
                         }
                     }
+                    else
+                    {
+                        (second_obj as External_module.if_operator).Up_connected(first_obj as External_module.Working_data);
+                        if (first_obj.type == "Data")
+                        {
+                            (first_obj as External_module.Data).down_contacted = first_obj;
+                        }
+                        else
+                        {
+                            (first_obj as External_module.Operators).down_contacted = first_obj;
+                        }
+                    }
                 }
             }
 
