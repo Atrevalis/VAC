@@ -79,15 +79,15 @@ namespace Math_Module
             get
             {
                 P result = this.Clone();
-                if (result.Ms[Ms.Count - 1].step.NZER_N_B)
+                if (result.Ms[Ms.Count() - 1].step.NZER_N_B)
                 {
-                    result.Ms.RemoveAt(Ms.Count - 1);
+                    result.Ms.RemoveAt(Ms.Count() - 1);
                 }
                 List<string> odin = new List<string>();
                 odin.Add("1");
                 N one = new N(odin);
                 M now;
-                for (int i = result.Ms.Count - 1; i > 0; i--)
+                for (int i = result.Ms.Count() - 1; i > 0; i--)
                 {
                     result.Ms.Insert(i, Ms[i]);
                     now = result.Ms[i];
@@ -108,7 +108,7 @@ namespace Math_Module
         {
             P result;
             P smaller;
-            if (first.Ms.Count < second.Ms.Count)
+            if (first.Ms.Count() < second.Ms.Count())
             {
                 result = second.Clone();
                 smaller = first.Clone();
@@ -119,9 +119,9 @@ namespace Math_Module
                 smaller = second.Clone();
             }
             M now;
-            for (int i = 0; i < smaller.Ms.Count; i++)
+            for (int i = 0; i < smaller.Ms.Count(); i++)
             {
-                for (int j = 0; j < result.Ms.Count; j++)
+                for (int j = 0; j < result.Ms.Count(); j++)
                 {
                     if (N.COM_NN_D(result.Ms[j].step, smaller.Ms[i].step) == 0)
                     {
@@ -142,7 +142,27 @@ namespace Math_Module
 
         public static P operator -(P first, P second) // SUB_PP_P
         {
-            return null;
+            P result;
+            P smaller;
+            if (first.Ms.Count() < second.Ms.Count())
+            {
+                result = second.Clone();
+                smaller = first.Clone();
+            }
+            else
+            {
+                result = first.Clone();
+                smaller = second.Clone();
+            }
+            M now;
+            for (int i = 0; i < smaller.Ms.Count(); i++)
+            {
+                now = smaller.Ms[i];
+                now.coaf = -now.coaf;
+                smaller.Ms[i] = now;
+            }
+            result += smaller;
+            return result;
         }
 
         public static P operator *(P first, P second) // MUL_PP_P
