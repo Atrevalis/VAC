@@ -154,6 +154,13 @@ namespace Math_Module
         {
 
         }
+        
+        public P Clone() // Александр Баталин 9370//
+        {
+            P clone = new P(new List<string>());
+            clone.Ms = new List<M>(Ms);
+            return clone;
+        }
 
         #endregion
     }
