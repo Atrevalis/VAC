@@ -178,7 +178,7 @@ namespace Math_Module
             return new P(value);
         }
 
-        public static explicit operator Z(Q value)
+        public static explicit operator Z(Q value)//есть тесты
         {
             if (value.isDown)
             {
@@ -211,7 +211,7 @@ namespace Math_Module
             Denominator /= nod;
         }
         
-        public Q Clone() // Александр Баталин 9370//
+        public Q Clone() // Александр Баталин 9370//есть тесты
         {
             Q clone = new Q(Numerator.Clone());
             clone.Denominator = Denominator.Clone();

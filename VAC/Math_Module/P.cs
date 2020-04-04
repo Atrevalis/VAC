@@ -8,13 +8,13 @@ namespace Math_Module
 {
     public struct M
     {
-        public Q coaf;
-        public N step;
+        public Q coef;
+        public N degree;
 
         public M(Q c, N s)
         {
-            coaf = null;
-            step = null;
+            coef = null;
+            degree = null;
         }
     }
 
@@ -56,7 +56,7 @@ namespace Math_Module
             {
                 M now;
                 now = this.Ms[0];
-                return now.coaf;
+                return now.coef;
             }
         }
 
@@ -66,7 +66,7 @@ namespace Math_Module
             {
                 M now;
                 now = this.Ms[0];
-                return now.step;
+                return now.degree;
             }
         }
 
@@ -83,7 +83,7 @@ namespace Math_Module
             get
             {
                 P result = this.Clone();
-                if (result.Ms[Ms.Count() - 1].step.NZER_N_B)
+                if (result.Ms[Ms.Count() - 1].degree.NZER_N_B)
                 {
                     result.Ms.RemoveAt(Ms.Count() - 1);
                 }
@@ -95,8 +95,8 @@ namespace Math_Module
                 {
                     result.Ms.Insert(i, Ms[i]);
                     now = result.Ms[i];
-                    now.coaf *= (Z)now.step;
-                    now.step -= one;
+                    now.coef *= (Z)now.degree;
+                    now.degree -= one;
                     result.Ms[i] = now;
                     result.Ms.RemoveAt(i + 1);
                 }
@@ -127,14 +127,14 @@ namespace Math_Module
             {
                 for (int j = 0; j < result.Ms.Count(); j++)
                 {
-                    if (N.COM_NN_D(result.Ms[j].step, smaller.Ms[i].step) == 0)
+                    if (N.COM_NN_D(result.Ms[j].degree, smaller.Ms[i].degree) == 0)
                     {
                         now = result.Ms[j];
-                        now.coaf += smaller.Ms[i].coaf;
+                        now.coef += smaller.Ms[i].coef;
                         result.Ms[j] = now;
                         break;
                     }
-                    if (N.COM_NN_D(result.Ms[j].step, smaller.Ms[i].step) == 1)
+                    if (N.COM_NN_D(result.Ms[j].degree, smaller.Ms[i].degree) == 1)
                     {
                         result.Ms.Insert(j, smaller.Ms[i]);
                         break;
@@ -162,7 +162,7 @@ namespace Math_Module
             for (int i = 0; i < smaller.Ms.Count(); i++)
             {
                 now = smaller.Ms[i];
-                now.coaf = -now.coaf;
+                now.coef = -now.coef;
                 smaller.Ms[i] = now;
             }
             result += smaller;

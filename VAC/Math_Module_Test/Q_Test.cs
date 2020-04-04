@@ -303,7 +303,7 @@ namespace Math_Module_Test
             Q i = new Q(inputNumerator1, inputDenominator1);
 
             Assert.AreNotEqual(null, x + i);
-        }
+        }// остальное не изменено 
 
         [TestMethod]
         public void unarMinusTest()
@@ -358,21 +358,21 @@ namespace Math_Module_Test
             List<string> outputNumerator = new List<string>();//        2 58779392 09128720
             List<string> outputDenominator = new List<string>();//       17849618 88415105
 
-            inputNumerator.Add("14");
-            inputNumerator.Add("24684684");
-            inputDenominator.Add("1");
-            inputDenominator.Add("86745678");
+            inputNumerator.Add("1");
+            inputNumerator.Add("12000000");
+            inputDenominator.Add("2");
+            inputDenominator.Add("12341234");
 
-            inputNumerator1.Add("23");
-            inputNumerator1.Add("24989000");
-            inputDenominator1.Add("12");
-            inputDenominator1.Add("23456008");
+            inputNumerator1.Add("1");
+            inputNumerator1.Add("12121212");
+            inputDenominator1.Add("1");
+            inputDenominator1.Add("34000000");
 
-            outputNumerator.Add("2");
-            outputNumerator.Add("58779392");
-            outputNumerator.Add("09128720");
-            outputDenominator.Add("17849618");
-            outputDenominator.Add("88415105");
+            outputNumerator.Add("");//64100874 63133103
+            outputNumerator.Add("");
+            outputNumerator.Add("");
+            outputDenominator.Add("");
+            outputDenominator.Add("");
 
             Q x = new Q(inputNumerator, inputDenominator);
             Q i = new Q(inputNumerator1, inputDenominator1);
@@ -619,6 +619,44 @@ namespace Math_Module_Test
             Q i = new Q(inputNumerator1, inputDenominator1);
             Q t = new Q(outputNumerator, outputDenominator);
             Assert.AreEqual(t, x * i);
+        }
+
+        [TestMethod]
+        public void CloneTest()
+		{
+            List<string> inputNumerator = new List<string>();//1 24684684
+            List<string> inputDenominator = new List<string>();//1 86745678
+            List<string> outputNumerator = new List<string>();//       
+            List<string> outputDenominator = new List<string>();//       
+
+            inputNumerator.Add("1");
+            inputNumerator.Add("24684684");
+            inputDenominator.Add("1");
+            inputDenominator.Add("86745678");
+
+            Q x = new Q(inputNumerator,inputDenominator);
+            Q i = x.Clone();
+            Q t = new Q(inputNumerator,inputDenominator);
+            Assert.AreEqual(t,x);
+        }
+
+        [TestMethod]
+        public void QtoZTest1()
+        {
+            List<string> inputNumerator = new List<string>();//1 24684684
+            List<string> inputDenominator = new List<string>();//1 86745678
+            List<string> outputNumerator = new List<string>();//       
+            List<string> outputDenominator = new List<string>();//       
+
+            inputNumerator.Add("1");
+            inputNumerator.Add("24684684");
+            inputDenominator.Add("1");
+            inputDenominator.Add("86745678");
+
+            Q x = new Q(inputNumerator, inputDenominator);
+            Q i = x.Clone();
+            Q t = new Q(inputNumerator, inputDenominator);
+            Assert.AreEqual(t, x);
         }
 
 

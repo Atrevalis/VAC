@@ -11,6 +11,8 @@ namespace Math_Module_Test
     [TestClass]
     class P_Test
     {
-
+        [TestMethod]
+        public void plusTest()
+        { }
     }
 }
