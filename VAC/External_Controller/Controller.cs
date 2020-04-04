@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using External_module;
+using System.Windows.Forms;
 
 namespace External_Controller
 {
@@ -72,6 +73,17 @@ namespace External_Controller
                     break;
 
             }
+        }
+
+        public static void new_Conect(object first, object second)
+        {
+            Noda first_obj = new Noda(), second_obj = new Noda();
+            for(int i = 0; i < nods.Count; i++)
+            {
+                if (nods[i].Visul == first) first_obj = nods[i];
+                if (nods[i].Visul == second) second_obj = nods[i];
+            }
+
         }
 
         #region Структуры

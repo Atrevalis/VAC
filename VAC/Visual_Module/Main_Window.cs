@@ -75,9 +75,9 @@ namespace Visual_Module
 
                 case MouseButtons.Right:
                     {
-                        if(zoom < 3)
+                        if(zoom < 4)
                         {
-                            zoom++;
+                            zoom*=2;
                         }
                         else
                         {
@@ -87,8 +87,8 @@ namespace Visual_Module
                         for(int i = 0; i < panel1.Controls.Count; i++)
                         {
                             Control bufer = panel1.Controls[i]; 
-                            float deltaZoom = zoom != 1 ? zoom / (zoom - 1) : (float)(1)/3;
-                            float tr = zoom != 1 ? 1 : -2.6666666666666f;
+                            float deltaZoom = zoom != 1 ? 2 : 0.25f;
+                            float tr = zoom != 1 ? 1 : -3.66666666666666666666666f;
                             bufer.Size = new Size((int)(bufer.Width * deltaZoom), (int)(bufer.Height * deltaZoom));
                             bufer.Location = new Point(bufer.Location.X + (int)((bufer.Location.X - e.Location.X)*deltaZoom * tr), bufer.Location.Y + (int)((bufer.Location.Y - e.Location.Y) * deltaZoom * tr));
                             if (bufer.Location.X < 0) bufer.Location = new Point(0, bufer.Location.Y);
@@ -130,6 +130,10 @@ namespace Visual_Module
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+            if(Noda.down_conected != null && Noda.up_conected != null)
+            {
+                Controller.new_Conect(Noda.up_conected, Noda.down_conected);
+            }
             if(Noda.enter != null)
             {
                 toolStripStatusLabel1.Text = Noda.enter.ToString();

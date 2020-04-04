@@ -14,7 +14,6 @@ namespace MVS_Controller
     public partial class Working_data : Noda
     {
         Button down_contacts = new Button();
-        static Image butt_image = Image.FromFile(Directory.GetCurrentDirectory() + "\\Resources\\Image\\Start.png");
         public Working_data(Form parent, Panel panel) : base(parent, panel)
         {
             InitializeComponent();

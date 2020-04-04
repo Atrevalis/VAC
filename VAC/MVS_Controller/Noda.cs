@@ -7,11 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace MVS_Controller
 {
     public partial class Noda : UserControl
     {
+        protected static Image butt_image = Image.FromFile(Directory.GetCurrentDirectory() + "\\Resources\\Image\\Start.png");
+        public static Button up_conected = null;
+        public static Noda down_conected = null;
         public static Button conect_nod = null;
         public Label label = new Label(); 
         static public Noda Active = null;
@@ -57,23 +61,41 @@ namespace MVS_Controller
 
                 case MouseButtons.Left:
                     {
-                        if (Active == null)
+                        if (conect_nod == null)
                         {
-                            (sender as Noda).BackColor = Color.FromArgb(200, 200, 200);
-                            Active = sender as Noda;
-                        }
-                        else
-                        {
-                            if (Active == sender as Noda)
+                            if (Active == null)
                             {
-                                Active = null;
-                                (sender as Noda).BackColor = Color.FromArgb(50, 50, 50);
+                                (sender as Noda).BackColor = Color.FromArgb(200, 200, 200);
+                                Active = sender as Noda;
                             }
                             else
                             {
-                                Active.BackColor = Color.FromArgb(50, 50, 50);
-                                Active = sender as Noda;
-                                (sender as Noda).BackColor = Color.FromArgb(200, 200, 200);
+                                if (Active == sender as Noda)
+                                {
+                                    Active = null;
+                                    (sender as Noda).BackColor = Color.FromArgb(50, 50, 50);
+                                }
+                                else
+                                {
+                                    Active.BackColor = Color.FromArgb(50, 50, 50);
+                                    Active = sender as Noda;
+                                    (sender as Noda).BackColor = Color.FromArgb(200, 200, 200);
+                                }
+                            }
+                        }
+                        else
+                        {
+                            if(conect_nod.Parent == sender)
+                            {
+                                conect_nod.BackgroundImage = butt_image;
+                                conect_nod = null;
+                            }
+                            else
+                            {
+                                up_conected = conect_nod;
+                                down_conected = sender as Noda;
+                                conect_nod.BackgroundImage = butt_image;
+                                conect_nod = null;
                             }
                         }
                     }

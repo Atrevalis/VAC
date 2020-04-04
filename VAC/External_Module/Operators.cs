@@ -16,7 +16,7 @@ namespace External_module
         protected List<Working_data> up_connection;
         List<if_operator> if_Operators;
 
-        public bool is_up_conection
+        public override bool isUpcoonection
         {
             get
             {

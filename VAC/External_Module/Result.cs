@@ -13,6 +13,21 @@ namespace External_module
         List<if_operator> if_Operators;
         private int index_of_result;
 
+        public override bool isDowncoonection
+        {
+            get
+            {
+                if(up_connection == null)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
+
         public Result()
         {
             index_of_result = count_of_results_index++;

@@ -22,6 +22,22 @@ namespace External_module
             }
         }
 
+        public override bool isDowncoonection
+        {
+            get
+            {
+                return true;
+            }
+        }
+
+        public override bool isUpcoonection
+        {
+            get
+            {
+                return up_connection.Count < count_of_up_connection;
+            }
+        }
+
         public void Up_connected(Working_data data)
         {
             if(up_connection.Count < count_of_up_connection)

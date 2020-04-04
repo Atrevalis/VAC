@@ -10,6 +10,14 @@ namespace External_module
     {
         private List<Noda> down_contacts = new List<Noda>();
 
+        public override bool isDowncoonection
+        {
+            get
+            {
+                return true;
+            }
+        }
+
         public Noda down_contacted
         {
             set
