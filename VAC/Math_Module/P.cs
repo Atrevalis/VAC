@@ -54,7 +54,9 @@ namespace Math_Module
         {
             get
             {
-                return null;
+                M now;
+                now = this.Ms[0];
+                return now.coaf;
             }
         }
 
@@ -62,7 +64,9 @@ namespace Math_Module
         {
             get
             {
-                return null;
+                M now;
+                now = this.Ms[0];
+                return now.step;
             }
         }
 
