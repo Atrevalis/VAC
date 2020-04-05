@@ -83,7 +83,10 @@ namespace Math_Module
             get
             {
                 P result = this.Clone();
-               // if (result.Ms[Ms.Count() - 1].degree.NZER_N_B)
+                List<string> zero = new List<string>();
+                zero.Add("0");
+                N usl = new N(zero);
+                if (N.COM_NN_D(result.Ms[Ms.Count() - 1].degree, usl) == 0)
                 {
                     result.Ms.RemoveAt(Ms.Count() - 1);
                 }
@@ -171,7 +174,26 @@ namespace Math_Module
 
         public static P operator *(P first, P second) // MUL_PP_P
         {
-            return null;
+            P result;
+            P smaller;
+            if (first.Ms.Count() < second.Ms.Count())
+            {
+                result = second.Clone();
+                smaller = first.Clone();
+            }
+            else
+            {
+                result = first.Clone();
+                smaller = second.Clone();
+            }
+            M now;
+            for (int i = 0; i < smaller.Ms.Count(); i++)
+            {
+                now = smaller.Ms[i];
+                result = result.MUL_PQ_P(now.coef);
+                result = result.MUL_Pxk_P(now.degree);
+            }
+            return result;
         }
 
         public static P operator /(P first, P second) // DIV_PP_P
