@@ -7,6 +7,9 @@ namespace External_Controller
 {
     public static class Controller
     {
+        public static string input;
+        public static string output;
+        public static bool Auto;
         public static string path_of_now_project;
         public static string name_of_now_project;
         public static List<Data> dates = new List<Data>();
