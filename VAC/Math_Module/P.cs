@@ -244,7 +244,9 @@ namespace Math_Module
 
         public static P operator %(P first, P second) // MOD_PP_p
         {
-            
+            P result = first.Clone();
+            result -= (first / second);
+            return result;
         }
 
         public static implicit operator List<string>(P value)
