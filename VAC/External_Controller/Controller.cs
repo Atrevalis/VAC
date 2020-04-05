@@ -24,6 +24,48 @@ namespace External_Controller
 
         }
 
+        public static void Delete(Control control)
+        {
+            for(int i = 0; i < nods.Count; i++)
+            {
+                if(nods[i].Visul == control)
+                {
+                    nods.RemoveAt(i);
+                }
+            }
+            for(int i = 0; i < working_Dates.Count; i++)
+            {
+                if(working_Dates[i].Visul == control)
+                {
+                    working_Dates.RemoveAt(i);
+                    for (int j = 0; j < operators.Count; j++)
+                    {
+                        if (operators[j].Visul == control)
+                        {
+                            operators.RemoveAt(j);
+                            return;
+                        }
+                    }
+                    return;
+                }
+            }
+            for (int i = 0; i < if_Operators.Count; i++)
+            {
+                if (if_Operators[i].Visul == control)
+                {
+                    if_Operators.RemoveAt(i);
+                    return;
+                }
+            }
+            for (int i = 0; i < results.Count; i++)
+            {
+                if (results[i].Visul == control)
+                {
+                    results.RemoveAt(i);
+                }
+            }
+        }
+
         public static void Create_new_Nod(string name, string type, object Visual_nod, ref string[] ags)
         {
             switch(type)

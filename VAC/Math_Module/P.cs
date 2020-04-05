@@ -16,22 +16,13 @@ namespace Math_Module
             coef = null;
             degree = null;
         }
-        public override bool Equals(object obj)
-        {
-            if (obj.GetType() == GetType())
-            {
-              //  M sec = obj as M;
-                //if (this.Equals(sec)) return true;
-            }
-            return false;
-        }
     }
 
     public class P:Math_Field
     {
         #region Конструкторы
 
-        public P(List<string> s)
+        public P(List<List<string>[]> s)
         {
 
         }
@@ -231,7 +222,7 @@ namespace Math_Module
         
         public P Clone() // Александр Баталин 9370//
         {
-            P clone = new P(new List<string>());
+            P clone = new P(new List<List<string>[]>());
             clone.Ms = new List<M>(Ms);
             return clone;
         }

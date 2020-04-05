@@ -433,7 +433,9 @@ namespace Visual_Module
                     {
                         if (Controller.nods[i].information.isDelete)
                         {
-                            
+                            Controller.Delete(Noda.Active);
+                            panel1.Controls.Remove(Noda.Active);
+                            Noda.Active = null;
                         }
                         else
                         {
