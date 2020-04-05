@@ -207,35 +207,31 @@ namespace Math_Module
 
         public static P operator /(P first, P second) // DIV_PP_P
         {
-            P dividend;
-            P smaller;
-            if (first.Ms.Count() < second.Ms.Count())
-            {
-                dividend = second.Clone();
-                smaller = first.Clone();
-            }
-            else
-            {
-                dividend = first.Clone();
-                smaller = second.Clone();
-            }
+            P dividend = first.Clone();
             P result = null;
             P mnoj = null;
             M now;
             M smaller_now;
             M dividend_now;
             int i = 0;
-            while (dividend.Ms.Count() < smaller.Ms.Count())
+            if (dividend.Ms.Count() >= second.Ms.Count())
             {
-                dividend_now = dividend.Ms[0];
-                smaller_now = smaller.Ms[i];
-                now.coef = dividend_now.coef / smaller_now.coef;
-                now.degree = dividend_now.degree / smaller_now.degree;
-                result.Ms.Add(now);
-                mnoj.Ms.Add(now);
-                dividend -= (smaller * mnoj);
-                mnoj.Ms.RemoveAt(0);
-                i++;
+                while (dividend.Ms.Count() < second.Ms.Count())
+                {
+                    dividend_now = dividend.Ms[0];
+                    smaller_now = second.Ms[i];
+                    now.coef = dividend_now.coef / smaller_now.coef;
+                    now.degree = dividend_now.degree - smaller_now.degree;
+                    result.Ms.Add(now);
+                    mnoj.Ms.Add(now);
+                    dividend -= (second * mnoj);
+                    mnoj.Ms.RemoveAt(0);
+                    i++;
+                }
+            }
+            else
+            {
+                result = dividend;
             }
             return result;
         }
