@@ -256,9 +256,17 @@ namespace Math_Module
 
         #region Методы
 
-        private P MUL_PQ_P(Q value)
+       private P MUL_PQ_P(Q value)
         {
-            return null;
+            P mulcoef = Clone();
+            M now;
+            for (int i = 0; i < mulcoef.Ms.Count; i++)
+            {
+                now = mulcoef.Ms[i];
+                now.coef *= value;
+                mulcoef.Ms[i] = now;
+            }
+            return mulcoef;
         }
 
         private P MUL_Pxk_P(N value)
