@@ -267,7 +267,7 @@ namespace Math_Module
             nol.degree = q;
             nol.coef = (Z)q;
             List<string> one = new List<string>();
-            one.Add("0");
+            one.Add("1");
             N l = new N(one);
             odin.coef = (Z)l;
             P menche = null;
@@ -318,9 +318,89 @@ namespace Math_Module
             return null;
         }
 
-        private void NMR_P_P()
+        private P NMR_P_P()
         {
-
+            List<P> mnoj = null;
+            P now = this.Clone();
+            P i = null;
+            List<string> zero = new List<string>();
+            zero.Add("0");
+            N q = new N(zero);
+            List<string> one = new List<string>();
+            one.Add("1");
+            N l = new N(one);
+            N f;
+            M there;
+            M last = now.Ms[now.Ms.Count() - 1];
+            P hero;
+            M x1;
+            M x0;
+            x1.coef = (Z)l;
+            x1.degree = l;
+            x0.coef = (Z)l;
+            x0.degree = q;
+            N z = new N(zero);
+            M srav;
+            srav.coef = (Z)z;
+            srav.degree = z;
+            P srav1 = null;
+            P srav2 = null;
+            srav1.Ms.Add(srav);
+            M g;
+            g.coef = (Z)q;
+            g.degree = q;
+            P c = null; //nol?
+            c.Ms.Add(g);
+            P v = null; //odin?
+            v.Ms.Add(x0);
+            List<string> del = new List<string>();
+            if (last.degree != q)
+            {
+                f = last.degree;
+                for (int a = 0; a < now.Ms.Count(); a++)
+                {
+                    there = now.Ms[a];
+                    there.degree -= f;
+                    now.Ms[a] = there;
+                }
+            }
+            srav2.Ms.Add(last);
+            while (now.DER_P_P.Ms.Count() > 1)
+            {
+                while (COM_PP_D(srav1, srav2) == 1)
+                {
+                    del.Clear();
+                    srav1 += v;
+                    if ((srav1 % srav2) == c)
+                    {
+                        hero = srav1;
+                        if (now % hero == c)
+                        {
+                            now /= hero;
+                            i = hero;
+                            hero.Ms.Clear();
+                            for (int j = 0; j < mnoj.Count(); j++)
+                            {
+                                if (COM_PP_D(i, mnoj[j]) == 0)
+                                {
+                                    break;
+                                }
+                                if ((COM_PP_D(i, mnoj[j]) != 0) && (j == (mnoj.Count() - 1)))
+                                {
+                                    mnoj.Add(i);
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            P result = mnoj[0];
+            for (int s = 1; s < mnoj.Count(); s++)
+            {
+                result *= mnoj[s];
+            }
+            return result;
         }
         
         public P Clone() // Александр Баталин 9370//
