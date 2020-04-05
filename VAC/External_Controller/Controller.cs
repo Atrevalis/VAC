@@ -113,7 +113,7 @@ namespace External_Controller
 
                     default:
                         {
-
+                          //  for(int k = 0; k < (nods[i].information as ))
                         }
                         break;
                 }

@@ -326,9 +326,9 @@ namespace Math_Module
             return null;
         }
 
-        private void NMR_P_P()
+        public P NMR_P_P()
         {
-
+            return null;
         }
         
         public P Clone() // Александр Баталин 9370//
