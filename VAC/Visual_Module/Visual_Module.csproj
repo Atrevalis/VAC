@@ -69,6 +69,12 @@
       <DependentUpon>Main_Window.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
+    <Compile Include="Proper.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Proper.Designer.cs">
+      <DependentUpon>Proper.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Create_new_project.resx">
       <DependentUpon>Create_new_project.cs</DependentUpon>
