@@ -31,5 +31,7 @@ namespace External_module
         {
             get;
         }
+
+        public abstract void Delete_Element(Noda elements);
     }
 }

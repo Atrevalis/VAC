@@ -53,5 +53,17 @@ namespace External_module
             }
         }
 
+        public override void Delete_Element(Noda noda)
+        {
+            for(int i = 0; i < down_contacts.Count; i++)
+            {
+                if(noda == down_contacts[i])
+                {
+                    down_contacts.RemoveAt(i);
+                    return;
+                }
+            }
+        }
+
     }
 }

@@ -70,5 +70,28 @@ namespace External_module
             }
         }
 
+        public override void Delete_Element(Noda elements)
+        {
+            base.Delete_Element(elements);
+
+            for(int i = 0; i < up_connection.Count; i++)
+            {
+                if(elements == up_connection[i])
+                {
+                    up_connection.RemoveAt(i);
+                    return;
+                }
+            }
+
+            for(int i = 0; i < if_Operators.Count; i++)
+            {
+                if(elements == if_Operators[i])
+                {
+                    if_Operators.RemoveAt(i);
+                    return;
+                }
+            }
+        }
+
     }
 }

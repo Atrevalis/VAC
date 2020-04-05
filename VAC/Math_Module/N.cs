@@ -321,7 +321,6 @@ namespace Math_Module
         {
             N k = Clone(); 
             uint g = 0;
-            uint f;
             for (int i = 0; i < znach.Count; i++)
             {
                 k.znach[i] = k.znach[i] * value + g;

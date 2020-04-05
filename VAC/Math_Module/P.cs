@@ -16,6 +16,15 @@ namespace Math_Module
             coef = null;
             degree = null;
         }
+        public override bool Equals(object obj)
+        {
+            if (obj.GetType() == GetType())
+            {
+              //  M sec = obj as M;
+                //if (this.Equals(sec)) return true;
+            }
+            return false;
+        }
     }
 
     public class P:Math_Field
@@ -83,7 +92,7 @@ namespace Math_Module
             get
             {
                 P result = this.Clone();
-                if (result.Ms[Ms.Count() - 1].degree.NZER_N_B)
+               // if (result.Ms[Ms.Count() - 1].degree.NZER_N_B)
                 {
                     result.Ms.RemoveAt(Ms.Count() - 1);
                 }
@@ -194,15 +203,7 @@ namespace Math_Module
             return null;
         }
 
-        public override bool Equals(object obj)
-        {
-            if(obj.GetType() == GetType() && this != null && obj != null)
-            {
-                P sec = obj as P;
-                if (Ms.Equals(sec.Ms)) return true;
-            }
-            return false;
-        }
+
 
         #endregion
 
@@ -234,6 +235,17 @@ namespace Math_Module
             clone.Ms = new List<M>(Ms);
             return clone;
         }
+
+        public override bool Equals(object obj)
+        {
+            if (obj.GetType() == GetType() && this != null && obj != null)
+            {
+                P sec = obj as P;
+                if (Ms.Equals(sec.Ms)) return true;
+            }
+            return false;
+        }
+
 
         #endregion
     }

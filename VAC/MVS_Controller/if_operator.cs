@@ -13,8 +13,7 @@ namespace MVS_Controller
 {
     public partial class if_operator : Noda
     {
-        Button[] down_contacts;
-        static Image butt_image = Image.FromFile(Directory.GetCurrentDirectory() + "\\Resources\\Image\\Start.png");
+        public Button[] down_contacts;
         public if_operator(Form parent, Panel panel) : base(parent, panel)
         {
             InitializeComponent();

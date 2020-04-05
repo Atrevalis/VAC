@@ -430,7 +430,8 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(65535, 45000);
             this.panel1.TabIndex = 2;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(panel1_Paint);
+            this.panel1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Main_Window_KeyDown);
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
             this.panel1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseUp);
@@ -452,11 +453,13 @@
             this.ForeColor = System.Drawing.Color.Black;
             this.HelpButton = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Main_Window";
             this.Text = "MVS";
             this.Shown += new System.EventHandler(this.Main_Window_Shown);
-            this.Paint += new System.Windows.Forms.PaintEventHandler(panel1_Paint);
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Main_Window_KeyDown);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.statusStrip1.ResumeLayout(false);

@@ -136,7 +136,7 @@ namespace Visual_Module
                 Controller.new_Conect(Noda.up_conected, Noda.down_conected);
                 Noda.down_conected = null;
                 Noda.up_conected = null;
-                Noda.Paint = true;
+                Noda.Paintt = true;
             }
             if(Noda.enter != null)
             {
@@ -146,10 +146,10 @@ namespace Visual_Module
             {
                 toolStripStatusLabel1.Text = "";
             }
-            if (Noda.Paint)
+            if (Noda.Paintt)
             {
                 Refresh();
-                Noda.Paint = false;
+                Noda.Paintt = false;
             }
         }
 
@@ -377,10 +377,10 @@ namespace Visual_Module
             panel1.Controls.Add(result);
         }
 
-        private static void panel1_Paint(object sender, PaintEventArgs e)
+        private void panel1_Paint(object sender, PaintEventArgs e)
         {
             Graphics graphics = e.Graphics;
-            Pen pen = new Pen(Color.FromArgb(50, 50, 50), 6);
+            Pen pen = new Pen(Color.FromArgb(50, 50, 50), 3);
             pen.EndCap = LineCap.ArrowAnchor;
             pen.StartCap = LineCap.Round;
             for (int i = 0; i < Controller.working_Dates.Count; i++)
@@ -394,9 +394,58 @@ namespace Visual_Module
                         if(Controller.nods[k].information == Controller.working_Dates[i].information.down_Contacted[j])
                         {
                             noda = Controller.nods[k].Visul as Noda;
+                            break;
                         }
                     }
                     graphics.DrawLine(pen, data.Location.X + data.Width, data.Location.Y + (data.Height/2), noda.Location.X, noda.Location.Y + (noda.Height/2));
+                }
+            }
+            for (int i = 0; i < Controller.if_Operators.Count; i++)
+            {
+                for(int j = 0; j < Controller.if_Operators[i].information.exits.Length; j++)
+                {
+                    Button if_ = (Controller.if_Operators[i].Visul as if_operator).down_contacts[j];
+                    for(int k = 0; k < Controller.if_Operators[i].information.exits[j].Count; k++)
+                    {
+                        Noda noda = null;
+                        for(int q = 0; q < Controller.nods.Count; q++)
+                        {
+                            if(Controller.nods[q].information == Controller.if_Operators[i].information.exits[j][k])
+                            {
+                                noda = Controller.nods[q].Visul as Noda;
+                                break;
+                            }
+                        }
+                        graphics.DrawLine(pen, if_.Location.X + if_.Width + if_.Parent.Location.X, if_.Location.Y + (if_.Height / 2) + if_.Parent.Location.Y, noda.Location.X, noda.Location.Y + (noda.Height / 2));
+                    }
+
+                }
+            }
+        }
+
+        public void Main_Window_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Delete && Noda.Active != null)
+            {
+                for (int i = 0; i < Controller.nods.Count; i++)
+                {
+                    if (Noda.Active == Controller.nods[i].Visul)
+                    {
+                        if (Controller.nods[i].information.isDelete)
+                        {
+                            
+                        }
+                        else
+                        {
+                            Controller.nods[i].information.Delete();
+                            for(int j = 0; j < Controller.nods.Count; j++)
+                            {
+                                Controller.nods[j].information.Delete_Element(Controller.nods[i].information);
+                            }
+                        }
+                        Refresh();
+                        return;
+                    }
                 }
             }
         }

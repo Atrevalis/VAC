@@ -189,17 +189,6 @@ namespace Math_Module
                 return null;
             }
         }
-
-        public override bool Equals(object obj)
-        {
-            if (obj.GetType() == GetType() && this != null && obj != null)
-            {
-                Q sec = obj as Q;
-                if (Denominator.Equals(sec.Denominator) && Numerator.Equals(sec.Numerator)) return true;
-            }
-            return false;
-        }
-
                 #endregion
 
         #region Методы 
@@ -217,6 +206,17 @@ namespace Math_Module
             clone.Denominator = Denominator.Clone();
             return clone;
         }
+
+        public override bool Equals(object obj)
+        {
+            if (obj.GetType() == GetType() && this != null && obj != null)
+            {
+                Q sec = obj as Q;
+                if (Denominator.Equals(sec.Denominator) && Numerator.Equals(sec.Numerator)) return true;
+            }
+            return false;
+        }
+
 
         #endregion
     }

@@ -10,7 +10,7 @@ namespace External_module
     {
         private Working_data up_connection;
         private static int count_of_results_index = 1;
-        List<if_operator> if_Operators;
+        List<if_operator> if_Operators = new List<if_operator>();
         private int index_of_result;
 
         public override bool isUpcoonection
@@ -74,6 +74,23 @@ namespace External_module
         public override void Delete()
         {
             up_connection = null;
+        }
+
+        public override void Delete_Element(Noda elements)
+        {
+            if (elements == up_connection)
+            {
+                up_connection = null;
+                return;
+            }
+            for(int i = 0; i < if_Operators.Count; i++)
+            {
+                if(elements == if_Operators[i])
+                {
+                    if_Operators.RemoveAt(i);
+                    return;
+                }
+            }
         }
     }
 }
