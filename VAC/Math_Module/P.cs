@@ -231,14 +231,20 @@ namespace Math_Module
             }
             else
             {
-                result = dividend;
+                M nol;
+                List<string> zero = new List<string>(); //создаем список с нулём
+                zero.Add("0");
+                N q = new N(zero);
+                nol.coef = (Z)q;
+                nol.degree = q;
+                result.Ms.Add(nol);
             }
             return result;
         }
 
         public static P operator %(P first, P second) // MOD_PP_p
         {
-            return null;
+            
         }
 
         public static implicit operator List<string>(P value)
