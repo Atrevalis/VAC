@@ -13,6 +13,14 @@ namespace Math_Module_Test
     {
         [TestMethod]
         public void plusTest()
-        { }
+        {
+            List<List<string>[]> f = new List<List<string>[]>();
+            f.Add(new List<string>[2]);
+            f[0][0] = new List<string>();
+            f[0][0].Add("123");
+            f[0][1] = new List<string>();
+            f[0][1].Add("2");
+
+        }
     }
 }
