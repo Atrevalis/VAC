@@ -310,7 +310,15 @@ namespace Math_Module
 
         private P MUL_Pxk_P(N value)
         {
-            return null;
+            P muldeg = Clone();
+            M now;
+            for (int i = 0; i < muldeg.Ms.Count; i++)
+            {
+                now = muldeg.Ms[i];
+                now.degree += value;
+                muldeg.Ms[i] = now;
+            }
+            return muldeg;
         }
 
         public static P GCF_PP_P(P first, P second)
