@@ -13,8 +13,18 @@ namespace Math_Module
 
         public M(Q c, N s)
         {
-            coef = null;
-            degree = null;
+            List<string> S = new List<string>();
+            S = c;
+            List<string> n = new List<string>();
+            List<string> d = new List<string>();
+            int i;
+            for (i=0; !S[i].Contains("/");i++)
+                n.Add(S[i]);
+            for (i += 1; i < S.Count; i++)
+                d.Add(S[i]);
+
+            coef = new Q(n, d);
+            degree = new N(s);
         }
     }
 
