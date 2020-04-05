@@ -92,7 +92,10 @@ namespace Math_Module
             get
             {
                 P result = this.Clone();
-               // if (result.Ms[Ms.Count() - 1].degree.NZER_N_B)
+                List<string> zero = new List<string>();
+                zero.Add("0");
+                N usl = new N(zero);
+                if (N.COM_NN_D(result.Ms[Ms.Count() - 1].degree, usl) == 0)
                 {
                     result.Ms.RemoveAt(Ms.Count() - 1);
                 }
