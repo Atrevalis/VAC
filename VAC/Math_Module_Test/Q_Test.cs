@@ -325,23 +325,19 @@ namespace Math_Module_Test
             List<string> outputNumerator = new List<string>();//        2 58779392 09128720
             List<string> outputDenominator = new List<string>();//       17849618 88415105
 
-            inputNumerator.Add("-");
-            inputNumerator.Add("14");
-            inputNumerator.Add("24684684");
-            inputDenominator.Add("1");
-            inputDenominator.Add("86745678");
+            
+            inputNumerator.Add("8000000");
+            inputDenominator.Add("15167231");
 
-            inputNumerator1.Add("23");
-            inputNumerator1.Add("24989000");
-            inputDenominator1.Add("12");
-            inputDenominator1.Add("23456008");
+            inputNumerator1.Add("-");
+            inputNumerator1.Add("28030303");
+            inputDenominator1.Add("33500000");
 
             outputNumerator.Add("-");
-            outputNumerator.Add("2");
-            outputNumerator.Add("58779392");
-            outputNumerator.Add("09128720");
-            outputDenominator.Add("17849618");
-            outputDenominator.Add("88415105");
+            outputNumerator.Add("4");// 4 48484848
+            outputNumerator.Add("48484848");
+            outputDenominator.Add("10"); //10 16204477
+            outputDenominator.Add("16204477");
 
             Q x = new Q(inputNumerator, inputDenominator);
             Q i = new Q(inputNumerator1, inputDenominator1);
@@ -360,22 +356,22 @@ namespace Math_Module_Test
             List<string> outputDenominator = new List<string>();//       17849618 88415105
 
             inputNumerator.Add("-");
-            inputNumerator.Add("14");
-            inputNumerator.Add("24684684");
-            inputDenominator.Add("1");
-            inputDenominator.Add("86745678");
+            inputNumerator.Add("7");
+            inputNumerator.Add("56841393");
+            inputDenominator.Add("5"); 
+            inputDenominator.Add("31982467");
 
-            inputNumerator1.Add("-");
-            inputNumerator1.Add("23");
-            inputNumerator1.Add("24989000");
-            inputDenominator1.Add("12");
-            inputDenominator1.Add("23456008");
+            inputNumerator1.Add("-"); 
+            inputNumerator1.Add("37");          
+            inputNumerator1.Add("81841393"); 
+            inputDenominator1.Add("15");
+            inputDenominator1.Add("31732467");
 
-            outputNumerator.Add("2");
-            outputNumerator.Add("58779392");
-            outputNumerator.Add("09128720");
-            outputDenominator.Add("17849618");
-            outputDenominator.Add("88415105");
+            outputNumerator.Add("1");// 
+            outputNumerator.Add("11806801");//         1 11806801 09309000
+            outputNumerator.Add("09309000");
+            outputDenominator.Add("31830266"); //        31830266 27260400
+            outputDenominator.Add("27260400");
 
             Q x = new Q(inputNumerator, inputDenominator);
             Q i = new Q(inputNumerator1, inputDenominator1);
@@ -390,19 +386,15 @@ namespace Math_Module_Test
             List<string> inputDenominator = new List<string>();//1 86745678
             List<string> inputNumerator1 = new List<string>();//23 24989000
             List<string> inputDenominator1 = new List<string>();//12 23456008
-            
+
 
             inputNumerator.Add("-");
-            inputNumerator.Add("14");
-            inputNumerator.Add("24684684");
-            inputDenominator.Add("1");
-            inputDenominator.Add("86745678");
+            inputNumerator.Add("8000000");
+            inputDenominator.Add("15167231");
 
             inputNumerator1.Add("-");
-            inputNumerator1.Add("23");
-            inputNumerator1.Add("24989000");
-            inputDenominator1.Add("12");
-            inputDenominator1.Add("23456008");
+            inputNumerator1.Add("28030303");
+            inputDenominator1.Add("33500000");
 
             Q x = new Q(inputNumerator, inputDenominator);
             Q i = new Q(inputNumerator1, inputDenominator1);
@@ -536,25 +528,95 @@ namespace Math_Module_Test
             List<string> outputDenominator = new List<string>();//       
 
             inputNumerator.Add("1");
-            inputNumerator.Add("24684684");
-            inputDenominator.Add("1");
-            inputDenominator.Add("86745678");
+            inputNumerator.Add("45758751");
+            inputDenominator.Add("4");
+            inputDenominator.Add("76449764");
 
             inputNumerator1.Add("2");
-            inputNumerator1.Add("24989000");
             inputDenominator1.Add("3");
-            inputDenominator1.Add("23456008");
 
-            outputNumerator.Add("");
-            outputNumerator.Add("");
-            outputNumerator.Add("");
-            outputDenominator.Add("");
-            outputDenominator.Add("");
+            outputNumerator.Add("4");//4 37276253
+            outputNumerator.Add("37276253");
+            outputDenominator.Add("9");
+            outputDenominator.Add("52899528"); //9 52899528
 
             Q x = new Q(inputNumerator, inputDenominator);
             Q i = new Q(inputNumerator1, inputDenominator1);
             Q t = new Q(outputNumerator, outputDenominator);
             Assert.AreEqual(t, x * i);
+        }
+
+        [TestMethod]
+        public void divisionTest2() // не готово
+
+        {
+            List<string> inputNumerator = new List<string>();//1 24684684
+            List<string> inputDenominator = new List<string>();//1 86745678
+            List<string> inputNumerator1 = new List<string>();//2 24989000
+            List<string> inputDenominator1 = new List<string>();//3 23456008
+            List<string> outputNumerator = new List<string>();//       
+            List<string> outputDenominator = new List<string>();//       
+
+            inputNumerator.Add("62342342");
+            inputDenominator.Add("93372839");
+
+            inputNumerator1.Add("28123625");
+            inputDenominator1.Add("40432001");
+
+            outputNumerator.Add("25206256"); // 25206256 34086342
+            outputNumerator.Add("34086342");//   26259827 09221375
+            outputDenominator.Add("26259827");
+            outputDenominator.Add("09221375");
+
+            Q x = new Q(inputNumerator, inputDenominator);
+            Q i = new Q(inputNumerator1, inputDenominator1);
+            Q t = new Q(outputNumerator, outputDenominator);
+            Assert.AreEqual(t, x * i);
+        }
+        [TestMethod]
+        public void divisionTestEx() // не готово
+
+        {
+            List<string> inputNumerator = new List<string>();//1 24684684
+            List<string> inputDenominator = new List<string>();//1 86745678
+            List<string> inputNumerator1 = new List<string>();//2 24989000
+            List<string> inputDenominator1 = new List<string>();//3 23456008
+            List<string> outputNumerator = new List<string>();//       
+            List<string> outputDenominator = new List<string>();//       
+
+            inputNumerator.Add("62342342");
+            inputDenominator.Add("93372839");
+
+            inputNumerator1.Add("28123625");
+            inputDenominator1.Add("40432001");
+
+            Q x = new Q(inputNumerator, inputDenominator);
+            Q i = new Q(inputNumerator1, inputDenominator1);
+            Assert.AreNotEqual(null, x * i);
+        }
+
+        [TestMethod]
+
+        public void remainderTest()
+		{
+            List<string> inputNumerator = new List<string>();//       
+            List<string> inputDenominator = new List<string>();//
+            List<string> inputNumerator1 = new List<string>();//2 24989000
+            List<string> inputDenominator1 = new List<string>();//3 23456008
+            List<string> output = new List<string>();//3 23456008
+
+            inputNumerator.Add("12");
+            inputDenominator.Add("51");
+            inputNumerator1.Add("1");
+            inputDenominator1.Add("5");
+            output.Add("0");
+
+
+            Q x = new Q(inputNumerator, inputDenominator);
+            Q i = new Q(inputNumerator1, inputDenominator1);
+            N t = new N(output);
+            Assert.AreEqual(t, x % i);
+
         }
 
         [TestMethod]
@@ -594,8 +656,29 @@ namespace Math_Module_Test
             Q t = new Q(inputNumerator, inputDenominator);
             Assert.AreEqual(t, x);
         }
+        [TestMethod]
+        public void QinStringTest()
+		{
+            List<string> inputNumerator = new List<string>();//
+            List<string> inputDenominator = new List<string>();//
+            List<string> output = new List<string>();//
 
+            inputNumerator.Add("1");
+            inputNumerator.Add("24684684");
+            inputDenominator.Add("1");
+            inputDenominator.Add("86745678");
 
+            output.Add("1");
+            output.Add("24684684");
+            output.Add("/");
+            output.Add("1");
+            output.Add("86745678");
+            Q x = new Q(inputNumerator, inputDenominator);
+            List<string> i = x;
+            Assert.AreEqual(output,i);
+
+        }
+/*
         [TestMethod]
         public void RED_Q_Q1()
         {
@@ -683,6 +766,7 @@ namespace Math_Module_Test
             x.RED_Q_Q();
             Assert.AreEqual(t, x);
         }
+        */
         /*
         [TestMethod]
         public void space()

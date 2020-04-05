@@ -137,7 +137,7 @@ namespace Math_Module
             return result;
         }
 
-        public static Q operator /(Q first, Q second) // DIV_QQ_Q // 
+        public static Q operator /(Q first, Q second) // DIV_QQ_Q // есть тесты
         {
             Q divider = null;
             Q result = first.Clone();
@@ -152,7 +152,7 @@ namespace Math_Module
             return result;
         }
 
-        public static N operator %(Q first, Q second)
+        public static N operator %(Q first, Q second)//есть тесты
         {
             List<string> nol = new List<string>();
             nol.Add("0");
@@ -160,7 +160,7 @@ namespace Math_Module
             return pog;
         }
         
-        public static implicit operator List<string>(Q value)
+        public static implicit operator List<string>(Q value)//есть тесты
         {
             List<string> S = new List<string>();
             List<string> temp = new List<string>();
@@ -173,7 +173,7 @@ namespace Math_Module
             return S;
         }
 
-        public static implicit operator P(Q value)
+        public static implicit operator P(Q value)//
         {
             return new P(value);
         }
@@ -193,7 +193,7 @@ namespace Math_Module
 
         #region Методы 
 
-        public void RED_Q_Q() //есть тесты
+        private void RED_Q_Q() //есть тесты
         {
             N nod = N.GCF_NN_N(Numerator.ABS_Z_N, Denominator);
             Numerator /= nod;
