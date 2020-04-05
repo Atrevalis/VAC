@@ -33,5 +33,10 @@ namespace External_module
         }
 
         public abstract void Delete_Element(Noda elements);
+
+        public abstract string name
+        {
+            get;
+        }
     }
 }

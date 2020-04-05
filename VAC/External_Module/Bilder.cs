@@ -32,6 +32,7 @@ namespace External_module
                         if_.Count_of_up_connection = 2;
                         args = new string[] { ">", "=", "<" };
                         if_.names_of_exits = args;
+                        if_.Name = name;
                     }
                     break;
                 case "isDown":
@@ -45,6 +46,7 @@ namespace External_module
                         }
                         args = new string[] { "true", "false"};
                         if_.names_of_exits = args;
+                        if_.Name = name;
                     }
                     break;
             }

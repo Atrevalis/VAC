@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using External_module;
 using System.Windows.Forms;
+using System.IO;
+using System.Drawing;
 
 namespace External_Controller
 {
@@ -24,7 +26,17 @@ namespace External_Controller
 
         public static void Save()
         {
-
+            FileStream file = new FileStream(path_of_now_project + "\\" + name_of_now_project + ".cpsprbk", FileMode.OpenOrCreate);
+            StreamWriter writer = new StreamWriter(file);
+            writer.WriteLine(input);
+            writer.WriteLine(output);
+            writer.WriteLine(Auto);
+            for(int i = 0; i < nods.Count; i++)
+            {
+                Control nod = nods[i].Visul as Control;
+                writer.WriteLine(nod.Location.X + " " + nod.Location.Y + " " + nod.Width + " " + nod.Height);
+                writer.WriteLine(nods[i].information.type);
+            }
         }
 
         public static void Delete(Control control)

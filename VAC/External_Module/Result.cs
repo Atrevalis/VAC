@@ -13,6 +13,14 @@ namespace External_module
         List<if_operator> if_Operators = new List<if_operator>();
         private int index_of_result;
 
+        public override string name
+        {
+            get
+            {
+                return "Result";
+            }
+        }
+
         public override bool isUpcoonection
         {
             get

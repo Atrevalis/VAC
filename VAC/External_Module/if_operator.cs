@@ -15,6 +15,15 @@ namespace External_module
         public List<Noda>[] exits;
         public List<if_operator> if_Operators = new List<if_operator>();
         public string[] names_of_exits;
+        public string Name;
+
+        public override string name
+        {
+            get
+            {
+                return Name;
+            }
+        }
 
         public int Count_of_up_connection
         {

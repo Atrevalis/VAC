@@ -22,7 +22,9 @@ namespace Visual_Module
 
         private void button3_Click(object sender, EventArgs e)
         {
-
+            External_Controller.Controller.input = textBox1.Text;
+            External_Controller.Controller.output = textBox2.Text;
+            External_Controller.Controller.Auto = checkBox1.Checked;
             main.Enabled = true;
             Close();
         }

@@ -10,6 +10,13 @@ namespace External_module
     {
         public string data_name;
 
+        public override string name
+        {
+            get
+            {
+                return data_name;
+            }
+        }
 
     }
 }

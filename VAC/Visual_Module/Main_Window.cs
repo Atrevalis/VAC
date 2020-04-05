@@ -49,12 +49,13 @@ namespace Visual_Module
 
         private void toolStripMenuItem4_Click(object sender, EventArgs e)
         {
-            External_Controller.Controller.Save();
+            Controller.Save();
         }
 
         private void toolStripMenuItem5_Click(object sender, EventArgs e)
         {
-
+            Proper proper = new Proper(this);
+            proper.Show();
         }
 
         private void Main_Window_Shown(object sender, EventArgs e)
