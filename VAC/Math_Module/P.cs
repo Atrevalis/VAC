@@ -223,7 +223,7 @@ namespace Math_Module
             else
             {
                 M nol;
-                List<string> zero = new List<string>(); //создаем список с нулём
+                List<string> zero = new List<string>();
                 zero.Add("0");
                 N q = new N(zero);
                 nol.coef = (Z)q;
@@ -256,7 +256,46 @@ namespace Math_Module
 
         #region Методы
 
-       private P MUL_PQ_P(Q value)
+        public static byte COM_PP_D(P first, P second)
+        {
+            M odin;
+            M nol;
+            List<string> zero = new List<string>();
+            zero.Add("0");
+            N q = new N(zero);
+            odin.degree = q;
+            nol.degree = q;
+            nol.coef = (Z)q;
+            List<string> one = new List<string>();
+            one.Add("0");
+            N l = new N(one);
+            odin.coef = (Z)l;
+            P menche = null;
+            menche.Ms.Add(nol);
+            P bolshe = null;
+            bolshe.Ms.Add(odin);
+            if ((first / second) == menche)
+            {
+                return 1;
+            }
+            if ((first / second) == bolshe)
+            {
+                if ((first % second) == menche)
+                {
+                    return 0;
+                }
+                else
+                {
+                    return 2;
+                }
+            }
+            else
+            {
+                return 2;
+            }
+        }
+
+        private P MUL_PQ_P(Q value)
         {
             P mulcoef = Clone();
             M now;
