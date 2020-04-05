@@ -323,7 +323,31 @@ namespace Math_Module
 
         public static P GCF_PP_P(P first, P second)
         {
-            return null;
+            P result = first.Clone();
+            P pog = null;
+            P mod = first.Clone();
+            mod = first % second;
+            M nol;
+            List<string> zero = new List<string>();
+            zero.Add("0");
+            N q = new N(zero);
+            nol.coef = (Z)q;
+            nol.degree = q;
+            pog.Ms.Add(nol);
+            if (COM_PP_D(mod,pog) == 0)
+            {
+                return second;
+            }
+            else
+            {
+                while(COM_PP_D(mod,pog) != 0)
+                {
+                    second %= mod;
+                    result = mod;
+                    mod %= second;
+                }
+            }
+            return result;
         }
 
         public P NMR_P_P()
