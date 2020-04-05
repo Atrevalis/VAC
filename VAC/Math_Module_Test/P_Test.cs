@@ -64,7 +64,7 @@ namespace Math_Module_Test
             second[2][1].Add("0");
             P firstP = new P(first);
             P secondP = new P(second);
-            Assert.AreEqual(firstP.);
+            Assert.AreEqual(firstP.NMR_P_P(), secondP);
         }
 
     }
