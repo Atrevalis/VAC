@@ -257,7 +257,21 @@ namespace Math_Module
 
         public static explicit operator Q(P value)
         {
-            return null;
+            List<string> S = new List<string>();
+                List<string> n = new List<string>();
+                List<string> d = new List<string>();
+
+                S = value.Ms[0].coef;
+                int i;
+                for (i = 0; S[i] != "/"; i++)
+                    n.Add(S[i]);
+                for (i += 1; i < S.Count; i++)
+                    d.Add(S[i]);
+
+                return new Q(n, d);
+            }
+            else
+                return null;
         }
 
 
