@@ -18,7 +18,7 @@ namespace Math_Module
         }
     }
 
-    public class P:Math_Field
+    public class P : Math_Field
     {
         #region Конструкторы
 
@@ -255,24 +255,26 @@ namespace Math_Module
             return null;
         }
 
-        public static explicit operator Q(P value)
+    /*   public static explicit operator Q(P value)//сломано
         {
             List<string> S = new List<string>();
-                List<string> n = new List<string>();
-                List<string> d = new List<string>();
+            List<string> n = new List<string>();
+            List<string> d = new List<string>();
 
-                S = value.Ms[0].coef;
-                int i;
-                for (i = 0; S[i] != "/"; i++)
-                    n.Add(S[i]);
-                for (i += 1; i < S.Count; i++)
-                    d.Add(S[i]);
+            S = value.Ms[0].coef;
+            int i;
+            for (i = 0; S[i] != "/"; i++)
+                n.Add(S[i]);
+            for (i += 1; i < S.Count; i++)
+                d.Add(S[i]);
 
-                return new Q(n, d);
-            }
+            return new Q(n, d);
+
+
             else
                 return null;
-        }
+        }*/
+
 
 
 
@@ -358,13 +360,13 @@ namespace Math_Module
             nol.coef = (Z)q;
             nol.degree = q;
             pog.Ms.Add(nol);
-            if (COM_PP_D(mod,pog) == 0)
+            if (COM_PP_D(mod, pog) == 0)
             {
                 return second;
             }
             else
             {
-                while(COM_PP_D(mod,pog) != 0)
+                while (COM_PP_D(mod, pog) != 0)
                 {
                     second %= mod;
                     result = mod;
@@ -452,14 +454,15 @@ namespace Math_Module
                     }
                 }
             }
+
             P result = mnoj[0];
             for (int s = 1; s < mnoj.Count(); s++)
             {
                 result *= mnoj[s];
             }
             return result;
+        }
 
-        
         public P Clone() // Александр Баталин 9370//
         {
             P clone = new P(new List<List<string>[]>());
