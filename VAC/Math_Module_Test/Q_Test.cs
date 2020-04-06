@@ -675,7 +675,7 @@ namespace Math_Module_Test
             output.Add("86745678");
             Q x = new Q(inputNumerator, inputDenominator);
             List<string> i = x;
-            Assert.AreEqual(output,i);
+            CollectionAssert.AreEqual(output,i);
 
         }
 /*

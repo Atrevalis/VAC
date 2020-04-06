@@ -35,7 +35,88 @@ namespace External_Controller
             {
                 Control nod = nods[i].Visul as Control;
                 writer.WriteLine(nod.Location.X + " " + nod.Location.Y + " " + nod.Width + " " + nod.Height);
-                writer.WriteLine(nods[i].information.type);
+                writer.WriteLine(nods[i].information.type + " " + nods[i].information.name);
+            }
+            writer.WriteLine();
+            for(int i = 0; i < nods.Count; i++)
+            {
+                switch(nods[i].information.type)
+                {
+                    case "Data":
+                        {
+                            for(int j = 0; j < (nods[i].information as External_module.Data).down_Contacted.Count; j++)
+                            {
+                                for(int k = 0; k < nods.Count; k++)
+                                {
+                                    if(nods[k].information == (nods[i].information as External_module.Data).down_Contacted[j])
+                                    {
+                                        writer.Write(k + " ");
+                                    }
+                                }
+                            }
+                            writer.WriteLine();
+                        }
+                        break;
+                    case "if_operator":
+                        {
+                            for (int j = 0; j < (nods[i].information as External_module.if_operator).up_connection.Count; j++)
+                            {
+                                for (int k = 0; k < nods.Count; k++)
+                                {
+                                    if (nods[k].information == (nods[i].information as External_module.if_operator).up_connection[j])
+                                    {
+                                        writer.Write(k + " ");
+                                    }
+                                }
+                            }
+                            writer.WriteLine();
+                            for (int j = 0; j < (nods[i].information as External_module.if_operator).exits.Length; j++)
+                            {
+                                for (int q = 0; q < (nods[i].information as External_module.if_operator).exits[j].Count; q++)
+                                {
+                                    for (int k = 0; k < nods.Count; k++)
+                                    {
+                                        if (nods[k].information == (nods[i].information as External_module.if_operator).exits[j][q])
+                                        {
+                                            writer.Write(k + " ");
+                                        }
+                                    }
+                                }
+                                writer.Write("!");
+                            }
+                            writer.WriteLine();
+                            for (int j = 0; j < (nods[i].information as External_module.if_operator).if_Operators.Count; j++)
+                            {
+                                for (int k = 0; k < nods.Count; k++)
+                                {
+                                    if (nods[k].information == (nods[i].information as External_module.if_operator).if_Operators[j])
+                                    {
+                                        writer.Write(k + " ");
+                                    }
+                                }
+                            }
+                            writer.WriteLine();
+                        }
+                        break;
+
+                    case "Result":
+                        {
+                                for (int k = 0; k < nods.Count; k++)
+                                {
+                                    if (nods[k].information == (nods[i].information as External_module.Result).up_Conected)
+                                    {
+                                        writer.WriteLine(k);
+                                    }
+                                }
+                        }
+                        break;
+
+                    default:
+                        {
+                          //  for(int k = 0; k < (nods[i].information as ))
+                        }
+                        break;
+                }
             }
         }
 

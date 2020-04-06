@@ -310,13 +310,46 @@ namespace Math_Module
 
         private P MUL_Pxk_P(N value)
         {
-            return null;
+            P muldeg = Clone();
+            M now;
+            for (int i = 0; i < muldeg.Ms.Count; i++)
+            {
+                now = muldeg.Ms[i];
+                now.degree += value;
+                muldeg.Ms[i] = now;
+            }
+            return muldeg;
         }
 
         public static P GCF_PP_P(P first, P second)
         {
-            return null;
+            P result = first.Clone();
+            P pog = null;
+            P mod = first.Clone();
+            mod = first % second;
+            M nol;
+            List<string> zero = new List<string>();
+            zero.Add("0");
+            N q = new N(zero);
+            nol.coef = (Z)q;
+            nol.degree = q;
+            pog.Ms.Add(nol);
+            if (COM_PP_D(mod,pog) == 0)
+            {
+                return second;
+            }
+            else
+            {
+                while(COM_PP_D(mod,pog) != 0)
+                {
+                    second %= mod;
+                    result = mod;
+                    mod %= second;
+                }
+            }
+            return result;
         }
+
 
         private P NMR_P_P()
         {
@@ -401,7 +434,7 @@ namespace Math_Module
                 result *= mnoj[s];
             }
             return result;
-        }
+
         
         public P Clone() // Александр Баталин 9370//
         {
