@@ -250,13 +250,30 @@ namespace Math_Module
             return result;
         }
 
-        public static implicit operator List<string>(P value)
+        public static implicit operator List<List<string>[]>(P value)
         {
-            return null;
+            List<List<string>[]> S = new List<List<string>[]>();
+            List<string> []temp = new List<string>[2];
+            List<string> t = new List<string>();
+            List<string> t2 = new List<string>();
+            for (int i=0; i < value.Ms.Count;i++)
+            {
+                temp[0] = new List<string>();
+                temp[1] = new List<string>();
+                t = value.Ms[i].coef;
+                t2 = value.Ms[i].degree;
+                for (int j = 0; j < t.Count; j++)
+                    temp[0].Add(t[j]);
+                for (int j = 0; j < t2.Count; j++)
+                    temp[1].Add(t2[j]);
+                S.Add(temp);
+            }
+            return S;
         }
 
-    /*   public static explicit operator Q(P value)//сломано
+       public static explicit operator Q(P value)//сломано
         {
+            if (value.isDown)
             List<string> S = new List<string>();
             List<string> n = new List<string>();
             List<string> d = new List<string>();
@@ -273,7 +290,7 @@ namespace Math_Module
 
             else
                 return null;
-        }*/
+        }
 
 
 
