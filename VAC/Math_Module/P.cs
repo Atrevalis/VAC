@@ -50,7 +50,13 @@ namespace Math_Module
         {
             get
             {
-                return Convert.ToBoolean(new Exception());
+                List<string> S = new List<string>();
+                S.Add("0");
+                N a = new N(S);
+                if (Ms.Count == 1 && Ms[0].degree == a)
+                    return true;
+                else
+                    return false;
             }
         }
 
