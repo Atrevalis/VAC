@@ -29,7 +29,11 @@ namespace Math_Module
 
         public P(Q value)
         {
-
+            List<string> s = new List<string>();
+            s.Add("0");
+            N a = new N(s);
+            Ms = new List<M>();
+            Ms.Add(new M(value, a));
         }
 
         #endregion
