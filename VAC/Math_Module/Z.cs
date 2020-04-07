@@ -82,6 +82,46 @@ namespace Math_Module
             }
         }
 
+        public override Math_Field DEG
+        {
+            get
+            {
+                return (P)((Q)this).DEG;
+            }
+        }
+
+        public override Math_Field DER
+        {
+            get
+            {
+                return (P)((Q)this).DER;
+            }
+        }
+        public override Math_Field UNT
+        {
+            get
+            {
+                return -this;
+            }
+        }
+
+        public override Math_Field LED
+        {
+            get
+            {
+                return (P)((Q)this).LED;
+            }
+        }
+
+        public override Math_Field FAC
+        {
+            get
+            {
+                return (P)((Q)this).FAC;
+            }
+        }
+
+
         #endregion
 
         #region Перегрузки
@@ -266,6 +306,56 @@ namespace Math_Module
             Z clone = new Z(Abs.Clone());
             clone.isN = isN; 
             return clone;
+        }
+
+        public override Math_Field ADD(Math_Field second)
+        {
+            return this + (second as Z);
+        }
+
+        public override Math_Field MUL(Math_Field second)
+        {
+            return this * (second as Z);
+        }
+
+        public override Math_Field Dawn()
+        {
+            return (N)this;
+        }
+
+        public override Math_Field Up()
+        {
+            return (Q)this;
+        }
+
+        public override byte COM(Math_Field second)
+        {
+            return 0;
+        }
+
+        public override Math_Field LCM(Math_Field second)
+        {
+            return N.LCM_NN_N(Abs, (second as Z).Abs);
+        }
+
+        public override Math_Field SUB(Math_Field second)
+        {
+            return this - (second as Z);
+        }
+
+        public override Math_Field MOD(Math_Field second)
+        {
+            return this % (second as Z);
+        }
+
+        public override Math_Field GCF(Math_Field second)
+        {
+            return N.GCF_NN_N(Abs, (second as Z).Abs);
+        }
+
+        public override Math_Field DIV(Math_Field second)
+        {
+            return this / (second as Z);
         }
 
 
