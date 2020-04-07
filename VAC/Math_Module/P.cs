@@ -22,6 +22,7 @@ namespace Math_Module
     {
         #region Конструкторы
 
+        
         public P(List<List<string>[]> s)
         {
             List<string> n = new List<string>();
@@ -43,6 +44,12 @@ namespace Math_Module
                 n.Clear();
                 d.Clear();
             }
+        }
+        
+
+        public P(List<M> M)
+        {
+
         }
         
 
