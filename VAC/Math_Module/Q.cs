@@ -55,6 +55,22 @@ namespace Math_Module
             }
         }
 
+        public Z Num
+        {
+            get
+            {
+                return Numerator.Clone();
+            }
+        }
+
+        public N Den
+        {
+            get
+            {
+                return Denominator.Clone();
+            }
+        }
+
         public byte POZ_Q_D// есть тесты
         {
             get
