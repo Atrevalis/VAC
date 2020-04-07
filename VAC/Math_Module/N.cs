@@ -23,12 +23,19 @@ namespace Math_Module
             znach = new List<uint>();
             for (int i = s.Count-1; i >= 0; i--)
                 znach.Add(Convert.ToUInt32(s[i]));
-            id = 1;
         }
 
         #endregion
 
         #region Свойства
+
+        protected override int id
+        {
+            get
+            {
+                return 1;
+            }
+        }
 
         public override bool isDown // Евгений Куликов 9370 / Тест есть
         {

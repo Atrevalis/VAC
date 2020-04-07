@@ -65,6 +65,14 @@ namespace Math_Module
 
         #region Свойства
 
+        protected override int id
+        {
+            get
+            {
+                return 4;
+            }
+        }
+
         public override bool isDown
         {
             get

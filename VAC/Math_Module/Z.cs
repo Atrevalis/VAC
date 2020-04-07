@@ -44,6 +44,13 @@ namespace Math_Module
         #endregion
 
         #region Свойства
+        protected override int id
+        {
+            get
+            {
+                return 2;
+            }
+        }
 
         public override bool isDown // Евгений Куликов 9370//есть тесты
         {

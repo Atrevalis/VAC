@@ -3,7 +3,7 @@
     abstract public class Math_Field
     {
 
-        protected int id;
+        abstract protected int id { get; }
 
         public static bool idCOM(Math_Field first, Math_Field second)
         {

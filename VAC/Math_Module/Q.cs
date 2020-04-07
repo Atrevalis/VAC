@@ -34,6 +34,14 @@ namespace Math_Module
 
         #region Свойства 
 
+        protected override int id
+        {
+            get
+            {
+                return 3;
+            }
+        }
+
         public override bool isDown//есть тесты
         {
             get
