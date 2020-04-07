@@ -312,12 +312,20 @@ namespace Math_Module
 
         public override byte COM(Math_Field second)
         {
-            return 0;
+            Q per2 = second as Q;
+            Q per1 = this.Clone();
+            N nok;
+            nok = N.LCM_NN_N(per2.Denominator, per1.Denominator);
+            per2.Numerator *= (nok / per2.Denominator);
+            per1.Numerator *= (nok / per1.Denominator);
+            per2.Denominator = nok;
+            per1.Denominator = nok;
+            return per1.Numerator.COM(per2.Numerator);
         }
 
         public override Math_Field GCF(Math_Field second)
         {
-            return null;
+            return ((P)this).GCF((P)second);
         }
 
 
