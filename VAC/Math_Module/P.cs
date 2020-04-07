@@ -22,10 +22,11 @@ namespace Math_Module
     {
         #region Конструкторы
 
-        public P(List<List<string>[]> s)
+       /* public P(List<List<string>[]> s)
         {
 
         }
+        */
 
         public P(Q value)
         {
@@ -80,13 +81,13 @@ namespace Math_Module
             }
         }
 
-        private Q FAC_P_Q
+        /*private Q FAC_P_Q
         {
             get
             {
                 return null;
             }
-        }
+        }*/
 
         public P DER_P_P
         {
@@ -463,12 +464,14 @@ namespace Math_Module
             return result;
         }
 
+        
         public P Clone() // Александр Баталин 9370//
         {
-            P clone = new P(new List<List<string>[]>());
+            P clone = new P(new Q(new Z(new N(new List<string>()))));
             clone.Ms = new List<M>(Ms);
             return clone;
         }
+        
 
         public override bool Equals(object obj)
         {
