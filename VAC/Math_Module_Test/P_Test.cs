@@ -12,17 +12,179 @@ namespace Math_Module_Test
     class P_Test
     {
         [TestMethod]
-        public void plusTest()
+        public void plusTest1()
         {
-            List<List<string>[]> f = new List<List<string>[]>();
-            f.Add(new List<string>[2]);
-            f[0][0] = new List<string>();
-            f[0][0].Add("123");
-            f[0][1] = new List<string>();
-            f[0][1].Add("2");
+            List<List<string>[]> input = new List<List<string>[]>();
+            List<List<string>[]> input1 = new List<List<string>[]>();
+            List<List<string>[]> output = new List<List<string>[]>();
+
+            input.Add(new List<string>[2]);
+            input[0][0] = new List<string>();
+            input[0][0].Add("1");
+            input[0][1] = new List<string>();
+            input[0][1].Add("4");
+            input.Add(new List<string>[2]);
+            input[1][0] = new List<string>();
+            input[1][0].Add("-8");
+            input[1][1] = new List<string>();
+            input[1][1].Add("3");
+            input.Add(new List<string>[2]);
+            input[2][0] = new List<string>();
+            input[2][0].Add("18");
+            input[2][1] = new List<string>();
+            input[2][1].Add("2");
+            input.Add(new List<string>[2]);
+            input[3][0] = new List<string>();
+            input[3][0].Add("-27");
+            input[3][1] = new List<string>();
+            input[3][1].Add("0");
+
+            input1.Add(new List<string>[2]);
+            input1[0][0] = new List<string>();
+            input1[0][0].Add("-3");
+            input1[0][1] = new List<string>();
+            input1[0][1].Add("4");
+            input1.Add(new List<string>[2]);
+            input1[1][0] = new List<string>();
+            input1[1][0].Add("8");
+            input1[1][1] = new List<string>();
+            input1[1][1].Add("3");
+            input.Add(new List<string>[2]);
+            input[2][0] = new List<string>();
+            input[2][0].Add("2");
+            input[2][1] = new List<string>();
+            input[2][1].Add("2");
+            input1[3][0] = new List<string>();
+            input1[3][0].Add("-27");
+            input1[3][1] = new List<string>();
+            input1[3][1].Add("1");
+
+            output.Add(new List<string>[2]);
+            output[0][0] = new List<string>();
+            output[0][0].Add("-2");
+            output[0][1] = new List<string>();
+            output[0][1].Add("4");
+            output.Add(new List<string>[2]);
+            output[1][0] = new List<string>();
+            output[1][0].Add("20");
+            output[1][1] = new List<string>();
+            output[1][1].Add("2");
+            output.Add(new List<string>[2]);
+            output[2][0] = new List<string>();
+            output[2][0].Add("-27");
+            output[2][1] = new List<string>();
+            output[2][1].Add("1");
+            output[3][0] = new List<string>();
+            output[3][0].Add("-27");
+            output[3][1] = new List<string>();
+            output[3][1].Add("0");
+
+            P x = new P(input);
+            P i = new P(input1);
+            P t = new P(output);
+
+            Assert.AreEqual(t, x + i);
+        }
+        [TestMethod]
+        public void plusTest2()
+        {
+            List<List<string>[]> input = new List<List<string>[]>();
+            List<List<string>[]> input1 = new List<List<string>[]>();
+            List<List<string>[]> output = new List<List<string>[]>();
+
+            input.Add(new List<string>[2]);
+            input[0][0] = new List<string>();
+            input[0][0].Add("1");
+            input[0][1] = new List<string>();
+            input[0][1].Add("4");
+            input.Add(new List<string>[2]);
+            input[1][0] = new List<string>();
+            input[1][0].Add("-8");
+            input[1][1] = new List<string>();
+            input[1][1].Add("3");
+            input.Add(new List<string>[2]);
+            input[2][0] = new List<string>();
+            input[2][0].Add("18");
+            input[2][1] = new List<string>();
+            input[2][1].Add("2");
+
+            input1.Add(new List<string>[2]);
+            input1[0][0] = new List<string>();
+            input1[0][0].Add("3");
+            input1[0][1] = new List<string>();
+            input1[0][1].Add("4");
+            input1.Add(new List<string>[2]);
+            input1[1][0] = new List<string>();
+            input1[1][0].Add("-8");
+            input1[1][1] = new List<string>();
+            input1[1][1].Add("3");
+
+
+            output.Add(new List<string>[2]);
+            output[0][0] = new List<string>();
+            output[0][0].Add("4");
+            output[0][1] = new List<string>();
+            output[0][1].Add("4");
+            output.Add(new List<string>[2]);
+            output[1][0] = new List<string>();
+            output[1][0].Add("-16");
+            output[1][1] = new List<string>();
+            output[1][1].Add("3");
+            output.Add(new List<string>[2]);
+            output[2][0] = new List<string>();
+            output[2][0].Add("18");
+            output[2][1] = new List<string>();
+            output[2][1].Add("2");
+
+            P x = new P(input);
+            P i = new P(input1);
+            P t = new P(output);
+
+            Assert.AreEqual(t,x+i);
 
         }
+        [TestMethod]
+        public void plusTestEx()
+        {
+            List<List<string>[]> input = new List<List<string>[]>();
+            List<List<string>[]> input1 = new List<List<string>[]>();
 
+            input.Add(new List<string>[2]);
+            input[0][0] = new List<string>();
+            input[0][0].Add("1");
+            input[0][1] = new List<string>();
+            input[0][1].Add("4");
+            input.Add(new List<string>[2]);
+            input[1][0] = new List<string>();
+            input[1][0].Add("-8");
+            input[1][1] = new List<string>();
+            input[1][1].Add("3");
+            input.Add(new List<string>[2]);
+            input[2][0] = new List<string>();
+            input[2][0].Add("18");
+            input[2][1] = new List<string>();
+            input[2][1].Add("2");
+
+            input1.Add(new List<string>[2]);
+            input1[0][0] = new List<string>();
+            input1[0][0].Add("3");
+            input1[0][1] = new List<string>();
+            input1[0][1].Add("4");
+            input1.Add(new List<string>[2]);
+            input1[1][0] = new List<string>();
+            input1[1][0].Add("-8");
+            input1[1][1] = new List<string>();
+            input1[1][1].Add("3");
+
+
+           
+
+            P x = new P(input);
+            P i = new P(input1);
+
+            Assert.AreNotEqual(null, x + i);
+
+        }
         public void NMR_P_PTest()
         {
             List<List<string>[]> first = new List<List<string>[]>();

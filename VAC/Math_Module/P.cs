@@ -24,7 +24,25 @@ namespace Math_Module
 
        /* public P(List<List<string>[]> s)
         {
+            List<string> n = new List<string>();
+            List<string> d = new List<string>();
+            List<string> temp = new List<string>();
+            M test = new M();
+            int j = 0;
+            int k;
+            for (int i=0; i < s.Count;i++)
+            {
+                for (k = 0; s[i][j][k] != "/"; k++)
+                    n.Add(s[i][j][k]);
+                for (k += 1; k < s[i][j].Count; k++)
+                    d.Add(s[i][j][k]);
 
+                test.coef = new Q(n, d);
+                test.degree = new N(s[i][j + 1]);
+                Ms.Add(test);
+                n.Clear();
+                d.Clear();
+            }
         }
         */
 
@@ -251,13 +269,30 @@ namespace Math_Module
             return result;
         }
 
-        public static implicit operator List<string>(P value)
+        public static implicit operator List<List<string>[]>(P value)
         {
-            return null;
+            List<List<string>[]> S = new List<List<string>[]>();
+            List<string> []temp = new List<string>[2];
+            List<string> t = new List<string>();
+            List<string> t2 = new List<string>();
+            for (int i=0; i < value.Ms.Count;i++)
+            {
+                temp[0] = new List<string>();
+                temp[1] = new List<string>();
+                t = value.Ms[i].coef;
+                t2 = value.Ms[i].degree;
+                for (int j = 0; j < t.Count; j++)
+                    temp[0].Add(t[j]);
+                for (int j = 0; j < t2.Count; j++)
+                    temp[1].Add(t2[j]);
+                S.Add(temp);
+            }
+            return S;
         }
 
-    /*   public static explicit operator Q(P value)//сломано
+       public static explicit operator Q(P value)//сломано
         {
+            if (value.isDown)
             List<string> S = new List<string>();
             List<string> n = new List<string>();
             List<string> d = new List<string>();
@@ -274,7 +309,7 @@ namespace Math_Module
 
             else
                 return null;
-        }*/
+        }
 
 
 
