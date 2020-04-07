@@ -330,7 +330,45 @@ namespace Math_Module
 
         public override byte COM(Math_Field second)
         {
-            return 0;
+            Z per1 = this.Clone();
+            Z per2 = second as Z;
+            byte srav = per1.Abs.COM(per2.Abs);
+            if (per1.isDown != per2.isDown)
+            {
+                if (per2.isDown)
+                {
+                    return 1;
+                }
+                else
+                {
+                    return 2;
+                }
+            }
+            else
+            {
+                if (srav == 0)
+                {
+                    return 0;
+                }
+                else
+                {
+                    if (per1.isDown)
+                    {
+                        return srav;
+                    }
+                    else
+                    {
+                        if (srav == 1)
+                        {
+                            return 2;
+                        }
+                        else
+                        {
+                            return 1;
+                        }
+                    }
+                }
+            }
         }
 
         public override Math_Field LCM(Math_Field second)
