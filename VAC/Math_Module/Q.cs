@@ -71,6 +71,56 @@ namespace Math_Module
             }
         }
 
+        public override Math_Field ABS
+        {
+            get
+            {
+                Q clone = Clone();
+                clone.Numerator = clone.Numerator.ABS as Z;
+                return clone;
+            }
+        }
+
+        public override Math_Field DEG
+        {
+            get
+            {
+                return ((P)this).DEG;
+            }
+        }
+
+        public override Math_Field UNT
+        {
+            get
+            {
+                return -this;
+            }
+        }
+
+        public override Math_Field DER
+        {
+            get
+            {
+                return ((P)this).DER;
+            }
+        }
+
+        public override Math_Field FAC
+        {
+            get
+            {
+                return ((P)this).FAC;
+            }
+        }
+
+        public override Math_Field LED
+        {
+            get
+            {
+                return ((P)this).LED;
+            }
+        }
+
         #endregion
 
         #region Перегрузки 
@@ -141,7 +191,7 @@ namespace Math_Module
         {
             Q divider = null;
             Q result = first.Clone();
-            divider.Denominator = second.Numerator.ABS_Z_N;
+            divider.Denominator = second.Numerator.ABS as N;
             divider.Numerator = second.Denominator;
             if (divider.Numerator.isDown != second.Numerator.isDown)
             {
@@ -195,7 +245,7 @@ namespace Math_Module
 
         private void RED_Q_Q() //есть тесты
         {
-            N nod = N.GCF_NN_N(Numerator.ABS_Z_N, Denominator);
+            N nod = N.GCF_NN_N(Numerator.ABS as N, Denominator);
             Numerator /= nod;
             Denominator /= nod;
         }
@@ -215,6 +265,59 @@ namespace Math_Module
                 if (Denominator.Equals(sec.Denominator) && Numerator.Equals(sec.Numerator)) return true;
             }
             return false;
+        }
+
+        public override Math_Field MUL(Math_Field second)
+        {
+            return this * (second as Q);
+        }
+
+        public override Math_Field DIV(Math_Field second)
+        {
+            return this / (second as Q);
+        }
+
+        public override Math_Field ADD(Math_Field second)
+        {
+            return this + (second as Q);
+        }
+
+        public override Math_Field LCM(Math_Field second)
+        {
+            List<string> s = new List<string>();
+            s.Add("0");
+            N zero = new N(s);
+            return zero;
+        }
+
+        public override Math_Field Dawn()
+        {
+            return (Z)this;
+        }
+
+        public override Math_Field Up()
+        {
+            return (P)this;
+        }
+
+        public override Math_Field SUB(Math_Field second)
+        {
+            return this - (second as Q);
+        }
+
+        public override Math_Field MOD(Math_Field second)
+        {
+            return this % (second as Q);
+        }
+
+        public override byte COM(Math_Field second)
+        {
+            return 0;
+        }
+
+        public override Math_Field GCF(Math_Field second)
+        {
+            return null;
         }
 
 

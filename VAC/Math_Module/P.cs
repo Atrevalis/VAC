@@ -22,7 +22,7 @@ namespace Math_Module
     {
         #region Конструкторы
 
-       /* public P(List<List<string>[]> s)
+        public P(List<List<string>[]> s)
         {
             List<string> n = new List<string>();
             List<string> d = new List<string>();
@@ -44,7 +44,7 @@ namespace Math_Module
                 d.Clear();
             }
         }
-        */
+        
 
         public P(Q value)
         {
@@ -79,7 +79,7 @@ namespace Math_Module
             }
         }
 
-        public Q LED_P_Q
+        public override Math_Field LED // return Q
         {
             get
             {
@@ -89,7 +89,7 @@ namespace Math_Module
             }
         }
 
-        public N DEG_P_N
+        public override Math_Field DEG // return N
         {
             get
             {
@@ -99,15 +99,30 @@ namespace Math_Module
             }
         }
 
-        /*private Q FAC_P_Q
+        public override Math_Field FAC // return Q
         {
             get
             {
                 return null;
             }
-        }*/
+        }
 
-        public P DER_P_P
+        public override Math_Field ABS
+        {
+            get
+            {
+                P clone = Clone();
+                for(int i = 0; i < Ms.Count; i++)
+                {
+                    Q now = clone.Ms[i].coef;
+                    now = Ms[i].coef.ABS as Q;
+                }
+                return clone;
+            }
+        }
+
+
+        public override Math_Field DER // retutn P
         {
             get
             {
@@ -133,6 +148,20 @@ namespace Math_Module
                     result.Ms.RemoveAt(i + 1);
                 }
                 return result;
+            }
+        }
+
+        public override Math_Field UNT
+        {
+            get
+            {
+                P clone = Clone();
+                for(int i = 0; i < clone.Ms.Count; i++)
+                {
+                    Q clones = clone.Ms[i].coef; 
+                    clones = -clone.Ms[i].coef;
+                }
+                return clone;
             }
         }
 
@@ -293,20 +322,21 @@ namespace Math_Module
        public static explicit operator Q(P value)//сломано
         {
             if (value.isDown)
-            List<string> S = new List<string>();
-            List<string> n = new List<string>();
-            List<string> d = new List<string>();
+            {
+                List<string> S = new List<string>();
+                List<string> n = new List<string>();
+                List<string> d = new List<string>();
 
-            S = value.Ms[0].coef;
-            int i;
-            for (i = 0; S[i] != "/"; i++)
-                n.Add(S[i]);
-            for (i += 1; i < S.Count; i++)
-                d.Add(S[i]);
+                S = value.Ms[0].coef;
+                int i;
+                for (i = 0; S[i] != "/"; i++)
+                    n.Add(S[i]);
+                for (i += 1; i < S.Count; i++)
+                    d.Add(S[i]);
 
-            return new Q(n, d);
+                return new Q(n, d);
 
-
+            }
             else
                 return null;
         }
@@ -460,7 +490,7 @@ namespace Math_Module
                 }
             }
             srav2.Ms.Add(last);
-            while (now.DER_P_P.Ms.Count() > 1)
+            while ((now.DER as P).Ms.Count() > 1)
             {
                 while (COM_PP_D(srav1, srav2) == 1)
                 {
@@ -516,6 +546,56 @@ namespace Math_Module
                 if (Ms.Equals(sec.Ms)) return true;
             }
             return false;
+        }
+
+        public override Math_Field ADD(Math_Field second)
+        {
+            return this + (second as P);
+        }
+
+        public override Math_Field MOD(Math_Field second)
+        {
+            return this % (second as P);
+        }
+
+        public override Math_Field DIV(Math_Field second)
+        {
+            return this / (second as P);
+        }
+
+        public override Math_Field GCF(Math_Field second)
+        {
+            return GCF_PP_P(this, second as P);
+        }
+
+        public override Math_Field LCM(Math_Field second)
+        {
+            return null;
+        }
+
+        public override Math_Field MUL(Math_Field second)
+        {
+            return this * (second as P);
+        }
+
+        public override byte COM(Math_Field second)
+        {
+            return COM_PP_D(this, second as P);
+        }
+
+        public override Math_Field SUB(Math_Field second)
+        {
+            return this - (second as P);
+        }
+
+        public override Math_Field Dawn()
+        {
+            return (Q)this;
+        }
+
+        public override Math_Field Up()
+        {
+            return this;
         }
 
 

@@ -53,7 +53,7 @@ namespace Math_Module
             }
         }
 
-        public N ABS_Z_N // Евгений Куликов 9370//есть тесты  
+        public override Math_Field ABS // Евгений Куликов 9370//есть тесты  
         {
             get
             {

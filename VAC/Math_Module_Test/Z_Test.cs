@@ -468,7 +468,7 @@ namespace Math_Module_Test
             output.Add("145");
             output.Add("00000002");
             Z z = new Z(input);
-            N n = z.ABS_Z_N;
+            N n = z.ABS as N;
             N t = new N(output);
             Assert.AreEqual(t, n);
         }
@@ -481,7 +481,7 @@ namespace Math_Module_Test
             input.Add("2");
             output.Add("2");
             Z z = new Z(input);
-            N n = z.ABS_Z_N;
+            N n = z.ABS as N;
             N t = new N(output);
             Assert.AreEqual(t, n);
         }
@@ -493,7 +493,7 @@ namespace Math_Module_Test
             input.Add("145");
             input.Add("00000002");
             Z z = new Z(input);
-            N n = z.ABS_Z_N;
+            N n = z.ABS as N;
             Assert.AreNotEqual(null, n);
         }
         

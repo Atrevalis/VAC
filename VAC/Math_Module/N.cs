@@ -23,6 +23,7 @@ namespace Math_Module
             znach = new List<uint>();
             for (int i = s.Count-1; i >= 0; i--)
                 znach.Add(Convert.ToUInt32(s[i]));
+            id = 1;
         }
 
         #endregion
@@ -48,6 +49,54 @@ namespace Math_Module
                 {
                     return false;
                 }
+            }
+        }
+
+        public override Math_Field FAC
+        {
+            get
+            {
+                return ((P)((Q)((Z)(this)))).FAC;
+            }
+        }
+
+        public override Math_Field ABS
+        {
+            get
+            {
+                return Clone();
+            }
+        }
+
+        public override Math_Field LED
+        {
+            get
+            {
+                return ((P)((Q)((Z)(this)))).LED;
+            }
+        }
+
+        public override Math_Field UNT
+        {
+            get
+            {
+                return -((Z)(this));
+            }
+        }
+
+        public override Math_Field DEG
+        {
+            get
+            {
+                return ((P)((Q)((Z)(this)))).DEG;
+            }
+        }
+
+        public override Math_Field DER
+        {
+            get
+            {
+                return ((P)((Q)((Z)(this)))).DER;
             }
         }
 
@@ -500,11 +549,61 @@ namespace Math_Module
             return result;
         }
 
+        public override Math_Field LCM(Math_Field second)
+        {
+            return LCM_NN_N(this, second as N);
+        }
+
         public N Clone() // Александр Баталин 9370//есть тесты
         {
             N clone = new N(new List<string>());
             clone.znach = new List<uint>(znach);
             return clone;
+        }
+
+        public override Math_Field SUB(Math_Field second)
+        {
+            return this - (second as N);
+        }
+
+        public override Math_Field MUL(Math_Field second)
+        {
+            return this * (second as N);
+        }
+
+        public override Math_Field Up()
+        {
+            return (Z)(this);
+        }
+
+        public override Math_Field Dawn()
+        {
+            return this;
+        }
+
+        public override byte COM(Math_Field second)
+        {
+            return COM_NN_D(this, second as N);
+        }
+
+        public override Math_Field DIV(Math_Field second)
+        {
+            return this / (second as N);
+        }
+
+        public override Math_Field MOD(Math_Field second)
+        {
+            return this % (second as N);
+        }
+
+        public override Math_Field GCF(Math_Field second)
+        {
+            return GCF_NN_N(this, second as N);
+        }
+
+        public override Math_Field ADD(Math_Field second)
+        {
+            return this + (second as N);
         }
 
         #endregion
