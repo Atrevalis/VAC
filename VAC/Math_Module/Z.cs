@@ -12,20 +12,27 @@ namespace Math_Module
 
         public Z(List<string> s)
         {
-            if (s[0].Contains("-") && s[0].Length != 1)
+            try
             {
-                s[0] = s[0].Remove(0, 1);
-                isN = false;
-            }
-            else if (s[0].Contains("-") && s[0].Length == 1)
-            {
-                s.RemoveAt(0);
-                isN = false;
-            }
-            else
-                isN = true;
+                if (s[0].Contains("-") && s[0].Length != 1)
+                {
+                    s[0] = s[0].Remove(0, 1);
+                    isN = false;
+                }
+                else if (s[0].Contains("-") && s[0].Length == 1)
+                {
+                    s.RemoveAt(0);
+                    isN = false;
+                }
+                else
+                    isN = true;
 
-            Abs = new N(s);
+                Abs = new N(s);
+            }
+            catch
+            {
+                throw;
+            }
         }
 
         public Z(N value) // Александр Рассохин 9370 // Проверено Игорь

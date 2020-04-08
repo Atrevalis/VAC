@@ -49,35 +49,41 @@ namespace Math_Module
 
         public P(List<M> M)
         {
-
-            Ms = new List<M>();
-            M temp = new M();
-            List<M> copy = new List<M>();
-            copy = M;
-            int check = -1;
-            for (int j = 0; j < M.Count; j++)
+            try
             {
-                temp = copy[j];
-                for (int i = 0; i < M.Count; i++)
-                {
-                    if (N.COM_NN_D(temp.degree, copy[i].degree) == 2)
-                        continue;
-                    else if (N.COM_NN_D(temp.degree, copy[i].degree) == 1)
-                    {
-                        temp = copy[i];
-                        check = i;
-                    }
-                    else if (N.COM_NN_D(temp.degree, copy[i].degree) == 0)
-                        continue;
-                }
-                Ms.Add(temp);
-                if (check != -1)
+                Ms = new List<M>();
+                M temp = new M();
+                List<M> copy = new List<M>();
+                copy = M;
+                int check = -1;
+                for (int j = 0; j < M.Count; j++)
                 {
                     temp = copy[j];
-                    copy[j] = copy[check];
-                    copy[check] = temp;
+                    for (int i = 0; i < M.Count; i++)
+                    {
+                        if (N.COM_NN_D(temp.degree, copy[i].degree) == 2)
+                            continue;
+                        else if (N.COM_NN_D(temp.degree, copy[i].degree) == 1)
+                        {
+                            temp = copy[i];
+                            check = i;
+                        }
+                        else if (N.COM_NN_D(temp.degree, copy[i].degree) == 0)
+                            continue;
+                    }
+                    Ms.Add(temp);
+                    if (check != -1)
+                    {
+                        temp = copy[j];
+                        copy[j] = copy[check];
+                        copy[check] = temp;
+                    }
+                    check = -1;
                 }
-                check = -1;
+            }
+            catch
+            {
+                throw;
             }
         }
         

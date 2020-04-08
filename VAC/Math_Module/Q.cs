@@ -12,8 +12,15 @@ namespace Math_Module
 
         public Q(List<string> first, List<string> second)///нет исключения - Знаменатель не может быть равен нулю 
         {
-            Numerator = new Z(first);
-            Denominator = new N(second);
+            try
+            {
+                Numerator = new Z(first);
+                Denominator = new N(second);
+            }
+            catch
+            {
+                throw;
+            }
         }
         public Q(Z value)
         {
