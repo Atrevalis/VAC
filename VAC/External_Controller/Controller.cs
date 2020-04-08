@@ -139,10 +139,40 @@ namespace External_Controller
                         if (operators[j].Visul == control)
                         {
                             operators.RemoveAt(j);
+                            for (int k= 0; k < bin_Operators.Count; k++)
+                            {
+                                if (bin_Operators[k].Visul == control)
+                                {
+                                    bin_Operators.RemoveAt(k);
+                                    return;
+                                }
+                            }
+                            for (int k = 0; k < uno_Operators.Count; k++)
+                            {
+                                if (uno_Operators[k].Visul == control)
+                                {
+                                    uno_Operators.RemoveAt(k);
+                                    return;
+                                }
+                            }
+                            for (int k = 0; k < N_Operators.Count; k++)
+                            {
+                                if (N_Operators[k].Visul == control)
+                                {
+                                    N_Operators.RemoveAt(k);
+                                    return;
+                                }
+                            }
+                        }
+                    }
+                    for (int j = 0; j < dates.Count; j++)
+                    {
+                        if (dates[j].Visul == control)
+                        {
+                            dates.RemoveAt(j);
                             return;
                         }
                     }
-                    return;
                 }
             }
             for (int i = 0; i < if_Operators.Count; i++)

@@ -16,6 +16,7 @@ namespace Math_Module
             {
                 Numerator = new Z(first);
                 Denominator = new N(second);
+                RED_Q_Q();
             }
             catch
             {
