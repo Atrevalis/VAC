@@ -145,6 +145,7 @@ namespace Interpretation_Controller
                 outp.Close();
                 return;
             }
+
             inp.Close();
             outp.Close();
         }
