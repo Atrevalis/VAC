@@ -22,13 +22,14 @@ namespace Interpretation_Controller
             catch
             {
                 MessageBox.Show("Некоректный путь входного/выходного файла", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
             StreamReader reader = new StreamReader(inp);
             StreamWriter writer = new StreamWriter(outp);
             List<Math_Field> Data = new List<Math_Field>();
             string s;
-            try
-            {
+            
+            
                 for(int i = 0; i < Controller.dates.Count; i++)
                 {
                     s = reader.ReadLine();
@@ -39,7 +40,7 @@ namespace Interpretation_Controller
                                 List<string> dat = new List<string>();
                                 for (int j = s.Length-1; j >= 0; j -= (int)N.uint_size_div)
                                 {
-                                    dat.Insert(0, s.Substring(i, (int)N.uint_size_div));
+                                    dat.Insert(0, s.Substring(j, (int)N.uint_size_div > s.Length - j ? (int)N.uint_size_div : s.Length - j));
                                 }
                                 Data.Add(new N(dat));
                             }
@@ -49,7 +50,7 @@ namespace Interpretation_Controller
                                 List<string> dat = new List<string>();
                                 for (int j = s.Length-1; j >= 0; j -= (int)N.uint_size_div)
                                 {
-                                    dat.Insert(0, s.Substring(i, (int)N.uint_size_div));
+                                    dat.Insert(0, s.Substring(j, (int)N.uint_size_div > s.Length - j ? (int)N.uint_size_div : s.Length - j));
                                 }
                                 Data.Add(new Z(dat));
                             }
@@ -69,12 +70,12 @@ namespace Interpretation_Controller
                                 List<string> dato = new List<string>();
                                 for (int j = first.Length-1; j >= 0; j -= (int)N.uint_size_div)
                                 {
-                                    dato.Insert(0, first.Substring(i, (int)N.uint_size_div));
+                                    dato.Insert(0, first.Substring(j, (int)N.uint_size_div > first.Length - j ? (int)N.uint_size_div : first.Length - j));
                                 }
                                 List<string> datt = new List<string>();
                                 for (int j = second.Length -1; j >= 0; j -= (int)N.uint_size_div)
                                 {
-                                    datt.Insert(0, second.Substring(i, (int)N.uint_size_div));
+                                    datt.Insert(0, second.Substring(j, (int)N.uint_size_div > second.Length - j ? (int)N.uint_size_div : second.Length - j));
                                 }
                                 Data.Add(new Q(dato, datt));
                             }
@@ -103,19 +104,19 @@ namespace Interpretation_Controller
                                     List<string> dato = new List<string>();
                                     for (int k = first.Length; k >= 0; k -= (int)N.uint_size_div)
                                     {
-                                        dato.Insert(0, first.Substring(i, (int)N.uint_size_div));
+                                        dato.Insert(0, first.Substring(k, (int)N.uint_size_div > first.Length - k ? (int)N.uint_size_div : first.Length - k));
                                     }
                                     List<string> datt = new List<string>();
                                     for (int k = second.Length; k >= 0; k -= (int)N.uint_size_div)
                                     {
-                                        datt.Insert(0, second.Substring(i, (int)N.uint_size_div));
+                                        datt.Insert(0, second.Substring(k, (int)N.uint_size_div > second.Length - k ? (int)N.uint_size_div : second.Length - k));
                                     }
                                     List<string> datth = new List<string>();
                                     if (j + 1 < polinom.Length)
                                     {
                                         for (int k = polinom[j+1].Length; k >= 0; k -= (int)N.uint_size_div)
                                         {
-                                            datth.Insert(0, polinom[j+1].Substring(i, (int)N.uint_size_div));
+                                            datth.Insert(0, polinom[j+1].Substring(k, (int)N.uint_size_div > polinom[j+1].Length - k ? (int)N.uint_size_div : polinom[j+1].Length - k));
                                         }
                                     }
                                     else
@@ -133,12 +134,13 @@ namespace Interpretation_Controller
                             break;
                     }
                 }
-            }
-            catch
+            
+           /* catch
             {
                 MessageBox.Show("Некоректное содержание входного файла", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
-
+            */
         }
     }
 }
