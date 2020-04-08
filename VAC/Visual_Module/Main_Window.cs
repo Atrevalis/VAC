@@ -452,5 +452,10 @@ namespace Visual_Module
                 }
             }
         }
+
+        private void toolStripMenuItem17_Click(object sender, EventArgs e)
+        {
+            Interpretation_Controller.Interpretator.Interpretate();
+        }
     }
 }

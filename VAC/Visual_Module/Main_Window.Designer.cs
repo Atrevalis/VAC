@@ -392,6 +392,7 @@
             this.toolStripMenuItem17.Name = "toolStripMenuItem17";
             this.toolStripMenuItem17.Size = new System.Drawing.Size(46, 22);
             this.toolStripMenuItem17.Text = "Пуск";
+            this.toolStripMenuItem17.Click += new System.EventHandler(this.toolStripMenuItem17_Click);
             // 
             // справкаToolStripMenuItem
             // 
