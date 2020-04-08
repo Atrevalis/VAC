@@ -13,8 +13,8 @@ namespace Math_Module
 
         public M(Q c, N s)
         {
-            coef = null;
-            degree = null;
+            coef = c;
+            degree = s;
         }
     }
 

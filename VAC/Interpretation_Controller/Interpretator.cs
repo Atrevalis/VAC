@@ -89,16 +89,16 @@ namespace Interpretation_Controller
                                 s = s.Replace('+', ' ');
                                 s = s.Replace("-", " -");
                                 s = s.Replace("x^", " ");
-                                string[] polinom = s.Split(' ');
+                                s = s.Replace("x", " 1");
+                                string[] polinom = s.Split(new string[]{" "}, StringSplitOptions.RemoveEmptyEntries);
                                 List<M> Mnogochlen = new List<M>();
                                 for (int j = 0; j < polinom.Length; j += 2)
                                 {
-                                    Mnogochlen.Add(new M());
                                     string first = polinom[j].Split('/')[0];
                                     string second;
                                     try
                                     {
-                                        second = s.Split('/')[1];
+                                        second = polinom[j].Split('/')[1];
                                     }
                                     catch
                                     {
@@ -126,10 +126,10 @@ namespace Interpretation_Controller
                                     {
                                         datth.Add("0");
                                     }
-                                    Q buferq = Mnogochlen[j].coef;
-                                    buferq = new Q(dato, datt);
-                                    N bufern = Mnogochlen[j].degree;
-                                    bufern = new N(datth);
+ 
+                                    Q buferq = new Q(dato, datt);
+                                    N bufern = new N(datth);
+                                    Mnogochlen.Add(new M(buferq, bufern));
 
                                 }
                                 Data.Add(new P(Mnogochlen));
