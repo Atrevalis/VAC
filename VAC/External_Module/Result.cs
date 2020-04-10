@@ -10,7 +10,7 @@ namespace External_module
     {
         private Working_data up_connection;
         private static int count_of_results_index = 1;
-        List<if_operator> if_Operators = new List<if_operator>();
+        public List<if_operator> if_Operators = new List<if_operator>();
         private int index_of_result;
 
         public override string name

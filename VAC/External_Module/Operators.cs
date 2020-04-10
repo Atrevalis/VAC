@@ -14,7 +14,7 @@ namespace External_module
         public string name_of_operators;
 
         protected List<Working_data> up_connection = new List<Working_data>();
-        List<if_operator> if_Operators = new List<if_operator>();
+        public List<if_operator> if_Operators = new List<if_operator>();
 
         public override string name
         {
