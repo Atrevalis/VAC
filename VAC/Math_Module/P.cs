@@ -348,7 +348,7 @@ namespace Math_Module
             result -= (first / second);
             return result;
         }
-
+        /*
         public static implicit operator List<List<string>[]>(P value)
         {
             List<List<string>[]> S = new List<List<string>[]>();
@@ -369,8 +369,42 @@ namespace Math_Module
             }
             return S;
         }
+                    */
 
-       public static explicit operator Q(P value)//сломано
+        public static implicit operator List<string>(P value)
+        {
+            List<string> list = new List<string>();
+            for(int i = 0; i < value.Ms.Count; i++)
+            {
+                List<string> num = new List<string>(), denum = new List<string>(), zero = new List<string>();
+                num.Add("1"); denum.Add("1"); zero.Add("0");
+                if (value.Ms[i].coef.COM(new Q(num, denum)) != 0)
+                {
+                    if (value.Ms[i].coef.POZ_Q_D == 1) list.Add(" -");
+                    else if (i > 0) list.Add(" +");
+                    for (int j = 0; j < ((List<string>)value.Ms[i].coef).Count; j++)
+                    {
+                        list.Add(((List<string>)value.Ms[i].coef)[j]);
+                    }
+                }
+                if (value.Ms[i].degree.COM(new N(num)) == 0) list.Add("x");
+                else
+                {
+                    if (value.Ms[i].degree.COM(new N(zero)) != 0)
+                    {
+                        list.Add("x^");
+                        for (int j = 0; j < ((List<string>)value.Ms[i].degree).Count; j++)
+                        {
+                            list.Add(((List<string>)value.Ms[i].degree)[j]);
+                        }
+                    }
+                }
+            }
+            return list;
+        }
+
+
+        public static explicit operator Q(P value)//сломано
         {
             if (value.isDown)
             {
@@ -645,6 +679,11 @@ namespace Math_Module
         }
 
         public override Math_Field Up()
+        {
+            return this;
+        }
+
+        public override List<string> ToListstring()
         {
             return this;
         }

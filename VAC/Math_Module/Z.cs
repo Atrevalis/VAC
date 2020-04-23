@@ -410,6 +410,11 @@ namespace Math_Module
             return this / (second as Z);
         }
 
+        public override List<string> ToListstring()
+        {
+            return this;
+        }
+
 
         #endregion
     }

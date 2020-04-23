@@ -1,4 +1,6 @@
-﻿namespace Math_Module
+﻿using System.Collections.Generic;
+
+namespace Math_Module
 {
     abstract public class Math_Field
     {
@@ -13,6 +15,14 @@
         public static int count_of_COM_id(Math_Field first, Math_Field second)
         {
             return first.id - second.id;
+        }
+
+        public static void id_to_normal(Math_Field first, Math_Field second)
+        {
+            while(count_of_COM_id(first, second)>0)
+            {
+                second = second.Up();
+            }
         }
 
         abstract public bool isDown { get; }
@@ -49,5 +59,7 @@
         abstract public Math_Field LCM(Math_Field second);
        
         abstract public byte COM(Math_Field second);
+
+        abstract public List<string> ToListstring();
     }
 }

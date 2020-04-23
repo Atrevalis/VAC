@@ -620,6 +620,11 @@ namespace Math_Module
             return this + (second as N);
         }
 
+        public override List<string> ToListstring()
+        {
+            return this;
+        }
+
         #endregion
     }
 }

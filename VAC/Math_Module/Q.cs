@@ -92,13 +92,13 @@ namespace Math_Module
             get
             {
                  if (Numerator.POZ_Z_D != 0)
-                {
+                 {
                     if (Numerator.POZ_Z_D == 2)
                         return 2;
                     else
                         return 1;
-                }
-                else
+                 }
+                 else
                     return 0;
             }
         }
@@ -244,13 +244,18 @@ namespace Math_Module
         
         public static implicit operator List<string>(Q value)//есть тесты
         {
+            List<string> one = new List<string>();
+            one.Add("1");
             List<string> S = new List<string>();
             List<string> temp = new List<string>();
             temp = value.Numerator;
             S.AddRange(temp);
-            S.Add("/");
-            temp = value.Denominator;
-            S.AddRange(temp);
+            if (N.COM_NN_D(value.Denominator, new N(one)) != 0)
+            {
+                S.Add("/");
+                temp = value.Denominator;
+                S.AddRange(temp);
+            }
 
             return S;
         }
@@ -360,6 +365,10 @@ namespace Math_Module
             return ((P)this).GCF((P)second);
         }
 
+        public override List<string> ToListstring()
+        {
+            return this;
+        }
 
         #endregion
     }

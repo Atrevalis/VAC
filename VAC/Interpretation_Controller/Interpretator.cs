@@ -4,6 +4,7 @@ using External_Controller;
 using System.IO;
 using System.Windows.Forms;
 using System.Collections.Generic;
+using External_module;
 
 namespace Interpretation_Controller
 {
@@ -40,6 +41,8 @@ namespace Interpretation_Controller
 
     static public class Interpretator
     {
+        static List<Working_data> Data;
+        static List<if_operator> ifs;
 
         public static int progress = 0;
 
@@ -56,13 +59,11 @@ namespace Interpretation_Controller
             catch
             {
                 MessageBox.Show("Некоректный путь входного/выходного файла", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                inp.Close();
-                outp.Close();
                 return;
             }
             StreamReader reader = new StreamReader(inp);
             StreamWriter writer = new StreamWriter(outp);
-            List<Working_data> Data = new List<Working_data>();
+            Data = new List<Working_data>();
             string s;
             try
             {
@@ -187,14 +188,14 @@ namespace Interpretation_Controller
                 return;
             }
             progress = 100;
-            List<if_operator> ifs = new List<if_operator>();
+            ifs = new List<if_operator>();
             for(int i = 0; i < Controller.if_Operators.Count; i++)
             {
                 ifs.Add(new if_operator(Controller.if_Operators[i]));
             }
             for (int i = 0; i < Controller.results.Count; i++)
             {
-                bool isCorrect = false;
+                bool isCorrect = true;
                     for (int j = 0; j < Controller.results[i].information.if_Operators.Count; j++)
                     {
                         for (int k = 0; k < ifs.Count; k++)
@@ -203,12 +204,13 @@ namespace Interpretation_Controller
                             {
                                 if(ifs[k].path == -1)
                                 {
-                                    DFS_for_if(ifs[k], ifs);
+                                    DFS_for_if(ifs[k]);
                                 }
                                 if (ifs[k].path >= 0)
                                 {
                                     for (int q = 0; q < Controller.results[i].information.if_Operators[j].exits[ifs[k].path].Count; q++)
                                     {
+                                        isCorrect = false;
                                         if (Controller.results[i].information.if_Operators[j].exits[ifs[k].path][q] == Controller.results[i].information)
                                         {
                                             isCorrect = true;
@@ -231,20 +233,35 @@ namespace Interpretation_Controller
                         }
                     }
                     if(!isCorrect) break;
-                    for (int j = 0; j < Data.Count; j++)
+                    for (int k = 0; k < Data.Count; k++)
                     {
-                        if (Controller.results[i].information.up_Conected == Data[j].info.information)
+                        if (Controller.results[i].information.up_Conected == Data[k].info.information)
                         {
-                              
+                            if (Data[k].data == null)
+                            {
+                                DFS_for_WD(Data[k]);
+                            }
+                            if (Data[k].isTrue)
+                            {
+                                string res = "";
+                                for (int a = 0; a < Data[k].data.ToListstring().Count; a++) res += Data[k].data.ToListstring()[a];
+                                writer.WriteLine(res);
+                            }
+                            else
+                            {
+                                MessageBox.Show("Результат № " + i + "Не получил данных, и в выводе не учавствует", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
                         }
                     }
 
             }
+            reader.Close();
+            writer.Close();
             inp.Close();
             outp.Close();
         }
 
-        public static void DFS_for_if(if_operator if_, List<if_operator> ifs)
+        public static void DFS_for_if(if_operator if_)
         {
             for(int i = 0; i < if_.info.information.if_Operators.Count; i++)
             {
@@ -255,7 +272,7 @@ namespace Interpretation_Controller
                     {
                         if (ifs[k].path == -1)
                         {
-                            DFS_for_if(ifs[k], ifs);
+                            DFS_for_if(ifs[k]);
                         }
                         if (ifs[k].path >= 0)
                         {
@@ -281,10 +298,102 @@ namespace Interpretation_Controller
                     if_.path = -2;
                     return;
                 }
+               
+            }
+            try
+            {
+                List<int> indexes = new List<int>();
+                for (int k = 0; k < if_.info.information.up_connection.Count;)
+                {
+                    for (int j = 0; j < Data.Count; j++)
+                    {
+                        if (if_.info.information.up_connection[k] == Data[j].info.information)
+                        {
+                            indexes.Add(j);
+                            if (Data[j].data == null)
+                            {
+                                DFS_for_WD(Data[j]);
+                            }
+                            if (!Data[j].isTrue)
+                            {
+                                throw new Exception();
+                            }
+                            break;
+                        }
+                    }
+                }
+                switch (if_.info.information.name)
+                {
+                    case "COM_NN_D":
+                        {
+                            if (Math_Field.idCOM(Data[indexes[0]].data, Data[indexes[1]].data))
+                            {
+                                Math_Field.id_to_normal(Data[indexes[0]].data, Data[indexes[1]].data);
+                                switch (Data[indexes[0]].data.COM(Data[indexes[1]].data))
+                                {
+                                    case 1:
+                                        {
+                                            if_.path = 0;
+                                        }
+                                        break;
+                                    case 0:
+                                        {
+                                            if_.path = 1;
+                                        }
+                                        break;
+                                    case 2:
+                                        {
+                                            if_.path = 2;
+                                        }
+                                        break;
+                                }
+                            }
+                            else
+                            {
+                                Math_Field.id_to_normal(Data[indexes[1]].data, Data[indexes[0]].data);
+                                switch (Data[indexes[1]].data.COM(Data[indexes[0]].data))
+                                {
+                                    case 2:
+                                        {
+                                            if_.path = 0;
+                                        }
+                                        break;
+                                    case 0:
+                                        {
+                                            if_.path = 1;
+                                        }
+                                        break;
+                                    case 1:
+                                        {
+                                            if_.path = 2;
+                                        }
+                                        break;
+                                }
+                            }
+                            return;
+                        }
+                    case "isDown":
+                        {
+                            if (Data[indexes[0]].data.isDown)
+                            {
+                                if_.path = 0;
+                            }
+                            else
+                            {
+                                if_.path = 1;
+                            }
+                            return;
+                        }
+                }
+            }
+            catch
+            {
+                if_.path = -1;
+                return;
             }
         }
 
-        public static void DFS_for_WD(Working_data wd, List<if_operator> ifs)
+        public static void DFS_for_WD(Working_data wd)
         {
             for (int i = 0; i < (wd.info.information as External_module.Operators).if_Operators.Count; i++)
             {
@@ -295,7 +404,7 @@ namespace Interpretation_Controller
                     {
                         if (ifs[k].path == -1)
                         {
-                            DFS_for_if(ifs[k], ifs);
+                            DFS_for_if(ifs[k]);
                         }
                         if (ifs[k].path >= 0)
                         {
