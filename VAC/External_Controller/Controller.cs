@@ -9,9 +9,9 @@ namespace External_Controller
 {
     public static class Controller
     {
-        public static string input;
-        public static string output;
-        public static bool Auto;
+        public static string input = "";
+        public static string output = "";
+        public static bool Auto = false;
         public static string path_of_now_project;
         public static string name_of_now_project;
         public static List<Data> dates = new List<Data>();
@@ -59,17 +59,6 @@ namespace External_Controller
                         break;
                     case "if_operator":
                         {
-                            for (int j = 0; j < (nods[i].information as External_module.if_operator).up_connection.Count; j++)
-                            {
-                                for (int k = 0; k < nods.Count; k++)
-                                {
-                                    if (nods[k].information == (nods[i].information as External_module.if_operator).up_connection[j])
-                                    {
-                                        writer.Write(k + " ");
-                                    }
-                                }
-                            }
-                            writer.WriteLine();
                             for (int j = 0; j < (nods[i].information as External_module.if_operator).exits.Length; j++)
                             {
                                 for (int q = 0; q < (nods[i].information as External_module.if_operator).exits[j].Count; q++)
@@ -85,35 +74,21 @@ namespace External_Controller
                                 writer.Write("!");
                             }
                             writer.WriteLine();
-                            for (int j = 0; j < (nods[i].information as External_module.if_operator).if_Operators.Count; j++)
+                        }
+                        break;
+                    case "operator":
+                        {
+                            for (int j = 0; j < (nods[i].information as External_module.Operators).down_Contacted.Count; j++)
                             {
                                 for (int k = 0; k < nods.Count; k++)
                                 {
-                                    if (nods[k].information == (nods[i].information as External_module.if_operator).if_Operators[j])
+                                    if (nods[k].information == (nods[i].information as External_module.Operators).down_Contacted[j])
                                     {
                                         writer.Write(k + " ");
                                     }
                                 }
                             }
                             writer.WriteLine();
-                        }
-                        break;
-
-                    case "Result":
-                        {
-                                for (int k = 0; k < nods.Count; k++)
-                                {
-                                    if (nods[k].information == (nods[i].information as External_module.Result).up_Conected)
-                                    {
-                                        writer.WriteLine(k);
-                                    }
-                                }
-                        }
-                        break;
-
-                    default:
-                        {
-                          //  for(int k = 0; k < (nods[i].information as ))
                         }
                         break;
                 }
