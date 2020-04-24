@@ -577,6 +577,24 @@ namespace Math_Module_Test
             N gcfN = N.GCF_NN_N(n, i);
             Assert.AreEqual(t, gcfN);
         }
+
+        [TestMethod]
+        public void GCF_NN_NTest3()
+        {
+            List<string> input = new List<string>(); //  9 85062919
+            List<string> input1 = new List<string>();//  6 70110647
+            List<string> output = new List<string>();//  1
+            input.Add("9");
+            input.Add("85062919");
+            input1.Add("6");
+            input1.Add("70110647");
+            output.Add("1");
+            N n = new N(input);
+            N i = new N(input1);
+            N t = new N(output);
+            N gcfN = N.GCF_NN_N(n, i);
+            Assert.AreEqual(t, gcfN);
+        }
         [TestMethod]
         public void GCF_NN_NTestEx()
         {
