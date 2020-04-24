@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using External_module;
 using System.Windows.Forms;
 using System.IO;
+using MVS_Controller;
 using System.Drawing;
 
 namespace External_Controller
@@ -23,6 +24,9 @@ namespace External_Controller
         public static List<Result> results = new List<Result>();
         public static List<Uno_operator> uno_Operators = new List<Uno_operator>();
         public static List<Working_data> working_Dates = new List<Working_data>();
+        public static List<Load_files> load_s;
+        public static FileStream file = null;
+        public static StreamReader reader = null;
 
         public static void Save()
         {
@@ -35,7 +39,7 @@ namespace External_Controller
             {
                 Control nod = nods[i].Visul as Control;
                 writer.WriteLine(nod.Location.X + " " + nod.Location.Y + " " + nod.Width + " " + nod.Height);
-                writer.WriteLine(nods[i].information.type + " " + nods[i].information.name);
+                writer.WriteLine(nods[i].information.type + " " + nods[i].information.name + " " + (nods[i].Visul as MVS_Controller.Noda).label.Text);
             }
             writer.WriteLine();
             for(int i = 0; i < nods.Count; i++)
@@ -93,6 +97,41 @@ namespace External_Controller
                         break;
                 }
             }
+            writer.Close();
+            file.Close();
+        }
+
+        public static void Load()
+        {
+            load_s = new List<Load_files>();
+            try
+            {
+                file = new FileStream(path_of_now_project + "\\" + name_of_now_project + ".cpsprbk", FileMode.Open);
+                reader = new StreamReader(file);
+            }
+            catch
+            { MessageBox.Show("Невозможно открыть файл сохранения", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            try
+            {
+                input = reader.ReadLine();
+                output = reader.ReadLine();
+                Auto = Convert.ToBoolean(reader.ReadLine());
+                string s = reader.ReadLine();
+                while (s!="")
+                {
+                    string[] co = s.Split(' ');
+                    string[] inf = reader.ReadLine().Split(' ');
+                    load_s.Add(new Load_files(Convert.ToInt32(co[0]), Convert.ToInt32(co[1]), Convert.ToInt32(co[2]), Convert.ToInt32(co[3]), inf[0], inf[1], inf[2]));
+                    s = reader.ReadLine();
+                }
+            }
+            catch
+            { MessageBox.Show("Файл сохранения поврежден", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+        }
+
+        public static void Load_connect()
+        {
+
         }
 
         public static void Delete(Control control)
@@ -292,6 +331,23 @@ namespace External_Controller
 
         #region Структуры
 
+
+        public struct Load_files
+        {
+            public int x, y, Whight, Height;
+            public string type, name, text;
+
+            public Load_files(int xx, int yy, int Whightt, int Heightt, string typee, string namee, string textt)
+            {
+                x = xx;
+                y = yy;
+                Whight = Whightt;
+                Height = Heightt;
+                type = typee;
+                name = namee;
+                text = textt;
+            }
+        }
         public struct Data
         {
             public External_module.Data information;

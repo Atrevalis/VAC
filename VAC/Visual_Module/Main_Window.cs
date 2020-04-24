@@ -40,12 +40,73 @@ namespace Visual_Module
             open.ShowDialog();
             try
             {
-                External_Controller.Controller.name_of_now_project = open.SafeFileName;
-                External_Controller.Controller.path_of_now_project = open.FileName.Replace(open.SafeFileName, "");
+                Controller.name_of_now_project = open.SafeFileName.Split('.')[0];
+                Controller.path_of_now_project = open.FileName.Replace(open.SafeFileName, "");
+
             }
             catch
             {
                 MessageBox.Show("Файл не выбран", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            Load_save();
+        }
+
+        public void Load_save()
+        {
+            Controller.Load();
+            for (int i = 0; i < Controller.load_s.Count; i++)
+            {
+                switch (Controller.load_s[i].type)
+                {
+                    case "if":
+                        {
+                            MVS_Controller.if_operator working_Data = new MVS_Controller.if_operator(this, panel1);
+                            string[] text = null;
+                            Controller.Create_new_Nod(Controller.load_s[i].name, Controller.load_s[i].type, working_Data, ref text);
+                            working_Data.label.Text = Controller.load_s[i].text;
+                            working_Data.Show();
+                            panel1.Controls.Add(working_Data);
+                            working_Data.Location = new Point(Controller.load_s[i].x, Controller.load_s[i].y);
+                            working_Data.Size = new Size(Controller.load_s[i].Whight, Controller.load_s[i].Height);
+                        }
+                        break;
+                    case "Result":
+                        {
+                            MVS_Controller.Result working_Data = new MVS_Controller.Result(this, panel1);
+                            string[] text = null;
+                            Controller.Create_new_Nod(Controller.load_s[i].name, Controller.load_s[i].type, working_Data, ref text);
+                            working_Data.label.Text = Controller.load_s[i].text;
+                            working_Data.Show();
+                            panel1.Controls.Add(working_Data);
+                            working_Data.Location = new Point(Controller.load_s[i].x, Controller.load_s[i].y);
+                            working_Data.Size = new Size(Controller.load_s[i].Whight, Controller.load_s[i].Height);
+                        }
+                        break;
+                    case "operator":
+                        {
+                            MVS_Controller.if_operator working_Data = new MVS_Controller.if_operator(this, panel1);
+                            string[] text = null;
+                            Controller.Create_new_Nod(Controller.load_s[i].name, Controller.load_s[i].type, working_Data, ref text);
+                            working_Data.label.Text = Controller.load_s[i].text;
+                            working_Data.Show();
+                            panel1.Controls.Add(working_Data);
+                            working_Data.Location = new Point(Controller.load_s[i].x, Controller.load_s[i].y);
+                            working_Data.Size = new Size(Controller.load_s[i].Whight, Controller.load_s[i].Height);
+                        }
+                        break;
+                    case "Data":
+                        {
+                            MVS_Controller.Working_data working_Data = new MVS_Controller.Working_data(this, panel1);
+                            string[] text = null;
+                            Controller.Create_new_Nod(Controller.load_s[i].name, Controller.load_s[i].type, working_Data, ref text);
+                            working_Data.label.Text = Controller.load_s[i].text;
+                            working_Data.Show();
+                            panel1.Controls.Add(working_Data);
+                            working_Data.Location = new Point(Controller.load_s[i].x, Controller.load_s[i].y);
+                            working_Data.Size = new Size(Controller.load_s[i].Whight, Controller.load_s[i].Height);
+                        }
+                        break;
+                }
             }
         }
 

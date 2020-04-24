@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using External_Controller;
 
 namespace Visual_Module
 {
@@ -54,7 +55,7 @@ namespace Visual_Module
             open.ShowDialog();
             try
             {
-                External_Controller.Controller.name_of_now_project = open.SafeFileName;
+                External_Controller.Controller.name_of_now_project = open.SafeFileName.Split('.')[0];
                 External_Controller.Controller.path_of_now_project = open.FileName.Replace(open.SafeFileName, "");
                 main.Show();
                 Close();
@@ -63,6 +64,7 @@ namespace Visual_Module
             {
                 MessageBox.Show("Ошибка загрузки файла", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            main.Load_save();
         }
     }
 }
