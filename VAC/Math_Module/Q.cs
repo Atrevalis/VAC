@@ -15,6 +15,9 @@ namespace Math_Module
             try
             {
                 Numerator = new Z(first);
+                if (second[0] == "0")
+                Denominator = null;
+                else
                 Denominator = new N(second);
                 RED_Q_Q();
             }
