@@ -51,32 +51,38 @@ namespace Math_Module
         {
             try
             {
-                Ms = new List<M>();
-                M temp = new M();
-                List<M> copy = new List<M>();
-                copy = M;
+               Ms = new List<M>();
+               M temp = new M();
+               M t = new M();
 
-                int check = 0;
-                for (int i = 0; i < M.Count; i++)
+               int check;
+            for (int i= 0; i < M.Count; i++)
+            {
+                temp = M[i];
+                check = i;
+                for (int j = i; j < M.Count; j++)
                 {
-                    temp = copy[0];
-                    for (int j = 0; j < copy.Count; j++)
+                    if (N.COM_NN_D(temp.degree, M[j].degree) == 2)
+                        continue;
+                    else if (N.COM_NN_D(temp.degree, M[j].degree) == 1)
                     {
-                        if (N.COM_NN_D(temp.degree, copy[j].degree) == 2)
-                            continue;
-                        else if (N.COM_NN_D(temp.degree, copy[j].degree) == 1)
-                        {
-                            temp = copy[j];
-                            check = j;
-                        }
-                        else if (N.COM_NN_D(temp.degree, copy[j].degree) == 0)
-                            continue;
+                        temp = M[j];
+                        check = j;
                     }
-                    Ms.Add(temp);
-                    copy.RemoveAt(check);
-
-                    check = 0;
+                    else if (N.COM_NN_D(temp.degree, M[j].degree) == 0)
+                        continue;
                 }
+
+                if (check != i)
+                {
+                    t = M[i];
+                    M[i] = temp;
+                    M[check] = t;
+                }
+            }
+
+            for (int i = 0; i < M.Count; i++)
+                Ms.Add(M[i]);
             }
             catch { throw; }
         }
