@@ -607,86 +607,47 @@ namespace Math_Module
 
         private P NMR_P_P()
         {
-            List<P> mnoj = null;
-            P now = this.Clone();
-            P i = null;
+            List<Q> roots = this.root;
+            List<Q> answer = null;
+            P result = null;
+            int i = 0;
+            int j;
+            while (i < roots.Count)
+            {
+                for (j = 0;j < answer.Count;j++ )
+                {
+                    if(roots[i].COM(answer[j]) == 0)
+                    {
+                        break;
+                    }
+                }
+                if (roots[i].COM(answer[j]) == 0)
+                {
+                    i++;
+                    break;
+                }
+                answer.Add(roots[i]);
+                i++;
+            }
             List<string> zero = new List<string>();
             zero.Add("0");
             N q = new N(zero);
             List<string> one = new List<string>();
             one.Add("1");
             N l = new N(one);
-            N f;
-            M there;
-            M last = now.Ms[now.Ms.Count() - 1];
-            P hero;
-            M x1;
-            M x0;
-            x1.coef = (Z)l;
-            x1.degree = l;
-            x0.coef = (Z)l;
-            x0.degree = q;
-            N z = new N(zero);
-            M srav;
-            srav.coef = (Z)z;
-            srav.degree = z;
-            P srav1 = null;
-            P srav2 = null;
-            srav1.Ms.Add(srav);
-            M g;
-            g.coef = (Z)q;
-            g.degree = q;
-            P c = null; //nol?
-            c.Ms.Add(g);
-            P v = null; //odin?
-            v.Ms.Add(x0);
-            List<string> del = new List<string>();
-            if (last.degree != q)
+            M mnoj;
+            mnoj.coef = (Z)l;
+            mnoj.degree = l;
+            result.Ms.Add(mnoj);
+            mnoj.coef = answer[0];
+            mnoj.degree = q;
+            result.Ms.Add(mnoj);
+            P mnoj1 = result.Clone();
+            for (int m = 1;m < (answer.Count - 1);m++)
             {
-                f = last.degree;
-                for (int a = 0; a < now.Ms.Count(); a++)
-                {
-                    there = now.Ms[a];
-                    there.degree -= f;
-                    now.Ms[a] = there;
-                }
-            }
-            srav2.Ms.Add(last);
-            while ((now.DER as P).Ms.Count() > 1)
-            {
-                while (COM_PP_D(srav1, srav2) == 1)
-                {
-                    del.Clear();
-                    srav1 += v;
-                    if ((srav1 % srav2) == c)
-                    {
-                        hero = srav1;
-                        if (now % hero == c)
-                        {
-                            now /= hero;
-                            i = hero;
-                            hero.Ms.Clear();
-                            for (int j = 0; j < mnoj.Count(); j++)
-                            {
-                                if (COM_PP_D(i, mnoj[j]) == 0)
-                                {
-                                    break;
-                                }
-                                if ((COM_PP_D(i, mnoj[j]) != 0) && (j == (mnoj.Count() - 1)))
-                                {
-                                    mnoj.Add(i);
-                                    break;
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-
-            P result = mnoj[0];
-            for (int s = 1; s < mnoj.Count(); s++)
-            {
-                result *= mnoj[s];
+                mnoj.coef = answer[m];
+                mnoj1.Ms[1] = mnoj;
+                result *= mnoj1;
             }
             return result;
         }
