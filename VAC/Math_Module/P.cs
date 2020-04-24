@@ -52,31 +52,26 @@ namespace Math_Module
             try
             {
                Ms = new List<M>();
-               M temp = new M();
-               M t = new M();
+            M t;
 
-               int check;
+            int check;
             for (int i= 0; i < M.Count; i++)
             {
-                temp = M[i];
                 check = i;
                 for (int j = i; j < M.Count; j++)
                 {
-                    if (N.COM_NN_D(temp.degree, M[j].degree) == 2)
+                    if (N.COM_NN_D(M[check].degree, M[j].degree) == 2)
                         continue;
-                    else if (N.COM_NN_D(temp.degree, M[j].degree) == 1)
-                    {
-                        temp = M[j];
+                    else if (N.COM_NN_D(M[check].degree, M[j].degree) == 1)
                         check = j;
-                    }
-                    else if (N.COM_NN_D(temp.degree, M[j].degree) == 0)
+                    else if (N.COM_NN_D(M[check].degree, M[j].degree) == 0)
                         continue;
                 }
 
                 if (check != i)
                 {
-                    t = M[i];
-                    M[i] = temp;
+                    t = new M (M[i].coef, M[i].degree);
+                    M[i] = M[check];
                     M[check] = t;
                 }
             }
