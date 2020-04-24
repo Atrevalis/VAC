@@ -16,6 +16,14 @@ namespace External_module
         protected List<Working_data> up_connection = new List<Working_data>();
         public List<if_operator> if_Operators = new List<if_operator>();
 
+        public int Count_of_up_connection
+        {
+            get
+            {
+                return count_of_up_connection;
+            }
+        }
+
         public override string name
         {
             get

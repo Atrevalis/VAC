@@ -10,11 +10,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MVS_Controller;
 using External_Controller;
+using Interpretation_Controller;
 
 namespace Visual_Module
 {
     public partial class Main_Window : Form
     {
+        int progress = 0;
         static Point Mouse_pos = new Point(0, 0);
         static bool panel_move = false;
         static float zoom = 1;
@@ -152,12 +154,17 @@ namespace Visual_Module
                 Refresh();
                 Noda.Paintt = false;
             }
+            if(Interpretator.progress != progress)
+            {
+                progress = Interpretator.progress;
+                toolStripProgressBar1.Value = progress;
+            }
         }
 
 
         private void toolStripMenuItem7_Click(object sender, EventArgs e)
         {
-            Working_data working_Data = new Working_data(this, panel1);
+            MVS_Controller.Working_data working_Data = new MVS_Controller.Working_data(this, panel1);
             string[] text = null;
             Controller.Create_new_Nod("N", "Data", working_Data, ref text);
             working_Data.label.Text = "N";
@@ -167,7 +174,7 @@ namespace Visual_Module
 
         private void toolStripMenuItem10_Click(object sender, EventArgs e)
         {
-            Working_data working_Data = new Working_data(this, panel1);
+            MVS_Controller.Working_data working_Data = new MVS_Controller.Working_data(this, panel1);
             string[] text = null;
             Controller.Create_new_Nod("Z", "Data", working_Data, ref text);
             working_Data.label.Text = "Z";
@@ -177,7 +184,7 @@ namespace Visual_Module
 
         private void toolStripMenuItem11_Click(object sender, EventArgs e)
         {
-            Working_data working_Data = new Working_data(this, panel1);
+            MVS_Controller.Working_data working_Data = new MVS_Controller.Working_data(this, panel1);
             string[] text = null;
             Controller.Create_new_Nod("Q", "Data", working_Data, ref text);
             working_Data.label.Text = "Q";
@@ -187,7 +194,7 @@ namespace Visual_Module
 
         private void toolStripMenuItem12_Click(object sender, EventArgs e)
         {
-            Working_data working_Data = new Working_data(this, panel1);
+            MVS_Controller.Working_data working_Data = new MVS_Controller.Working_data(this, panel1);
             string[] text = null;
             Controller.Create_new_Nod("P", "Data", working_Data, ref text);
             working_Data.label.Text = "P";
@@ -197,7 +204,7 @@ namespace Visual_Module
 
         private void модульЧислаToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Working_data working_Data = new Working_data(this, panel1);
+            MVS_Controller.Working_data working_Data = new MVS_Controller.Working_data(this, panel1);
             string[] text = null;
             Controller.Create_new_Nod("ABS", "Uno_operator", working_Data, ref text);
             working_Data.label.Text = "ABS";
@@ -207,7 +214,7 @@ namespace Visual_Module
 
         private void минусToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Working_data working_Data = new Working_data(this, panel1);
+            MVS_Controller.Working_data working_Data = new MVS_Controller.Working_data(this, panel1);
             string[] text = null;
             Controller.Create_new_Nod("(-1)", "Uno_operator", working_Data, ref text);
             working_Data.label.Text = "(-1)";
@@ -217,7 +224,7 @@ namespace Visual_Module
 
         private void производнаяToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Working_data working_Data = new Working_data(this, panel1);
+            MVS_Controller.Working_data working_Data = new MVS_Controller.Working_data(this, panel1);
             string[] text = null;
             Controller.Create_new_Nod("DIF", "Uno_operator", working_Data, ref text);
             working_Data.label.Text = "f '(x)";
@@ -227,7 +234,7 @@ namespace Visual_Module
 
         private void старшийКоэфицентToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Working_data working_Data = new Working_data(this, panel1);
+            MVS_Controller.Working_data working_Data = new MVS_Controller.Working_data(this, panel1);
             string[] text = null;
             Controller.Create_new_Nod("LED", "Uno_operator", working_Data, ref text);
             working_Data.label.Text = "LED";
@@ -237,7 +244,7 @@ namespace Visual_Module
 
         private void степеньПолиномаToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Working_data working_Data = new Working_data(this, panel1);
+            MVS_Controller.Working_data working_Data = new MVS_Controller.Working_data(this, panel1);
             string[] text = null;
             Controller.Create_new_Nod("deg", "Uno_operator", working_Data, ref text);
             working_Data.label.Text = "deg";
@@ -247,7 +254,7 @@ namespace Visual_Module
 
         private void вынесениеНОКЧислителяИНОДЗнаменателяToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Working_data working_Data = new Working_data(this, panel1);
+            MVS_Controller.Working_data working_Data = new MVS_Controller.Working_data(this, panel1);
             string[] text = null;
             Controller.Create_new_Nod("FAC", "Uno_operator", working_Data, ref text);
             working_Data.label.Text = "НОД/\nНОК";
@@ -258,7 +265,7 @@ namespace Visual_Module
 
         private void toolStripMenuItem19_Click(object sender, EventArgs e)
         {
-            Working_data working_Data = new Working_data(this, panel1);
+            MVS_Controller.Working_data working_Data = new MVS_Controller.Working_data(this, panel1);
             string[] text = null;
             Controller.Create_new_Nod("Down", "Uno_operator", working_Data, ref text);
             working_Data.label.Text = "⊆";
@@ -268,7 +275,7 @@ namespace Visual_Module
 
         private void toolStripMenuItem20_Click(object sender, EventArgs e)
         {
-            Working_data working_Data = new Working_data(this, panel1);
+            MVS_Controller.Working_data working_Data = new MVS_Controller.Working_data(this, panel1);
             string[] text = null;
             Controller.Create_new_Nod("up", "Uno_operator", working_Data, ref text);
             working_Data.label.Text = "∈";
@@ -278,7 +285,7 @@ namespace Visual_Module
 
         private void toolStripMenuItem18_Click(object sender, EventArgs e)
         {
-            Working_data working_Data = new Working_data(this, panel1);
+            MVS_Controller.Working_data working_Data = new MVS_Controller.Working_data(this, panel1);
             string[] text = null;
             Controller.Create_new_Nod("-", "Bin_operator", working_Data, ref text);
             working_Data.label.Text = "SUB";
@@ -288,7 +295,7 @@ namespace Visual_Module
 
         private void делениеToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Working_data working_Data = new Working_data(this, panel1);
+            MVS_Controller.Working_data working_Data = new MVS_Controller.Working_data(this, panel1);
             string[] text = null;
             Controller.Create_new_Nod("/", "Bin_operator", working_Data, ref text);
             working_Data.label.Text = "DIV";
@@ -298,7 +305,7 @@ namespace Visual_Module
 
         private void остатокОтДеленияToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Working_data working_Data = new Working_data(this, panel1);
+            MVS_Controller.Working_data working_Data = new MVS_Controller.Working_data(this, panel1);
             string[] text = null;
             Controller.Create_new_Nod("%", "Bin_operator", working_Data, ref text);
             working_Data.label.Text = "MOD";
@@ -308,7 +315,7 @@ namespace Visual_Module
 
         private void суммаToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Working_data working_Data = new Working_data(this, panel1);
+            MVS_Controller.Working_data working_Data = new MVS_Controller.Working_data(this, panel1);
             string[] text = null;
             Controller.Create_new_Nod("+", "N_operator", working_Data, ref text);
             working_Data.label.Text = "∑";
@@ -318,7 +325,7 @@ namespace Visual_Module
 
         private void произведениеToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Working_data working_Data = new Working_data(this, panel1);
+            MVS_Controller.Working_data working_Data = new MVS_Controller.Working_data(this, panel1);
             string[] text = null;
             Controller.Create_new_Nod("*", "N_operator", working_Data, ref text);
             working_Data.label.Text = "Π";
@@ -328,7 +335,7 @@ namespace Visual_Module
 
         private void нОДToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Working_data working_Data = new Working_data(this, panel1);
+            MVS_Controller.Working_data working_Data = new MVS_Controller.Working_data(this, panel1);
             string[] text = null;
             Controller.Create_new_Nod("НОД", "N_operator", working_Data, ref text);
             working_Data.label.Text = "НОД";
@@ -338,7 +345,7 @@ namespace Visual_Module
 
         private void нОКToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Working_data if_Operator = new Working_data(this, panel1);
+            MVS_Controller.Working_data if_Operator = new MVS_Controller.Working_data(this, panel1);
             string[] text = null;
             Controller.Create_new_Nod("НОД", "N_operator", if_Operator, ref text);
             if_Operator.label.Text = "НОК";
@@ -348,7 +355,7 @@ namespace Visual_Module
 
         private void сравнениеToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if_operator if_Operator = new if_operator(this, panel1);
+            MVS_Controller.if_operator if_Operator = new MVS_Controller.if_operator(this, panel1);
             string[] text = null;
             Controller.Create_new_Nod("COM_NN_D", "if_operator", if_Operator, ref text);
             if_Operator.label.Text = "><=";
@@ -359,7 +366,7 @@ namespace Visual_Module
 
         private void определениеЗнакаToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if_operator if_Operator = new if_operator(this, panel1);
+            MVS_Controller.if_operator if_Operator = new MVS_Controller.if_operator(this, panel1);
             string[] text = null;
             Controller.Create_new_Nod("isDown", "if_operator", if_Operator, ref text);
             if_Operator.label.Text = "isDown";
@@ -388,7 +395,7 @@ namespace Visual_Module
             {
                 for (int j = 0; j < Controller.working_Dates[i].information.down_Contacted.Count; j++)
                 {
-                    Working_data data = Controller.working_Dates[i].Visul as Working_data;
+                    MVS_Controller.Working_data data = Controller.working_Dates[i].Visul as MVS_Controller.Working_data;
                     Noda noda = null;
                     for (int k = 0; k < Controller.nods.Count; k++)
                     {
@@ -405,7 +412,7 @@ namespace Visual_Module
             {
                 for(int j = 0; j < Controller.if_Operators[i].information.exits.Length; j++)
                 {
-                    Button if_ = (Controller.if_Operators[i].Visul as if_operator).down_contacts[j];
+                    Button if_ = (Controller.if_Operators[i].Visul as MVS_Controller.if_operator).down_contacts[j];
                     for(int k = 0; k < Controller.if_Operators[i].information.exits[j].Count; k++)
                     {
                         Noda noda = null;

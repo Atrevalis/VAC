@@ -123,6 +123,14 @@ namespace Interpretation_Controller
                             case "P":
                                 {
                                     s = s.Replace(" ", "");
+                                    for (int a = 0; a < s.Length; a++)
+                                    {
+                                        if(s[a]=='x' && (a == 0 || s[a-1] == '+' || s[a-1] == '-'))
+                                        {
+                                           s = s.Insert(a, "1");
+                                            a++;
+                                        }
+                                    }
                                     s = s.Replace('+', ' ');
                                     s = s.Replace("-", " -");
                                     s = s.Replace("x^", " ");
@@ -187,7 +195,7 @@ namespace Interpretation_Controller
                 outp.Close();
                 return;
             }
-            progress = 100;
+            progress = 10;
             ifs = new List<if_operator>();
             for(int i = 0; i < Controller.if_Operators.Count; i++)
             {
@@ -208,9 +216,9 @@ namespace Interpretation_Controller
                                 }
                                 if (ifs[k].path >= 0)
                                 {
+                                    isCorrect = false;
                                     for (int q = 0; q < Controller.results[i].information.if_Operators[j].exits[ifs[k].path].Count; q++)
                                     {
-                                        isCorrect = false;
                                         if (Controller.results[i].information.if_Operators[j].exits[ifs[k].path][q] == Controller.results[i].information)
                                         {
                                             isCorrect = true;
@@ -221,7 +229,7 @@ namespace Interpretation_Controller
                                 }
                                 else
                                 {
-                                    isCorrect = true;
+                                    isCorrect = false;
                                 }
                                 break;
                             }
@@ -249,16 +257,19 @@ namespace Interpretation_Controller
                             }
                             else
                             {
-                                MessageBox.Show("Результат № " + i + "Не получил данных, и в выводе не учавствует", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                MessageBox.Show("Результат №  " + i+1 + "Не получил данных, и в выводе не учавствует", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             }
                         }
                     }
+                    progress += 90 / Controller.results.Count;
 
             }
             reader.Close();
             writer.Close();
             inp.Close();
             outp.Close();
+            MessageBox.Show("Интерпритация выполнена успешно", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            progress = 0;
         }
 
         public static void DFS_for_if(if_operator if_)
@@ -303,7 +314,7 @@ namespace Interpretation_Controller
             try
             {
                 List<int> indexes = new List<int>();
-                for (int k = 0; k < if_.info.information.up_connection.Count;)
+                for (int k = 0; k < if_.info.information.up_connection.Count; k++)
                 {
                     for (int j = 0; j < Data.Count; j++)
                     {
