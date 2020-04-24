@@ -380,7 +380,7 @@ namespace Math_Module
                 num.Add("1"); denum.Add("1"); zero.Add("0");
                 if (value.Ms[i].coef.COM(new Q(num, denum)) != 0)
                 {
-                    if (value.Ms[i].coef.POZ_Q_D == 1) list.Add(" -");
+                    if (value.Ms[i].coef.POZ_Q_D == 1) ;
                     else if (i > 0) list.Add(" +");
                     for (int j = 0; j < ((List<string>)value.Ms[i].coef).Count; j++)
                     {

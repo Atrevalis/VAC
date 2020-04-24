@@ -239,7 +239,7 @@ namespace Interpretation_Controller
                         }
                         if(!isCorrect)
                         {
-                            MessageBox.Show("Результат № " + i+1 + "Не прошел одну из проверок условий, и в выводе не учавствует", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show("Результат № " + (i+1) + "Не прошел одну из проверок условий, и в выводе не учавствует", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             break;
                         }
                     }
@@ -260,7 +260,7 @@ namespace Interpretation_Controller
                             }
                             else
                             {
-                                MessageBox.Show("Результат №  " + i+1 + "Не получил данных, и в выводе не учавствует", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                MessageBox.Show("Результат №  " + (i+1) + "Не получил данных, и в выводе не учавствует", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             }
                         }
                     }

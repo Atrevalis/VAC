@@ -103,6 +103,22 @@ namespace Math_Module
             }
         }
 
+        public Z Numm
+        {
+            get
+            {
+                return Numerator.Clone();
+            }
+        }
+
+        public N Denumm
+        {
+            get
+            {
+                return Denominator.Clone();
+            }
+        }
+
         public override Math_Field ABS
         {
             get

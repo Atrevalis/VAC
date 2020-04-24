@@ -143,7 +143,83 @@ namespace Visual_Module
             }
             if(Noda.enter != null)
             {
-                toolStripStatusLabel1.Text = Noda.enter.ToString();
+                string s = "";
+                for(int i = 0; i < Controller.nods.Count; i++)
+                {
+                    if(Controller.nods[i].Visul == Noda.enter)
+                    {
+                        s += "Нода № " + (i + 1);
+                        switch(Controller.nods[i].information.type)
+                        {
+                            case "if":
+                                {
+                                    s += ", Зависит от нод № ";
+                                    for(int j = 0; j < (Controller.nods[i].information as External_module.if_operator).up_connection.Count; j++)
+                                    {
+                                        for(int k = 0; k < Controller.nods.Count; k++)
+                                        {
+                                            if((Controller.nods[i].information as External_module.if_operator).up_connection[j] == Controller.nods[k].information)
+                                            {
+                                                s += (k + 1) + ((j+1< (Controller.nods[i].information as External_module.if_operator).up_connection.Count) ? ", " : "");
+                                                break;
+                                            }
+                                        }
+                                    }
+                                }
+                                break;
+                            case "Result":
+                                {
+                                    s += ", Зависит от ноды №  ";
+                                        for (int k = 0; k < Controller.nods.Count; k++)
+                                        {
+                                            if ((Controller.nods[i].information as External_module.Result).up_Conected == Controller.nods[k].information)
+                                            {
+                                                s += (k + 1) + ", ";
+                                                break;
+                                            }
+                                        }
+                                        for(int k = 0; k < Controller.results.Count; k++)
+                                        {
+                                            if((Controller.nods[i].information as External_module.Result) == Controller.results[k].information)
+                                            {
+                                                s += "№ выхода для выода " + (k+1);
+                                            }
+                                        }
+                                }
+                                break;
+                            case "operator":
+                                {
+                                    s += ", Зависит от нод № ";
+                                    for (int j = 0; j < (Controller.nods[i].information as External_module.Operators).up_Conection.Count; j++)
+                                    {
+                                        for (int k = 0; k < Controller.nods.Count; k++)
+                                        {
+                                            if ((Controller.nods[i].information as External_module.Operators).up_Conection[j] == Controller.nods[k].information)
+                                            {
+                                                s += (k + 1) + ((j + 1 < (Controller.nods[i].information as External_module.Operators).up_Conection.Count) ? ", " : "");
+                                                break;
+                                            }
+                                        }
+                                    }
+                                }
+                                break;
+                            case "Data":
+                                {
+                                    for(int j = 0; j < Controller.dates.Count; j++)
+                                    {
+                                        if ((Controller.nods[i].information as External_module.Data) == Controller.dates[j].information)
+                                        {
+                                            s += ", № входа данных " + (j + 1);
+                                        }
+                                    }
+                                }
+                                break;
+                        }
+                        break;
+
+                    }
+                }
+                toolStripStatusLabel1.Text = s;
             }
             else
             {
