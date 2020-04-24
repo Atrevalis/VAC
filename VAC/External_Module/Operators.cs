@@ -57,7 +57,7 @@ namespace External_module
         {
             set
             {
-                if (up_connection.Count < count_of_up_connection)
+                if (up_connection.Count < count_of_up_connection || count_of_up_connection == -1)
                 {
                     up_connection.Add(value);
                 }

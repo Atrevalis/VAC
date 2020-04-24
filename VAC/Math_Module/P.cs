@@ -49,32 +49,36 @@ namespace Math_Module
 
         public P(List<M> M)
         {
-            Ms = new List<M>();
-            M temp = new M();
-            List<M> copy = new List<M>();
-            copy = M;
-
-            int check = 0;
-            for (int i= 0; i < M.Count; i++)
+            try
             {
-                temp = copy[0];
-                for (int j = 0; j < copy.Count; j++)
-                {
-                    if (N.COM_NN_D(temp.degree, copy[j].degree) == 2)
-                        continue;
-                    else if (N.COM_NN_D(temp.degree, copy[j].degree) == 1)
-                    {
-                        temp = copy[j];
-                        check = j;
-                    }
-                    else if (N.COM_NN_D(temp.degree, copy[j].degree) == 0)
-                        continue;
-                }
-                Ms.Add(temp);
-                copy.RemoveAt(check);
+                Ms = new List<M>();
+                M temp = new M();
+                List<M> copy = new List<M>();
+                copy = M;
 
-                check = 0;
+                int check = 0;
+                for (int i = 0; i < M.Count; i++)
+                {
+                    temp = copy[0];
+                    for (int j = 0; j < copy.Count; j++)
+                    {
+                        if (N.COM_NN_D(temp.degree, copy[j].degree) == 2)
+                            continue;
+                        else if (N.COM_NN_D(temp.degree, copy[j].degree) == 1)
+                        {
+                            temp = copy[j];
+                            check = j;
+                        }
+                        else if (N.COM_NN_D(temp.degree, copy[j].degree) == 0)
+                            continue;
+                    }
+                    Ms.Add(temp);
+                    copy.RemoveAt(check);
+
+                    check = 0;
+                }
             }
+            catch { throw; }
         }
         
         

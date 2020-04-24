@@ -43,6 +43,7 @@ namespace Interpretation_Controller
     {
         static List<Working_data> Data;
         static List<if_operator> ifs;
+        static bool check;
 
         public static int progress = 0;
 
@@ -50,6 +51,7 @@ namespace Interpretation_Controller
         {
             string input = Controller.input;
             string output = Controller.output;
+            check = Controller.Auto;
             FileStream inp = null, outp = null;
             try
             {
@@ -572,11 +574,34 @@ namespace Interpretation_Controller
                             {
                                 if(Data[indexes[i]].isTrue)
                                 {
+                                    if(Math_Field.idCOM(wd.data, Data[indexes[i]].data))
+                                    {
+                                        Math_Field.id_to_normal(wd.data, ref Data[indexes[i]].data);
+                                    }
+                                    else
+                                    {
+                                        Math_Field.id_to_normal(Data[indexes[i]].data, ref wd.data);
+                                    }
                                     switch(wd.info.information.name)
                                     {
-                                        case "":
+                                        case "+":
                                             {
-
+                                                wd.data = wd.data.ADD(Data[indexes[i]].data);
+                                            }
+                                            break;
+                                        case "*":
+                                            {
+                                                wd.data = wd.data.MUL(Data[indexes[i]].data);
+                                            }
+                                            break;
+                                        case "НОД":
+                                            {
+                                                wd.data = wd.data.GCF(Data[indexes[i]].data);
+                                            }
+                                            break;
+                                        case "НОК":
+                                            {
+                                                wd.data = wd.data.LCM(Data[indexes[i]].data);
                                             }
                                             break;
                                     }
@@ -589,7 +614,14 @@ namespace Interpretation_Controller
                             return;
                         }
                     }
-                }    
+                }
+                if(check)
+                {
+                    while(wd.data.isDown)
+                    {
+                        wd.data = wd.data.Dawn();
+                    }
+                }
             }
         }
     }
