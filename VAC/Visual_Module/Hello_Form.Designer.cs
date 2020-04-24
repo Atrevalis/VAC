@@ -1,4 +1,7 @@
-﻿namespace Visual_Module
+﻿using System;
+using System.IO;
+
+namespace Visual_Module
 {
     partial class Hello_Form
     {

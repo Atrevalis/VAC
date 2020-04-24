@@ -7,13 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.IO;
 
 namespace MVS_Controller
 {
     public partial class Noda : UserControl
     {
-        protected static Image butt_image = Image.FromFile(Directory.GetCurrentDirectory() + "\\Resources\\Image\\Start.png");
+        protected static Image butt_image = Image.FromFile(Application.StartupPath + "\\Resources\\Image\\Start.png");
         public static Button up_conected = null;
         public static Noda down_conected = null;
         public static Button conect_nod = null;

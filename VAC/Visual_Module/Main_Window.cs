@@ -11,17 +11,21 @@ using System.Windows.Forms;
 using MVS_Controller;
 using External_Controller;
 using Interpretation_Controller;
+using System.Diagnostics;
+
 
 namespace Visual_Module
 {
     public partial class Main_Window : Form
     {
+        string[] arg;
         int progress = 0;
         static Point Mouse_pos = new Point(0, 0);
         static bool panel_move = false;
         static float zoom = 1;
-        public Main_Window()
+        public Main_Window(string[] args)
         {
+            arg = args;
             InitializeComponent();
             timer1.Start();
         }
@@ -67,6 +71,7 @@ namespace Visual_Module
                             working_Data.Butt_ini(text);
                             working_Data.Show();
                             panel1.Controls.Add(working_Data);
+                            working_Data.BringToFront();
                             working_Data.Location = new Point(Controller.load_s[i].x, Controller.load_s[i].y);
                             working_Data.Size = new Size(Controller.load_s[i].Whight, Controller.load_s[i].Height);
                         }
@@ -79,6 +84,7 @@ namespace Visual_Module
                             working_Data.label.Text = Controller.load_s[i].text;
                             working_Data.Show();
                             panel1.Controls.Add(working_Data);
+                            working_Data.BringToFront();
                             working_Data.Location = new Point(Controller.load_s[i].x, Controller.load_s[i].y);
                             working_Data.Size = new Size(Controller.load_s[i].Whight, Controller.load_s[i].Height);
                         }
@@ -91,6 +97,7 @@ namespace Visual_Module
                             working_Data.label.Text = Controller.load_s[i].text.Split('!')[0];
                             working_Data.Show();
                             panel1.Controls.Add(working_Data);
+                            working_Data.BringToFront();
                             working_Data.Location = new Point(Controller.load_s[i].x, Controller.load_s[i].y);
                             working_Data.Size = new Size(Controller.load_s[i].Whight, Controller.load_s[i].Height);
                         }
@@ -103,6 +110,7 @@ namespace Visual_Module
                             working_Data.label.Text = Controller.load_s[i].text;
                             working_Data.Show();
                             panel1.Controls.Add(working_Data);
+                            working_Data.BringToFront();
                             working_Data.Location = new Point(Controller.load_s[i].x, Controller.load_s[i].y);
                             working_Data.Size = new Size(Controller.load_s[i].Whight, Controller.load_s[i].Height);
                         }
@@ -126,7 +134,7 @@ namespace Visual_Module
         private void Main_Window_Shown(object sender, EventArgs e)
         {
             Visible = false;
-            Hello_Form hello = new Hello_Form(this);
+            Hello_Form hello = new Hello_Form(this, arg);
             hello.Show();
         }
 
@@ -309,6 +317,7 @@ namespace Visual_Module
             working_Data.label.Text = "N";
             working_Data.Show();
             panel1.Controls.Add(working_Data);
+            working_Data.BringToFront();
         }
 
         private void toolStripMenuItem10_Click(object sender, EventArgs e)
@@ -319,6 +328,7 @@ namespace Visual_Module
             working_Data.label.Text = "Z";
             working_Data.Show();
             panel1.Controls.Add(working_Data);
+            working_Data.BringToFront();
         }
 
         private void toolStripMenuItem11_Click(object sender, EventArgs e)
@@ -329,6 +339,7 @@ namespace Visual_Module
             working_Data.label.Text = "Q";
             working_Data.Show();
             panel1.Controls.Add(working_Data);
+            working_Data.BringToFront();
         }
 
         private void toolStripMenuItem12_Click(object sender, EventArgs e)
@@ -339,6 +350,7 @@ namespace Visual_Module
             working_Data.label.Text = "P";
             working_Data.Show();
             panel1.Controls.Add(working_Data);
+            working_Data.BringToFront();
         }
 
         private void модульЧислаToolStripMenuItem_Click(object sender, EventArgs e)
@@ -349,6 +361,7 @@ namespace Visual_Module
             working_Data.label.Text = "ABS";
             working_Data.Show();
             panel1.Controls.Add(working_Data);
+            working_Data.BringToFront();
         }
 
         private void минусToolStripMenuItem_Click(object sender, EventArgs e)
@@ -359,6 +372,7 @@ namespace Visual_Module
             working_Data.label.Text = "(-1)";
             working_Data.Show();
             panel1.Controls.Add(working_Data);
+            working_Data.BringToFront();
         }
 
         private void производнаяToolStripMenuItem_Click(object sender, EventArgs e)
@@ -369,6 +383,7 @@ namespace Visual_Module
             working_Data.label.Text = "f'(x)";
             working_Data.Show();
             panel1.Controls.Add(working_Data);
+            working_Data.BringToFront();
         }
 
         private void старшийКоэфицентToolStripMenuItem_Click(object sender, EventArgs e)
@@ -379,6 +394,7 @@ namespace Visual_Module
             working_Data.label.Text = "LED";
             working_Data.Show();
             panel1.Controls.Add(working_Data);
+            working_Data.BringToFront();
         }
 
         private void степеньПолиномаToolStripMenuItem_Click(object sender, EventArgs e)
@@ -389,6 +405,7 @@ namespace Visual_Module
             working_Data.label.Text = "deg";
             working_Data.Show();
             panel1.Controls.Add(working_Data);
+            working_Data.BringToFront();
         }
 
         private void вынесениеНОКЧислителяИНОДЗнаменателяToolStripMenuItem_Click(object sender, EventArgs e)
@@ -399,6 +416,7 @@ namespace Visual_Module
             working_Data.label.Text = "НОД/\nНОК";
             working_Data.Show();
             panel1.Controls.Add(working_Data);
+            working_Data.BringToFront();
         }
 
 
@@ -410,6 +428,7 @@ namespace Visual_Module
             working_Data.label.Text = "⊆";
             working_Data.Show();
             panel1.Controls.Add(working_Data);
+            working_Data.BringToFront();
         }
 
         private void toolStripMenuItem20_Click(object sender, EventArgs e)
@@ -420,6 +439,7 @@ namespace Visual_Module
             working_Data.label.Text = "∈";
             working_Data.Show();
             panel1.Controls.Add(working_Data);
+            working_Data.BringToFront();
         }
 
         private void toolStripMenuItem18_Click(object sender, EventArgs e)
@@ -430,6 +450,7 @@ namespace Visual_Module
             working_Data.label.Text = "SUB";
             working_Data.Show();
             panel1.Controls.Add(working_Data);
+            working_Data.BringToFront();
         }
 
         private void делениеToolStripMenuItem_Click(object sender, EventArgs e)
@@ -440,6 +461,7 @@ namespace Visual_Module
             working_Data.label.Text = "DIV";
             working_Data.Show();
             panel1.Controls.Add(working_Data);
+            working_Data.BringToFront();
         }
 
         private void остатокОтДеленияToolStripMenuItem_Click(object sender, EventArgs e)
@@ -450,6 +472,7 @@ namespace Visual_Module
             working_Data.label.Text = "MOD";
             working_Data.Show();
             panel1.Controls.Add(working_Data);
+            working_Data.BringToFront();
         }
 
         private void суммаToolStripMenuItem_Click(object sender, EventArgs e)
@@ -460,6 +483,7 @@ namespace Visual_Module
             working_Data.label.Text = "∑";
             working_Data.Show();
             panel1.Controls.Add(working_Data);
+            working_Data.BringToFront();
         }
 
         private void произведениеToolStripMenuItem_Click(object sender, EventArgs e)
@@ -470,6 +494,7 @@ namespace Visual_Module
             working_Data.label.Text = "Π";
             working_Data.Show();
             panel1.Controls.Add(working_Data);
+            working_Data.BringToFront();
         }
 
         private void нОДToolStripMenuItem_Click(object sender, EventArgs e)
@@ -480,6 +505,7 @@ namespace Visual_Module
             working_Data.label.Text = "НОД";
             working_Data.Show();
             panel1.Controls.Add(working_Data);
+            working_Data.BringToFront();
         }
 
         private void нОКToolStripMenuItem_Click(object sender, EventArgs e)
@@ -490,6 +516,7 @@ namespace Visual_Module
             if_Operator.label.Text = "НОК";
             if_Operator.Show();
             panel1.Controls.Add(if_Operator);
+            if_Operator.BringToFront();
         }
 
         private void сравнениеToolStripMenuItem_Click(object sender, EventArgs e)
@@ -501,6 +528,7 @@ namespace Visual_Module
             if_Operator.Butt_ini(text);
             if_Operator.Show();
             panel1.Controls.Add(if_Operator);
+            if_Operator.BringToFront();
         }
 
         private void определениеЗнакаToolStripMenuItem_Click(object sender, EventArgs e)
@@ -512,6 +540,7 @@ namespace Visual_Module
             if_Operator.Butt_ini(text);
             if_Operator.Show();
             panel1.Controls.Add(if_Operator);
+            if_Operator.BringToFront();
         }
 
         private void toolStripMenuItem9_Click(object sender, EventArgs e)
@@ -522,6 +551,7 @@ namespace Visual_Module
             result.label.Text = "Вывод";
             result.Show();
             panel1.Controls.Add(result);
+            result.BringToFront();
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -602,6 +632,11 @@ namespace Visual_Module
         private void toolStripMenuItem17_Click(object sender, EventArgs e)
         {
             Interpretation_Controller.Interpretator.Interpretate();
+        }
+
+        private void справкаToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Process.Start(Application.StartupPath + "\\Resources\\Spravka.docx");
         }
     }
 }
