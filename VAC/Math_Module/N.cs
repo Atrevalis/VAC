@@ -275,21 +275,9 @@ namespace Math_Module
                     return result1; //возвращаем result1
                 }
             }
-            else //если второе больше первого
+            else
             {
-                if (!(first.NZER_N_B))
-                {
-                    N result = second.Clone(); //создаем временную переменную
-                    while (COM_NN_D(result, first) != 1) //пока первое больше второго выполняем цикл
-                    {
-                        div = DIV_NN_Dk(result, first);  //наращиваем div первыми цифрами деления
-                        result -= div * first; //выполняем последовательное понижение большего
-                        divres += div;
-                    }
-                    return divres; //возвращаем divres
-                }
-                else
-                    return null;
+                return divres;
             }
         }
 
