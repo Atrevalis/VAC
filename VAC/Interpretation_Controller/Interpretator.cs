@@ -525,7 +525,70 @@ namespace Interpretation_Controller
                 }
                 else
                 {
+                    if(w.Count_of_up_connection == 2)
+                    {
+                        if(Math_Field.idCOM(Data[indexes[0]].data, Data[indexes[1]].data))
+                        {
+                            Math_Field.id_to_normal(Data[indexes[0]].data, ref Data[indexes[1]].data);
+                        }
+                        else
+                        {
+                            Math_Field.id_to_normal(Data[indexes[1]].data, ref Data[indexes[0]].data);
+                        }
+                        switch(wd.info.information.name)
+                        {
+                            case "-":
+                                {
+                                    wd.data = Data[indexes[0]].data.SUB(Data[indexes[1]].data);
+                                }
+                                break;
+                            case "/":
+                                {
+                                    wd.data = Data[indexes[0]].data.DIV(Data[indexes[1]].data);
+                                }
+                                break;
+                            case "%":
+                                {
+                                    wd.data = Data[indexes[0]].data.MOD(Data[indexes[1]].data);
+                                }
+                                break;
+                        }
+                    }
+                    else
+                    {
+                        int fall = -1;
+                        for(int i = 0; i < indexes.Count; i++)
+                        {
+                            if(Data[indexes[i]].isTrue)
+                            {
+                                fall = i;
+                                break;
+                            }
+                        }
+                        if(fall != -1)
+                        {
+                            wd.data = Data[indexes[fall]].data;
+                            for(int i = fall + 1; i < indexes.Count; i++)
+                            {
+                                if(Data[indexes[i]].isTrue)
+                                {
+                                    switch(wd.info.information.name)
+                                    {
+                                        case "":
+                                            {
 
+                                            }
+                                            break;
+                                    }
+                                }
+                            }
+                        }
+                        else
+                        {
+                            wd.isTrue = false;
+                            return;
+                        }
+                    }
                 }    
             }
         }

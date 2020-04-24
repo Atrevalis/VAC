@@ -347,7 +347,7 @@ namespace Visual_Module
         {
             MVS_Controller.Working_data if_Operator = new MVS_Controller.Working_data(this, panel1);
             string[] text = null;
-            Controller.Create_new_Nod("НОД", "N_operator", if_Operator, ref text);
+            Controller.Create_new_Nod("НОК", "N_operator", if_Operator, ref text);
             if_Operator.label.Text = "НОК";
             if_Operator.Show();
             panel1.Controls.Add(if_Operator);
