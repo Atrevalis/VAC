@@ -125,6 +125,73 @@ namespace Math_Module
             }
         }
 
+        public List<Q> root
+        {
+            get
+            {
+                List<Q> otvet = null;
+                P now = this.Clone();
+                M tek = now.Ms[0];
+                N nok = tek.coef.Den;
+                for (int i = 1; i < (now.Ms.Count - 1); i++)
+                {
+                    tek = now.Ms[i];
+                    nok = N.LCM_NN_N(nok, tek.coef.Den);
+                }
+                List<string> zero = new List<string>();
+                zero.Add("0");
+                N q = new N(zero);
+                M mnoj;
+                mnoj.degree = q;
+                Q coef = (Z)nok;
+                mnoj.coef = coef;
+                P norma = null;
+                norma.Ms.Add(mnoj);
+                now *= norma;
+                List<string> one = new List<string>();
+                one.Add("1");
+                N l = new N(one);
+                mnoj.coef = (Z)l;
+                mnoj.degree = l;
+                P Del = null;
+                Del.Ms.Add(mnoj);
+                Z odin = l;
+                mnoj = now.Ms[now.Ms.Count - 1];
+                Z srav = mnoj.coef.Num;
+                if (!srav.isDown)
+                {
+                    srav = -srav;
+                }
+                mnoj = now.Ms[0];
+                Z srav1 = mnoj.coef.Num;
+                if (!srav1.isDown)
+                {
+                    srav1 = -srav1;
+                }
+                mnoj.degree = q;
+                mnoj.coef = (Z)q;
+                P ost = null;
+                ost.Ms.Add(mnoj);
+                Del.Ms.Add(mnoj);
+                for (Z j = -srav; j.COM(srav) == 1; j += odin)
+                {
+                    for (Z f = -srav1; f.COM(srav1) == 1; f += odin)
+                    {
+                        mnoj.coef = j;
+                        mnoj.coef /= f;
+                        Del.Ms[1] = mnoj;
+                        if (now % Del == ost)
+                        {
+                            mnoj.coef = -mnoj.coef;
+                            otvet.Add(mnoj.coef);
+                            now /= Del;
+                        }
+                    }
+                }
+                return otvet;
+            }
+        }
+
         public override Math_Field LED // return Q
         {
             get
@@ -537,7 +604,6 @@ namespace Math_Module
             }
             return result;
         }
-
 
         private P NMR_P_P()
         {
