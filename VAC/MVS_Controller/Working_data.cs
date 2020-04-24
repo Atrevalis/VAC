@@ -13,7 +13,7 @@ namespace MVS_Controller
 {
     public partial class Working_data : Noda
     {
-        Button down_contacts = new Button();
+        public Button down_contacts = new Button();
         public Working_data(Form parent, Panel panel) : base(parent, panel)
         {
             InitializeComponent();

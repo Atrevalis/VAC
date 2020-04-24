@@ -62,8 +62,9 @@ namespace Visual_Module
                         {
                             MVS_Controller.if_operator working_Data = new MVS_Controller.if_operator(this, panel1);
                             string[] text = null;
-                            Controller.Create_new_Nod(Controller.load_s[i].name, Controller.load_s[i].type, working_Data, ref text);
+                            Controller.Create_new_Nod(Controller.load_s[i].name, "if_operator", working_Data, ref text);
                             working_Data.label.Text = Controller.load_s[i].text;
+                            working_Data.Butt_ini(text);
                             working_Data.Show();
                             panel1.Controls.Add(working_Data);
                             working_Data.Location = new Point(Controller.load_s[i].x, Controller.load_s[i].y);
@@ -74,7 +75,7 @@ namespace Visual_Module
                         {
                             MVS_Controller.Result working_Data = new MVS_Controller.Result(this, panel1);
                             string[] text = null;
-                            Controller.Create_new_Nod(Controller.load_s[i].name, Controller.load_s[i].type, working_Data, ref text);
+                            Controller.Create_new_Nod(Controller.load_s[i].name, "Result", working_Data, ref text);
                             working_Data.label.Text = Controller.load_s[i].text;
                             working_Data.Show();
                             panel1.Controls.Add(working_Data);
@@ -84,10 +85,10 @@ namespace Visual_Module
                         break;
                     case "operator":
                         {
-                            MVS_Controller.if_operator working_Data = new MVS_Controller.if_operator(this, panel1);
+                            MVS_Controller.Working_data working_Data = new MVS_Controller.Working_data(this, panel1);
                             string[] text = null;
-                            Controller.Create_new_Nod(Controller.load_s[i].name, Controller.load_s[i].type, working_Data, ref text);
-                            working_Data.label.Text = Controller.load_s[i].text;
+                            Controller.Create_new_Nod(Controller.load_s[i].name, Controller.load_s[i].text.Split('!')[1], working_Data, ref text);
+                            working_Data.label.Text = Controller.load_s[i].text.Split('!')[0];
                             working_Data.Show();
                             panel1.Controls.Add(working_Data);
                             working_Data.Location = new Point(Controller.load_s[i].x, Controller.load_s[i].y);
@@ -98,7 +99,7 @@ namespace Visual_Module
                         {
                             MVS_Controller.Working_data working_Data = new MVS_Controller.Working_data(this, panel1);
                             string[] text = null;
-                            Controller.Create_new_Nod(Controller.load_s[i].name, Controller.load_s[i].type, working_Data, ref text);
+                            Controller.Create_new_Nod(Controller.load_s[i].name, "Data", working_Data, ref text);
                             working_Data.label.Text = Controller.load_s[i].text;
                             working_Data.Show();
                             panel1.Controls.Add(working_Data);
@@ -108,6 +109,7 @@ namespace Visual_Module
                         break;
                 }
             }
+            Controller.Load_connect();
         }
 
         private void toolStripMenuItem4_Click(object sender, EventArgs e)
@@ -364,7 +366,7 @@ namespace Visual_Module
             MVS_Controller.Working_data working_Data = new MVS_Controller.Working_data(this, panel1);
             string[] text = null;
             Controller.Create_new_Nod("DIF", "Uno_operator", working_Data, ref text);
-            working_Data.label.Text = "f '(x)";
+            working_Data.label.Text = "f'(x)";
             working_Data.Show();
             panel1.Controls.Add(working_Data);
         }

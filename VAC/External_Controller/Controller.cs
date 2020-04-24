@@ -39,7 +39,31 @@ namespace External_Controller
             {
                 Control nod = nods[i].Visul as Control;
                 writer.WriteLine(nod.Location.X + " " + nod.Location.Y + " " + nod.Width + " " + nod.Height);
-                writer.WriteLine(nods[i].information.type + " " + nods[i].information.name + " " + (nods[i].Visul as MVS_Controller.Noda).label.Text);
+                if (nods[i].information.type != "operator")
+                {
+                    writer.WriteLine(nods[i].information.type + " " + nods[i].information.name + " " + (nods[i].Visul as MVS_Controller.Noda).label.Text);
+                }
+                else
+                {
+                    switch((nods[i].information as External_module.Operators).Count_of_up_connection)
+                    {
+                        case -1:
+                            {
+                                writer.WriteLine(nods[i].information.type + " " + nods[i].information.name + " " + (nods[i].Visul as MVS_Controller.Noda).label.Text + "!N_operator");
+                            }
+                            break;
+                        case 1:
+                            {
+                                writer.WriteLine(nods[i].information.type + " " + nods[i].information.name + " " + (nods[i].Visul as MVS_Controller.Noda).label.Text + "!Uno_operator");
+                            }
+                            break;
+                        case 2:
+                            {
+                                writer.WriteLine(nods[i].information.type + " " + nods[i].information.name + " " + (nods[i].Visul as MVS_Controller.Noda).label.Text + "Bin_operator");
+                            }
+                            break;
+                    }
+                }
             }
             writer.WriteLine();
             for(int i = 0; i < nods.Count; i++)
@@ -61,7 +85,7 @@ namespace External_Controller
                             writer.WriteLine();
                         }
                         break;
-                    case "if_operator":
+                    case "if":
                         {
                             for (int j = 0; j < (nods[i].information as External_module.if_operator).exits.Length; j++)
                             {
@@ -131,7 +155,33 @@ namespace External_Controller
 
         public static void Load_connect()
         {
-
+            int i = 0;
+            while(!reader.EndOfStream)
+            {
+                if (nods[i].information.type == "if")
+                {
+                    string[] ex = reader.ReadLine().Split('!');
+                    for (int k = 0; k < ex.Length; k++)
+                    {
+                        string[] con = ex[k].Split(' ');
+                        for (int j = 0; j < con.Length-1; j++)
+                        {
+                            new_Conect((nods[i].Visul as MVS_Controller.if_operator).down_contacts[k], (nods[Convert.ToInt32(con[j])].Visul as MVS_Controller.Noda));
+                        }
+                    }
+                }
+                else
+                {
+                    string[] con = reader.ReadLine().Split(' ');
+                    for (int j = 0; j < con.Length-1; j++)
+                    {
+                        new_Conect((nods[i].Visul as MVS_Controller.Working_data).down_contacts, (nods[Convert.ToInt32(con[j])].Visul as MVS_Controller.Noda));
+                    }
+                }
+                i++;
+            }
+            reader.Close();
+            file.Close();
         }
 
         public static void Delete(Control control)
@@ -266,7 +316,7 @@ namespace External_Controller
                 if (nods[i].Visul == second) second_obj = nods[i].information;
             }
 
-            if(first_obj.isDowncoonection && second_obj.isUpcoonection)
+            if(first_obj.isDowncoonection && (second_obj.isUpcoonection || first_obj.type == "if"))
             {
                 if(first_obj.type != "if" && second_obj.type != "if")
                 {
