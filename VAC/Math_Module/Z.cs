@@ -190,45 +190,16 @@ namespace Math_Module
         public static Z operator /(Z first, Z second) // DIV_ZZ_Z //есть тесты
         {
             Z res = first.Clone(); //задём временную переменную
-            Z res1 = second.Clone(); //задём времнную переменную
             res.isN = true;
-            res1.isN = true;
-            if (N.COM_NN_D(first.Abs, second.Abs) != 1) //если второе небольше первого
+            if (second.POZ_Z_D != 0)
             {
-                if (N.COM_NN_D(first.Abs, second.Abs) == 2) //если первое больше второго
-                {
-                    if (second.POZ_Z_D != 0)
-                    {
-                        res.Abs /= second.Abs; //выполняем деление
-                        if (first.isN != second.isN)
-                            res.isN = false; //присваимваем знак в случае их различия у делителя и делимого
-                        return res; //возвращаем div
-                    }
-                    else
-                        return null;
-                }
-                else //если первое равно второму
-                {
-                    List<string> one = new List<string>(); //создаем новый список 
-                    one.Add("1"); //добавляем туда единицу
-                    Z result = new Z(one); //задаём значение result
-                    if (first.isN != second.isN)
-                        result.isN = false; //присваимваем знак в случае их различия у делителя и делимого
-                    return result; //возвращаем result
-                }
+                res.Abs /= second.Abs; //выполняем деление
+                if (first.isN != second.isN)
+                    res.isN = false; //присваимваем знак в случае их различия у делителя и делимого
+                return res; //возвращаем div
             }
-            else //если второе больше первого
-            {
-                if (first.POZ_Z_D != 0)
-                {
-                    res1.Abs /= first.Abs; //выполняем деление
-                    if (first.isN != second.isN)
-                        res1.isN = false; //присваимваем знак в случае их различия у делителя и делимого
-                    return res1; //возвращаем div
-                }
-                else
-                    return null;
-            }
+            else
+                return null;
         }
 
         public static N operator %(Z first, Z second) // MOD_ZZ_Z //есть тесты
