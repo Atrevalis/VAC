@@ -49,41 +49,31 @@ namespace Math_Module
 
         public P(List<M> M)
         {
-            try
+            Ms = new List<M>();
+            M temp = new M();
+            List<M> copy = new List<M>();
+            copy = M;
+
+            int check = 0;
+            for (int i= 0; i < M.Count; i++)
             {
-                Ms = new List<M>();
-                M temp = new M();
-                List<M> copy = new List<M>();
-                copy = M;
-                int check = -1;
-                for (int j = 0; j < M.Count; j++)
+                temp = copy[0];
+                for (int j = 0; j < copy.Count; j++)
                 {
-                    temp = copy[j];
-                    for (int i = 0; i < M.Count; i++)
-                    {
-                        if (N.COM_NN_D(temp.degree, copy[i].degree) == 2)
-                            continue;
-                        else if (N.COM_NN_D(temp.degree, copy[i].degree) == 1)
-                        {
-                            temp = copy[i];
-                            check = i;
-                        }
-                        else if (N.COM_NN_D(temp.degree, copy[i].degree) == 0)
-                            continue;
-                    }
-                    Ms.Add(temp);
-                    if (check != -1)
+                    if (N.COM_NN_D(temp.degree, copy[j].degree) == 2)
+                        continue;
+                    else if (N.COM_NN_D(temp.degree, copy[j].degree) == 1)
                     {
                         temp = copy[j];
-                        copy[j] = copy[check];
-                        copy[check] = temp;
+                        check = j;
                     }
-                    check = -1;
+                    else if (N.COM_NN_D(temp.degree, copy[j].degree) == 0)
+                        continue;
                 }
-            }
-            catch
-            {
-                throw;
+                Ms.Add(temp);
+                copy.RemoveAt(check);
+
+                check = 0;
             }
         }
         
