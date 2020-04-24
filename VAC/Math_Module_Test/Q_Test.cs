@@ -367,11 +367,10 @@ namespace Math_Module_Test
             inputDenominator1.Add("15");
             inputDenominator1.Add("31732467");
 
-            outputNumerator.Add("1");// 
-            outputNumerator.Add("11806801");//         1 11806801 09309000
-            outputNumerator.Add("09309000");
-            outputDenominator.Add("31830266"); //        31830266 27260400
-            outputDenominator.Add("27260400");
+            outputNumerator.Add("74537867");// 
+            outputNumerator.Add("39539532");//         1 11806801 09309000
+            outputDenominator.Add("21220177"); //        31830266 27260400
+            outputDenominator.Add("51506917");
 
             Q x = new Q(inputNumerator, inputDenominator);
             Q i = new Q(inputNumerator1, inputDenominator1);
