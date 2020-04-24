@@ -73,113 +73,114 @@ namespace Interpretation_Controller
                     if (Controller.working_Dates[i].information.type == "Data")
                     {
                         s = reader.ReadLine();
-                        switch (Controller.dates[i].information.name)
+                        if (s == null) throw new Exception();
+                        switch (Controller.working_Dates[i].information.name)
                         {
                             case "N":
                                 {
-                                    List<string> dat = new List<string>();
-                                    for (int j = s.Length - 1, q = 1; j >= 0; j -= (int)N.uint_size_div, q++)
-                                    {
-                                        dat.Insert(0, s.Substring(s.Length - (int)(N.uint_size_div) * q >= 0 ? s.Length - (int)(N.uint_size_div) * q : 0, s.Length - (int)(N.uint_size_div) * q >= 0 ? (int)N.uint_size_div : s.Length % (int)N.uint_size_div));
-                                    }
-                                    Data.Add(new Working_data(new N(dat), Controller.working_Dates[i]));
+                                        List<string> dat = new List<string>();
+                                        for (int j = s.Length - 1, q = 1; j >= 0; j -= (int)N.uint_size_div, q++)
+                                        {
+                                            dat.Insert(0, s.Substring(s.Length - (int)(N.uint_size_div) * q >= 0 ? s.Length - (int)(N.uint_size_div) * q : 0, s.Length - (int)(N.uint_size_div) * q >= 0 ? (int)N.uint_size_div : s.Length % (int)N.uint_size_div));
+                                        }
+                                        Data.Add(new Working_data(new N(dat), Controller.working_Dates[i]));
                                 }
                                 break;
                             case "Z":
                                 {
-                                    List<string> dat = new List<string>();
-                                    for (int j = s.Length - 1, q = 1; j >= 0; j -= (int)N.uint_size_div, q++)
-                                    {
-                                        dat.Insert(0, s.Substring(s.Length - (int)(N.uint_size_div) * q >= 0 ? s.Length - (int)(N.uint_size_div) * q : 0, s.Length - (int)(N.uint_size_div) * q >= 0 ? (int)N.uint_size_div : s.Length % (int)N.uint_size_div));
-                                    }
-                                    Data.Add(new Working_data(new Z(dat), Controller.working_Dates[i]));
+                                        List<string> dat = new List<string>();
+                                        for (int j = s.Length - 1, q = 1; j >= 0; j -= (int)N.uint_size_div, q++)
+                                        {
+                                            dat.Insert(0, s.Substring(s.Length - (int)(N.uint_size_div) * q >= 0 ? s.Length - (int)(N.uint_size_div) * q : 0, s.Length - (int)(N.uint_size_div) * q >= 0 ? (int)N.uint_size_div : s.Length % (int)N.uint_size_div));
+                                        }
+                                        Data.Add(new Working_data(new Z(dat), Controller.working_Dates[i]));
                                 }
                                 break;
                             case "Q":
                                 {
-                                    string first = s.Split('/')[0];
-                                    string second;
-                                    try
-                                    {
-                                        second = s.Split('/')[1];
-                                    }
-                                    catch
-                                    {
-                                        second = "1";
-                                    }
-                                    List<string> dato = new List<string>();
-                                    for (int j = first.Length - 1, q = 1; j >= 0; j -= (int)N.uint_size_div, q++)
-                                    {
-                                        dato.Insert(0, first.Substring(first.Length - (int)(N.uint_size_div) * q >= 0 ? first.Length - (int)(N.uint_size_div) * q : 0, first.Length - (int)(N.uint_size_div) * q >= 0 ? (int)N.uint_size_div : first.Length % (int)N.uint_size_div));
-                                    }
-                                    List<string> datt = new List<string>();
-                                    for (int j = second.Length - 1, q = 1; j >= 0; j -= (int)N.uint_size_div, q++)
-                                    {
-                                        datt.Insert(0, second.Substring(second.Length - (int)(N.uint_size_div) * q >= 0 ? second.Length - (int)(N.uint_size_div) * q : 0, second.Length - (int)(N.uint_size_div) * q >= 0 ? (int)N.uint_size_div : second.Length % (int)N.uint_size_div));
-                                    }
-                                    Data.Add(new Working_data(new Q(dato, datt), Controller.working_Dates[i]));
-                                }
-                                break;
-                            case "P":
-                                {
-                                    s = s.Replace(" ", "");
-                                    for (int a = 0; a < s.Length; a++)
-                                    {
-                                        if(s[a]=='x' && (a == 0 || s[a-1] == '+' || s[a-1] == '-'))
-                                        {
-                                           s = s.Insert(a, "1");
-                                            a++;
-                                        }
-                                    }
-                                    s = s.Replace('+', ' ');
-                                    s = s.Replace("-", " -");
-                                    s = s.Replace("x^", " ");
-                                    s = s.Replace("x", " 1");
-                                    string[] polinom = s.Split(new string[] { " " }, StringSplitOptions.RemoveEmptyEntries);
-                                    List<M> Mnogochlen = new List<M>();
-                                    for (int j = 0; j < polinom.Length; j += 2)
-                                    {
-                                        string first = polinom[j].Split('/')[0];
+                                        string first = s.Split('/')[0];
                                         string second;
                                         try
                                         {
-                                            second = polinom[j].Split('/')[1];
+                                            second = s.Split('/')[1];
                                         }
                                         catch
                                         {
                                             second = "1";
                                         }
                                         List<string> dato = new List<string>();
-                                        for (int k = first.Length - 1, q = 1; k >= 0; k -= (int)N.uint_size_div, q++)
+                                        for (int j = first.Length - 1, q = 1; j >= 0; j -= (int)N.uint_size_div, q++)
                                         {
                                             dato.Insert(0, first.Substring(first.Length - (int)(N.uint_size_div) * q >= 0 ? first.Length - (int)(N.uint_size_div) * q : 0, first.Length - (int)(N.uint_size_div) * q >= 0 ? (int)N.uint_size_div : first.Length % (int)N.uint_size_div));
                                         }
                                         List<string> datt = new List<string>();
-                                        for (int k = second.Length - 1, q = 1; k >= 0; k -= (int)N.uint_size_div, q++)
+                                        for (int j = second.Length - 1, q = 1; j >= 0; j -= (int)N.uint_size_div, q++)
                                         {
                                             datt.Insert(0, second.Substring(second.Length - (int)(N.uint_size_div) * q >= 0 ? second.Length - (int)(N.uint_size_div) * q : 0, second.Length - (int)(N.uint_size_div) * q >= 0 ? (int)N.uint_size_div : second.Length % (int)N.uint_size_div));
                                         }
-                                        List<string> datth = new List<string>();
-                                        if (j + 1 < polinom.Length)
-                                        {
-                                            for (int k = polinom[j + 1].Length - 1, q = 1; k >= 0; k -= (int)N.uint_size_div, q++)
-                                            {
-                                                datth.Insert(0, polinom[j + 1].Substring(polinom[j + 1].Length - (int)(N.uint_size_div) * q >= 0 ? polinom[j + 1].Length - (int)(N.uint_size_div) * q : 0, polinom[j + 1].Length - (int)(N.uint_size_div) * q >= 0 ? (int)N.uint_size_div : polinom[j + 1].Length % (int)N.uint_size_div));
-                                            }
-                                        }
-                                        else
-                                        {
-                                            datth.Add("0");
-                                        }
-
-                                        Q buferq = new Q(dato, datt);
-                                        N bufern = new N(datth);
-                                        Mnogochlen.Add(new M(buferq, bufern));
-
-                                    }
-                                    Data.Add(new Working_data(new P(Mnogochlen), Controller.working_Dates[i]));
+                                        Data.Add(new Working_data(new Q(dato, datt), Controller.working_Dates[i]));
                                 }
                                 break;
+                            case "P":
+                                {
+                                        s = s.Replace(" ", "");
+                                        for (int a = 0; a < s.Length; a++)
+                                        {
+                                            if (s[a] == 'x' && (a == 0 || s[a - 1] == '+' || s[a - 1] == '-'))
+                                            {
+                                                s = s.Insert(a, "1");
+                                                a++;
+                                            }
+                                        }
+                                        s = s.Replace('+', ' ');
+                                        s = s.Replace("-", " -");
+                                        s = s.Replace("x^", " ");
+                                        s = s.Replace("x", " 1");
+                                        string[] polinom = s.Split(new string[] { " " }, StringSplitOptions.RemoveEmptyEntries);
+                                        List<M> Mnogochlen = new List<M>();
+                                        for (int j = 0; j < polinom.Length; j += 2)
+                                        {
+                                            string first = polinom[j].Split('/')[0];
+                                            string second;
+                                            try
+                                            {
+                                                second = polinom[j].Split('/')[1];
+                                            }
+                                            catch
+                                            {
+                                                second = "1";
+                                            }
+                                            List<string> dato = new List<string>();
+                                            for (int k = first.Length - 1, q = 1; k >= 0; k -= (int)N.uint_size_div, q++)
+                                            {
+                                                dato.Insert(0, first.Substring(first.Length - (int)(N.uint_size_div) * q >= 0 ? first.Length - (int)(N.uint_size_div) * q : 0, first.Length - (int)(N.uint_size_div) * q >= 0 ? (int)N.uint_size_div : first.Length % (int)N.uint_size_div));
+                                            }
+                                            List<string> datt = new List<string>();
+                                            for (int k = second.Length - 1, q = 1; k >= 0; k -= (int)N.uint_size_div, q++)
+                                            {
+                                                datt.Insert(0, second.Substring(second.Length - (int)(N.uint_size_div) * q >= 0 ? second.Length - (int)(N.uint_size_div) * q : 0, second.Length - (int)(N.uint_size_div) * q >= 0 ? (int)N.uint_size_div : second.Length % (int)N.uint_size_div));
+                                            }
+                                            List<string> datth = new List<string>();
+                                            if (j + 1 < polinom.Length)
+                                            {
+                                                for (int k = polinom[j + 1].Length - 1, q = 1; k >= 0; k -= (int)N.uint_size_div, q++)
+                                                {
+                                                    datth.Insert(0, polinom[j + 1].Substring(polinom[j + 1].Length - (int)(N.uint_size_div) * q >= 0 ? polinom[j + 1].Length - (int)(N.uint_size_div) * q : 0, polinom[j + 1].Length - (int)(N.uint_size_div) * q >= 0 ? (int)N.uint_size_div : polinom[j + 1].Length % (int)N.uint_size_div));
+                                                }
+                                            }
+                                            else
+                                            {
+                                                datth.Add("0");
+                                            }
+
+                                            Q buferq = new Q(dato, datt);
+                                            N bufern = new N(datth);
+                                            Mnogochlen.Add(new M(buferq, bufern));
+
+                                        }
+                                        Data.Add(new Working_data(new P(Mnogochlen), Controller.working_Dates[i]));
+                                        break;
+                                }
                         }
                     }
                     else
@@ -236,7 +237,7 @@ namespace Interpretation_Controller
                         }
                         if(!isCorrect)
                         {
-                            MessageBox.Show("Результат № " + i + "Непрошел одну из проверок условий, и в выводе не учавствует", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show("Результат № " + i+1 + "Не прошел одну из проверок условий, и в выводе не учавствует", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             break;
                         }
                     }
@@ -339,7 +340,7 @@ namespace Interpretation_Controller
                         {
                             if (Math_Field.idCOM(Data[indexes[0]].data, Data[indexes[1]].data))
                             {
-                                Math_Field.id_to_normal(Data[indexes[0]].data, Data[indexes[1]].data);
+                                Math_Field.id_to_normal(Data[indexes[0]].data, ref Data[indexes[1]].data);
                                 switch (Data[indexes[0]].data.COM(Data[indexes[1]].data))
                                 {
                                     case 1:
@@ -361,7 +362,7 @@ namespace Interpretation_Controller
                             }
                             else
                             {
-                                Math_Field.id_to_normal(Data[indexes[1]].data, Data[indexes[0]].data);
+                                Math_Field.id_to_normal(Data[indexes[1]].data, ref Data[indexes[0]].data);
                                 switch (Data[indexes[1]].data.COM(Data[indexes[0]].data))
                                 {
                                     case 2:
@@ -441,6 +442,91 @@ namespace Interpretation_Controller
                     wd.isTrue = false;
                     return;
                 }
+            }
+            List<int> indexes = new List<int>();
+            Operators w = wd.info.information as Operators;
+            if (w.Count_of_up_connection != -1 && w.up_Conection.Count != w.Count_of_up_connection)
+            {
+                wd.isTrue = false;
+                return;
+            }
+            else
+            {
+                for (int i = 0; i < w.up_Conection.Count; i++)
+                {
+                    for (int j = 0; j < Data.Count; j++)
+                    {
+                        if (Data[j].info.information == w.up_Conection[i])
+                        {
+                            indexes.Add(j);
+                            if(Data[j].data == null)
+                            {
+                                DFS_for_WD(Data[j]);
+                            }
+                            if (!Data[j].isTrue && w.Count_of_up_connection != -1)
+                            {
+                                wd.isTrue = false;
+                                return;
+                            }
+                            break;
+                        }
+                    }
+                }
+                if(w.Count_of_up_connection == 1)
+                {
+                    switch(wd.info.information.name)
+                    {
+                        case "ABS":
+                            {
+                                wd.data = Data[indexes[0]].data.ABS;
+                            }
+                            break;
+                        case "(-1)":
+                            {
+                                wd.data = Data[indexes[0]].data.UNT;
+                            }
+                            break;
+                        case "DIF":
+                            {
+                                wd.data = Data[indexes[0]].data.DER;
+                            }
+                            break;
+                        case "LED":
+                            {
+                                wd.data = Data[indexes[0]].data.LED;
+                            }
+                            break;
+                        case "deg":
+                            {
+                                wd.data = Data[indexes[0]].data.DEG;
+                            }
+                            break;
+                        case "FAC":
+                            {
+                                wd.data = Data[indexes[0]].data.FAC;
+                            }
+                            break;
+                        case "Down":
+                            {
+                                wd.data = Data[indexes[0]].data.Dawn();
+                            }
+                            break;
+                        case "up":
+                            {
+                                wd.data = Data[indexes[0]].data.Up();
+                            }
+                            break;
+                        default:
+                            {
+                                wd.isTrue = false;
+                            }
+                            break;
+                    }
+                }
+                else
+                {
+
+                }    
             }
         }
     }

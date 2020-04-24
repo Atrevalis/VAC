@@ -17,7 +17,7 @@ namespace Math_Module
             return first.id - second.id;
         }
 
-        public static void id_to_normal(Math_Field first, Math_Field second)
+        public static void id_to_normal(Math_Field first,ref  Math_Field second)
         {
             while(count_of_COM_id(first, second)>0)
             {
