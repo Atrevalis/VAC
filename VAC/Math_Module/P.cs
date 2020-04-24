@@ -394,6 +394,17 @@ namespace Math_Module
                         }
                     }
                 }
+                if (value.Ms[i].coef.COM(new Q(num, denum)) == 0 && value.Ms[i].degree.COM(new N(zero)) == 0)
+                    if (i != 0)
+                    {
+                        list.Add(" + 1");
+                    }
+                    else
+                    {
+                        list.Add("1");
+                    }
+                if (value.Ms[i].coef.COM(-new Q(num, denum)) == 0 && value.Ms[i].degree.COM(new N(zero)) == 0)
+                    list.Add(" - 1");
             }
             return list;
         }

@@ -255,7 +255,8 @@ namespace Interpretation_Controller
                             if (Data[k].isTrue)
                             {
                                 string res = "";
-                                for (int a = 0; a < Data[k].data.ToListstring().Count; a++) res += Data[k].data.ToListstring()[a];
+                                for (int a = 0; a < Data[k].data.ToListstring().Count; a++) 
+                                res += Data[k].data.ToListstring()[a];
                                 writer.WriteLine(res);
                             }
                             else
