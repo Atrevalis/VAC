@@ -152,7 +152,7 @@ namespace Math_Module
                 Q bruh = null;
                 for (int i = 0; i < Ms.Count - 1; i++)
                 {
-                    bruh = new Q(N.LCM_NN_N(Ms[i].coef.Den, Ms[i + 1].coef.Den), N.GCF_NN_N((N)Ms[i].coef.Num, (N)Ms[i + 1].coef.Num));
+                    bruh = new Q(N.GCF_NN_N((N)Ms[i].coef.Num, (N)Ms[i + 1].coef.Num), N.LCM_NN_N(Ms[i].coef.Den, Ms[i + 1].coef.Den));
                 }
                 return bruh;
             }
