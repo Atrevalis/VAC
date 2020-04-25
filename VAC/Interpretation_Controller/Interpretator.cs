@@ -243,7 +243,7 @@ namespace Interpretation_Controller
                             break;
                         }
                     }
-                    if(!isCorrect) break;
+                    if(!isCorrect) continue;
                     for (int k = 0; k < Data.Count; k++)
                     {
                         if (Controller.results[i].information.up_Conected == Data[k].info.information)

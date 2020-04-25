@@ -59,7 +59,7 @@ namespace External_Controller
                             break;
                         case 2:
                             {
-                                writer.WriteLine(nods[i].information.type + " " + nods[i].information.name + " " + (nods[i].Visul as MVS_Controller.Noda).label.Text + "Bin_operator");
+                                writer.WriteLine(nods[i].information.type + " " + nods[i].information.name + " " + (nods[i].Visul as MVS_Controller.Noda).label.Text + "!Bin_operator");
                             }
                             break;
                     }
