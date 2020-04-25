@@ -133,7 +133,7 @@ namespace Math_Module
                 P now = this.Clone();
                 M tek = now.Ms[0];
                 N nok = tek.coef.Den;
-                for (int i = 1; i < (now.Ms.Count - 1); i++)
+                for (int i = 1; i <= (now.Ms.Count - 1); i++)
                 {
                     tek = now.Ms[i];
                     nok = N.LCM_NN_N(nok, tek.coef.Den);
@@ -643,7 +643,7 @@ namespace Math_Module
             mnoj.degree = q;
             result.Ms.Add(mnoj);
             P mnoj1 = result.Clone();
-            for (int m = 1;m < (answer.Count - 1);m++)
+            for (int m = 1;m <= (answer.Count - 1);m++)
             {
                 mnoj.coef = answer[m];
                 mnoj1.Ms[1] = mnoj;
