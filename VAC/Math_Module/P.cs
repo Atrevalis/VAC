@@ -125,6 +125,73 @@ namespace Math_Module
             }
         }
 
+        public List<Q> root
+        {
+            get
+            {
+                List<Q> otvet = null;
+                P now = this.Clone();
+                M tek = now.Ms[0];
+                N nok = tek.coef.Den;
+                for (int i = 1; i < (now.Ms.Count - 1); i++)
+                {
+                    tek = now.Ms[i];
+                    nok = N.LCM_NN_N(nok, tek.coef.Den);
+                }
+                List<string> zero = new List<string>();
+                zero.Add("0");
+                N q = new N(zero);
+                M mnoj;
+                mnoj.degree = q;
+                Q coef = (Z)nok;
+                mnoj.coef = coef;
+                P norma = null;
+                norma.Ms.Add(mnoj);
+                now *= norma;
+                List<string> one = new List<string>();
+                one.Add("1");
+                N l = new N(one);
+                mnoj.coef = (Z)l;
+                mnoj.degree = l;
+                P Del = null;
+                Del.Ms.Add(mnoj);
+                Z odin = l;
+                mnoj = now.Ms[now.Ms.Count - 1];
+                Z srav = mnoj.coef.Num;
+                if (!srav.isDown)
+                {
+                    srav = -srav;
+                }
+                mnoj = now.Ms[0];
+                Z srav1 = mnoj.coef.Num;
+                if (!srav1.isDown)
+                {
+                    srav1 = -srav1;
+                }
+                mnoj.degree = q;
+                mnoj.coef = (Z)q;
+                P ost = null;
+                ost.Ms.Add(mnoj);
+                Del.Ms.Add(mnoj);
+                for (Z j = -srav; j.COM(srav) == 1; j += odin)
+                {
+                    for (Z f = -srav1; f.COM(srav1) == 1; f += odin)
+                    {
+                        mnoj.coef = j;
+                        mnoj.coef /= f;
+                        Del.Ms[1] = mnoj;
+                        if (now % Del == ost)
+                        {
+                            mnoj.coef = -mnoj.coef;
+                            otvet.Add(mnoj.coef);
+                            now /= Del;
+                        }
+                    }
+                }
+                return otvet;
+            }
+        }
+
         public override Math_Field LED // return Q
         {
             get
@@ -538,89 +605,49 @@ namespace Math_Module
             return result;
         }
 
-
         private P NMR_P_P()
         {
-            List<P> mnoj = null;
-            P now = this.Clone();
-            P i = null;
+            List<Q> roots = this.root;
+            List<Q> answer = null;
+            P result = null;
+            int i = 0;
+            int j;
+            while (i < roots.Count)
+            {
+                for (j = 0;j < answer.Count;j++ )
+                {
+                    if(roots[i].COM(answer[j]) == 0)
+                    {
+                        break;
+                    }
+                }
+                if (roots[i].COM(answer[j]) == 0)
+                {
+                    i++;
+                    break;
+                }
+                answer.Add(roots[i]);
+                i++;
+            }
             List<string> zero = new List<string>();
             zero.Add("0");
             N q = new N(zero);
             List<string> one = new List<string>();
             one.Add("1");
             N l = new N(one);
-            N f;
-            M there;
-            M last = now.Ms[now.Ms.Count() - 1];
-            P hero;
-            M x1;
-            M x0;
-            x1.coef = (Z)l;
-            x1.degree = l;
-            x0.coef = (Z)l;
-            x0.degree = q;
-            N z = new N(zero);
-            M srav;
-            srav.coef = (Z)z;
-            srav.degree = z;
-            P srav1 = null;
-            P srav2 = null;
-            srav1.Ms.Add(srav);
-            M g;
-            g.coef = (Z)q;
-            g.degree = q;
-            P c = null; //nol?
-            c.Ms.Add(g);
-            P v = null; //odin?
-            v.Ms.Add(x0);
-            List<string> del = new List<string>();
-            if (last.degree != q)
+            M mnoj;
+            mnoj.coef = (Z)l;
+            mnoj.degree = l;
+            result.Ms.Add(mnoj);
+            mnoj.coef = answer[0];
+            mnoj.degree = q;
+            result.Ms.Add(mnoj);
+            P mnoj1 = result.Clone();
+            for (int m = 1;m < (answer.Count - 1);m++)
             {
-                f = last.degree;
-                for (int a = 0; a < now.Ms.Count(); a++)
-                {
-                    there = now.Ms[a];
-                    there.degree -= f;
-                    now.Ms[a] = there;
-                }
-            }
-            srav2.Ms.Add(last);
-            while ((now.DER as P).Ms.Count() > 1)
-            {
-                while (COM_PP_D(srav1, srav2) == 1)
-                {
-                    del.Clear();
-                    srav1 += v;
-                    if ((srav1 % srav2) == c)
-                    {
-                        hero = srav1;
-                        if (now % hero == c)
-                        {
-                            now /= hero;
-                            i = hero;
-                            hero.Ms.Clear();
-                            for (int j = 0; j < mnoj.Count(); j++)
-                            {
-                                if (COM_PP_D(i, mnoj[j]) == 0)
-                                {
-                                    break;
-                                }
-                                if ((COM_PP_D(i, mnoj[j]) != 0) && (j == (mnoj.Count() - 1)))
-                                {
-                                    mnoj.Add(i);
-                                    break;
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-
-            P result = mnoj[0];
-            for (int s = 1; s < mnoj.Count(); s++)
-            {
-                result *= mnoj[s];
+                mnoj.coef = answer[m];
+                mnoj1.Ms[1] = mnoj;
+                result *= mnoj1;
             }
             return result;
         }
