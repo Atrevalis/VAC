@@ -251,6 +251,10 @@ namespace Interpretation_Controller
                             if (Data[k].data == null)
                             {
                                 DFS_for_WD(Data[k]);
+                                if(Data[k].data == null)
+                                {
+                                    Data[k].isTrue = false;
+                                }
                             }
                             if (Data[k].isTrue)
                             {
@@ -328,6 +332,10 @@ namespace Interpretation_Controller
                             if (Data[j].data == null)
                             {
                                 DFS_for_WD(Data[j]);
+                                if(Data[j].data == null)
+                                {
+                                    Data[j].isTrue = false;
+                                }
                             }
                             if (!Data[j].isTrue)
                             {
@@ -465,6 +473,10 @@ namespace Interpretation_Controller
                             if(Data[j].data == null)
                             {
                                 DFS_for_WD(Data[j]);
+                                if (Data[j].data == null)
+                                {
+                                    Data[j].isTrue = false;
+                                }
                             }
                             if (!Data[j].isTrue && w.Count_of_up_connection != -1)
                             {

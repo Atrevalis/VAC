@@ -71,12 +71,12 @@ namespace Visual_Module
                 External_Controller.Controller.path_of_now_project = open.FileName.Replace(open.SafeFileName, "");
                 main.Show();
                 Close();
+                main.Load_save();
             }
             catch
             {
                 MessageBox.Show("Ошибка загрузки файла", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            main.Load_save();
         }
     }
 }
