@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Math_Module
+namespace LMath
 {
     public class Q:Math_Field
     {
@@ -34,22 +34,6 @@ namespace Math_Module
         #endregion
 
         #region Свойства 
-
-        public override int id
-        {
-            get
-            {
-                return 3;
-            }
-        }
-
-        public override bool isDown//есть тесты
-        {
-            get
-            {
-                return INT_Q_B;
-            }
-        }
 
         bool INT_Q_B//тест идет вместе с isDown 
         {
@@ -93,64 +77,6 @@ namespace Math_Module
                  }
                  else
                     return 0;
-            }
-        }
-
-        public override Math_Field ABS
-        {
-            get
-            {
-                Q clone = Clone();
-                clone.Numerator = clone.Numerator.ABS as Z;
-                return clone;
-            }
-        }
-
-        public override Math_Field DEG
-        {
-            get
-            {
-                List<string> s1 = new List<string>();
-                s1.Add("0");
-                List<string> s2 = new List<string>();
-                s2.Add("1");
-                return new Q(s1, s2);
-            }
-        }
-
-        public override Math_Field UNT
-        {
-            get
-            {
-                return -this;
-            }
-        }
-
-        public override Math_Field DER
-        {
-            get
-            {
-                List<string> s1 = new List<string>();
-                s1.Add("0");
-                List<string> s2 = new List<string>();
-                s2.Add("1");
-                return new Q(s1, s2);
-            }
-        }
-
-        public override Math_Field FAC
-        {
-            get
-            {
-                return Clone();
-            }
-        }
-
-        public override Math_Field LED
-        {
-            get
-            {
-                return Clone();
             }
         }
 
@@ -306,6 +232,90 @@ namespace Math_Module
             return false;
         }
 
+        #endregion
+
+        #region Общие свойства и методы
+
+        #region Свойства
+
+        public override int id
+        {
+            get
+            {
+                return 3;
+            }
+        }
+
+        public override bool isDown//есть тесты
+        {
+            get
+            {
+                return INT_Q_B;
+            }
+        }
+
+        public override Math_Field ABS
+        {
+            get
+            {
+                Q clone = Clone();
+                clone.Numerator = clone.Numerator.ABS as Z;
+                return clone;
+            }
+        }
+
+        public override Math_Field DEG
+        {
+            get
+            {
+                List<string> s1 = new List<string>();
+                s1.Add("0");
+                List<string> s2 = new List<string>();
+                s2.Add("1");
+                return new Q(s1, s2);
+            }
+        }
+
+        public override Math_Field UNT
+        {
+            get
+            {
+                return -this;
+            }
+        }
+
+        public override Math_Field DER
+        {
+            get
+            {
+                List<string> s1 = new List<string>();
+                s1.Add("0");
+                List<string> s2 = new List<string>();
+                s2.Add("1");
+                return new Q(s1, s2);
+            }
+        }
+
+        public override Math_Field FAC
+        {
+            get
+            {
+                return Clone();
+            }
+        }
+
+        public override Math_Field LED
+        {
+            get
+            {
+                return Clone();
+            }
+        }
+
+        #endregion
+
+        #region Методы
+
         public override Math_Field MUL(Math_Field second)
         {
             return this * (second as Q);
@@ -344,7 +354,7 @@ namespace Math_Module
         public override byte COM(Math_Field second)
         {
             Q per2 = second as Q;
-            Q per1 = this.Clone();
+            Q per1 = Clone();
             Z nok;
             nok = (Z)per2.Denominator.LCM(per1.Denominator);
             per2.Numerator *= (nok / per2.Denominator);
@@ -363,6 +373,8 @@ namespace Math_Module
         {
             return this;
         }
+
+        #endregion
 
         #endregion
     }

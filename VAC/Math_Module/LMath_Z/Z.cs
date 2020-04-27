@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Math_Module
+namespace LMath
 {
     public class Z : Math_Field
     {
@@ -52,21 +52,6 @@ namespace Math_Module
         #endregion
 
         #region Свойства
-        public override int id
-        {
-            get
-            {
-                return 2;
-            }
-        }
-
-        public override bool isDown // Евгений Куликов 9370//есть тесты
-        {
-            get
-            {
-                return isN;
-            }
-        }
 
         public override Math_Field ABS // Евгений Куликов 9370//есть тесты  
         {
@@ -82,7 +67,7 @@ namespace Math_Module
             {
                 List<string> s = new List<string>();
                 s.Add("0");
-                if (N.COM_NN_D(Abs, new N(s)) == 0)
+                if (Abs.COM(new N(s)) == 0)
                 {
                     return 0;
                 }
@@ -94,49 +79,6 @@ namespace Math_Module
                 {
                     return 1;
                 }
-            }
-        }
-
-        public override Math_Field DEG
-        {
-            get
-            {
-                List<string> s = new List<string>();
-                s.Add("0");
-                return new Z(s);
-            }
-        }
-
-        public override Math_Field DER
-        {
-            get
-            {
-                List<string> s = new List<string>();
-                s.Add("0");
-                return new Z(s);
-            }
-        }
-        public override Math_Field UNT
-        {
-            get
-            {
-                return -this;
-            }
-        }
-
-        public override Math_Field LED
-        {
-            get
-            {
-                return Clone();
-            }
-        }
-
-        public override Math_Field FAC
-        {
-            get
-            {
-                return Clone();
             }
         }
 
@@ -157,7 +99,7 @@ namespace Math_Module
             Z sum = first.Clone();
             if(first.isN != second.isN)
             {
-                if (N.COM_NN_D(first.Abs, second.Abs) == 2)
+                if (first.Abs.COM(second.Abs) == 2)
                 {
                     sum.Abs -= second.Abs;
                 }
@@ -218,7 +160,7 @@ namespace Math_Module
             N one = new N(odin);
             if (second.POZ_Z_D != 0)
             {
-                if (N.COM_NN_D(first.Abs, second.Abs) == 2)
+                if (first.Abs.COM(second.Abs) == 2)
                 {
                     if (first.isN == true && second.isN == true)
                     {
@@ -298,6 +240,76 @@ namespace Math_Module
             return clone;
         }
 
+        #endregion
+
+        #region Общие свойства и методы
+
+        #region Свойства
+
+        public override int id
+        {
+            get
+            {
+                return 2;
+            }
+        }
+
+        public override bool isDown // Евгений Куликов 9370//есть тесты
+        {
+            get
+            {
+                return isN;
+            }
+        }
+
+        public override Math_Field DEG
+        {
+            get
+            {
+                List<string> s = new List<string>();
+                s.Add("0");
+                return new Z(s);
+            }
+        }
+
+        public override Math_Field DER
+        {
+            get
+            {
+                List<string> s = new List<string>();
+                s.Add("0");
+                return new Z(s);
+            }
+        }
+        public override Math_Field UNT
+        {
+            get
+            {
+                return -this;
+            }
+        }
+
+        public override Math_Field LED
+        {
+            get
+            {
+                return Clone();
+            }
+        }
+
+        public override Math_Field FAC
+        {
+            get
+            {
+                return Clone();
+            }
+        }
+
+
+        #endregion
+
+        #region Методы
+
         public override Math_Field ADD(Math_Field second)
         {
             return this + (second as Z);
@@ -358,7 +370,7 @@ namespace Math_Module
 
         public override Math_Field LCM(Math_Field second)
         {
-            return N.LCM_NN_N(Abs, (second as Z).Abs);
+            return Abs.LCM((second as Z).Abs);
         }
 
         public override Math_Field SUB(Math_Field second)
@@ -373,7 +385,7 @@ namespace Math_Module
 
         public override Math_Field GCF(Math_Field second)
         {
-            return N.GCF_NN_N(Abs, (second as Z).Abs);
+            return Abs.GCF((second as Z).Abs);
         }
 
         public override Math_Field DIV(Math_Field second)
@@ -386,6 +398,7 @@ namespace Math_Module
             return this;
         }
 
+        #endregion
 
         #endregion
     }

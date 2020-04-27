@@ -1,5 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Math_Module;
+using LMath;
 using System.Collections.Generic;
 using System;
 namespace Math_Module_Test
@@ -793,6 +793,7 @@ namespace Math_Module_Test
             AssertAreEqual(,);
         }*/
 
+            /*
         [TestMethod]
         public void plusTest1_for_P()
         {
@@ -1258,6 +1259,7 @@ namespace Math_Module_Test
             // P secondP = new P(second);
             //Assert.AreEqual(firstP.NMR_P_P(), secondP);
         }
+        */
 
     }
 }

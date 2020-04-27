@@ -57,6 +57,28 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Math_Module\LMath_Main\LMath_Main.csproj">
+      <Project>{3def3843-4999-4fe0-ad14-9c7ea8b16042}</Project>
+      <Name>LMath_Main</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Math_Module\LMath_N\LMath_N.csproj">
+      <Project>{d463b3fb-d1e2-4eec-afa1-f0bda5cab91b}</Project>
+      <Name>LMath_N</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Math_Module\LMath_P\LMath_P.csproj">
+      <Project>{02bda73f-7aef-400b-a16c-0bccdb4478d9}</Project>
+      <Name>LMath_P</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Math_Module\LMath_Q\LMath_Q.csproj">
+      <Project>{38958e84-46d4-41e5-a624-753133f4154b}</Project>
+      <Name>LMath_Q</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Math_Module\LMath_Z\LMath_Z.csproj">
+      <Project>{004e63ee-0af5-4929-9b9e-10b981375ab7}</Project>
+      <Name>LMath_Z</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Math_Module
+namespace LMath
 {
     public class N : Math_Field
     {
 
         #region Поля
 
-        private List<uint> znach;//
+        private List<uint> znach;
 
         private const uint uint_size = 99999999;
         public const uint uint_size_div = 8;
@@ -35,22 +35,6 @@ namespace Math_Module
         #endregion
 
         #region Свойства
-
-        public override int id
-        {
-            get
-            {
-                return 1;
-            }
-        }
-
-        public override bool isDown // Евгений Куликов 9370 / Тест есть
-        {
-            get
-            {
-                return false;
-            }
-        }
         private bool NZER_N_B // Проверка на ноль - Шлемин Роман 9370//тест есть(закоммичен)
         {
             get
@@ -63,58 +47,6 @@ namespace Math_Module
                 {
                     return false;
                 }
-            }
-        }
-
-        public override Math_Field FAC
-        {
-            get
-            {
-                return Clone();
-            }
-        }
-
-        public override Math_Field ABS
-        {
-            get
-            {
-                return Clone();
-            }
-        }
-
-        public override Math_Field LED
-        {
-            get
-            {
-                return Clone();
-            }
-        }
-
-        public override Math_Field UNT
-        {
-            get
-            {
-                return null;
-            }
-        }
-
-        public override Math_Field DEG
-        {
-            get
-            {
-                List<string> s = new List<string>();
-                s.Add("0");
-                return new N(s);
-            }
-        }
-
-        public override Math_Field DER
-        {
-            get
-            {
-                List<string> s = new List<string>();
-                s.Add("0");
-                return new N(s);
             }
         }
 
@@ -144,7 +76,7 @@ namespace Math_Module
         {
             N bigger;
             N smaller;
-            if (COM_NN_D(first, second) != 2)
+            if (first.COM(second) != 2)
             {
                 bigger = second.Clone();
                 smaller = first.Clone();
@@ -178,7 +110,7 @@ namespace Math_Module
         public static N operator -(N first, N second) // Шлемин Роман 9370//Есть тесты
         {
             N bigger = null;
-            switch (COM_NN_D(first, second))
+            switch (first.COM(second))
             {
                 case 0:
                     List<string> zero = new List<string>();
@@ -253,14 +185,14 @@ namespace Math_Module
             zero.Add("0");
             N div; //зануляем перменную счётчик
             N divres = new N(zero); //переменная для ответа
-            if (COM_NN_D(first, second) != 1) //если первое больше второго либо они равны
+            if (first.COM(second) != 1) //если первое больше второго либо они равны
             {
-                if (COM_NN_D(first, second) == 2) //если первое больше второго 
+                if (first.COM(second) == 2) //если первое больше второго 
                 {
                     if (!(second.NZER_N_B))
                     {
                         N result = first.Clone(); //создаем временную переменную
-                        while (COM_NN_D(result, second) != 1) //пока первое больше второго выполняем цикл
+                        while (first.COM(second) != 1) //пока первое больше второго выполняем цикл
                         {
                             div = DIV_NN_Dk(result, second); //наращиваем div первыми цифрами деления
                             result -= div * second; //выполняем последовательное понижение большего
@@ -292,7 +224,7 @@ namespace Math_Module
             {
                 return null;
             }
-            if (COM_NN_D(first, second) == 1)
+            if (first.COM(second) == 1)
                 return first;
             else
             {
@@ -340,33 +272,6 @@ namespace Math_Module
 
         #region Методы
 
-        public static byte COM_NN_D(N first, N second) // Сравнение двух чисел - Шлемин Роман 9370//Тест есть
-        {
-            if (first.znach.Count > second.znach.Count)
-            {
-                return 2;
-            }
-            if (first.znach.Count < second.znach.Count)
-            {
-                return 1;
-            }
-            for (int i = first.znach.Count-1; i >= 0;i--)
-            {
-                if (first.znach[i] <= second.znach[i])
-                    {
-                    if (first.znach[i] != second.znach[i])
-                    {
-                        return 1;
-                    }
-                }
-                else
-                {
-                    return 2;
-                }
-            }   
-            return 0;
-        }
-
         private N MUL_ND_N(byte value) // Умножение числа на цифру - Дмитрий Панченко 9370 //тест есть(закоммичен)
         {
             N k = Clone(); 
@@ -393,7 +298,7 @@ namespace Math_Module
             s.Add(Convert.ToString(uint_size_div));
             N k = this.Clone(), usdn = new N(s);
             int count = 0;
-            while (COM_NN_D(value, usdn) != 1)
+            while (value.COM(usdn) != 1)
             {
                 k.znach.Insert(0, 0);
                 value -= usdn;
@@ -429,7 +334,7 @@ namespace Math_Module
         private static N SUB_NDN_N(N first, N second, byte k) // Александр Баталин 9370 //тест есть(закоммичен)
         {
             N sec = second.MUL_ND_N(k);
-            if (COM_NN_D(first, sec) != 1)
+            if (first.COM(sec) != 1)
             {
                 return first - sec;
             }
@@ -441,7 +346,7 @@ namespace Math_Module
         {
             N divided = null;
             N divider = null;
-            switch (COM_NN_D(first, second))
+            switch (first.COM(second))
             {
                 case 0:
                     List<string> one = new List<string>();
@@ -466,18 +371,18 @@ namespace Math_Module
             N element = new N(ten);
             int f = divided.znach.Count - 1;
             string step = Convert.ToString(divided.znach[f]);
-            while (COM_NN_D(smaller, divider) == 1)
+            while (smaller.COM(divider) == 1)
             {
                 for (int m = 0; m < step.Length; m++)
                 {
                     element.znach[0] = Convert.ToUInt32(Convert.ToString(step[m]));
                     smaller = smaller.MUL_Nk_N(o) + element;
-                    if (COM_NN_D(smaller, divider) == 2)
+                    if (smaller.COM(divider) == 2)
                     {
                         break;
                     }
                 }
-                if (COM_NN_D(smaller, divider) == 2)
+                if (smaller.COM(divider) == 2)
                 {
                     break;
                 }
@@ -497,7 +402,7 @@ namespace Math_Module
             List<string> rez3 = new List<string>();
             rez3.Add(r);
             N razm2 = new N(rez3);
-            while (COM_NN_D(smaller, divider) != 1) //вычитаем из большего меньшее, пока большее не станет меньше
+            while (smaller.COM(divider) != 1) //вычитаем из большего меньшее, пока большее не станет меньше
             {
                 smaller -= divider;
                 result++;
@@ -516,50 +421,97 @@ namespace Math_Module
             return result;  //получаем результат
         }
 
-
-        public static N GCF_NN_N(N first, N second)// Дмитрий Панченко 9370 //есть те
-        {
-            N a = first.Clone();
-            N b = second.Clone();
-            while (!(a.NZER_N_B) && !(b.NZER_N_B))
-            {
-                if (COM_NN_D(a, b) != 1)
-                {
-                    a %= b;
-                }
-                else
-                {
-                    b %= a;
-                }
-            }
-            if (a.NZER_N_B)
-            {
-                return b;
-            }
-            else
-            {
-                return a;
-            }
-        }
-
-        public static N LCM_NN_N(N first, N second)//есть тесты 
-        {
-            N a = first.Clone();
-            N b = second.Clone();
-            N result = a * b / GCF_NN_N(a, b);
-            return result;
-        }
-
-        public override Math_Field LCM(Math_Field second)
-        {
-            return LCM_NN_N(this, second as N);
-        }
-
         public N Clone() // Александр Баталин 9370//есть тесты
         {
             N clone = new N(new List<string>());
             clone.znach = new List<uint>(znach);
             return clone;
+        }
+
+        #endregion
+
+        #region Общие методы и свойства
+
+        #region Свойства
+
+        public override int id
+        {
+            get
+            {
+                return 1;
+            }
+        }
+
+        public override bool isDown // Евгений Куликов 9370 / Тест есть
+        {
+            get
+            {
+                return false;
+            }
+        }
+        public override Math_Field FAC
+        {
+            get
+            {
+                return Clone();
+            }
+        }
+
+        public override Math_Field ABS
+        {
+            get
+            {
+                return Clone();
+            }
+        }
+
+        public override Math_Field LED
+        {
+            get
+            {
+                return Clone();
+            }
+        }
+
+        public override Math_Field UNT
+        {
+            get
+            {
+                return null;
+            }
+        }
+
+        public override Math_Field DEG
+        {
+            get
+            {
+                List<string> s = new List<string>();
+                s.Add("0");
+                return new N(s);
+            }
+        }
+
+        public override Math_Field DER
+        {
+            get
+            {
+                List<string> s = new List<string>();
+                s.Add("0");
+                return new N(s);
+            }
+        }
+
+        #endregion
+
+        #region Методы
+
+
+        public override Math_Field LCM(Math_Field second)
+        {
+            N a = Clone();
+            N b = (second as N).Clone();
+            N result = a * b / (a.GCF(b) as N);
+            return result;
         }
 
         public override Math_Field SUB(Math_Field second)
@@ -579,7 +531,29 @@ namespace Math_Module
 
         public override byte COM(Math_Field second)
         {
-            return COM_NN_D(this, second as N);
+            if (znach.Count > (second as N).znach.Count)
+            {
+                return 2;
+            }
+            if (znach.Count < (second as N).znach.Count)
+            {
+                return 1;
+            }
+            for (int i = znach.Count - 1; i >= 0; i--)
+            {
+                if (znach[i] <= (second as N).znach[i])
+                {
+                    if (znach[i] != (second as N).znach[i])
+                    {
+                        return 1;
+                    }
+                }
+                else
+                {
+                    return 2;
+                }
+            }
+            return 0;
         }
 
         public override Math_Field DIV(Math_Field second)
@@ -594,7 +568,27 @@ namespace Math_Module
 
         public override Math_Field GCF(Math_Field second)
         {
-            return GCF_NN_N(this, second as N);
+            N a = Clone();
+            N b = (second as N).Clone();
+            while (!(a.NZER_N_B) && !(b.NZER_N_B))
+            {
+                if (a.COM(b) != 1)
+                {
+                    a %= b;
+                }
+                else
+                {
+                    b %= a;
+                }
+            }
+            if (a.NZER_N_B)
+            {
+                return b;
+            }
+            else
+            {
+                return a;
+            }
         }
 
         public override Math_Field ADD(Math_Field second)
@@ -606,6 +600,8 @@ namespace Math_Module
         {
             return this;
         }
+
+        #endregion        
 
         #endregion
     }

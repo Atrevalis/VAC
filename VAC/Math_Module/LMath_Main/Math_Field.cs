@@ -1,7 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
-namespace Math_Module
+namespace LMath
 {
     abstract public class Math_Field
     {

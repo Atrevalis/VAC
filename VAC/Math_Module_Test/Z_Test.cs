@@ -1,5 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Math_Module;
+using LMath;
 using System.Collections.Generic;
 using System;
 namespace Math_Module_Test

@@ -1,5 +1,4 @@
-﻿using Math_Module;
-namespace LMath
+﻿namespace LMath
 {
     public static class Config
     {

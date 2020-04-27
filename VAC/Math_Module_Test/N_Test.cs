@@ -1,4 +1,4 @@
-using Math_Module;
+using LMath;
 using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
@@ -471,7 +471,7 @@ namespace Math_Module_Test
             input1.Add("12345678");
             N n = new N(input);
             N i = new N(input1);
-            byte t = N.COM_NN_D(n, i);
+            byte t = n.COM(i);
             Assert.AreEqual(2, t);
         }
         [TestMethod]
@@ -483,7 +483,7 @@ namespace Math_Module_Test
             input1.Add("12345678");
             N n = new N(input);
             N i = new N(input1);
-            byte t = N.COM_NN_D(n, i);
+            byte t = n.COM(i);
             Assert.AreEqual(2, t);
         }
         [TestMethod]
@@ -496,7 +496,7 @@ namespace Math_Module_Test
             input1.Add("12345678");
             N n = new N(input);
             N i = new N(input1);
-            byte t = N.COM_NN_D(n, i);
+            byte t = n.COM(i);
             Assert.AreEqual(1, t);
         }
         [TestMethod]
@@ -508,7 +508,7 @@ namespace Math_Module_Test
             input1.Add("12345679");
             N n = new N(input);
             N i = new N(input1);
-            byte t = N.COM_NN_D(n, i);
+            byte t = n.COM(i);
             Assert.AreEqual(1, t);
         }
         [TestMethod]
@@ -519,7 +519,7 @@ namespace Math_Module_Test
             input.Add("12345678");
             N n = new N(input);
             N i = new N(input);
-            byte t = N.COM_NN_D(n, i);
+            byte t = n.COM(i);
             Assert.AreEqual(0, t);
         }
         [TestMethod]
@@ -556,7 +556,7 @@ namespace Math_Module_Test
             N n = new N(input);
             N i = new N(input1);
             N o = new N(output);
-            N gcfN = N.GCF_NN_N(n, i);
+            N gcfN = n.GCF(i) as N;
             Assert.AreEqual(o, gcfN);
         }
 
@@ -574,7 +574,7 @@ namespace Math_Module_Test
             N n = new N(input);
             N i = new N(input1);
             N t = new N(output);
-            N gcfN = N.GCF_NN_N(n, i);
+            N gcfN = n.GCF(i) as N;
             Assert.AreEqual(t, gcfN);
         }
 
@@ -592,7 +592,7 @@ namespace Math_Module_Test
             N n = new N(input);
             N i = new N(input1);
             N t = new N(output);
-            N gcfN = N.GCF_NN_N(n, i);
+            N gcfN = n.GCF(i) as N;
             Assert.AreEqual(t, gcfN);
         }
         [TestMethod]
@@ -608,7 +608,7 @@ namespace Math_Module_Test
             output.Add("72");
             N n = new N(input);
             N i = new N(input1);
-            N gcfN = N.GCF_NN_N(n, i);
+            N gcfN = n.GCF(i) as N;
             Assert.AreNotEqual(null, gcfN);
         }
         [TestMethod]
@@ -626,7 +626,7 @@ namespace Math_Module_Test
             N n = new N(input);
             N i = new N(input1);
             N t = new N(output);
-            N lcmN = N.LCM_NN_N(n, i);
+            N lcmN = n.LCM(i) as N;
             Assert.AreEqual(t, lcmN);
         }
         [TestMethod]
@@ -645,7 +645,7 @@ namespace Math_Module_Test
             N n = new N(input);
             N i = new N(input1);
             N t = new N(output);
-            N lcmN = N.LCM_NN_N(n, i);
+            N lcmN = n.LCM(i) as N;
             Assert.AreEqual(t, lcmN);
         }
         [TestMethod]
@@ -663,7 +663,7 @@ namespace Math_Module_Test
             N n = new N(input);
             N i = new N(input1);
             N t = new N(output);
-            N lcmN = N.LCM_NN_N(n, i);
+            N lcmN = n.LCM(i) as N;
             Assert.AreNotEqual(null, lcmN);
         }
 /*
