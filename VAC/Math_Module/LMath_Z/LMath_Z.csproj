@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{835DC3C4-9EF4-4C02-B01F-AE821807F73B}</ProjectGuid>
+    <ProjectGuid>{004E63EE-0AF5-4929-9B9E-10B981375AB7}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Interpretation_Controller</RootNamespace>
-    <AssemblyName>Interpretation_Controller</AssemblyName>
+    <RootNamespace>LMath_Z</RootNamespace>
+    <AssemblyName>LMath_Z</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -33,7 +33,6 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -42,17 +41,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Interpretator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Z.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\External_Controller\External_Controller.csproj">
-      <Project>{111c4c42-787b-4808-b378-06205bd79ba1}</Project>
-      <Name>External_Controller</Name>
+    <ProjectReference Include="..\LMath_Main\LMath_Main.csproj">
+      <Project>{3def3843-4999-4fe0-ad14-9c7ea8b16042}</Project>
+      <Name>LMath_Main</Name>
     </ProjectReference>
-    <ProjectReference Include="..\External_Module\External_Module.csproj">
-      <Project>{f719c6eb-59db-4a45-89ee-bfa88e5b996d}</Project>
-      <Name>External_Module</Name>
+    <ProjectReference Include="..\LMath_N\LMath_N.csproj">
+      <Project>{d463b3fb-d1e2-4eec-afa1-f0bda5cab91b}</Project>
+      <Name>LMath_N</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
