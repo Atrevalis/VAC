@@ -27,6 +27,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LMath_Q", "Math_Module\LMat
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LMath_P", "Math_Module\LMath_P\LMath_P.csproj", "{02BDA73F-7AEF-400B-A16C-0BCCDB4478D9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LMath_Config", "Math_Module\LMath_Config\LMath_Config.csproj", "{FCF15AD6-1249-48F1-8C18-8A8517D2DD03}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -77,6 +79,10 @@ Global
 		{02BDA73F-7AEF-400B-A16C-0BCCDB4478D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{02BDA73F-7AEF-400B-A16C-0BCCDB4478D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{02BDA73F-7AEF-400B-A16C-0BCCDB4478D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FCF15AD6-1249-48F1-8C18-8A8517D2DD03}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FCF15AD6-1249-48F1-8C18-8A8517D2DD03}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FCF15AD6-1249-48F1-8C18-8A8517D2DD03}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FCF15AD6-1249-48F1-8C18-8A8517D2DD03}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -87,6 +93,7 @@ Global
 		{004E63EE-0AF5-4929-9B9E-10B981375AB7} = {394F5948-3486-4E35-82CA-2338CDA1627F}
 		{38958E84-46D4-41E5-A624-753133F4154B} = {394F5948-3486-4E35-82CA-2338CDA1627F}
 		{02BDA73F-7AEF-400B-A16C-0BCCDB4478D9} = {394F5948-3486-4E35-82CA-2338CDA1627F}
+		{FCF15AD6-1249-48F1-8C18-8A8517D2DD03} = {394F5948-3486-4E35-82CA-2338CDA1627F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D4296727-164D-47F4-BC08-E6CB25D3F101}

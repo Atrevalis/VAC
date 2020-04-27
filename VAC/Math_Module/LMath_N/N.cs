@@ -36,7 +36,7 @@ namespace Math_Module
 
         #region Свойства
 
-        protected override int id
+        public override int id
         {
             get
             {

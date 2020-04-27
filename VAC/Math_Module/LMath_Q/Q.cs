@@ -35,7 +35,7 @@ namespace Math_Module
 
         #region Свойства 
 
-        protected override int id
+        public override int id
         {
             get
             {
@@ -271,6 +271,13 @@ namespace Math_Module
             {
                 return null;
             }
+        }
+
+        public static implicit operator Q(Z value)
+        {
+            List<string> s = new List<string>();
+            s.Add("1");
+            return new Q(value, s);
         }
                 #endregion
 

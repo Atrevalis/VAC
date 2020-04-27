@@ -52,7 +52,7 @@ namespace Math_Module
         #endregion
 
         #region Свойства
-        protected override int id
+        public override int id
         {
             get
             {

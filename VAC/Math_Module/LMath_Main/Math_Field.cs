@@ -1,11 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Math_Module
 {
     abstract public class Math_Field
     {
-
-        abstract protected int id { get; }
+        abstract public int id { get; }
 
         public static bool idCOM(Math_Field first, Math_Field second)
         {
@@ -21,9 +21,12 @@ namespace Math_Module
         {
             while(count_of_COM_id(first, second)>0)
             {
-                second = second.Up();
+                second = Up(second);
             }
         }
+
+        public delegate Math_Field Up_delegaete(Math_Field value);
+        public static event Up_delegaete Up;
 
         abstract public bool isDown { get; }
 
@@ -41,11 +44,6 @@ namespace Math_Module
 
 
         abstract public Math_Field Dawn();
-
-        public Math_Field Up()
-        {
-            return null;
-        }
 
         abstract public Math_Field SUB(Math_Field second);
 
