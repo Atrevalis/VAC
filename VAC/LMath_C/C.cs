@@ -56,22 +56,37 @@ namespace LMath
 
         public static C operator +(C first, C second)
         {
-            return null;
+            C clone1 = first.Clone();
+            C clone2 = second.Clone();
+            clone1.real += clone2.real;
+            clone1.image += clone2.image;
+            return clone1;
         }
 
         public static C operator -(C first, C second)
         {
-            return null;
+            C clone1 = first.Clone();
+            C clone2 = second.Clone();
+            return clone1 + (-clone2);
         }
 
         public static C operator *(C first, C second)
         {
-            return null;
+            C clone1 = first.Clone();
+            clone1.real = first.real * second.real - first.image * second.image;
+            clone1.image = first.real * second.image + first.image * second.real;
+            return clone1;
         }
 
         public static C operator /(C first, C second)
         {
-            return null;
+            C clone1 = first.Clone();
+            C clone2 = second.Clone();
+            clone2.image = -clone2.image;
+            clone1 *= clone2;
+            clone1.real /= clone2.real * clone2.real + clone2.image * clone2.image;
+            clone1.image /= clone2.real * clone2.real + clone2.image * clone2.image;
+            return clone1;
         }
 
         #endregion
@@ -95,11 +110,21 @@ namespace LMath
                 return 4;
             }
         }
-        public override bool isDown { get; }
+        public override bool isDown 
+        {
+            get;
+            
+        }
 
         public override Math_Field ABS { get; }
 
-        public override Math_Field UNT { get; }
+        public override Math_Field UNT 
+        {
+            get 
+            {
+                return -this;
+            } 
+        }
 
         public override Math_Field DER { get; }
 
@@ -121,12 +146,12 @@ namespace LMath
 
         public override Math_Field SUB(Math_Field second)
         {
-            return null;
+            return this - (second as C);
         }
 
         public override Math_Field DIV(Math_Field second)
         {
-            return null;
+            return this / (second as C);
         }
 
         public override Math_Field MOD(Math_Field second)
@@ -136,12 +161,12 @@ namespace LMath
 
         public override Math_Field ADD(Math_Field second)
         {
-            return null;
+            return this + (second as C);
         }
 
         public override Math_Field MUL(Math_Field second)
         {
-            return null;
+            return this * (second as C);
         }
 
         public override Math_Field GCF(Math_Field second)
