@@ -1,5 +1,5 @@
 ﻿using System;
-using Math_Module;
+using LMath;
 using External_Controller;
 using System.IO;
 using System.Windows.Forms;
@@ -177,10 +177,10 @@ namespace Interpretation_Controller
 
                                             Q buferq = new Q(dato, datt);
                                             N bufern = new N(datth);
-                                            Mnogochlen.Add(new M(buferq, bufern));
+                                            //Mnogochlen.Add(new M(buferq, bufern));
 
                                         }
-                                        Data.Add(new Working_data(new P(Mnogochlen), Controller.working_Dates[i]));
+                                        //Data.Add(new Working_data(new P(Mnogochlen), Controller.working_Dates[i]));
                                         break;
                                 }
                         }
@@ -528,7 +528,7 @@ namespace Interpretation_Controller
                             break;
                         case "up":
                             {
-                                wd.data = Data[indexes[0]].data.Up();
+                                wd.data = Data[indexes[0]].data.External_Up();
                             }
                             break;
                         default:

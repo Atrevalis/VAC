@@ -27,6 +27,11 @@ namespace LMath
         public delegate Math_Field Up_delegaete(Math_Field value);
         public static event Up_delegaete Up;
 
+        public Math_Field External_Up()
+        {
+            return Up(this);
+        }
+
         abstract public bool isDown { get; }
 
         abstract public Math_Field ABS { get; }
