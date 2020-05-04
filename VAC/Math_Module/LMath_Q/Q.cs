@@ -211,7 +211,7 @@ namespace LMath
 
         private void RED_Q_Q() //есть тесты
         {
-            Z nod = (Z)(Numerator.ABS as Z).GCF(Denominator);
+            Z nod = (Z)(Numerator.GCF(Denominator));
             Numerator /= nod;
             Denominator /= nod;
         }

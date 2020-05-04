@@ -26,8 +26,7 @@ namespace LMath
                 }
                 else
                     isN = true;
-
-                //Abs = new N(s);
+                    Abs = new N(s);
             }
             catch
             {
@@ -385,7 +384,8 @@ namespace LMath
 
         public override Math_Field GCF(Math_Field second)
         {
-            return Abs.GCF((second as Z).Abs);
+            // N f = this.Abs.GCF((second as Z).Abs);
+            return (Z)(Abs.GCF((second as Z).Abs) as N);
         }
 
         public override Math_Field DIV(Math_Field second)
