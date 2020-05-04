@@ -232,6 +232,11 @@ namespace LMath
                 return temp;
             }
         }
+
+        public static N operator ^(N first, N second)
+        {
+            return null;
+        }
         
 
         public static implicit operator List<string>(N value) // Александр Рассохин 9370//есть тесты

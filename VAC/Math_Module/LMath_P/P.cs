@@ -8,10 +8,10 @@ namespace LMath
 {
     public struct M
     {
-        public Q coef;
-        public Q degree;
+        public C coef;
+        public C degree;
 
-        public M(Q c, Q s)
+        public M(C c, C s)
         {
             coef = c;
             degree = s;
@@ -110,11 +110,11 @@ namespace LMath
                 S1.Add("0"); 
                 List<string> S2 = new List<string>();
                 S2.Add("1");
-                Q a = new Q(S1, S2);
-                if (Ms.Count == 1 && Ms[0].degree == a)
+                C a;// = new C(S1, S2);
+                //if (Ms.Count == 1 && Ms[0].degree == a)
                     return true;
-                else
-                    return false;
+                //else
+                   // return false;
             }
         }
         /*
@@ -211,7 +211,7 @@ namespace LMath
         {
             get
             {
-                Q bruh = null;
+                C bruh = null;
                 for (int i = 0; i < Ms.Count - 1; i++)
                 {
                 }
@@ -226,8 +226,8 @@ namespace LMath
                 P clone = null; //Clone();
                 for(int i = 0; i < Ms.Count; i++)
                 {
-                    Q now = clone.Ms[i].coef;
-                    now = Ms[i].coef.ABS as Q;
+                    C now = clone.Ms[i].coef;
+                    now = Ms[i].coef.ABS as C;
                 }
                 return clone;
             }
@@ -243,21 +243,21 @@ namespace LMath
                 zero.Add("0");
                 List<string> one = new List<string>();
                 one.Add("1");
-                Q usl = new Q(zero, one);
+                C usl = null; // = new C(zero, one);
                 if (result.Ms[Ms.Count() - 1].degree.COM(usl) == 0)
                 {
                     result.Ms.RemoveAt(Ms.Count() - 1);
                 }
                 List<string> odin = new List<string>();
                 odin.Add("1");
-                one = new Q(odin, odin);
+                one = null; // new C(odin, odin);
                 M now;
                 for (int i = result.Ms.Count() - 1; i > 0; i--)
                 {
                     result.Ms.Insert(i, Ms[i]);
                     now = result.Ms[i];
-                    now.coef *= now.degree;
-                    now.degree -= new Q(one, one);
+                    //now.coef *= now.degree;
+                    //now.degree -= new Q(one, one);
                     result.Ms[i] = now;
                     result.Ms.RemoveAt(i + 1);
                 }
@@ -272,8 +272,8 @@ namespace LMath
                 P clone = null;//Clone();
                 for(int i = 0; i < clone.Ms.Count; i++)
                 {
-                    Q clones = clone.Ms[i].coef; 
-                    clones = -clone.Ms[i].coef;
+                    C clones = clone.Ms[i].coef; 
+                    //clones = -clone.Ms[i].coef;
                 }
                 return clone;
             }
