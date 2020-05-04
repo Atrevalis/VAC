@@ -48,7 +48,10 @@ namespace LMath
 
         public static C operator -(C value)
         {
-            return null;
+            C clone = value.Clone();
+            clone.real = -clone.real;
+            clone.image = -clone.image;
+            return clone;
         }
 
         public static C operator +(C first, C second)
@@ -74,6 +77,11 @@ namespace LMath
         #endregion
 
         #region Методы
+
+        public C Clone() 
+        {
+            return null;
+        }
 
         #endregion
 
