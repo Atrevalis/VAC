@@ -24,6 +24,31 @@ namespace LMath
 
         #region Перегрузки
 
+        public static R operator -(R value)
+        {
+            return null;
+        }
+
+        public static R operator +(R first, R second)
+        {
+            return null;
+        }
+
+        public static R operator -(R first, R second)
+        {
+            return null;
+        }
+
+        public static R operator *(R first, R second)
+        {
+            return null;
+        }
+
+        public static R operator /(R first, R second)
+        {
+            return null;
+        }
+
         #endregion
 
         #region Методы
