@@ -192,7 +192,7 @@ namespace LMath
                     if (!(second.NZER_N_B))
                     {
                         N result = first.Clone(); //создаем временную переменную
-                        while (first.COM(second) != 1) //пока первое больше второго выполняем цикл
+                        while (result.COM(second) != 1) //пока первое больше второго выполняем цикл
                         {
                             div = DIV_NN_Dk(result, second); //наращиваем div первыми цифрами деления
                             result -= div * second; //выполняем последовательное понижение большего
