@@ -186,6 +186,11 @@ namespace LMath
         
         }
 
+        public static Z operator ^(Z first, N second)
+        {
+            return null;
+        }
+
         public static implicit operator List<string>(Z value)//есть тесты
         {
             List<string> S = value.Abs;

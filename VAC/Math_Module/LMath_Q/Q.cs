@@ -168,7 +168,12 @@ namespace LMath
             Z pog = new Z(nol);
             return pog;
         }
-        
+
+        public static Q operator ^(Q first, Z second)
+        {
+            return null;
+        }
+
         public static implicit operator List<string>(Q value)//есть тесты
         {
             List<string> one = new List<string>();
