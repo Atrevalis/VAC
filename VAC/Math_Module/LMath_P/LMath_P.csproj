@@ -45,7 +45,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\LMath_C\LMath_C.csproj">
+    <ProjectReference Include="..\LMath_C\LMath_C.csproj">
       <Project>{c90cfcf9-5abe-42c6-9487-f934d75562fe}</Project>
       <Name>LMath_C</Name>
     </ProjectReference>

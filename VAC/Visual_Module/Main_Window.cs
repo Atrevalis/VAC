@@ -28,6 +28,8 @@ namespace Visual_Module
             arg = args;
             InitializeComponent();
             timer1.Start();
+            toolStripMenuItem1 = new ToolStripMenuItem();
+            menuStrip1.Items.Insert(1, toolStripMenuItem1);
         }
 
         private void toolStripMenuItem2_Click(object sender, EventArgs e)

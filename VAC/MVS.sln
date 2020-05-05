@@ -29,9 +29,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LMath_P", "Math_Module\LMat
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LMath_Config", "Math_Module\LMath_Config\LMath_Config.csproj", "{FCF15AD6-1249-48F1-8C18-8A8517D2DD03}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LMath_R", "LMath_R\LMath_R.csproj", "{33145EEA-5900-43CD-B2DD-30D50DF8C1D4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LMath_R", "Math_Module\LMath_R\LMath_R.csproj", "{33145EEA-5900-43CD-B2DD-30D50DF8C1D4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LMath_C", "LMath_C\LMath_C.csproj", "{C90CFCF9-5ABE-42C6-9487-F934D75562FE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LMath_C", "Math_Module\LMath_C\LMath_C.csproj", "{C90CFCF9-5ABE-42C6-9487-F934D75562FE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

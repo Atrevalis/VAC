@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C90CFCF9-5ABE-42C6-9487-F934D75562FE}</ProjectGuid>
+    <ProjectGuid>{33145EEA-5900-43CD-B2DD-30D50DF8C1D4}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>LMath_C</RootNamespace>
-    <AssemblyName>LMath_C</AssemblyName>
+    <RootNamespace>LMath_R</RootNamespace>
+    <AssemblyName>LMath_R</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -41,17 +41,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="C.cs" />
+    <Compile Include="R.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\LMath_R\LMath_R.csproj">
-      <Project>{33145eea-5900-43cd-b2dd-30d50df8c1d4}</Project>
-      <Name>LMath_R</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Math_Module\LMath_Main\LMath_Main.csproj">
+    <ProjectReference Include="..\LMath_Main\LMath_Main.csproj">
       <Project>{3def3843-4999-4fe0-ad14-9c7ea8b16042}</Project>
       <Name>LMath_Main</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LMath_Q\LMath_Q.csproj">
+      <Project>{38958e84-46d4-41e5-a624-753133f4154b}</Project>
+      <Name>LMath_Q</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
