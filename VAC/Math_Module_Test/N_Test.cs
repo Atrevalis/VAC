@@ -242,7 +242,8 @@ namespace Math_Module_Test
             output.Add("449");
             output.Add("000");
             output.Add("000");
-            Assert.AreEqual(output, n + i);
+            N f = new N(output);
+            Assert.AreEqual(f, n + i);
 
         }
         public void plusTest6()
@@ -280,17 +281,12 @@ namespace Math_Module_Test
             input2.Add("1");
             input2.Add("000");
             input2.Add("239");
-
-
-            N i = new N(input1);
-
+            N i = new N(input2);
             output.Add("998");
             output.Add("999");
             output.Add("760");
             N t = new N(output);
-
             Assert.AreEqual(t, n - i);
-
         }
 
         [TestMethod]
@@ -307,73 +303,63 @@ namespace Math_Module_Test
             output.Add("998");
             N t = new N(output);
             Assert.AreEqual(t, n - i);
-
         }
+
         [TestMethod]
         public void minusTest3()
         {
-            List<string> input = new List<string>();
-            List<string> input1 = new List<string>();
-            input.Add("2");
-            input1.Add("1");
-            input1.Add("00000000");
-            N n = new N(input);
-            N i = new N(input1);
-            Assert.AreEqual(null, n - i);
-
-        }
-        [TestMethod]
-        public void minusTestEx()
-        {
-            List<string> input = new List<string>();
+            List<string> input2 = new List<string>();
             List<string> input1 = new List<string>();
             List<string> output = new List<string>();
-            input.Add("2");
-            N i = new N(input);
-            input1.Add("1");
-            input1.Add("00000000");
+            input2.Add("2");
+            input1.Add("990");
             N n = new N(input1);
-            output.Add("99999998");
-            N t = new N(output);
+            N i = new N(input2);
+            output.Add("988");
+            N f = new N(output);
+            Assert.AreEqual(f, n - i);
+        }
 
-            Assert.AreNotEqual(null, n - i);
-
+        [TestMethod]
+        public void minusTest4()
+        {
+            List<string> input2 = new List<string>();
+            List<string> input1 = new List<string>();
+            input2.Add("3");
+            N i = new N(input2);
+            input1.Add("1");
+            N n = new N(input1);
+            Assert.AreEqual(null, n - i);
         }
         //-Test
 
         //*Test
 
         [TestMethod]
-
         public void multiplicationTest1()
-
         {
             List<string> input = new List<string>();
             List<string> input1 = new List<string>();
             List<string> output = new List<string>();
-            input.Add("12");
-            input.Add("12345678");
-            input1.Add("2345678");
-            output.Add("28437725");
-            output.Add("85279684");
+            input.Add("122");
+            input1.Add("0");
+            output.Add("0");
             N n = new N(input);
             N i = new N(input1);
             N t = new N(output);
             Assert.AreEqual(t, n * i);
-
         }
 
 
         [TestMethod]
         public void multiplicationTest2()
-
         {
             List<string> input = new List<string>();
             List<string> input1 = new List<string>();
             List<string> output = new List<string>();
-            input.Add("1");
-            input1.Add("2");
-            output.Add("2");
+            input.Add("10");
+            input1.Add("1");
+            output.Add("10");
             N n = new N(input);
             N i = new N(input1);
             N t = new N(output);
@@ -382,72 +368,54 @@ namespace Math_Module_Test
 
 
         [TestMethod]
-        public void multiplicationTestEx()
-
+        public void multiplicationTest3()
         {
             List<string> input = new List<string>();
-
-            input.Add("1");
-            input.Add("00000000");
+            List<string> input1 = new List<string>();
+            List<string> output = new List<string>();
+            input.Add("123");
+            input1.Add("4");
+            output.Add("492");
             N n = new N(input);
+            N i = new N(input1);
+            N f = new N(output);
+            Assert.AreEqual(f, n * i);
+        }
+
+
+        [TestMethod]
+        public void multiplicationTest4()
+        {
+            List<string> input = new List<string>();
+            List<string> input1 = new List<string>();
+            List<string> output = new List<string>();
+            input.Add("123");
+            input1.Add("24");
+            output.Add("2");
+            output.Add("952");
+            N n = new N(input);
+            N i = new N(input1);
+            N f = new N(output);
+            Assert.AreEqual(f, n * i);
+        }
+
+        [TestMethod]
+        public void multiplicationTest5()
+        {
+            List<string> input = new List<string>();
+            List<string> input1 = new List<string>();
+            List<string> output = new List<string>();
+            input.Add("123");
+            input1.Add("24");
+            output.Add("2");
+            output.Add("952");
+            N n = new N(input1);
             N i = new N(input);
-            Assert.AreNotEqual(null, n * i);
+            N f = new N(output);
+            Assert.AreEqual(f, n * i);
         }
         // Test 
         ///
-        [TestMethod]
-        public void devisionTest1()
-        {
-            List<string> input = new List<string>();
-            List<string> input1 = new List<string>();
-            List<string> output = new List<string>();
-            input.Add("1");
-            input.Add("12345675");
-            input.Add("00000000");
-            input1.Add("1");
-            input1.Add("12345675");
-            output.Add("1");
-            output.Add("00000000");
-            N n = new N(input);
-            N i = new N(input1);
-            N t = new N(output);
-            Assert.AreEqual(t, n / i);
-
-        }
-        [TestMethod]
-        public void devisionTest2()
-        {
-            List<string> input = new List<string>();
-            List<string> input1 = new List<string>();
-            List<string> output = new List<string>();
-            input.Add("1");
-            input.Add("11111111");
-            input1.Add("1");
-            input1.Add("11111111");
-            output.Add("1");
-            N n = new N(input);
-            N i = new N(input1);
-            N t = new N(output);
-            Assert.AreEqual(t, n / i);
-
-        }
-        [TestMethod]
-        public void devisionTest3()
-        {
-            List<string> input = new List<string>();
-            List<string> input1 = new List<string>();
-            List<string> output = new List<string>();
-            input.Add("2");
-            input.Add("22222222");
-            input1.Add("1");
-            input1.Add("11111111");
-            output.Add("2");
-            N n = new N(input);
-            N i = new N(input1);
-            N t = new N(output);
-            Assert.AreEqual(t, n / i);
-
-        }
         [TestMethod]
         public void devisionByZeroTest()
         {
@@ -455,97 +423,343 @@ namespace Math_Module_Test
             List<string> input1 = new List<string>();
             List<string> output = new List<string>();
             input.Add("2");
-            input.Add("22222222");
+            input.Add("222");
             input1.Add("0");
             N n = new N(input);
             N i = new N(input1);
             Assert.AreEqual(null, n / i);
-
         }
+
         [TestMethod]
-        public void devisionTestEx()
-        {
-            List<string> input = new List<string>();
-            List<string> input1 = new List<string>();
-            input.Add("1");
-            input.Add("12345675");
-            input.Add("00000000");
-            input1.Add("1");
-            input1.Add("12345675");
-            N n = new N(input);
-            N i = new N(input1);
-            Assert.AreNotEqual(null, n / i);
-
-        }
-        [TestMethod]//%
-        public void remainderTest1()
+        public void devisionTest1()
         {
             List<string> input = new List<string>();
             List<string> input1 = new List<string>();
             List<string> output = new List<string>();
-            input.Add("145");
-            input.Add("56543564");
+            input.Add("123");
             input1.Add("1");
-            input1.Add("00003564");//145 00516780
-            output.Add("56026784");
-            N n = new N(input);
-            N i = new N(input1);
-            N t = new N(output);
-            Assert.AreEqual(t, n % i);
-        }
-        [TestMethod]
-        public void remainderTest2()
-        {
-            List<string> input = new List<string>();
-            List<string> input1 = new List<string>();
-            List<string> output = new List<string>();
-            input.Add("1");
-            input.Add("00000000");
-            input1.Add("1");
-            input1.Add("00000000");
+            input1.Add("120");
             output.Add("0");
             N n = new N(input);
             N i = new N(input1);
             N t = new N(output);
-            Assert.AreEqual(t, n % i);
+            Assert.AreEqual(t, n / i);
         }
+
+        [TestMethod]
+        public void devisionTest2()
+        {
+            List<string> input = new List<string>();
+            List<string> input1 = new List<string>();
+            List<string> output = new List<string>();
+            input.Add("1");
+            input.Add("111");
+            input1.Add("1");
+            input1.Add("111");
+            output.Add("1");
+            N n = new N(input);
+            N i = new N(input1);
+            N t = new N(output);
+            Assert.AreEqual(t, n / i);
+        }
+
+        [TestMethod]
+        public void devisionTest3()
+        {
+            List<string> input = new List<string>();
+            List<string> input1 = new List<string>();
+            List<string> output = new List<string>();
+            input.Add("2");
+            input.Add("222");
+            input1.Add("1");
+            output.Add("2");
+            output.Add("222");
+            N n = new N(input);
+            N i = new N(input1);
+            N t = new N(output);
+            Assert.AreEqual(t, n / i);
+        }
+
+        [TestMethod]
+        public void devisionTest4()
+        {
+            List<string> input = new List<string>();
+            List<string> input1 = new List<string>();
+            List<string> output = new List<string>();
+            input.Add("0");
+            input1.Add("222");
+            input1.Add("1");
+            output.Add("0");
+            N n = new N(input);
+            N i = new N(input1);
+            N t = new N(output);
+            Assert.AreEqual(t, n / i);
+        }
+
+        [TestMethod]
+        public void devisionTest5()
+        {
+            List<string> input = new List<string>();
+            List<string> input1 = new List<string>();
+            List<string> output = new List<string>();
+            input.Add("25");
+            input1.Add("8");
+            output.Add("3");
+            N n = new N(input);
+            N i = new N(input1);
+            N t = new N(output);
+            Assert.AreEqual(t, n / i);
+        }
+
+        [TestMethod]
+        public void devisionTest6()
+        {
+            List<string> input = new List<string>();
+            List<string> input1 = new List<string>();
+            List<string> output = new List<string>();
+            input.Add("123");
+            input.Add("123");
+            input.Add("123");
+            input1.Add("122");
+            output.Add("1");
+            output.Add("009");
+            output.Add("205");
+            N n = new N(input);
+            N i = new N(input1);
+            N t = new N(output);
+            Assert.AreEqual(t, n / i);
+        }
+
+        //%
         [TestMethod]
         public void remainderByZeroTest()
         {
             List<string> input = new List<string>();
             List<string> input1 = new List<string>();
             input.Add("1");
-            input.Add("00000000");
+            input.Add("123");
             input1.Add("0");
             N n = new N(input);
             N i = new N(input1);
             Assert.AreEqual(null, n % i);
         }
+
         [TestMethod]
-        public void remainderTestEx()
+        public void remainderTest1()
         {
             List<string> input = new List<string>();
             List<string> input1 = new List<string>();
             List<string> output = new List<string>();
             input.Add("1");
-            input.Add("00000000");
+            input.Add("024");
             input1.Add("1");
-            input1.Add("00000000");
+            input1.Add("024");
+            output.Add("0");
             N n = new N(input);
             N i = new N(input1);
-            Assert.AreNotEqual(null, n % i);
+            N t = new N(output);
+            Assert.AreEqual(t, n % i);
         }
 
+        [TestMethod]
+        public void remainderTest2()
+        {
+            List<string> input = new List<string>();
+            List<string> input1 = new List<string>();
+            List<string> output = new List<string>();
+            input.Add("122");
+            input1.Add("123");
+            output.Add("122");
+            N n = new N(input);
+            N i = new N(input1);
+            N t = new N(output);
+            Assert.AreEqual(t, n % i);
+        }
 
+        [TestMethod]
+        public void remainderTest3()
+        {
+            List<string> input = new List<string>();
+            List<string> input1 = new List<string>();
+            List<string> output = new List<string>();
+            input.Add("245");
+            input1.Add("123");
+            output.Add("122");
+            N n = new N(input);
+            N i = new N(input1);
+            N t = new N(output);
+            Assert.AreEqual(t, n % i);
+        }
+
+        [TestMethod]
+        public void remainderTest4()
+        {
+            List<string> input = new List<string>();
+            List<string> input1 = new List<string>();
+            List<string> output = new List<string>();
+            input.Add("123");
+            input.Add("123");
+            input1.Add("122");
+            output.Add("25");
+            N n = new N(input);
+            N i = new N(input1);
+            N t = new N(output);
+            Assert.AreEqual(t, n % i);
+        }
+
+        [TestMethod]
+        public void remainderTest5()
+        {
+            List<string> input = new List<string>();
+            List<string> input1 = new List<string>();
+            List<string> output = new List<string>();
+            input.Add("123");
+            input.Add("123");
+            input.Add("123");
+            input1.Add("122");
+            input1.Add("000");
+            output.Add("25 ");
+            output.Add("123");
+            N n = new N(input);
+            N i = new N(input1);
+            N t = new N(output);
+            Assert.AreEqual(t, n % i);
+        }
+
+        [TestMethod]
+        public void remainderTest6()
+        {
+            List<string> input = new List<string>();
+            List<string> input1 = new List<string>();
+            List<string> output = new List<string>();
+            input.Add("245");
+            input1.Add("1");
+            output.Add("0");
+            N n = new N(input);
+            N i = new N(input1);
+            N t = new N(output);
+            Assert.AreEqual(t, n % i);
+        }
+
+        //^
+        [TestMethod]
+        public void degreeTestZero1()
+        {
+            List<string> input = new List<string>();
+            List<string> input1 = new List<string>();
+            List<string> output = new List<string>();
+            input.Add("245");
+            input1.Add("0");
+            output.Add("1");
+            N n = new N(input);
+            N i = new N(input1);
+            N t = new N(output);
+            Assert.AreEqual(t, n ^ i);
+        }
+
+        [TestMethod]
+        public void degreeTestZero2()
+        {
+            List<string> input = new List<string>();
+            List<string> input1 = new List<string>();
+            List<string> output = new List<string>();
+            input.Add("0");
+            input1.Add("123");
+            output.Add("0");
+            N n = new N(input);
+            N i = new N(input1);
+            N t = new N(output);
+            Assert.AreEqual(t, n ^ i);
+        }
+
+        [TestMethod]
+        public void degreeTest1()
+        {
+            List<string> input = new List<string>();
+            List<string> input1 = new List<string>();
+            List<string> output = new List<string>();
+            input.Add("247");
+            input1.Add("1");
+            output.Add("247");
+            N n = new N(input);
+            N i = new N(input1);
+            N t = new N(output);
+            Assert.AreEqual(t, n ^ i);
+        }
+
+        [TestMethod]
+        public void degreeTest2()
+        {
+            List<string> input = new List<string>();
+            List<string> input1 = new List<string>();
+            List<string> output = new List<string>();
+            input.Add("1");
+            input1.Add("123");
+            output.Add("1");
+            N n = new N(input);
+            N i = new N(input1);
+            N t = new N(output);
+            Assert.AreEqual(t, n ^ i);
+        }
+
+        [TestMethod]
+        public void degreeTest3()
+        {
+            List<string> input = new List<string>();
+            List<string> input1 = new List<string>();
+            List<string> output = new List<string>();
+            input.Add("2");
+            input1.Add("13");
+            output.Add("8");
+            output.Add("192");
+            N n = new N(input);
+            N i = new N(input1);
+            N t = new N(output);
+            Assert.AreEqual(t, n ^ i);
+        }
+
+        [TestMethod]
+        public void degreeTest4()
+        {
+            List<string> input = new List<string>();
+            List<string> input1 = new List<string>();
+            List<string> output = new List<string>();
+            input.Add("143");
+            input1.Add("15");
+            output.Add("213");
+            output.Add("816");
+            output.Add("177");
+            output.Add("893"); 
+            output.Add("015");
+            output.Add("973");
+            output.Add("495");
+            output.Add("273");
+            output.Add("770");
+            output.Add("237");
+            output.Add("807");
+            N n = new N(input);
+            N i = new N(input1);
+            N t = new N(output);
+            Assert.AreEqual(t, n ^ i);
+        }
         //RoflTest 
 
         [TestMethod]
-        public void RofloTest()
+        public void isDown()
         {
             List<string> input = new List<string>();
             N n = new N(input);
             Assert.AreEqual(false, n.isDown);
         }
+
+        [TestMethod]
+        public void id()
+        {
+            List<string> input = new List<string>();
+            N n = new N(input);
+            Assert.AreEqual(1, n.id);
+        }
+
         //COM_NN_D(equalForN)Test
         [TestMethod]
         public void COM_NN_DBiggerTest1()
@@ -613,7 +827,7 @@ namespace Math_Module_Test
         {
             List<string> input = new List<string>();
             input.Add("1");
-            input.Add("12345678");
+            input.Add("123");
             N n = new N(input);
             N nClone = n.Clone();
             Assert.AreEqual(nClone, n);
@@ -622,8 +836,8 @@ namespace Math_Module_Test
         public void CloneTestReference()
         {
             List<string> input = new List<string>();
-            input.Add("1");
-            input.Add("12345678");
+            input.Add("234");
+            input.Add("157");
             N n = new N(input);
             N nClone = n.Clone();
             Assert.AreEqual(false, n == nClone);
@@ -804,20 +1018,20 @@ namespace Math_Module_Test
 
                    } 
                    */
-        /* [TestMethod]
+         /* [TestMethod]
          public void MUL_ND_NTest1()
          {
              List<string> input = new List<string>();
              List<string> output = new List<string>();
-             byte input1 = 3;
-             input.Add("87654321");
-             output.Add("1");
-             output.Add("75308642");
+             byte input1 = 0;
+             input.Add("123");
+             output.Add("0");
              N x = new N(input);
              N t = new N(output);
              N i = x.MUL_ND_N(input1);
              Assert.AreEqual(t,i);
          }
+
          [TestMethod]
          public void MUL_ND_NTestEx()
          {
