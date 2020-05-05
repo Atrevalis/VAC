@@ -11,8 +11,8 @@ namespace LMath
 
         private List<uint> znach;
 
-        private const uint uint_size = 99999999;
-        public const uint uint_size_div = 8;
+        private const uint uint_size = 999;
+        public const uint uint_size_div = 3;
 
         #endregion
 

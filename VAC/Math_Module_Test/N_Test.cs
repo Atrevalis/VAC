@@ -16,27 +16,20 @@ namespace Math_Module_Test
         {
             List<string> input = new List<string>();
             List<string> output = new List<string>();
-            input.Add("12");
-            input.Add("99999999");
-            output.Add("13");
-            output.Add("00000000");
+            input.Add("0");
+            output.Add("1");
             N n = new N(input);
             N t = new N(output);
             Assert.AreEqual(n++, t);
 
         }
-
         [TestMethod]
         public void plusPlusTest2()
         {
             List<string> input = new List<string>();
             List<string> output = new List<string>();
-            input.Add("12");
-            input.Add("00000000");
-            input.Add("00000000");
-            output.Add("12");
-            output.Add("00000000");
-            output.Add("00000001");
+            input.Add("272");
+            output.Add("273");
             N n = new N(input);
             N t = new N(output);
             Assert.AreEqual(n++, t);
@@ -44,18 +37,82 @@ namespace Math_Module_Test
         }
 
         [TestMethod]
-        public void plusPlusTestEx()
+        public void plusPlusTest3()
         {
             List<string> input = new List<string>();
             List<string> output = new List<string>();
-            input.Add("12");
-            input.Add("00000000");
-            input.Add("00000009");
+            input.Add("279");
+            output.Add("280");
             N n = new N(input);
-            Assert.AreNotEqual(n++, null);
-
+            N t = new N(output);
+            Assert.AreEqual(n++, t);
 
         }
+
+        [TestMethod]
+        public void plusPlusTest4()
+        {
+            List<string> input = new List<string>();
+            List<string> output = new List<string>();
+            input.Add("299");
+            output.Add("300");
+            N n = new N(input);
+            N t = new N(output);
+            Assert.AreEqual(n++, t);
+
+        }
+
+        [TestMethod]
+        public void plusPlusTest5()
+        {
+            List<string> input = new List<string>();
+            List<string> output = new List<string>();
+            input.Add("123");
+            input.Add("123");
+            input.Add("123");
+            output.Add("123");
+            output.Add("123");
+            output.Add("124");
+            N n = new N(input);
+            N t = new N(output);
+            Assert.AreEqual(n++, t);
+
+        }
+
+        [TestMethod]
+        public void plusPlusTest6()
+        {
+            List<string> input = new List<string>();
+            List<string> output = new List<string>();
+            input.Add("123");
+            input.Add("123");
+            input.Add("999");
+            output.Add("123");
+            output.Add("124");
+            output.Add("000");
+            N n = new N(input);
+            N t = new N(output);
+            Assert.AreEqual(n++, t);
+
+        }
+
+        [TestMethod]
+        public void plusPlusTest7()
+        {
+            List<string> input = new List<string>();
+            List<string> output = new List<string>();
+            input.Add("123");
+            input.Add("999");
+            input.Add("999");
+            output.Add("124");
+            output.Add("000");
+            output.Add("000");
+            N n = new N(input);
+            N t = new N(output);
+            Assert.AreEqual(n++, t);
+
+        }
+
         //++Test
 
         //NinStringTest
@@ -65,8 +122,8 @@ namespace Math_Module_Test
 
             List<string> output = new List<string>();
             output.Add("12");
-            output.Add("00000000");
-            output.Add("00000009");
+            output.Add("000");
+            output.Add("009");
             N n = new N(output);
             CollectionAssert.AreEqual((List<string>)n, output);
 
@@ -83,14 +140,14 @@ namespace Math_Module_Test
         }
 
         [TestMethod]
-        public void NConvertToStringTestEx()
+        public void NConvertToStringTest3()
         {
 
             List<string> output = new List<string>();
             output.Add("12");
-            output.Add("00000009");
+            output.Add("009");
             N n = new N(output);
-            Assert.AreNotEqual(null, (List<string>)n);
+            CollectionAssert.AreEqual(output, (List<string>)n);
 
 
         }
@@ -100,16 +157,16 @@ namespace Math_Module_Test
         [TestMethod]
         public void plusTest1()
         {
-            List<string> input = new List<string>();
+            List<string> input1 = new List<string>();
+            List<string> input2 = new List<string>();
             List<string> output = new List<string>();
-            input.Add("12");
-            input.Add("10000000");
-            output.Add("12");
-            output.Add("10000012");
-            output.Add("10000000");
-            N n = new N(input);
-            input.Add("00000000");
-            N i = new N(input);
+            input1.Add("123");
+            input1.Add("123");
+            output.Add("123");
+            output.Add("123");
+            N n = new N(input1);
+            input2.Add("0");
+            N i = new N(input2);
             N t = new N(output);
             Assert.AreEqual(t, n + i);
 
@@ -118,13 +175,14 @@ namespace Math_Module_Test
         [TestMethod]
         public void plusTest2()
         {
-            List<string> input = new List<string>();
+            List<string> input1 = new List<string>();
+            List<string> input2 = new List<string>();
             List<string> output = new List<string>();
-            input.Add("50000000");
-            output.Add("1");
-            output.Add("00000000");
-            N n = new N(input);
-            N i = new N(input);
+            input1.Add("522");
+            input2.Add("432");
+            output.Add("954");
+            N n = new N(input1);
+            N i = new N(input2);
             N t = new N(output);
             Assert.AreEqual(t, n + i);
 
@@ -133,14 +191,14 @@ namespace Math_Module_Test
         [TestMethod]
         public void plusTest3()
         {
-            List<string> input = new List<string>();
             List<string> input1 = new List<string>();
+            List<string> input2 = new List<string>();
             List<string> output = new List<string>();
-            input.Add("12");
-            input1.Add("222");
-            output.Add("234");
-            N n = new N(input);
-            N i = new N(input1);
+            input1.Add("9");
+            input2.Add("4");
+            output.Add("13");
+            N n = new N(input1);
+            N i = new N(input2);
             N t = new N(output);
             Assert.AreEqual(t, n + i);
 
@@ -153,14 +211,14 @@ namespace Math_Module_Test
             List<string> input1 = new List<string>();
             List<string> output = new List<string>();
             input.Add("12");
-            input.Add("12000000");
-            input.Add("12000000");
+            input.Add("120");
+            input.Add("120");
 
-            input1.Add("222");
+            input1.Add("980");
 
             output.Add("12");
-            output.Add("12000000");
-            output.Add("12000222");
+            output.Add("121");
+            output.Add("100");
             N n = new N(input);
             N i = new N(input1);
             N t = new N(output);
@@ -168,15 +226,42 @@ namespace Math_Module_Test
 
         }
         [TestMethod]
-        public void plusTestEx()
+        public void plusTest5()
         {
-            List<string> input = new List<string>();
+            List<string> input1 = new List<string>();
+            List<string> input2 = new List<string>();
             List<string> output = new List<string>();
-            input.Add("49999999");
-            input.Add("50000000");
-            N n = new N(input);
-            N i = new N(input);
-            Assert.AreNotEqual(null, n + i);
+            input1.Add("224");
+            input1.Add("999");
+            input1.Add("800");
+            input2.Add("224");
+            input2.Add("000");
+            input2.Add("200");
+            N n = new N(input1);
+            N i = new N(input2);
+            output.Add("449");
+            output.Add("000");
+            output.Add("000");
+            Assert.AreEqual(output, n + i);
+
+        }
+        public void plusTest6()
+        {
+            List<string> input1 = new List<string>();
+            List<string> input2 = new List<string>();
+            List<string> output = new List<string>();
+            input1.Add("224");
+            input1.Add("999");
+            input1.Add("800");
+            input2.Add("224");
+            input2.Add("800");
+            input2.Add("200");
+            N n = new N(input1);
+            N i = new N(input2);
+            output.Add("449");
+            output.Add("600");
+            output.Add("000");
+            Assert.AreEqual(output, n + i);
 
         }
         //+Test
@@ -185,20 +270,23 @@ namespace Math_Module_Test
         [TestMethod]
         public void minusTest1()
         {
-            List<string> input = new List<string>();
             List<string> input1 = new List<string>();
+            List<string> input2 = new List<string>();
             List<string> output = new List<string>();
-            input.Add("142");//142
-            input.Add("12345678");
-            N n = new N(input);
-            input1.Add("131");
-            input1.Add("12000000");
+            input1.Add("999");
+            input1.Add("999");
+            input1.Add("999");
+            N n = new N(input1);
+            input2.Add("1");
+            input2.Add("000");
+            input2.Add("239");
 
 
             N i = new N(input1);
 
-            output.Add("11");
-            output.Add("00345678");
+            output.Add("998");
+            output.Add("999");
+            output.Add("760");
             N t = new N(output);
 
             Assert.AreEqual(t, n - i);
@@ -213,12 +301,10 @@ namespace Math_Module_Test
             List<string> output = new List<string>();
             input.Add("2");
             N i = new N(input);
-
             input1.Add("1");
-            input1.Add("00000000");
+            input1.Add("000");
             N n = new N(input1);
-
-            output.Add("99999998");
+            output.Add("998");
             N t = new N(output);
             Assert.AreEqual(t, n - i);
 
