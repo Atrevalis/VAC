@@ -54,14 +54,6 @@
       <Project>{f719c6eb-59db-4a45-89ee-bfa88e5b996d}</Project>
       <Name>External_Module</Name>
     </ProjectReference>
-    <ProjectReference Include="..\LMath_C\LMath_C.csproj">
-      <Project>{c90cfcf9-5abe-42c6-9487-f934d75562fe}</Project>
-      <Name>LMath_C</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\LMath_R\LMath_R.csproj">
-      <Project>{33145eea-5900-43cd-b2dd-30d50df8c1d4}</Project>
-      <Name>LMath_R</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Math_Module\LMath_Main\LMath_Main.csproj">
       <Project>{3def3843-4999-4fe0-ad14-9c7ea8b16042}</Project>
       <Name>LMath_Main</Name>

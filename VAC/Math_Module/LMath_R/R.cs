@@ -10,11 +10,16 @@ namespace LMath
     {
         #region Конструкторы
 
+        public R(List<smaller_R> s)
+        {
+
+        }
+
         #endregion
 
         #region Поля
 
-
+        List<smaller_R> Sum;
 
         #endregion
 
@@ -45,6 +50,11 @@ namespace LMath
         }
 
         public static R operator /(R first, R second)
+        {
+            return null;
+        }
+
+        public static R operator ^(R first, R second)
         {
             return null;
         }
@@ -136,5 +146,25 @@ namespace LMath
 
         #endregion
         #endregion
+    }
+
+    public class the_smallest_R
+    {
+        Q basa;
+        R indicator;
+
+        public the_smallest_R(Q b, R ind)
+        {
+
+        }
+    }
+
+    public class smaller_R
+    {
+        List<the_smallest_R> product;
+        public smaller_R(List<the_smallest_R> p)
+        {
+
+        }
     }
 }

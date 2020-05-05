@@ -11,8 +11,8 @@ namespace LMath
 
         private List<uint> znach;
 
-        private const uint uint_size = 99999999;
-        public const uint uint_size_div = 8;
+        private const uint uint_size = 999;
+        public const uint uint_size_div = 3;
 
         #endregion
 
@@ -155,7 +155,7 @@ namespace LMath
             N value = new N(zero);
             for (int i = 0; i < second.znach.Count; i++) //Перебираем все элементы 2-ого поля
             {
-                if (second.znach[i] == 0)
+                if ((second.znach[i] == 0) && (i != second.znach.Count - 1))
                 {
                     product.znach.Insert(0, 0);
                     for (int q = 0; q < uint_size_div; q++) value++;
