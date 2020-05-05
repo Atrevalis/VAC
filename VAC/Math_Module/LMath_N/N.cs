@@ -235,7 +235,42 @@ namespace LMath
 
         public static N operator ^(N first, N second)
         {
-            return null;
+            N baze = first.Clone();
+            N degree = second.Clone();
+            List<string> z = new List<string>();
+            List<string> r = new List<string>();
+            List<string> s = new List<string>();
+            z.Add("0");
+            r.Add("1");
+            s.Add("2");
+            N zero = new N(z);
+            N result = new N(r);
+            N temp = new N(s);
+            N one = new N(r);
+            uint two = 2;
+            if (degree.COM(result) == 0)
+            {
+                return baze;
+            }
+            if (degree.COM(zero) == 0)
+            {
+                return result;
+            }
+            while (degree.COM(temp) == 2 || degree.COM(temp) == 0)
+            {
+                if (degree.znach[0] % two == 1)
+                {
+                    degree -= one;
+                    result *= baze;
+                }
+                else
+                {
+                    degree /= temp;
+                    baze *= baze;
+                }
+            }
+            result *= baze;
+            return result;
         }
         
 
