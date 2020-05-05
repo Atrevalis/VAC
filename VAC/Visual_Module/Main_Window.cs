@@ -12,12 +12,14 @@ using MVS_Controller;
 using External_Controller;
 using Interpretation_Controller;
 using System.Diagnostics;
+using System.IO;
 
 
 namespace Visual_Module
 {
     public partial class Main_Window : Form
     {
+        static List<string[]> config_info = new List<string[]>();
         string[] arg;
         int progress = 0;
         static Point Mouse_pos = new Point(0, 0);
@@ -27,9 +29,158 @@ namespace Visual_Module
         {
             arg = args;
             InitializeComponent();
+            FileStream file = new FileStream(Application.StartupPath + "\\Config.txt", FileMode.Open);
+            StreamReader reader = new StreamReader(file);
+            string config = reader.ReadToEnd();
+            reader.Close();
+            file.Close();
+            config = config.Replace("\n", "");
+            config = config.Replace("\t", "");
+            config = config.Replace("\r", "");
+            config = config.Replace(" ", "");
+            config = config.Replace("`", " ");
+            config = config.Replace("}", "{");
+            string[] first_config = config.Split('{');
+            int count = 0;
+            for(int i = 0; i < first_config.Length/2; i++)
+            {
+                if(first_config[i*2][first_config[i * 2].Length-1] != '#')
+                {
+                    ToolStripMenuItem new_tool = new ToolStripMenuItem();
+                    new_tool.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(132)))), ((int)(((byte)(127)))));
+                    new_tool.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+                    new_tool.Name = "normal";
+                    new_tool.Size = new System.Drawing.Size(60, 22);
+                    new_tool.Text = first_config[i * 2];
+                    menuStrip1.Items.Insert(1+(i), new_tool);
+                    string[] second_config = first_config[i * 2 + 1].Split('"');
+                    for(int j = 0; j < second_config.Length / 2; j++)
+                    {
+                        if (second_config[j * 2][second_config[j * 2].Length - 1] != '#')
+                        {
+                            ToolStripMenuItem item = new ToolStripMenuItem();
+                            item.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(132)))), ((int)(((byte)(127)))));
+                            item.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+                            item.Name = "normal";
+                            item.Size = new System.Drawing.Size(60, 22);
+                            item.Text = second_config[j * 2];
+                            new_tool.DropDownItems.Insert((j), item);
+                            second_config[j * 2 + 1] = second_config[j * 2 + 1].Replace("]", "[");
+                            string[] therd_config = second_config[j * 2 + 1].Split('[');
+                            for(int k = 0; k < therd_config.Length / 2; k++)
+                            {
+                                if (therd_config[k * 2][therd_config[k * 2].Length - 1] == '#')
+                                {
+                                    ToolStripMenuItem lastitem = new ToolStripMenuItem();
+                                    lastitem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(132)))), ((int)(((byte)(127)))));
+                                    lastitem.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+                                    lastitem.Name = Convert.ToString(count);
+                                    count++;
+                                    lastitem.Size = new System.Drawing.Size(60, 22);
+                                    lastitem.Text = therd_config[k * 2].Remove(therd_config[k * 2].Length - 1, 1);
+                                    item.DropDownItems.Insert((k), lastitem);
+                                    config_info.Add(therd_config[k * 2 + 1].Split('~'));
+                                    lastitem.Click += new EventHandler(NOD_button_Click);
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Ошибка конфигурации", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    Close();
+                                }
+                            }
+
+                        }
+                        else
+                        {
+                            ToolStripMenuItem item = new ToolStripMenuItem();
+                            item.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(132)))), ((int)(((byte)(127)))));
+                            item.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+                            item.Name = Convert.ToString(count);
+                            count++;
+                            item.Size = new System.Drawing.Size(60, 22);
+                            item.Text = second_config[j * 2].Remove(second_config[j * 2].Length - 1, 1);
+                            new_tool.DropDownItems.Insert((j), item);
+                            config_info.Add(second_config[j * 2 + 1].Split('~'));
+                            item.Click += new EventHandler(NOD_button_Click);
+                        }
+                    }
+                }
+                else
+                {
+                    ToolStripMenuItem new_tool = new ToolStripMenuItem();
+                    new_tool.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(132)))), ((int)(((byte)(127)))));
+                    new_tool.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+                    new_tool.Name = Convert.ToString(count);
+                    count++;
+                    new_tool.Size = new System.Drawing.Size(60, 22);
+                    new_tool.Text = first_config[i * 2].Remove(first_config[i*2].Length-1, 1);
+                    menuStrip1.Items.Insert(1 + (i), new_tool);
+                    config_info.Add(first_config[i * 2 + 1].Split('~'));
+                    new_tool.Click += new EventHandler(NOD_button_Click);
+                }
+
+            }
             timer1.Start();
-            toolStripMenuItem1 = new ToolStripMenuItem();
-            menuStrip1.Items.Insert(1, toolStripMenuItem1);
+        }
+
+        private void NOD_button_Click(object sender, EventArgs e)
+        {
+            int count = Convert.ToInt32((sender as ToolStripMenuItem).Name);
+            string name_main = config_info[count][0], type = config_info[count][1], name_vis = config_info[count][2];
+            if (type[type.Length - 1] == '.')
+            {
+                type = "operator";
+            }
+            if (type == "if_operator") type = "if";
+            switch (type)
+            {
+                case "if":
+                    {
+                        MVS_Controller.if_operator working_Data = new MVS_Controller.if_operator(this, panel1);
+                        string[] text = null;
+                        Controller.Create_new_Nod(name_main, "if_operator", working_Data, ref text);
+                        working_Data.label.Text = name_vis;
+                        working_Data.Butt_ini(text);
+                        working_Data.Show();
+                        panel1.Controls.Add(working_Data);
+                        working_Data.BringToFront();
+                    }
+                    break;
+                case "Result":
+                    {
+                        MVS_Controller.Result working_Data = new MVS_Controller.Result(this, panel1);
+                        string[] text = null;
+                        Controller.Create_new_Nod(name_main, "Result", working_Data, ref text);
+                        working_Data.label.Text = name_vis;
+                        working_Data.Show();
+                        panel1.Controls.Add(working_Data);
+                        working_Data.BringToFront();
+                    }
+                    break;
+                case "operator":
+                    {
+                        MVS_Controller.Working_data working_Data = new MVS_Controller.Working_data(this, panel1);
+                        string[] text = null;
+                        Controller.Create_new_Nod(name_main, config_info[count][1].Replace(".",""), working_Data, ref text);
+                        working_Data.label.Text = name_vis;
+                        working_Data.Show();
+                        panel1.Controls.Add(working_Data);
+                        working_Data.BringToFront();
+                    }
+                    break;
+                case "Data":
+                    {
+                        MVS_Controller.Working_data working_Data = new MVS_Controller.Working_data(this, panel1);
+                        string[] text = null;
+                        Controller.Create_new_Nod(name_main, "Data", working_Data, ref text);
+                        working_Data.label.Text = name_vis;
+                        working_Data.Show();
+                        panel1.Controls.Add(working_Data);
+                        working_Data.BringToFront();
+                    }
+                    break;
+            }
+
         }
 
         private void toolStripMenuItem2_Click(object sender, EventArgs e)
@@ -308,252 +459,6 @@ namespace Visual_Module
                 progress = Interpretator.progress;
                 toolStripProgressBar1.Value = progress;
             }
-        }
-
-
-        private void toolStripMenuItem7_Click(object sender, EventArgs e)
-        {
-            MVS_Controller.Working_data working_Data = new MVS_Controller.Working_data(this, panel1);
-            string[] text = null;
-            Controller.Create_new_Nod("N", "Data", working_Data, ref text);
-            working_Data.label.Text = "N";
-            working_Data.Show();
-            panel1.Controls.Add(working_Data);
-            working_Data.BringToFront();
-        }
-
-        private void toolStripMenuItem10_Click(object sender, EventArgs e)
-        {
-            MVS_Controller.Working_data working_Data = new MVS_Controller.Working_data(this, panel1);
-            string[] text = null;
-            Controller.Create_new_Nod("Z", "Data", working_Data, ref text);
-            working_Data.label.Text = "Z";
-            working_Data.Show();
-            panel1.Controls.Add(working_Data);
-            working_Data.BringToFront();
-        }
-
-        private void toolStripMenuItem11_Click(object sender, EventArgs e)
-        {
-            MVS_Controller.Working_data working_Data = new MVS_Controller.Working_data(this, panel1);
-            string[] text = null;
-            Controller.Create_new_Nod("Q", "Data", working_Data, ref text);
-            working_Data.label.Text = "Q";
-            working_Data.Show();
-            panel1.Controls.Add(working_Data);
-            working_Data.BringToFront();
-        }
-
-        private void toolStripMenuItem12_Click(object sender, EventArgs e)
-        {
-            MVS_Controller.Working_data working_Data = new MVS_Controller.Working_data(this, panel1);
-            string[] text = null;
-            Controller.Create_new_Nod("P", "Data", working_Data, ref text);
-            working_Data.label.Text = "P";
-            working_Data.Show();
-            panel1.Controls.Add(working_Data);
-            working_Data.BringToFront();
-        }
-
-        private void модульЧислаToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            MVS_Controller.Working_data working_Data = new MVS_Controller.Working_data(this, panel1);
-            string[] text = null;
-            Controller.Create_new_Nod("ABS", "Uno_operator", working_Data, ref text);
-            working_Data.label.Text = "ABS";
-            working_Data.Show();
-            panel1.Controls.Add(working_Data);
-            working_Data.BringToFront();
-        }
-
-        private void минусToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            MVS_Controller.Working_data working_Data = new MVS_Controller.Working_data(this, panel1);
-            string[] text = null;
-            Controller.Create_new_Nod("(-1)", "Uno_operator", working_Data, ref text);
-            working_Data.label.Text = "(-1)";
-            working_Data.Show();
-            panel1.Controls.Add(working_Data);
-            working_Data.BringToFront();
-        }
-
-        private void производнаяToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            MVS_Controller.Working_data working_Data = new MVS_Controller.Working_data(this, panel1);
-            string[] text = null;
-            Controller.Create_new_Nod("DIF", "Uno_operator", working_Data, ref text);
-            working_Data.label.Text = "f'(x)";
-            working_Data.Show();
-            panel1.Controls.Add(working_Data);
-            working_Data.BringToFront();
-        }
-
-        private void старшийКоэфицентToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            MVS_Controller.Working_data working_Data = new MVS_Controller.Working_data(this, panel1);
-            string[] text = null;
-            Controller.Create_new_Nod("LED", "Uno_operator", working_Data, ref text);
-            working_Data.label.Text = "LED";
-            working_Data.Show();
-            panel1.Controls.Add(working_Data);
-            working_Data.BringToFront();
-        }
-
-        private void степеньПолиномаToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            MVS_Controller.Working_data working_Data = new MVS_Controller.Working_data(this, panel1);
-            string[] text = null;
-            Controller.Create_new_Nod("deg", "Uno_operator", working_Data, ref text);
-            working_Data.label.Text = "deg";
-            working_Data.Show();
-            panel1.Controls.Add(working_Data);
-            working_Data.BringToFront();
-        }
-
-        private void вынесениеНОКЧислителяИНОДЗнаменателяToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            MVS_Controller.Working_data working_Data = new MVS_Controller.Working_data(this, panel1);
-            string[] text = null;
-            Controller.Create_new_Nod("FAC", "Uno_operator", working_Data, ref text);
-            working_Data.label.Text = "НОД/\nНОК";
-            working_Data.Show();
-            panel1.Controls.Add(working_Data);
-            working_Data.BringToFront();
-        }
-
-
-        private void toolStripMenuItem19_Click(object sender, EventArgs e)
-        {
-            MVS_Controller.Working_data working_Data = new MVS_Controller.Working_data(this, panel1);
-            string[] text = null;
-            Controller.Create_new_Nod("Down", "Uno_operator", working_Data, ref text);
-            working_Data.label.Text = "⊆";
-            working_Data.Show();
-            panel1.Controls.Add(working_Data);
-            working_Data.BringToFront();
-        }
-
-        private void toolStripMenuItem20_Click(object sender, EventArgs e)
-        {
-            MVS_Controller.Working_data working_Data = new MVS_Controller.Working_data(this, panel1);
-            string[] text = null;
-            Controller.Create_new_Nod("up", "Uno_operator", working_Data, ref text);
-            working_Data.label.Text = "∈";
-            working_Data.Show();
-            panel1.Controls.Add(working_Data);
-            working_Data.BringToFront();
-        }
-
-        private void toolStripMenuItem18_Click(object sender, EventArgs e)
-        {
-            MVS_Controller.Working_data working_Data = new MVS_Controller.Working_data(this, panel1);
-            string[] text = null;
-            Controller.Create_new_Nod("-", "Bin_operator", working_Data, ref text);
-            working_Data.label.Text = "SUB";
-            working_Data.Show();
-            panel1.Controls.Add(working_Data);
-            working_Data.BringToFront();
-        }
-
-        private void делениеToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            MVS_Controller.Working_data working_Data = new MVS_Controller.Working_data(this, panel1);
-            string[] text = null;
-            Controller.Create_new_Nod("/", "Bin_operator", working_Data, ref text);
-            working_Data.label.Text = "DIV";
-            working_Data.Show();
-            panel1.Controls.Add(working_Data);
-            working_Data.BringToFront();
-        }
-
-        private void остатокОтДеленияToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            MVS_Controller.Working_data working_Data = new MVS_Controller.Working_data(this, panel1);
-            string[] text = null;
-            Controller.Create_new_Nod("%", "Bin_operator", working_Data, ref text);
-            working_Data.label.Text = "MOD";
-            working_Data.Show();
-            panel1.Controls.Add(working_Data);
-            working_Data.BringToFront();
-        }
-
-        private void суммаToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            MVS_Controller.Working_data working_Data = new MVS_Controller.Working_data(this, panel1);
-            string[] text = null;
-            Controller.Create_new_Nod("+", "N_operator", working_Data, ref text);
-            working_Data.label.Text = "∑";
-            working_Data.Show();
-            panel1.Controls.Add(working_Data);
-            working_Data.BringToFront();
-        }
-
-        private void произведениеToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            MVS_Controller.Working_data working_Data = new MVS_Controller.Working_data(this, panel1);
-            string[] text = null;
-            Controller.Create_new_Nod("*", "N_operator", working_Data, ref text);
-            working_Data.label.Text = "Π";
-            working_Data.Show();
-            panel1.Controls.Add(working_Data);
-            working_Data.BringToFront();
-        }
-
-        private void нОДToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            MVS_Controller.Working_data working_Data = new MVS_Controller.Working_data(this, panel1);
-            string[] text = null;
-            Controller.Create_new_Nod("НОД", "N_operator", working_Data, ref text);
-            working_Data.label.Text = "НОД";
-            working_Data.Show();
-            panel1.Controls.Add(working_Data);
-            working_Data.BringToFront();
-        }
-
-        private void нОКToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            MVS_Controller.Working_data if_Operator = new MVS_Controller.Working_data(this, panel1);
-            string[] text = null;
-            Controller.Create_new_Nod("НОК", "N_operator", if_Operator, ref text);
-            if_Operator.label.Text = "НОК";
-            if_Operator.Show();
-            panel1.Controls.Add(if_Operator);
-            if_Operator.BringToFront();
-        }
-
-        private void сравнениеToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            MVS_Controller.if_operator if_Operator = new MVS_Controller.if_operator(this, panel1);
-            string[] text = null;
-            Controller.Create_new_Nod("COM_NN_D", "if_operator", if_Operator, ref text);
-            if_Operator.label.Text = "><=";
-            if_Operator.Butt_ini(text);
-            if_Operator.Show();
-            panel1.Controls.Add(if_Operator);
-            if_Operator.BringToFront();
-        }
-
-        private void определениеЗнакаToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            MVS_Controller.if_operator if_Operator = new MVS_Controller.if_operator(this, panel1);
-            string[] text = null;
-            Controller.Create_new_Nod("isDown", "if_operator", if_Operator, ref text);
-            if_Operator.label.Text = "isDown";
-            if_Operator.Butt_ini(text);
-            if_Operator.Show();
-            panel1.Controls.Add(if_Operator);
-            if_Operator.BringToFront();
-        }
-
-        private void toolStripMenuItem9_Click(object sender, EventArgs e)
-        {
-            Result result = new Result(this, panel1);
-            string[] text = null;
-            Controller.Create_new_Nod("Result", "Result", result, ref text);
-            result.label.Text = "Вывод";
-            result.Show();
-            panel1.Controls.Add(result);
-            result.BringToFront();
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
