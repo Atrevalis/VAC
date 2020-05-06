@@ -171,40 +171,7 @@ namespace LMath
 
         public static Q operator ^(Q first, Z second)
         {
-            Q num = first.Clone();
-            Q nul1 = null;
-            if (second.POZ_Z_D != 0)
-            {
-                for (int i = 0; i < Convert.ToInt32(second); i++)
-                {
-                    num.Numerator *= second;
-                    num.Denominator *= second;
-                }
-                if (second.POZ_Z_D == 2)
-                {
-                    num.RED_Q_Q();
-                    return num;
-                }
-                else
-                {
-                    nul1.Denominator = num.Numerator;
-                    num.Numerator = num.Denominator;
-                    num.Denominator = nul1.Denominator;
-
-                    nul1.Numerator = num.Denominator;
-                    num.Denominator = num.Numerator;
-                    num.Numerator = nul1.Numerator;
-
-                    num.RED_Q_Q();
-                    return num;
-                }
-            }
-            else
-            {
-                List<string> one = new List<string>();
-                one.Add("1");
-                return new Q(one, one);
-            }
+            return null;
         }
 
         public static implicit operator List<string>(Q value)//есть тесты
