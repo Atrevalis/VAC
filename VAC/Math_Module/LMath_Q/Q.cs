@@ -146,7 +146,30 @@ namespace LMath
             return result;
         }
 
-        public static Q operator /(Q first, Q second) // DIV_QQ_Q // есть тесты
+        public static Q operator /(Q first, Q second)
+        {
+            Q divider = null;
+            Q result = first.Clone();
+            divider.Denominator = second.Numerator;
+            divider.Numerator = second.Denominator;
+            if (divider.Numerator.isDown != second.Numerator.isDown)
+            {
+                divider = -divider;
+            }
+            result *= divider;
+            result.RED_Q_Q();
+            return result;
+        }
+
+        public static Q operator %(Q first, Q second)
+        {
+            List<string> nol = new List<string>();
+            nol.Add("0");
+            Z pog = new Z(nol);
+            return pog;
+        }
+
+        public static Q operator ^(Q first, Z second) // DIV_QQ_Q // есть тесты
         {
             Q num = first.Clone();
             Z deg = second.Clone();
