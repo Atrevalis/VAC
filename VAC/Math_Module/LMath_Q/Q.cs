@@ -148,30 +148,57 @@ namespace LMath
 
         public static Q operator /(Q first, Q second) // DIV_QQ_Q // есть тесты
         {
-            Q divider = null;
-            Q result = first.Clone();
-            divider.Denominator = second.Numerator;
-            divider.Numerator = second.Denominator;
-            if (divider.Numerator.isDown != second.Numerator.isDown)
+            Q num = first.Clone();
+            Z deg = second.Clone();
+            List<string> uno = new List<string>();
+            uno.Add("1");
+            List<string> dos = new List<string>();
+            dos.Add("2");
+            Q res = new Q(uno, uno);
+            Z odin = new Z(uno);
+            Z two = new Z(dos);
+            Q nul1 = null;
+            if (second.POZ_Z_D != 0)
             {
-                divider = - divider;
+                while (deg.COM(two) == 2 || deg.COM(two) == 0)
+                {
+                    if (deg % two == 0)
+                    {
+                        deg /= two;
+                        res.Numerator *= num.Numerator;
+                        res.Denominator *= num.Denominator;
+                    }
+                    else
+                    {
+                        deg -= odin;
+                        num.Numerator *= num.Numerator;
+                        num.Denominator *= num.Denominator;
+                    }
+                }
+                res *= num;
+                if (second.POZ_Z_D == 2)
+                {
+                    res.RED_Q_Q();
+                    return res;
+                }
+                else
+                {
+                    nul1.Denominator = res.Numerator;
+                    res.Numerator = res.Denominator;
+                    res.Denominator = nul1.Denominator;
+
+                    nul1.Numerator = res.Denominator;
+                    res.Denominator = res.Numerator;
+                    res.Numerator = nul1.Numerator;
+
+                    res.RED_Q_Q();
+                    return res;
+                }
             }
-            result *= divider;
-            result.RED_Q_Q();
-            return result;
-        }
-
-        public static Z operator %(Q first, Q second)//есть тесты
-        {
-            List<string> nol = new List<string>();
-            nol.Add("0");
-            Z pog = new Z(nol);
-            return pog;
-        }
-
-        public static Q operator ^(Q first, Z second)
-        {
-            return null;
+            else
+            {
+                return res;
+            }
         }
 
         public static implicit operator List<string>(Q value)//есть тесты
