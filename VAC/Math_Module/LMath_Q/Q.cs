@@ -148,62 +148,56 @@ namespace LMath
 
         public static Q operator /(Q first, Q second) // DIV_QQ_Q // есть тесты
         {
-            Q divider = null;
-            Q result = first.Clone();
-            divider.Denominator = second.Numerator;
-            divider.Numerator = second.Denominator;
-            if (divider.Numerator.isDown != second.Numerator.isDown)
-            {
-                divider = - divider;
-            }
-            result *= divider;
-            result.RED_Q_Q();
-            return result;
-        }
-
-        public static Z operator %(Q first, Q second)//есть тесты
-        {
-            List<string> nol = new List<string>();
-            nol.Add("0");
-            Z pog = new Z(nol);
-            return pog;
-        }
-
-        public static Q operator ^(Q first, Z second)
-        {
             Q num = first.Clone();
+            Z deg = second.Clone();
+            List<string> uno = new List<string>();
+            uno.Add("1");
+            List<string> dos = new List<string>();
+            dos.Add("2");
+            Q res = new Q(uno, uno);
+            Z odin = new Z(uno);
+            Z two = new Z(dos);
             Q nul1 = null;
             if (second.POZ_Z_D != 0)
             {
-                for (int i = 0; i < Convert.ToInt32(second); i++)
+                while (deg.COM(two) == 2 || deg.COM(two) == 0)
                 {
-                    num.Numerator *= second;
-                    num.Denominator *= second;
+                    if (deg % two == 0)
+                    {
+                        deg /= two;
+                        res.Numerator *= num.Numerator;
+                        res.Denominator *= num.Denominator;
+                    }
+                    else
+                    {
+                        deg -= odin;
+                        num.Numerator *= num.Numerator;
+                        num.Denominator *= num.Denominator;
+                    }
                 }
+                res *= num;
                 if (second.POZ_Z_D == 2)
                 {
-                    num.RED_Q_Q();
-                    return num;
+                    res.RED_Q_Q();
+                    return res;
                 }
                 else
                 {
-                    nul1.Denominator = num.Numerator;
-                    num.Numerator = num.Denominator;
-                    num.Denominator = nul1.Denominator;
+                    nul1.Denominator = res.Numerator;
+                    res.Numerator = res.Denominator;
+                    res.Denominator = nul1.Denominator;
 
-                    nul1.Numerator = num.Denominator;
-                    num.Denominator = num.Numerator;
-                    num.Numerator = nul1.Numerator;
+                    nul1.Numerator = res.Denominator;
+                    res.Denominator = res.Numerator;
+                    res.Numerator = nul1.Numerator;
 
-                    num.RED_Q_Q();
-                    return num;
+                    res.RED_Q_Q();
+                    return res;
                 }
             }
             else
             {
-                List<string> one = new List<string>();
-                one.Add("1");
-                return new Q(one, one);
+                return res;
             }
         }
 
