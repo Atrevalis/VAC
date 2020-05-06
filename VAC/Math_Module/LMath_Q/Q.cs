@@ -301,14 +301,6 @@ namespace LMath
             }
         }
 
-        public override Math_Field FAC
-        {
-            get
-            {
-                return Clone();
-            }
-        }
-
         public override Math_Field LED
         {
             get
