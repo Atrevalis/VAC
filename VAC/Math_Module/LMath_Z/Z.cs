@@ -198,7 +198,33 @@ namespace LMath
 
         public static Z operator ^(Z first, N second)
         {
-            return null;
+            Z baze = first.Clone();
+            N degree = second.Clone();
+            List<string> s = new List<string>();
+            List<string> r = new List<string>();
+            s.Add("2");
+            r.Add("1");
+            N temp = new N(s);
+            N one = new N(r);
+            Z result = one;  
+            result.Abs = baze.Abs ^ degree;
+            if (baze.isN == false)
+            {
+                if (degree.COM(temp) == 1)
+                {
+                    result.isN = false;
+                    return result;
+                }
+                else
+                {
+                    result.isN = true;
+                    return result;
+                }
+            }
+            else
+            {
+                return result;
+            }
         }
 
         public static implicit operator List<string>(Z value)//есть тесты
