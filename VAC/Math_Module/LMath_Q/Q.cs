@@ -146,7 +146,7 @@ namespace LMath
             return result;
         }
 
-        public static Q operator /(Q first, Q second)
+        public static Q operator /(Q first, Q second) // DIV_QQ_Q // есть тесты
         {
             Q divider = null;
             Q result = first.Clone();
@@ -154,14 +154,14 @@ namespace LMath
             divider.Numerator = second.Denominator;
             if (divider.Numerator.isDown != second.Numerator.isDown)
             {
-                divider = -divider;
+                divider = - divider;
             }
             result *= divider;
             result.RED_Q_Q();
             return result;
         }
 
-        public static Q operator %(Q first, Q second)
+        public static Z operator %(Q first, Q second)//есть тесты
         {
             List<string> nol = new List<string>();
             nol.Add("0");
@@ -169,59 +169,9 @@ namespace LMath
             return pog;
         }
 
-        public static Q operator ^(Q first, Z second) // DIV_QQ_Q // есть тесты
+        public static Q operator ^(Q first, Z second)
         {
-            Q num = first.Clone();
-            Z deg = second.Clone();
-            List<string> uno = new List<string>();
-            uno.Add("1");
-            List<string> dos = new List<string>();
-            dos.Add("2");
-            Q res = new Q(uno, uno);
-            Z odin = new Z(uno);
-            Z two = new Z(dos);
-            Q nul1 = null;
-            if (second.POZ_Z_D != 0)
-            {
-                while (deg.COM(two) == 2 || deg.COM(two) == 0)
-                {
-                    if (deg % two == 0)
-                    {
-                        deg /= two;
-                        res.Numerator *= num.Numerator;
-                        res.Denominator *= num.Denominator;
-                    }
-                    else
-                    {
-                        deg -= odin;
-                        num.Numerator *= num.Numerator;
-                        num.Denominator *= num.Denominator;
-                    }
-                }
-                res *= num;
-                if (second.POZ_Z_D == 2)
-                {
-                    res.RED_Q_Q();
-                    return res;
-                }
-                else
-                {
-                    nul1.Denominator = res.Numerator;
-                    res.Numerator = res.Denominator;
-                    res.Denominator = nul1.Denominator;
-
-                    nul1.Numerator = res.Denominator;
-                    res.Denominator = res.Numerator;
-                    res.Numerator = nul1.Numerator;
-
-                    res.RED_Q_Q();
-                    return res;
-                }
-            }
-            else
-            {
-                return res;
-            }
+            return null;
         }
 
         public static implicit operator List<string>(Q value)//есть тесты
@@ -348,6 +298,14 @@ namespace LMath
                 List<string> s2 = new List<string>();
                 s2.Add("1");
                 return new Q(s1, s2);
+            }
+        }
+
+        public override Math_Field FAC
+        {
+            get
+            {
+                return Clone();
             }
         }
 

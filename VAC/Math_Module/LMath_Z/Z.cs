@@ -9,7 +9,10 @@ namespace LMath
     public class Z : Math_Field
     {
         #region Конструкторы
-
+        /// <summary>
+        /// Конструктор класса Z
+        /// </summary>
+        /// <param name="s">Строка разбитая по <c>uint_size_div</c> элементов с возможным "-" в первом элементе</param>
         public Z(List<string> s)
         {
             try
@@ -45,7 +48,14 @@ namespace LMath
 
         #region Поля
 
+        /// <summary>
+        /// Модуль числа
+        /// </summary>
         private N Abs;
+
+        /// <summary>
+        /// 
+        /// </summary>
         private bool isN;
 
         #endregion
