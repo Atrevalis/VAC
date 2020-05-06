@@ -9,17 +9,30 @@ namespace LMath
 
         #region Поля
 
+        /// <summary>
+        /// Значение числа
+        /// </summary>
         private List<uint> znach;
 
+        /// <summary>
+        /// Максимальное число, храняшееся в одном элементе <c>znach</c>
+        /// </summary>
         private const uint uint_size = 999;
+        /// <summary>
+        /// Максимальное количество разрядов, храняшееся в одном элементе <c>znach</c>
+        /// </summary>
         public const uint uint_size_div = 3;
 
         #endregion
 
         #region Конструторы
 
+        /// <summary>
+        /// Конструктор класса N
+        /// </summary>
+        /// <param name="s">Строка разбитая по <c>uint_size_div</c> элементов</param>
         public N(List<string> s) // Александр Рассохин 9370
-        {
+        { 
             znach = new List<uint>();
             try
             {
@@ -35,6 +48,10 @@ namespace LMath
         #endregion
 
         #region Свойства
+
+        /// <summary>
+        /// Проверка числа на ноль (true если 0)
+        /// </summary>
         private bool NZER_N_B // Проверка на ноль - Шлемин Роман 9370//тест есть(закоммичен)
         {
             get
@@ -312,7 +329,12 @@ namespace LMath
 
         #region Методы
 
-        private N MUL_ND_N(byte value) // Умножение числа на цифру - Дмитрий Панченко 9370 //тест есть(закоммичен)
+
+        /// <summary>
+        /// Умножает текущий объект на цифру
+        /// </summary>
+        /// <param name="value">Цифра</param>
+        private N MUL_ND_N(byte value) //Дмитрий Панченко 9370 //тест есть(закоммичен)
         {
             N k = Clone(); 
             uint g = 0;
@@ -332,7 +354,12 @@ namespace LMath
             return k;
         }
 
-        private N MUL_Nk_N(N value) // Умножение числа на 10^value - Дмитрий Панченко 9370//тест есть(закоммичен)
+
+        /// <summary>
+        /// Умножает на 10^k
+        /// </summary>
+        /// <param name="value">k - количество разрядов на которое сдвинется число</param>
+        private N MUL_Nk_N(N value) // Дмитрий Панченко 9370//тест есть(закоммичен)
         {
             List<string> s = new List<string>();
             s.Add(Convert.ToString(uint_size_div));
@@ -371,6 +398,13 @@ namespace LMath
             return k; 
         }
 
+
+        /// <summary>
+        /// Вычитание из первого числа второго умноженного на цифру
+        /// </summary>
+        /// <param name="first">Первое число</param>
+        /// <param name="second">Второе число</param>
+        /// <param name="k">Цифра</param>
         private static N SUB_NDN_N(N first, N second, byte k) // Александр Баталин 9370 //тест есть(закоммичен)
         {
             N sec = second.MUL_ND_N(k);
@@ -382,6 +416,12 @@ namespace LMath
                 return null;
         }
 
+
+        /// <summary>
+        /// Первая цифра деления умножениая на 10^k, где k порядковый номер этой цифры
+        /// </summary>
+        /// <param name="first">Делимое</param>
+        /// <param name="second">Делитель</param>
         private static N DIV_NN_Dk(N first, N second) // Шлемин Роман 9370//тест есть(закоммичен) (нужно деление)
         {
             N divided = null;
@@ -461,6 +501,9 @@ namespace LMath
             return result;  //получаем результат
         }
 
+        /// <summary>
+        /// Создает точную копию данного объекта
+        /// </summary>
         public N Clone() // Александр Баталин 9370//есть тесты
         {
             N clone = new N(new List<string>());
@@ -487,13 +530,6 @@ namespace LMath
             get
             {
                 return false;
-            }
-        }
-        public override Math_Field FAC
-        {
-            get
-            {
-                return Clone();
             }
         }
 

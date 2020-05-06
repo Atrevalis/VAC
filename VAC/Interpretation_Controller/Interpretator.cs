@@ -516,11 +516,6 @@ namespace Interpretation_Controller
                                 wd.data = Data[indexes[0]].data.DEG;
                             }
                             break;
-                        case "FAC":
-                            {
-                                wd.data = Data[indexes[0]].data.FAC;
-                            }
-                            break;
                         case "Down":
                             {
                                 wd.data = Data[indexes[0]].data.Dawn();

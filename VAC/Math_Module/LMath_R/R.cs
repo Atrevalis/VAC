@@ -87,8 +87,6 @@ namespace LMath
 
         public override Math_Field DEG { get; }
 
-        public override Math_Field FAC { get; }
-
         #endregion
 
         #region Методы

@@ -207,18 +207,6 @@ namespace LMath
             }
         }
 
-        public override Math_Field FAC // return Q
-        {
-            get
-            {
-                C bruh = null;
-                for (int i = 0; i < Ms.Count - 1; i++)
-                {
-                }
-                return bruh;
-            }
-        }
-
         public override Math_Field ABS
         {
             get
