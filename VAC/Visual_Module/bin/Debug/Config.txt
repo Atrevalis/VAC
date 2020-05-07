@@ -1,0 +1,111 @@
+Данные
+{
+	Натуральные`числа 
+	#"
+		N ~ Data ~ N ~ WD
+	 "
+	Целые`числа 
+	#"
+		Z ~ Data ~ Z ~ WD
+	 "
+	Рациональные`числа 
+	#"
+		Q ~ Data ~ Q ~ WD
+	 "
+	Действительные`числа 
+	#"
+		R ~ Data ~ R ~ WD
+	 "
+	Комлексные`числа 
+	#"
+		C ~ Data ~ C ~ WD
+	 "
+	Полиномы 
+	#"
+		P ~ Data ~ P ~ WD
+	 "
+}
+Операторы
+{	
+	Унарные`операторы
+	"
+		Модуль`числа
+		#[
+			ABS ~ Uno_operator ~ ABS ~ WD
+		 ]
+		Противоположное`число
+		#[
+			-1 ~ Uno_operator ~ -1 ~ WD
+		 ]
+		Производная
+		#[
+			DIF ~ Uno_operator ~ f'(x) ~ WD
+		 ]
+		Старший`коэфицент
+		#[
+			LED ~ Uno_operator ~ LED ~ WD
+		 ]
+		Степень`полинома
+		#[
+			deg ~ Uno_operator ~ deg ~ WD
+		 ]
+		Переход`в`подмножество
+		#[
+			Down ~ Uno_operator ~ ⊆ ~ WD
+		 ]
+		Переход`в`базовое`множество
+		#[
+			up ~ Uno_operator ~ ∈ ~ WD
+		 ]
+
+	"
+	Бинарные`операторы
+	"
+		Вычитание
+		#[
+			- ~ Bin_operator ~ SUB ~ WD
+		 ]
+		Деление
+		#[
+			/ ~ Bin_operator ~ DIV ~ WD
+		 ]
+		Остаток
+		#[
+			% ~ Bin_operator ~ MOD ~ WD
+		 ]
+	"
+	N-арные`операторы
+	"
+		Сложение
+		#[
+			+ ~ N_operator ~ ∑ ~ WD
+		 ]
+		Умножение
+		#[
+			* ~ N_operator. ~ Π ~ WD
+		 ]
+		НОД
+		#[
+			НОД ~ N_operator ~ НОД ~ WD
+		 ]
+		НОК
+		#[
+			НОК ~ N_operator ~ НОК ~ WD
+		 ]
+	"
+}
+Условные`операторы
+{
+	Сравнение 
+	#"
+		COM_NN_D ~ if_operator ~ ><= ~ if
+	 "
+	Возможно`ли`перейти`в`подмножество? 
+	#"
+		isDown ~ if_operator ~ isDown ~ if
+	 "
+}
+Результат
+#{
+	Result ~ Result ~ Вывод ~ Res
+ }
