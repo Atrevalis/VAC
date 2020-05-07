@@ -18,8 +18,13 @@ namespace LMath
         #endregion
 
         #region Поля
-
+        /// <summary>
+        /// Действительная часть комплексного числа
+        /// </summary>
         private R real;
+        /// <summary>
+        /// Мнимая часть комплексного числа
+        /// </summary>
         private R image;
 
         #endregion
@@ -93,6 +98,9 @@ namespace LMath
 
         #region Методы
 
+        /// <summary>
+        /// Создает точную копию данного объекта
+        /// </summary>
         public C Clone() 
         {
             return null;

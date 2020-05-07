@@ -62,14 +62,15 @@ namespace LMath
 
         #region Свойства
 
-        public override Math_Field ABS // Евгений Куликов 9370//есть тесты  
-        {
-            get
-            {
-                return Abs.Clone();
-            }
-        }
-
+        /// <summary>
+        /// Сравнивает целое число с нулем
+        /// <para />
+        /// 0 если число равнл нулю
+        /// <para />
+        /// 1 если отрицательно
+        /// <para />
+        /// 2 если положительно
+        /// </summary>
         public byte POZ_Z_D // Евгений Куликов 9370//есть тесты
         {
             get
@@ -273,6 +274,9 @@ namespace LMath
 
         #region Методы
 
+        /// <summary>
+        /// Создает точную копию объекта
+        /// </summary>
         public Z Clone() // Александр Баталин 9370 //есть тесты
         {
             Z clone = new Z(Abs.Clone());
@@ -299,6 +303,14 @@ namespace LMath
             get
             {
                 return isN;
+            }
+        }
+
+        public override Math_Field ABS // Евгений Куликов 9370//есть тесты  
+        {
+            get
+            {
+                return Abs.Clone();
             }
         }
 

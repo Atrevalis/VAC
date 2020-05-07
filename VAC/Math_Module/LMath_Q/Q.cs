@@ -10,6 +10,12 @@ namespace LMath
     {
         #region Конструкторы
 
+
+        /// <summary>
+        /// Конструирует объект типа Q
+        /// </summary>
+        /// <param name="first">Числитель в формате целого числа</param>
+        /// <param name="second">Знасенатель в формате целого (положительного числа)</param>
         public Q(List<string> first, List<string> second)///нет исключения - Знаменатель не может быть равен нулю 
         {
             try
@@ -28,13 +34,22 @@ namespace LMath
 
         #region Поля
 
+        /// <summary>
+        /// Числитель
+        /// </summary>
         private Z Numerator;
+        /// <summary>
+        /// Знаменатель
+        /// </summary>
         private Z Denominator;
 
         #endregion
 
         #region Свойства 
 
+        /// <summary>
+        /// Проверяет является ли число целым
+        /// </summary>
         bool INT_Q_B//тест идет вместе с isDown 
         {
             get
@@ -48,22 +63,15 @@ namespace LMath
             }
         }
 
-        public Z Num
-        {
-            get
-            {
-                return Numerator.Clone();
-            }
-        }
-
-        public Z Den
-        {
-            get
-            {
-                return Denominator.Clone();
-            }
-        }
-
+        /// <summary>
+        /// Сравнивает рациональное число с нулем
+        /// <para />
+        /// 0 если число равнл нулю
+        /// <para />
+        /// 1 если отрицательно
+        /// <para />
+        /// 2 если положительно
+        /// </summary>
         public byte POZ_Q_D// есть тесты
         {
             get
@@ -214,6 +222,9 @@ namespace LMath
 
         #region Методы 
 
+        /// <summary>
+        /// Скоращает дробь
+        /// </summary>
         private void RED_Q_Q() //есть тесты
         {
             Z nod = (Z)(Numerator.GCF(Denominator));
@@ -221,6 +232,10 @@ namespace LMath
             Denominator /= nod;
         }
         
+
+        /// <summary>
+        /// Создает точную копию данного объекта
+        /// </summary>
         public Q Clone() // Александр Баталин 9370//есть тесты
         {
             Q clone = new Q(Numerator.Clone(), Denominator.Clone());
