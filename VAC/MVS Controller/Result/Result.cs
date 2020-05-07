@@ -14,6 +14,7 @@ namespace MVS_Controller
     {
         public Result(Form parent, Panel panel) : base(parent, panel)
         {
+            name_of_type = "Res";
             InitializeComponent();
         }
     }

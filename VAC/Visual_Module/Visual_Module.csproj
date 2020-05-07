@@ -126,6 +126,10 @@
       <Project>{55ffadee-8fbe-4877-8c13-fa70b0535d57}</Project>
       <Name>if_operator</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MVS Controller\MVS_Controller_config\MVS_Controller_config.csproj">
+      <Project>{96bc5d8e-8afb-4bad-9e2a-8b827c0f6bf0}</Project>
+      <Name>MVS_Controller_config</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MVS Controller\Noda\Noda.csproj">
       <Project>{ed62c60e-2da0-4557-8e1c-d3c89ed3bd0f}</Project>
       <Name>Noda</Name>

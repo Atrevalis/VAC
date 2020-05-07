@@ -15,5 +15,9 @@ namespace MVS_Controller
             return null;
         }
 
+        public static void Help_ini(Noda noda, string[] text)
+        {
+
+        }
     }
 }

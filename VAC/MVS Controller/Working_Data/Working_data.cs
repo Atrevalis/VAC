@@ -16,6 +16,7 @@ namespace MVS_Controller
         public Button down_contacts = new Button();
         public Working_data(Form parent, Panel panel) : base(parent, panel)
         {
+            name_of_type = "WD";
             InitializeComponent();
             SizeChanged += new EventHandler(SizeChange);
             Controls.Add(down_contacts);

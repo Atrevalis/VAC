@@ -16,6 +16,7 @@ namespace MVS_Controller
         public Button[] down_contacts;
         public if_operator(Form parent, Panel panel) : base(parent, panel)
         {
+            name_of_type = "if";
             InitializeComponent();
             InitializeComponent();
             SizeChanged += new EventHandler(SizeChange);

@@ -127,60 +127,14 @@ namespace Visual_Module
         {
             int count = Convert.ToInt32((sender as ToolStripMenuItem).Name);
             string name_main = config_info[count][0], type = config_info[count][1], name_vis = config_info[count][2];
-            if (type[type.Length - 1] == '.')
-            {
-                type = "operator";
-            }
-            if (type == "if_operator") type = "if";
-            switch (type)
-            {
-                case "if":
-                    {
-                        MVS_Controller.if_operator working_Data = new MVS_Controller.if_operator(this, panel1);
-                        string[] text = null;
-                        Controller.Create_new_Nod(name_main, "if_operator", working_Data, ref text);
-                        working_Data.label.Text = name_vis;
-                        working_Data.Butt_ini(text);
-                        working_Data.Show();
-                        panel1.Controls.Add(working_Data);
-                        working_Data.BringToFront();
-                    }
-                    break;
-                case "Result":
-                    {
-                        MVS_Controller.Result working_Data = new MVS_Controller.Result(this, panel1);
-                        string[] text = null;
-                        Controller.Create_new_Nod(name_main, "Result", working_Data, ref text);
-                        working_Data.label.Text = name_vis;
-                        working_Data.Show();
-                        panel1.Controls.Add(working_Data);
-                        working_Data.BringToFront();
-                    }
-                    break;
-                case "operator":
-                    {
-                        MVS_Controller.Working_data working_Data = new MVS_Controller.Working_data(this, panel1);
-                        string[] text = null;
-                        Controller.Create_new_Nod(name_main, config_info[count][1].Replace(".",""), working_Data, ref text);
-                        working_Data.label.Text = name_vis;
-                        working_Data.Show();
-                        panel1.Controls.Add(working_Data);
-                        working_Data.BringToFront();
-                    }
-                    break;
-                case "Data":
-                    {
-                        MVS_Controller.Working_data working_Data = new MVS_Controller.Working_data(this, panel1);
-                        string[] text = null;
-                        Controller.Create_new_Nod(name_main, "Data", working_Data, ref text);
-                        working_Data.label.Text = name_vis;
-                        working_Data.Show();
-                        panel1.Controls.Add(working_Data);
-                        working_Data.BringToFront();
-                    }
-                    break;
-            }
-
+            Noda noda = Nods_bilder.Create(config_info[count][3], this, panel1);
+            string[] help_info = null;
+            Controller.Create_new_Nod(name_main, type, noda, ref help_info);
+            noda.label.Text = name_vis;
+            Nods_bilder.Help_ini(noda, help_info);
+            noda.Show();
+            panel1.Controls.Add(noda);
+            noda.BringToFront();
         }
 
         private void toolStripMenuItem2_Click(object sender, EventArgs e)

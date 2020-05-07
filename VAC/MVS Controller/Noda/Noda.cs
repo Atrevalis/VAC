@@ -12,6 +12,7 @@ namespace MVS_Controller
 {
     public partial class Noda : UserControl
     {
+        public string name_of_type;
         protected static Image butt_image = Image.FromFile(Application.StartupPath + "\\Resources\\Image\\Start.png");
         public static Button up_conected = null;
         public static Noda down_conected = null;
