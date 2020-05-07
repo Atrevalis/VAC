@@ -122,6 +122,22 @@
       <Project>{835dc3c4-9ef4-4c02-b01f-ae821807f73b}</Project>
       <Name>Interpretation_Controller</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MVS Controller\if_operator\if_operator.csproj">
+      <Project>{55ffadee-8fbe-4877-8c13-fa70b0535d57}</Project>
+      <Name>if_operator</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MVS Controller\Noda\Noda.csproj">
+      <Project>{ed62c60e-2da0-4557-8e1c-d3c89ed3bd0f}</Project>
+      <Name>Noda</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MVS Controller\Result\Result.csproj">
+      <Project>{92ae2898-4956-4708-b952-7b375490f028}</Project>
+      <Name>Result</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MVS Controller\Working_Data\Working_Data.csproj">
+      <Project>{6c806b80-8004-4b21-ba29-cb6f379723b5}</Project>
+      <Name>Working_Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Logo.ico" />
