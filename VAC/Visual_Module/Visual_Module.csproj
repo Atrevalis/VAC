@@ -122,10 +122,6 @@
       <Project>{835dc3c4-9ef4-4c02-b01f-ae821807f73b}</Project>
       <Name>Interpretation_Controller</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MVS_Controller\MVS_Controller.csproj">
-      <Project>{2383ddc7-852b-4a9c-99b0-93d5bac031c7}</Project>
-      <Name>MVS_Controller</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Logo.ico" />

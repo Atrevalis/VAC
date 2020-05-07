@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // Общие сведения об этой сборке предоставляются следующим набором
 // набора атрибутов. Измените значения этих атрибутов, чтобы изменить сведения,
 // связанные со сборкой.
-[assembly: AssemblyTitle("MVS_Controller")]
+[assembly: AssemblyTitle("if_operator")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("MVS_Controller")]
+[assembly: AssemblyProduct("if_operator")]
 [assembly: AssemblyCopyright("Copyright ©  2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // Следующий идентификатор GUID представляет идентификатор typelib, если этот проект доступен через COM
-[assembly: Guid("2383ddc7-852b-4a9c-99b0-93d5bac031c7")]
+[assembly: Guid("55ffadee-8fbe-4877-8c13-fa70b0535d57")]
 
 // Сведения о версии сборки состоят из указанных ниже четырех значений:
 //
