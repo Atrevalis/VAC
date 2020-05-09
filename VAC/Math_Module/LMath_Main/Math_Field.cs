@@ -169,5 +169,7 @@ namespace LMath
         /// Перобразует объект в список строк
         /// </summary>
         abstract public List<string> ToListstring();
+
+        abstract public Math_Field CEI(Math_Field first, Math_Field second);
     }
 }
