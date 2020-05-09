@@ -107,7 +107,10 @@ namespace LMath
         public static Z operator +(Z first, Z second) // ADD_ZZ_Z Александр Баталин 9370//есть тесты
         {
             Z sum = first.Clone();
-            if(first.isN != second.isN)
+            List<string> s = new List<string>();
+            s.Add("0");
+            N temp = new N(s);
+            if (first.isN != second.isN)
             {
                 if (first.Abs.COM(second.Abs) == 2)
                 {
@@ -121,6 +124,10 @@ namespace LMath
             }
             else
                 sum.Abs += second.Abs;
+            if(sum.Abs.COM(temp) == 0)
+            {
+                sum.isN = true;
+            }
             return sum;
         }
 
@@ -147,11 +154,14 @@ namespace LMath
         public static Z operator /(Z first, Z second) // DIV_ZZ_Z //есть тесты
         {
             Z res = first.Clone(); //задём временную переменную
+            List<string> s = new List<string>();
+            s.Add("0");
+            N temp = new N(s);
             res.isN = true;
             if (second.POZ_Z_D != 0)
             {
                 res.Abs /= second.Abs; //выполняем деление
-                if (first.isN != second.isN)
+                if (first.isN != second.isN && res.Abs.COM(temp) != 0)
                     res.isN = false; //присваимваем знак в случае их различия у делителя и делимого
                 return res; //возвращаем div
             }
@@ -284,6 +294,11 @@ namespace LMath
             return clone;
         }
 
+        public static Math_Field Antiderivative_event_do(Math_Field value)
+        {
+            return ((Z)(value as N)).ANT;
+        }
+
         #endregion
 
         #region Общие свойства и методы
@@ -349,6 +364,21 @@ namespace LMath
             }
         }
 
+        public override Math_Field ANT
+        {
+            get
+            {
+                return Antiderivative_event(this);
+            }
+        }
+
+        #endregion
+
+        #region Событие
+
+        public delegate Math_Field Antiderivative_delegate(Math_Field value);
+
+        public static event Antiderivative_delegate Antiderivative_event;
 
         #endregion
 

@@ -82,6 +82,10 @@ namespace LMath
         /// </summary>
         abstract public Math_Field DER { get; }
 
+        /// <summary>
+        /// Первообразная с нулевой константой
+        /// </summary>
+        abstract public Math_Field ANT { get; }
 
         /// <summary>
         /// Старший коэфицент

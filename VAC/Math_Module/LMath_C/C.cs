@@ -94,6 +94,11 @@ namespace LMath
             return clone1;
         }
 
+        public static implicit operator C(R value)
+        {
+            return null;
+        }
+
         #endregion
 
         #region Методы
@@ -105,6 +110,19 @@ namespace LMath
         {
             return null;
         }
+
+        public static Math_Field Antiderivative_event_do(Math_Field value)
+        {
+            return ((C)(value as R)).ANT;
+        }
+
+        #endregion
+
+        #region Событие
+
+        public delegate Math_Field Antiderivative_delegate(Math_Field value);
+
+        public static event Antiderivative_delegate Antiderivative_event;
 
         #endregion
 
@@ -139,6 +157,14 @@ namespace LMath
         public override Math_Field LED { get; }
 
         public override Math_Field DEG { get; }
+
+        public override Math_Field ANT
+        {
+            get
+            {
+                return Antiderivative_event(this);
+            }
+        }
 
         #endregion
 

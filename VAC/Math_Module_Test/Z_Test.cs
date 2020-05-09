@@ -346,7 +346,6 @@ namespace Math_Module_Test
             Z z = new Z(input);
             Z x = new Z(input1);
             Z t = new Z(output);
-            t = -t;
             Assert.AreEqual(t, z * x);
         }
 

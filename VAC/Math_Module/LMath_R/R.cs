@@ -59,9 +59,27 @@ namespace LMath
             return null;
         }
 
+        public static implicit operator R (Q value)
+        {
+            return null;
+        }
+
         #endregion
 
         #region Методы
+
+        public static Math_Field Antiderivative_event_do(Math_Field value)
+        {
+            return ((R)(value as Q)).ANT;
+        }
+
+        #endregion
+
+        #region Событие
+
+        public delegate Math_Field Antiderivative_delegate(Math_Field value);
+
+        public static event Antiderivative_delegate Antiderivative_event;
 
         #endregion
 
@@ -86,6 +104,14 @@ namespace LMath
         public override Math_Field LED { get; }
 
         public override Math_Field DEG { get; }
+
+        public override Math_Field ANT
+        {
+            get
+            {
+                return Antiderivative_event(this);
+            }
+        }
 
         #endregion
 
