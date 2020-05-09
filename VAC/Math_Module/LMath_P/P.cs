@@ -706,6 +706,10 @@ namespace LMath
             return null; //this;
         }
 
+        public override Math_Field Result()
+        {
+            return null; //(Q)this.root;
+        }
 
         public override Math_Field ANT => throw new NotImplementedException();
 

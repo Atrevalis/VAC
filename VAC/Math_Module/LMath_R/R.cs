@@ -180,6 +180,10 @@ namespace LMath
             }
         }
 
+        public override Math_Field RES()
+        {
+            return this;
+        }
         #endregion
         #endregion
     }
