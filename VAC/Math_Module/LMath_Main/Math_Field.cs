@@ -170,9 +170,10 @@ namespace LMath
         /// </summary>
         abstract public List<string> ToListstring();
 
+        abstract public Math_Field CEI(Math_Field first, Math_Field second);
         /// <summary>
         /// Значение в точке
         /// </summary>
-        abstract public Math_Field Result();
+        abstract public Math_Field RES();
     }
 }

@@ -693,6 +693,18 @@ namespace LMath
             return this;
         }
 
+        public override Math_Field CEI (Math_Field first, Math_Field second)
+        {
+            try
+            {
+                return ANT.RES(second) - ANT.RES(first);
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
         public override Math_Field Result()
         {
             return this;
