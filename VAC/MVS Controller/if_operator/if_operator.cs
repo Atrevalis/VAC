@@ -18,7 +18,6 @@ namespace MVS_Controller
         {
             name_of_type = "if";
             InitializeComponent();
-            InitializeComponent();
             SizeChanged += new EventHandler(SizeChange);
         }
 

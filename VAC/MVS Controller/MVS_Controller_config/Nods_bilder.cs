@@ -33,7 +33,8 @@ namespace MVS_Controller
 
         public static void Help_ini(Noda noda, string[] text)
         {
-
+            if_operator s = (noda as if_operator);
+            s.Butt_ini(text);
         }
     }
 }
