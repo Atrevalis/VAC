@@ -15,14 +15,11 @@ namespace MVS_Controller
             switch (name)
             {
                 case "WD":
-                    Working_data wd = new Working_data(parent,panel);
-                    return wd;
+                    return new Working_data(parent, panel);
                 case "if":
-                    if_operator nif = new if_operator(parent, panel);
-                    return nif;
+                    return new if_operator(parent, panel);
                 case "Res":
-                    Result res = new Result(parent, panel);
-                    return res;
+                    return new Result(parent, panel);
                 default:
                     MessageBox.Show("Ошибка конфигурации: Неверное название типа ноды", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return null;
