@@ -406,6 +406,10 @@ namespace LMath
             return this;
         }
 
+        public override Math_Field Result()
+        {
+            return this;
+        }
         #endregion
 
         #endregion
