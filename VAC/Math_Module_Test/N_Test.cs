@@ -1030,6 +1030,16 @@ namespace Math_Module_Test
             Assert.AreEqual(t, lcmN);
         }
         /*
+        [TestMethod]
+        public void RESTest()
+        {
+            List<string> input = new List<string>();
+            input.Add("2");
+            input.Add("231");
+            N n = new N(input);
+            Assert.AreEqual(n, n.RES();
+        }*/
+        /*
 
                 [TestMethod]
                 public void DIV_NN_DkTest1()

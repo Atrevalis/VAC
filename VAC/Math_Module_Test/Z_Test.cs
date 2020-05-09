@@ -914,5 +914,17 @@ namespace Math_Module_Test
             Z z = new Z(input);
             Assert.AreEqual(false, z.isDown);
         }
+
+        /*
+        [TestMethod]
+        public void RESTest()
+        {
+            List<string> input = new List<string>();
+            input.Add("-");
+            input.Add("2");
+            input.Add("231");
+            Z n = new Z(input);
+            Assert.AreEqual(n, n.RES();
+        }*/
     }
 }

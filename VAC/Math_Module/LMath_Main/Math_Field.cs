@@ -169,5 +169,10 @@ namespace LMath
         /// Перобразует объект в список строк
         /// </summary>
         abstract public List<string> ToListstring();
+
+        /// <summary>
+        /// Значение в точке
+        /// </summary>
+        abstract public Math_Field Result();
     }
 }
