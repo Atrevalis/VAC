@@ -31,6 +31,7 @@ namespace Visual_Module
             InitializeComponent();
             FileStream file = new FileStream(Application.StartupPath + "\\Config.txt", FileMode.Open);
             StreamReader reader = new StreamReader(file);
+            string[] config_symbol = reader.ReadLine().Split(' ');
             string config = reader.ReadToEnd();
             reader.Close();
             file.Close();
@@ -39,12 +40,20 @@ namespace Visual_Module
             config = config.Replace("\r", "");
             config = config.Replace(" ", "");
             config = config.Replace("`", " ");
-            config = config.Replace("}", "{");
-            string[] first_config = config.Split('{');
+            config = config.Replace(config_symbol[1], config_symbol[0]);
+            string[] first_config = config.Split(config_symbol[0][0]);
             int count = 0;
-            for(int i = 0; i < first_config.Length/2; i++)
+            RE(first_config, ref count, null, config_symbol, 1);
+            timer1.Start();
+
+        }
+        private void RE(string[] first_config, ref int count, ToolStripMenuItem parent, string[] config_symbol, int length )
+        {
+            
+            for (int i = 0; i < first_config.Length / 2; i++)
             {
-                if(first_config[i*2][first_config[i * 2].Length-1] != '#')
+           
+                if (first_config[i * 2][first_config[i * 2].Length - 1] != '#')
                 {
                     ToolStripMenuItem new_tool = new ToolStripMenuItem();
                     new_tool.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(132)))), ((int)(((byte)(127)))));
@@ -52,58 +61,17 @@ namespace Visual_Module
                     new_tool.Name = "normal";
                     new_tool.Size = new System.Drawing.Size(60, 22);
                     new_tool.Text = first_config[i * 2];
-                    menuStrip1.Items.Insert(1+(i), new_tool);
-                    string[] second_config = first_config[i * 2 + 1].Split('"');
-                    for(int j = 0; j < second_config.Length / 2; j++)
+                    if (parent == null)
                     {
-                        if (second_config[j * 2][second_config[j * 2].Length - 1] != '#')
-                        {
-                            ToolStripMenuItem item = new ToolStripMenuItem();
-                            item.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(132)))), ((int)(((byte)(127)))));
-                            item.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-                            item.Name = "normal";
-                            item.Size = new System.Drawing.Size(60, 22);
-                            item.Text = second_config[j * 2];
-                            new_tool.DropDownItems.Insert((j), item);
-                            second_config[j * 2 + 1] = second_config[j * 2 + 1].Replace("]", "[");
-                            string[] therd_config = second_config[j * 2 + 1].Split('[');
-                            for(int k = 0; k < therd_config.Length / 2; k++)
-                            {
-                                if (therd_config[k * 2][therd_config[k * 2].Length - 1] == '#')
-                                {
-                                    ToolStripMenuItem lastitem = new ToolStripMenuItem();
-                                    lastitem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(132)))), ((int)(((byte)(127)))));
-                                    lastitem.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-                                    lastitem.Name = Convert.ToString(count);
-                                    count++;
-                                    lastitem.Size = new System.Drawing.Size(60, 22);
-                                    lastitem.Text = therd_config[k * 2].Remove(therd_config[k * 2].Length - 1, 1);
-                                    item.DropDownItems.Insert((k), lastitem);
-                                    config_info.Add(therd_config[k * 2 + 1].Split('~'));
-                                    lastitem.Click += new EventHandler(NOD_button_Click);
-                                }
-                                else
-                                {
-                                    MessageBox.Show("Ошибка конфигурации", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                    Close();
-                                }
-                            }
-
-                        }
-                        else
-                        {
-                            ToolStripMenuItem item = new ToolStripMenuItem();
-                            item.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(132)))), ((int)(((byte)(127)))));
-                            item.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-                            item.Name = Convert.ToString(count);
-                            count++;
-                            item.Size = new System.Drawing.Size(60, 22);
-                            item.Text = second_config[j * 2].Remove(second_config[j * 2].Length - 1, 1);
-                            new_tool.DropDownItems.Insert((j), item);
-                            config_info.Add(second_config[j * 2 + 1].Split('~'));
-                            item.Click += new EventHandler(NOD_button_Click);
-                        }
+                        menuStrip1.Items.Insert(1 + i, new_tool) ;
                     }
+                    else
+                    {
+                        parent.DropDownItems.Insert(i, new_tool);
+                    }
+                    string s = first_config[i * 2 + 1].Replace(config_symbol[length * 2 + 1], config_symbol[length * 2]);
+                    string[] second_config = s.Split(config_symbol[length*2][0]);
+                    RE(second_config,ref count, new_tool, config_symbol, length + 1);
                 }
                 else
                 {
@@ -113,14 +81,19 @@ namespace Visual_Module
                     new_tool.Name = Convert.ToString(count);
                     count++;
                     new_tool.Size = new System.Drawing.Size(60, 22);
-                    new_tool.Text = first_config[i * 2].Remove(first_config[i*2].Length-1, 1);
-                    menuStrip1.Items.Insert(1 + (i), new_tool);
+                    new_tool.Text = first_config[i * 2].Remove(first_config[i * 2].Length - 1, 1);
+                    if (parent == null)
+                    {
+                        menuStrip1.Items.Insert(1 + i, new_tool);
+                    }
+                    else
+                    {
+                        parent.DropDownItems.Insert(i, new_tool);
+                    }
                     config_info.Add(first_config[i * 2 + 1].Split('~'));
                     new_tool.Click += new EventHandler(NOD_button_Click);
                 }
-
             }
-            timer1.Start();
         }
 
         private void NOD_button_Click(object sender, EventArgs e)
