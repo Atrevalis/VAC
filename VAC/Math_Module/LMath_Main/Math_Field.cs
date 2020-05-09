@@ -174,6 +174,6 @@ namespace LMath
         /// <summary>
         /// Значение в точке
         /// </summary>
-        abstract public Math_Field RES();
+        abstract public Math_Field RES(Math_Field value);
     }
 }

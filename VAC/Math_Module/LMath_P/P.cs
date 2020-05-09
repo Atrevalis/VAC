@@ -20,6 +20,11 @@ namespace LMath
 
     public class P : Math_Field
     {
+
+        public override Math_Field RES(Math_Field value)
+        {
+            throw new NotImplementedException();
+        }
         /*
         #region Конструкторы
 
@@ -306,355 +311,358 @@ namespace LMath
             }
             return result;
         }
-
+        */
         public static P operator -(P first, P second) // SUB_PP_P
         {
-            P result;
-            P smaller;
-            if (first.Ms.Count() < second.Ms.Count())
-            {
-                result = second.Clone();
-                smaller = first.Clone();
-            }
-            else
-            {
-                result = first.Clone();
-                smaller = second.Clone();
-            }
-            M now;
-            for (int i = 0; i < smaller.Ms.Count(); i++)
-            {
-                now = smaller.Ms[i];
-                now.coef = -now.coef;
-                smaller.Ms[i] = now;
-            }
-            result += smaller;
-            return result;
-        }
-
-        public static P operator *(P first, P second) // MUL_PP_P
-        {
-            P result;
-            P smaller;
-            if (first.Ms.Count() < second.Ms.Count())
-            {
-                result = second.Clone();
-                smaller = first.Clone();
-            }
-            else
-            {
-                result = first.Clone();
-                smaller = second.Clone();
-            }
-            M now;
-            for (int i = 0; i < smaller.Ms.Count(); i++)
-            {
-                now = smaller.Ms[i];
-                result = result.MUL_PQ_P(now.coef);
-                result = result.MUL_Pxk_P(now.degree);
-            }
-            return result;
-        }
-
-        public static P operator /(P first, P second) // DIV_PP_P
-        {
-            P dividend = first.Clone();
-            P result = null;
-            P mnoj = null;
-            M now;
-            M smaller_now;
-            M dividend_now;
-            int i = 0;
-            if (dividend.Ms.Count() >= second.Ms.Count())
-            {
-                while (dividend.Ms.Count() < second.Ms.Count())
-                {
-                    dividend_now = dividend.Ms[0];
-                    smaller_now = second.Ms[i];
-                    now.coef = dividend_now.coef / smaller_now.coef;
-                    now.degree = dividend_now.degree - smaller_now.degree;
-                    result.Ms.Add(now);
-                    mnoj.Ms.Add(now);
-                    dividend -= (second * mnoj);
-                    mnoj.Ms.RemoveAt(0);
-                    i++;
-                }
-            }
-            else
-            {
-                M nol;
-                List<string> zero = new List<string>();
-                zero.Add("0");
-                N q = new N(zero);
-                nol.coef = (Z)q;
-                nol.degree = q;
-                result.Ms.Add(nol);
-            }
-            return result;
-        }
-
-        public static P operator %(P first, P second) // MOD_PP_p
-        {
-            P result = first.Clone();
-            result -= (first / second);
-            return result;
+            return null;
+            /*
+    P result;
+    P smaller;
+    if (first.Ms.Count() < second.Ms.Count())
+    {
+        result = second.Clone();
+        smaller = first.Clone();
+    }
+    else
+    {
+        result = first.Clone();
+        smaller = second.Clone();
+    }
+    M now;
+    for (int i = 0; i < smaller.Ms.Count(); i++)
+    {
+        now = smaller.Ms[i];
+        now.coef = -now.coef;
+        smaller.Ms[i] = now;
+    }
+    result += smaller;
+    return result;
+            */
         }
         /*
-        public static implicit operator List<List<string>[]>(P value)
+
+public static P operator *(P first, P second) // MUL_PP_P
+{
+    P result;
+    P smaller;
+    if (first.Ms.Count() < second.Ms.Count())
+    {
+        result = second.Clone();
+        smaller = first.Clone();
+    }
+    else
+    {
+        result = first.Clone();
+        smaller = second.Clone();
+    }
+    M now;
+    for (int i = 0; i < smaller.Ms.Count(); i++)
+    {
+        now = smaller.Ms[i];
+        result = result.MUL_PQ_P(now.coef);
+        result = result.MUL_Pxk_P(now.degree);
+    }
+    return result;
+}
+public static P operator /(P first, P second) // DIV_PP_P
+{
+    P dividend = first.Clone();
+    P result = null;
+    P mnoj = null;
+    M now;
+    M smaller_now;
+    M dividend_now;
+    int i = 0;
+    if (dividend.Ms.Count() >= second.Ms.Count())
+    {
+        while (dividend.Ms.Count() < second.Ms.Count())
         {
-            List<List<string>[]> S = new List<List<string>[]>();
-            List<string> []temp = new List<string>[2];
-            List<string> t = new List<string>();
-            List<string> t2 = new List<string>();
-            for (int i=0; i < value.Ms.Count;i++)
-            {
-                temp[0] = new List<string>();
-                temp[1] = new List<string>();
-                t = value.Ms[i].coef;
-                t2 = value.Ms[i].degree;
-                for (int j = 0; j < t.Count; j++)
-                    temp[0].Add(t[j]);
-                for (int j = 0; j < t2.Count; j++)
-                    temp[1].Add(t2[j]);
-                S.Add(temp);
-            }
-            return S;
+            dividend_now = dividend.Ms[0];
+            smaller_now = second.Ms[i];
+            now.coef = dividend_now.coef / smaller_now.coef;
+            now.degree = dividend_now.degree - smaller_now.degree;
+            result.Ms.Add(now);
+            mnoj.Ms.Add(now);
+            dividend -= (second * mnoj);
+            mnoj.Ms.RemoveAt(0);
+            i++;
         }
-                    
+    }
+    else
+    {
+        M nol;
+        List<string> zero = new List<string>();
+        zero.Add("0");
+        N q = new N(zero);
+        nol.coef = (Z)q;
+        nol.degree = q;
+        result.Ms.Add(nol);
+    }
+    return result;
+}
 
-        public static implicit operator List<string>(P value)
+public static P operator %(P first, P second) // MOD_PP_p
+{
+    P result = first.Clone();
+    result -= (first / second);
+    return result;
+}
+/*
+public static implicit operator List<List<string>[]>(P value)
+{
+    List<List<string>[]> S = new List<List<string>[]>();
+    List<string> []temp = new List<string>[2];
+    List<string> t = new List<string>();
+    List<string> t2 = new List<string>();
+    for (int i=0; i < value.Ms.Count;i++)
+    {
+        temp[0] = new List<string>();
+        temp[1] = new List<string>();
+        t = value.Ms[i].coef;
+        t2 = value.Ms[i].degree;
+        for (int j = 0; j < t.Count; j++)
+            temp[0].Add(t[j]);
+        for (int j = 0; j < t2.Count; j++)
+            temp[1].Add(t2[j]);
+        S.Add(temp);
+    }
+    return S;
+}
+
+
+public static implicit operator List<string>(P value)
+{
+    List<string> list = new List<string>();
+    for(int i = 0; i < value.Ms.Count; i++)
+    {
+        List<string> num = new List<string>(), denum = new List<string>(), zero = new List<string>();
+        num.Add("1"); denum.Add("1"); zero.Add("0");
+        if (value.Ms[i].coef.COM(new Q(num, denum)) != 0)
         {
-            List<string> list = new List<string>();
-            for(int i = 0; i < value.Ms.Count; i++)
+            if (value.Ms[i].coef.POZ_Q_D == 1) ;
+            else if (i > 0) list.Add(" +");
+            for (int j = 0; j < ((List<string>)value.Ms[i].coef).Count; j++)
             {
-                List<string> num = new List<string>(), denum = new List<string>(), zero = new List<string>();
-                num.Add("1"); denum.Add("1"); zero.Add("0");
-                if (value.Ms[i].coef.COM(new Q(num, denum)) != 0)
-                {
-                    if (value.Ms[i].coef.POZ_Q_D == 1) ;
-                    else if (i > 0) list.Add(" +");
-                    for (int j = 0; j < ((List<string>)value.Ms[i].coef).Count; j++)
-                    {
-                        list.Add(((List<string>)value.Ms[i].coef)[j]);
-                    }
-                }
-                if (value.Ms[i].degree.COM(new N(num)) == 0) list.Add("x");
-                else
-                {
-                    if (value.Ms[i].degree.COM(new N(zero)) != 0)
-                    {
-                        list.Add("x^");
-                        for (int j = 0; j < ((List<string>)value.Ms[i].degree).Count; j++)
-                        {
-                            list.Add(((List<string>)value.Ms[i].degree)[j]);
-                        }
-                    }
-                }
-                if (value.Ms[i].coef.COM(new Q(num, denum)) == 0 && value.Ms[i].degree.COM(new N(zero)) == 0)
-                    if (i != 0)
-                    {
-                        list.Add(" + 1");
-                    }
-                    else
-                    {
-                        list.Add("1");
-                    }
-                if (value.Ms[i].coef.COM(-new Q(num, denum)) == 0 && value.Ms[i].degree.COM(new N(zero)) == 0)
-                    list.Add(" - 1");
+                list.Add(((List<string>)value.Ms[i].coef)[j]);
             }
-            return list;
         }
-
-
-        public static explicit operator Q(P value)//сломано
+        if (value.Ms[i].degree.COM(new N(num)) == 0) list.Add("x");
+        else
         {
-            if (value.isDown)
+            if (value.Ms[i].degree.COM(new N(zero)) != 0)
             {
-                List<string> S = new List<string>();
-                List<string> n = new List<string>();
-                List<string> d = new List<string>();
-
-                S = value.Ms[0].coef;
-                int i;
-                for (i = 0; S[i] != "/"; i++)
-                    n.Add(S[i]);
-                for (i += 1; i < S.Count; i++)
-                    d.Add(S[i]);
-
-                return new Q(n, d);
-
+                list.Add("x^");
+                for (int j = 0; j < ((List<string>)value.Ms[i].degree).Count; j++)
+                {
+                    list.Add(((List<string>)value.Ms[i].degree)[j]);
+                }
             }
-            else
-                return null;
         }
-
-
-
-
-        #endregion
-
-        #region Методы
-
-        public static byte COM_PP_D(P first, P second)
-        {
-            M odin;
-            M nol;
-            List<string> zero = new List<string>();
-            zero.Add("0");
-            N q = new N(zero);
-            odin.degree = q;
-            nol.degree = q;
-            nol.coef = (Z)q;
-            List<string> one = new List<string>();
-            one.Add("1");
-            N l = new N(one);
-            odin.coef = (Z)l;
-            P menche = null;
-            menche.Ms.Add(nol);
-            P bolshe = null;
-            bolshe.Ms.Add(odin);
-            if ((first / second) == menche)
+        if (value.Ms[i].coef.COM(new Q(num, denum)) == 0 && value.Ms[i].degree.COM(new N(zero)) == 0)
+            if (i != 0)
             {
-                return 1;
-            }
-            if ((first / second) == bolshe)
-            {
-                if ((first % second) == menche)
-                {
-                    return 0;
-                }
-                else
-                {
-                    return 2;
-                }
+                list.Add(" + 1");
             }
             else
             {
-                return 2;
+                list.Add("1");
             }
-        }
+        if (value.Ms[i].coef.COM(-new Q(num, denum)) == 0 && value.Ms[i].degree.COM(new N(zero)) == 0)
+            list.Add(" - 1");
+    }
+    return list;
+}
 
-        private P MUL_PQ_P(Q value)
-        {
-            P mulcoef = Clone();
-            M now;
-            for (int i = 0; i < mulcoef.Ms.Count; i++)
-            {
-                now = mulcoef.Ms[i];
-                now.coef *= value;
-                mulcoef.Ms[i] = now;
-            }
-            return mulcoef;
-        }
 
-        private P MUL_Pxk_P(N value)
-        {
-            P muldeg = Clone();
-            M now;
-            for (int i = 0; i < muldeg.Ms.Count; i++)
-            {
-                now = muldeg.Ms[i];
-                now.degree += value;
-                muldeg.Ms[i] = now;
-            }
-            return muldeg;
-        }
+public static explicit operator Q(P value)//сломано
+{
+    if (value.isDown)
+    {
+        List<string> S = new List<string>();
+        List<string> n = new List<string>();
+        List<string> d = new List<string>();
 
-        public static P GCF_PP_P(P first, P second)
-        {
-            P result = first.Clone();
-            P pog = null;
-            P mod = first.Clone();
-            mod = first % second;
-            M nol;
-            List<string> zero = new List<string>();
-            zero.Add("0");
-            N q = new N(zero);
-            nol.coef = (Z)q;
-            nol.degree = q;
-            pog.Ms.Add(nol);
-            if (COM_PP_D(mod, pog) == 0)
-            {
-                return second;
-            }
-            else
-            {
-                while (COM_PP_D(mod, pog) != 0)
-                {
-                    second %= mod;
-                    result = mod;
-                    mod %= second;
-                }
-            }
-            return result;
-        }
+        S = value.Ms[0].coef;
+        int i;
+        for (i = 0; S[i] != "/"; i++)
+            n.Add(S[i]);
+        for (i += 1; i < S.Count; i++)
+            d.Add(S[i]);
 
-        private P NMR_P_P()
-        {
-            List<Q> roots = this.root;
-            List<Q> answer = null;
-            P result = null;
-            int i = 0;
-            int j;
-            while (i < roots.Count)
-            {
-                for (j = 0;j < answer.Count;j++ )
-                {
-                    if(roots[i].COM(answer[j]) == 0)
-                    {
-                        break;
-                    }
-                }
-                if (roots[i].COM(answer[j]) == 0)
-                {
-                    i++;
-                    break;
-                }
-                answer.Add(roots[i]);
-                i++;
-            }
-            List<string> zero = new List<string>();
-            zero.Add("0");
-            N q = new N(zero);
-            List<string> one = new List<string>();
-            one.Add("1");
-            N l = new N(one);
-            M mnoj;
-            mnoj.coef = (Z)l;
-            mnoj.degree = l;
-            result.Ms.Add(mnoj);
-            mnoj.coef = answer[0];
-            mnoj.degree = q;
-            result.Ms.Add(mnoj);
-            P mnoj1 = result.Clone();
-            for (int m = 1;m <= (answer.Count - 1);m++)
-            {
-                mnoj.coef = answer[m];
-                mnoj1.Ms[1] = mnoj;
-                result *= mnoj1;
-            }
-            return result;
-        }
+        return new Q(n, d);
 
-        
-        public P Clone() // Александр Баталин 9370//
-        {
-            P clone = new P(new Q(new Z(new N(new List<string>()))));
-            clone.Ms = new List<M>(Ms);
-            return clone;
-        }
-        
+    }
+    else
+        return null;
+}
 
-        public override bool Equals(object obj)
+
+
+
+#endregion
+
+#region Методы
+
+public static byte COM_PP_D(P first, P second)
+{
+    M odin;
+    M nol;
+    List<string> zero = new List<string>();
+    zero.Add("0");
+    N q = new N(zero);
+    odin.degree = q;
+    nol.degree = q;
+    nol.coef = (Z)q;
+    List<string> one = new List<string>();
+    one.Add("1");
+    N l = new N(one);
+    odin.coef = (Z)l;
+    P menche = null;
+    menche.Ms.Add(nol);
+    P bolshe = null;
+    bolshe.Ms.Add(odin);
+    if ((first / second) == menche)
+    {
+        return 1;
+    }
+    if ((first / second) == bolshe)
+    {
+        if ((first % second) == menche)
         {
-            if (obj.GetType() == GetType() && this != null && obj != null)
-            {
-                P sec = obj as P;
-                if (Ms.Equals(sec.Ms)) return true;
-            }
-            return false;
+            return 0;
         }
-                        */
+        else
+        {
+            return 2;
+        }
+    }
+    else
+    {
+        return 2;
+    }
+}
+
+private P MUL_PQ_P(Q value)
+{
+    P mulcoef = Clone();
+    M now;
+    for (int i = 0; i < mulcoef.Ms.Count; i++)
+    {
+        now = mulcoef.Ms[i];
+        now.coef *= value;
+        mulcoef.Ms[i] = now;
+    }
+    return mulcoef;
+}
+
+private P MUL_Pxk_P(N value)
+{
+    P muldeg = Clone();
+    M now;
+    for (int i = 0; i < muldeg.Ms.Count; i++)
+    {
+        now = muldeg.Ms[i];
+        now.degree += value;
+        muldeg.Ms[i] = now;
+    }
+    return muldeg;
+}
+
+public static P GCF_PP_P(P first, P second)
+{
+    P result = first.Clone();
+    P pog = null;
+    P mod = first.Clone();
+    mod = first % second;
+    M nol;
+    List<string> zero = new List<string>();
+    zero.Add("0");
+    N q = new N(zero);
+    nol.coef = (Z)q;
+    nol.degree = q;
+    pog.Ms.Add(nol);
+    if (COM_PP_D(mod, pog) == 0)
+    {
+        return second;
+    }
+    else
+    {
+        while (COM_PP_D(mod, pog) != 0)
+        {
+            second %= mod;
+            result = mod;
+            mod %= second;
+        }
+    }
+    return result;
+}
+
+private P NMR_P_P()
+{
+    List<Q> roots = this.root;
+    List<Q> answer = null;
+    P result = null;
+    int i = 0;
+    int j;
+    while (i < roots.Count)
+    {
+        for (j = 0;j < answer.Count;j++ )
+        {
+            if(roots[i].COM(answer[j]) == 0)
+            {
+                break;
+            }
+        }
+        if (roots[i].COM(answer[j]) == 0)
+        {
+            i++;
+            break;
+        }
+        answer.Add(roots[i]);
+        i++;
+    }
+    List<string> zero = new List<string>();
+    zero.Add("0");
+    N q = new N(zero);
+    List<string> one = new List<string>();
+    one.Add("1");
+    N l = new N(one);
+    M mnoj;
+    mnoj.coef = (Z)l;
+    mnoj.degree = l;
+    result.Ms.Add(mnoj);
+    mnoj.coef = answer[0];
+    mnoj.degree = q;
+    result.Ms.Add(mnoj);
+    P mnoj1 = result.Clone();
+    for (int m = 1;m <= (answer.Count - 1);m++)
+    {
+        mnoj.coef = answer[m];
+        mnoj1.Ms[1] = mnoj;
+        result *= mnoj1;
+    }
+    return result;
+}
+
+
+public P Clone() // Александр Баталин 9370//
+{
+    P clone = new P(new Q(new Z(new N(new List<string>()))));
+    clone.Ms = new List<M>(Ms);
+    return clone;
+}
+
+
+public override bool Equals(object obj)
+{
+    if (obj.GetType() == GetType() && this != null && obj != null)
+    {
+        P sec = obj as P;
+        if (Ms.Equals(sec.Ms)) return true;
+    }
+    return false;
+}
+                */
         #region 1
         public override Math_Field ADD(Math_Field second)
         {
@@ -706,11 +714,6 @@ namespace LMath
             return null; //this;
         }
 
-        public override Math_Field Result()
-        {
-            return null; //(Q)this.root;
-        }
-
         public override Math_Field ANT => throw new NotImplementedException();
 
         public static Math_Field Antiderivative_event_do(Math_Field value)
@@ -727,7 +730,7 @@ namespace LMath
         {
             try
             {
-                return ANT.RES(second) - ANT.RES(first);
+                return (ANT.RES(second) as P) - (ANT.RES(first) as P);
             }
             catch
             {

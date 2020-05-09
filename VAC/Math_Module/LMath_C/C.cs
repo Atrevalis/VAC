@@ -225,7 +225,7 @@ namespace LMath
         {
             try
             {
-                return ANT.RES(second) - ANT.RES(first);
+                return (ANT.RES(second) as C) - (ANT.RES(first) as C);
             }
             catch
             {
@@ -233,7 +233,7 @@ namespace LMath
             }
         }
 
-        public override Math_Field RES()
+        public override Math_Field RES(Math_Field value)
         {
             return this;
         }
