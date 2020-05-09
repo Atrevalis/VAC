@@ -513,6 +513,14 @@ namespace LMath
 
         #endregion
 
+        #region Событие
+
+        public delegate Math_Field Antiderivative_delegate(Math_Field value);
+
+        public static event Antiderivative_delegate Antiderivative_event;
+
+        #endregion
+
         #region Общие методы и свойства
 
         #region Свойства
@@ -574,6 +582,14 @@ namespace LMath
                 List<string> s = new List<string>();
                 s.Add("0");
                 return new N(s);
+            }
+        }
+
+        public override Math_Field ANT
+        {
+            get
+            {
+                return Antiderivative_event(this);
             }
         }
 

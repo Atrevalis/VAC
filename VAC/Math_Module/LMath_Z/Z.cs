@@ -284,6 +284,11 @@ namespace LMath
             return clone;
         }
 
+        public static Math_Field Antiderivative_event_do(Math_Field value)
+        {
+            return ((Z)(value as N)).ANT;
+        }
+
         #endregion
 
         #region Общие свойства и методы
@@ -349,6 +354,21 @@ namespace LMath
             }
         }
 
+        public override Math_Field ANT
+        {
+            get
+            {
+                return Antiderivative_event(this);
+            }
+        }
+
+        #endregion
+
+        #region Событие
+
+        public delegate Math_Field Antiderivative_delegate(Math_Field value);
+
+        public static event Antiderivative_delegate Antiderivative_event;
 
         #endregion
 

@@ -707,6 +707,18 @@ namespace LMath
         }
 
 
+        public override Math_Field ANT => throw new NotImplementedException();
+
+        public static Math_Field Antiderivative_event_do(Math_Field value)
+        {
+            return ((P)(value as C)).ANT;
+        }
+
+        public static implicit operator P(C value)
+        {
+            return null;
+        }
+
         #endregion
     }
 }

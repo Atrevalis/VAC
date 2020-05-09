@@ -231,7 +231,11 @@ namespace LMath
             Numerator /= nod;
             Denominator /= nod;
         }
-        
+
+        public static Math_Field Antiderivative_event_do(Math_Field value)
+        {
+            return ((Q)(value as Z)).ANT;
+        }
 
         /// <summary>
         /// Создает точную копию данного объекта
@@ -251,6 +255,14 @@ namespace LMath
             }
             return false;
         }
+
+        #endregion
+
+        #region Событие
+
+        public delegate Math_Field Antiderivative_delegate(Math_Field value);
+
+        public static event Antiderivative_delegate Antiderivative_event;
 
         #endregion
 
@@ -321,6 +333,14 @@ namespace LMath
             get
             {
                 return Clone();
+            }
+        }
+
+        public override Math_Field ANT
+        {
+            get
+            {
+                return Antiderivative_event(this);
             }
         }
 

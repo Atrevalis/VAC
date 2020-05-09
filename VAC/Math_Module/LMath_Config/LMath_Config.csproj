@@ -46,6 +46,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\LMath_C\LMath_C.csproj">
+      <Project>{c90cfcf9-5abe-42c6-9487-f934d75562fe}</Project>
+      <Name>LMath_C</Name>
+    </ProjectReference>
     <ProjectReference Include="..\LMath_Main\LMath_Main.csproj">
       <Project>{3def3843-4999-4fe0-ad14-9c7ea8b16042}</Project>
       <Name>LMath_Main</Name>
@@ -61,6 +65,10 @@
     <ProjectReference Include="..\LMath_Q\LMath_Q.csproj">
       <Project>{38958e84-46d4-41e5-a624-753133f4154b}</Project>
       <Name>LMath_Q</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LMath_R\LMath_R.csproj">
+      <Project>{33145eea-5900-43cd-b2dd-30d50df8c1d4}</Project>
+      <Name>LMath_R</Name>
     </ProjectReference>
     <ProjectReference Include="..\LMath_Z\LMath_Z.csproj">
       <Project>{004e63ee-0af5-4929-9b9e-10b981375ab7}</Project>
