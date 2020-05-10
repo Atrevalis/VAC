@@ -12,7 +12,11 @@ namespace LMath
 
         public R(List<smaller_R> s)
         {
-
+            Sum = new List<smaller_R>();
+            for (int i = 0; i < s.Count; i++)
+            {
+                Sum.Add(s[i].Clone());
+            }
         }
 
         #endregion
@@ -71,6 +75,11 @@ namespace LMath
         public static Math_Field Antiderivative_event_do(Math_Field value)
         {
             return ((R)(value as Q)).ANT;
+        }
+
+        public R Clone()
+        {
+            return null;
         }
 
         #endregion
@@ -195,7 +204,13 @@ namespace LMath
 
         public the_smallest_R(Q b, R ind)
         {
+            basa = b.Clone();
+            indicator = ind.Clone();
+        }
 
+        public the_smallest_R Clone()
+        {
+            return null;
         }
     }
 
@@ -204,7 +219,16 @@ namespace LMath
         List<the_smallest_R> product;
         public smaller_R(List<the_smallest_R> p)
         {
+            product = new List<the_smallest_R>();
+            for (int i = 0; i < p.Count; i++)
+            {
+                product.Add(p[i].Clone());
+            }
+        }
 
+        public smaller_R Clone()
+        {
+            return null;
         }
     }
 }
