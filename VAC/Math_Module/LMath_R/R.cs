@@ -204,6 +204,7 @@ namespace LMath
     {
         Q basa;
         R indicator;
+        bool isN;
 
         public Q Basa
         {
@@ -221,10 +222,11 @@ namespace LMath
             }
         }
 
-        public smaller_R(Q b, R ind)
+        public smaller_R(Q b, R ind, bool i)
         {
             basa = b.Clone();
             indicator = ind.Clone();
+            isN = i;
         }
 
         public smaller_R Clone()
