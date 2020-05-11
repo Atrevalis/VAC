@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -77,10 +78,12 @@ namespace LMath
             return ((R)(value as Q)).ANT;
         }
 
+
         public R Clone()
         {
             return null;
         }
+
 
         #endregion
 
@@ -197,33 +200,31 @@ namespace LMath
         #endregion
     }
 
-    public class the_smallest_R
+    public class smaller_R
     {
         Q basa;
         R indicator;
 
-        public the_smallest_R(Q b, R ind)
+        public Q Basa
+        {
+            get
+            {
+                return basa;
+            }
+        }
+
+        public R Indicator
+        {
+            get
+            {
+                return indicator;
+            }
+        }
+
+        public smaller_R(Q b, R ind)
         {
             basa = b.Clone();
             indicator = ind.Clone();
-        }
-
-        public the_smallest_R Clone()
-        {
-            return null;
-        }
-    }
-
-    public class smaller_R
-    {
-        List<the_smallest_R> product;
-        public smaller_R(List<the_smallest_R> p)
-        {
-            product = new List<the_smallest_R>();
-            for (int i = 0; i < p.Count; i++)
-            {
-                product.Add(p[i].Clone());
-            }
         }
 
         public smaller_R Clone()
