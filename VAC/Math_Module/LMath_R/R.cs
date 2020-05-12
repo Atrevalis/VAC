@@ -36,7 +36,12 @@ namespace LMath
 
         public static R operator -(R value)
         {
-            return null;
+            R clone = value.Clone();
+            for (int i = 0; i < clone.Sum.Count; i++)
+            {
+                clone.Sum[i].ISN = !clone.Sum[i].ISN;
+            }
+            return clone;
         }
 
         public static R operator +(R first, R second)
@@ -46,7 +51,9 @@ namespace LMath
 
         public static R operator -(R first, R second)
         {
-            return null;
+            R clone1 = first.Clone();
+            R clone2 = second.Clone();
+            return clone1 + (-clone2);
         }
 
         public static R operator *(R first, R second)
