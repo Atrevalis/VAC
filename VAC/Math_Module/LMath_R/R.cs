@@ -222,6 +222,18 @@ namespace LMath
             }
         }
 
+        public bool ISN
+        {
+            get
+            {
+                return isN;
+            }
+            set
+            {
+                isN = value;
+            }
+        }
+
         public smaller_R(Q b, R ind, bool i)
         {
             basa = b.Clone();
