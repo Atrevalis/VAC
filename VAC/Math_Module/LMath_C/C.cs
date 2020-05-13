@@ -31,6 +31,14 @@ namespace LMath
 
         #region Свойства
 
+        public C Conjugation
+        {
+            get
+            {
+                return null;
+            }
+        }
+
         #endregion
 
         #region Перегрузки
