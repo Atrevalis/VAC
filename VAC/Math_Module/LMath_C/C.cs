@@ -10,7 +10,7 @@ namespace LMath
     {
         #region Конструкторы
 
-        public C(R r, R i)
+        public C(Q r, Q i)
         {
 
         }
@@ -21,11 +21,11 @@ namespace LMath
         /// <summary>
         /// Действительная часть комплексного числа
         /// </summary>
-        private R real;
+        private Q real;
         /// <summary>
         /// Мнимая часть комплексного числа
         /// </summary>
-        private R image;
+        private Q image;
 
         #endregion
 
@@ -94,7 +94,7 @@ namespace LMath
             return clone1;
         }
 
-        public static implicit operator C(R value)
+        public static implicit operator C(Q value)
         {
             return null;
         }
@@ -113,7 +113,7 @@ namespace LMath
 
         public static Math_Field Antiderivative_event_do(Math_Field value)
         {
-            return ((C)(value as R)).ANT;
+            return ((C)(value as Q)).ANT;
         }
 
         #endregion

@@ -49,6 +49,10 @@
       <Project>{3def3843-4999-4fe0-ad14-9c7ea8b16042}</Project>
       <Name>LMath_Main</Name>
     </ProjectReference>
+    <ProjectReference Include="..\LMath_Q\LMath_Q.csproj">
+      <Project>{38958e84-46d4-41e5-a624-753133f4154b}</Project>
+      <Name>LMath_Q</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
