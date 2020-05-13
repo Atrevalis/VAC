@@ -31,22 +31,6 @@ namespace LMath
 
         #region Свойства
 
-        public List<string> trigonomety
-        {
-            get
-            {
-                return null;
-            }
-        }
-
-        public List<string> expotential
-        {
-            get
-            {
-                return null;
-            }
-        }
-
         #endregion
 
         #region Перегрузки

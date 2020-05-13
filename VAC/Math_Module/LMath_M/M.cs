@@ -11,6 +11,8 @@ namespace LMath
 
         #region Поля
 
+        private P[,] elements;
+
         #endregion
 
         #region Конструторы
