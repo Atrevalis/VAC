@@ -45,10 +45,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\LMath_R\LMath_R.csproj">
-      <Project>{33145eea-5900-43cd-b2dd-30d50df8c1d4}</Project>
-      <Name>LMath_R</Name>
-    </ProjectReference>
     <ProjectReference Include="..\LMath_Main\LMath_Main.csproj">
       <Project>{3def3843-4999-4fe0-ad14-9c7ea8b16042}</Project>
       <Name>LMath_Main</Name>
