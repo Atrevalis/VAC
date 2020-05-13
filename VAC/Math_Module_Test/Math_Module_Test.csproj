@@ -49,6 +49,7 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="C_Test.cs" />
     <Compile Include="N_Test.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Q_Test.cs" />
@@ -58,9 +59,17 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Math_Module\LMath_C\LMath_C.csproj">
+      <Project>{c90cfcf9-5abe-42c6-9487-f934d75562fe}</Project>
+      <Name>LMath_C</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Math_Module\LMath_Main\LMath_Main.csproj">
       <Project>{3def3843-4999-4fe0-ad14-9c7ea8b16042}</Project>
       <Name>LMath_Main</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Math_Module\LMath_M\LMath_M.csproj">
+      <Project>{0d664ef4-c7b4-469f-acd1-45dba9475d0b}</Project>
+      <Name>LMath_M</Name>
     </ProjectReference>
     <ProjectReference Include="..\Math_Module\LMath_N\LMath_N.csproj">
       <Project>{d463b3fb-d1e2-4eec-afa1-f0bda5cab91b}</Project>
