@@ -457,7 +457,9 @@ namespace LMath
 
         public override Math_Field LCM(Math_Field second)
         {
-            return Abs.LCM((second as Z).Abs);
+            Z clone = new Z();
+            clone.Abs = Abs.LCM((second as Z).Abs) as N;
+            return clone;
         }
 
         public override Math_Field SUB(Math_Field second)

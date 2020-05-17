@@ -55,7 +55,8 @@ namespace Math_Module_Test
             Q x = new Q(inputNumerator1, inputDenominator1);
             Q i = new Q(inputNumerator, inputDenominator);
             Q t = new Q(outputNumerator, outputDenominator);
-            Assert.AreEqual(t, x - i);
+            Q res = x - i;
+            Assert.AreEqual(t, res);
         }
 
         [TestMethod]
@@ -279,7 +280,7 @@ namespace Math_Module_Test
             inputDenominator.Add("12345678");
             Q x = new Q(inputNumerator, inputDenominator);
             Q i = -x;
-            Assert.AreEqual(x,i);
+            Assert.AreEqual(-x,i);
         }
 
         [TestMethod]

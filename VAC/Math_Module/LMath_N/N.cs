@@ -178,10 +178,8 @@ namespace LMath
 
         public static N operator *(N first, N second) // Шлемин Роман 9370 //тест есть 
         {
-            List<string> zero = new List<string>();
-            zero.Add("0");
-            N product = new N(zero);
-            N value = new N(zero);
+            N product = new N();
+            N value = new N();
             for (int i = 0; i < second.znach.Count; i++) //Перебираем все элементы 2-ого поля
             {
                 if ((second.znach[i] == 0) && (i != second.znach.Count - 1))
@@ -204,6 +202,11 @@ namespace LMath
                 {
                     value++;
                 }
+            }
+            for(int i = product.znach.Count - 1; i > 0; i--)
+            {
+                if (product.znach[i] == 0) product.znach.RemoveAt(i);
+                else break;
             }
             return product;
         }

@@ -7,8 +7,7 @@
             Math_Field.Up += new Math_Field.Up_delegaete(Up);
             N.Antiderivative_event += new N.Antiderivative_delegate(Z.Antiderivative_event_do);
             Z.Antiderivative_event += new Z.Antiderivative_delegate(Q.Antiderivative_event_do);
-            Q.Antiderivative_event += new Q.Antiderivative_delegate(R.Antiderivative_event_do);
-            R.Antiderivative_event += new R.Antiderivative_delegate(C.Antiderivative_event_do);
+            Q.Antiderivative_event += new Q.Antiderivative_delegate(C.Antiderivative_event_do);
             C.Antiderivative_event += new C.Antiderivative_delegate(P.Antiderivative_event_do);
         }
 

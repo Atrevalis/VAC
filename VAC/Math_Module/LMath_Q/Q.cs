@@ -118,7 +118,7 @@ namespace LMath
             }
             else
             {
-                ComDen = (Z)first.Denominator.LCM(second.Denominator);
+                ComDen = (first.Denominator.LCM(second.Denominator) as Z);
                 if (first.Denominator.COM(ComDen) == 0)
                 {
                     Sum.Denominator = first.Denominator;
@@ -139,8 +139,8 @@ namespace LMath
                     Sum.Numerator = first.Numerator + second.Numerator;
                 }
                 Sum.RED_Q_Q();
+                return Sum;
             }
-            return Sum;
         }
 
         public static Q operator -(Q first, Q second) // SUB_QQ_Q //есть тесты
@@ -233,9 +233,16 @@ namespace LMath
         /// </summary>
         private void RED_Q_Q() //есть тесты
         {
-            Z nod = (Z)(Numerator.GCF(Denominator));
-            Numerator /= nod;
-            Denominator /= nod;
+            if (Numerator.COM(new Z()) != 0)
+            {
+                Z nod = (Z)(Numerator.GCF(Denominator));
+                Numerator /= nod;
+                Denominator /= nod;
+            }
+            else
+            {
+                Denominator = new Z(1);
+            }
         }
 
         public static Math_Field Antiderivative_event_do(Math_Field value)
