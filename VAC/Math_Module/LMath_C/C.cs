@@ -12,7 +12,14 @@ namespace LMath
 
         public C(Q r, Q i)
         {
+            real = r.Clone();
+            image = i.Clone();
+        }
 
+        public C()
+        {
+            real = new Q();
+            image = new Q();
         }
 
         #endregion
@@ -35,7 +42,9 @@ namespace LMath
         {
             get
             {
-                return null;
+                C c = Clone();
+                c.image = -c.image;
+                return c;
             }
         }
 
@@ -88,7 +97,14 @@ namespace LMath
 
         public static implicit operator C(Q value)
         {
-            return null;
+            C result = new C();
+            result.real = value.Clone();
+            return result;
+        }
+
+        public static explicit operator Q(C value)
+        {
+            return value.real.Clone();
         }
 
         #endregion
@@ -100,7 +116,10 @@ namespace LMath
         /// </summary>
         public C Clone() 
         {
-            return null;
+            C result = new C();
+            result.real = real.Clone();
+            result.image = image.Clone();
+            return result;
         }
 
         public static Math_Field Antiderivative_event_do(Math_Field value)
@@ -130,11 +149,24 @@ namespace LMath
         }
         public override bool isDown 
         {
-            get;
-            
+            get
+            {
+                Q zero = new Q();
+                if(image.COM(zero)==0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
         }
 
-        public override Math_Field ABS { get; }
+        public override Math_Field ABS
+        {
+            get;
+        }
 
         public override Math_Field UNT 
         {
@@ -144,11 +176,29 @@ namespace LMath
             } 
         }
 
-        public override Math_Field DER { get; }
+        public override Math_Field DER
+        {
+            get
+            {
+                return new C();
+            }
+        }
 
-        public override Math_Field LED { get; }
+        public override Math_Field LED
+        {
+            get
+            {
+                return Clone();
+            }
+        }
 
-        public override Math_Field DEG { get; }
+        public override Math_Field DEG
+        {
+            get
+            {
+                return new C();
+            }
+        }
 
         public override Math_Field ANT
         {
@@ -165,7 +215,11 @@ namespace LMath
 
         public override Math_Field Dawn()
         {
-            return null;
+            if(isDown)
+            {
+                return (Q)(this);
+            }
+            return this;
         }
 
         public override Math_Field SUB(Math_Field second)
@@ -180,7 +234,7 @@ namespace LMath
 
         public override Math_Field MOD(Math_Field second)
         {
-            return null;
+            return new C();
         }
 
         public override Math_Field ADD(Math_Field second)
@@ -205,12 +259,26 @@ namespace LMath
 
         public override byte COM(Math_Field second)
         {
-            return 0;
+            if (real.Equals((second as C).real) && image.Equals((second as C).image))
+            {
+                return 0;
+            }
+            else return 4;
         }
 
         public override List<string> ToListstring()
         {
-            return null;
+            List<string> s = real.ToListstring();
+            if(image.COM(new Q())!=1)
+            {
+                s.Add(" + ");
+            }
+            List<string> s2 = image.ToListstring();
+            for(int i = 0; i < s2.Count; i++)
+            {
+                s.Add(s2[i]);
+            }
+            return s;
         }
 
         public override Math_Field CEI(Math_Field first, Math_Field second)

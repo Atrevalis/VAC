@@ -30,6 +30,12 @@ namespace LMath
             }
         }
 
+        public Q()
+        {
+            Numerator = new Z();
+            Denominator = new Z(1);
+        }
+
         #endregion
 
         #region Поля

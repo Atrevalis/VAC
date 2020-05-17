@@ -37,6 +37,19 @@ namespace LMath
             }
         }
 
+        public Z()
+        {
+            Abs = new N();
+            isN = true;
+        }
+
+        public Z(int i)
+        {
+            Abs = new N((uint)Math.Abs(i));
+            if (i < 0) isN = false;
+            else isN = true;
+        }
+
        /* public Z(N value) // Александр Рассохин 9370 // Проверено Игорь
         {
             Abs = value.Clone();

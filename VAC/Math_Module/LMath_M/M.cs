@@ -13,21 +13,60 @@ namespace LMath
 
         private P[,] elements;
 
+        private int h;
+
         #endregion
 
         #region Конструторы
 
         /// <summary>
-        /// Конструктор класса N
+        /// Конструктор класса M
         /// </summary>
-        /// <param name="s">Строка разбитая по <c>uint_size_div</c> элементов</param>
-        public M(List<string> s) // Александр Рассохин 9370
+        public M(int x, int y, List<P> p) // Александр Рассохин 9370
         {
+            elements = new P[y, x];
+            for(int i = 0; i < y; i++)
+            {
+                for(int j = 0; j <  x; j++)
+                {
+                    elements[i, j] = p[i * x + j];
+                }
+            }
+            h = y;
+        }
+
+        public M(int x, int y)
+        {
+            elements = new P[y, x];
+            for (int i = 0; i < y; i++)
+            {
+                for (int j = 0; j < x; j++)
+                {
+                    elements[i, j] = new P();
+                }
+            }
+            h = y;
         }
 
         #endregion
 
         #region Свойства
+
+        private int w
+        {
+            get
+            {
+                return elements.Length / h;
+            }
+        }
+
+        public bool isSquere
+        {
+            get
+            {
+                return w == h ? true : false;
+            }
+        }
 
         #endregion
 
@@ -35,23 +74,53 @@ namespace LMath
 
         public static M operator -(M value)
         {
-            return null;
+            M m = value.Clone();
+            for(int i = 0; i < m.h; i++)
+            {
+                for(int j = 0; j < m.w; j++)
+                {
+                    m.elements[i, j] = -m.elements[i, j];
+                }
+            }
+            return m;
         }
 
         public static M operator +(M first, M second) // Шлемин Роман 9370 Есть тесты
         {
-            return null;
+            M m = first.Clone();
+            for (int i = 0; i < m.h; i++)
+            {
+                for (int j = 0; j < m.w; j++)
+                {
+                    m.elements[i, j] += second.elements[i, j];
+                }
+            }
+            return m;
         }
 
 
 
         public static M operator -(M first, M second) // Шлемин Роман 9370//Есть тесты
         {
-            return null;
+            return first + (-second);
         }
 
         public static M operator *(M first, M second) // Шлемин Роман 9370 //тест есть 
         {
+            if (first.w == second.h)
+            {
+                M product = new M(first.h, second.w);
+                for (int i = 0; i < product.h; i++)
+                {
+                    for (int j = 0; j < product.w; j++)
+                    {
+                        for(int k = 0; k < first.w; k++)
+                        {
+                            product.elements[i, j] += (first.elements[i, k] * second.elements[k, j]);
+                        }
+                    }
+                }
+            }
             return null;
         }
 
@@ -61,11 +130,6 @@ namespace LMath
         }
 
         public static M operator %(M first, M second)//есть тесты
-        {
-            return null;
-        }
-
-        public static M operator ^(M first, M second)
         {
             return null;
         }

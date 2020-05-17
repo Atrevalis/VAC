@@ -45,6 +45,18 @@ namespace LMath
             }
         }
 
+        public N()
+        {
+            znach = new List<uint>();
+            znach.Add(0);
+        }
+
+        public N(uint i)
+        {
+            znach = new List<uint>();
+            znach.Add(i);
+        }
+
         #endregion
 
         #region Свойства

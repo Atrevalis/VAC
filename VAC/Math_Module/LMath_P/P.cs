@@ -18,8 +18,14 @@ namespace LMath
         }
     }
 
+
     public class P : Math_Field
     {
+
+        public static P operator -(P value)
+        {
+            return null;
+        }
 
         public override Math_Field RES(Math_Field value)
         {
@@ -271,75 +277,19 @@ namespace LMath
                 return clone;
             }
         }
-        /*
-        #endregion
 
         #region Перегрузки
 
         public static P operator +(P first, P second) // ADD_PP_P
         {
             P result;
-            P smaller;
-            if (first.Ms.Count() < second.Ms.Count())
-            {
-                result = second.Clone();
-                smaller = first.Clone();
-            }
-            else
-            {
-                result = first.Clone();
-                smaller = second.Clone();
-            }
-            M now;
-            for (int i = 0; i < smaller.Ms.Count(); i++)
-            {
-                for (int j = 0; j < result.Ms.Count(); j++)
-                {
-                    if (N.COM_NN_D(result.Ms[j].degree, smaller.Ms[i].degree) == 0)
-                    {
-                        now = result.Ms[j];
-                        now.coef += smaller.Ms[i].coef;
-                        result.Ms[j] = now;
-                        break;
-                    }
-                    if (N.COM_NN_D(result.Ms[j].degree, smaller.Ms[i].degree) == 1)
-                    {
-                        result.Ms.Insert(j, smaller.Ms[i]);
-                        break;
-                    }
-                }
-            }
-            return result;
+            return null;
         }
-        */
         public static P operator -(P first, P second) // SUB_PP_P
         {
             return null;
-            /*
-    P result;
-    P smaller;
-    if (first.Ms.Count() < second.Ms.Count())
-    {
-        result = second.Clone();
-        smaller = first.Clone();
-    }
-    else
-    {
-        result = first.Clone();
-        smaller = second.Clone();
-    }
-    M now;
-    for (int i = 0; i < smaller.Ms.Count(); i++)
-    {
-        now = smaller.Ms[i];
-        now.coef = -now.coef;
-        smaller.Ms[i] = now;
-    }
-    result += smaller;
-    return result;
-            */
         }
-        /*
+
 
 public static P operator *(P first, P second) // MUL_PP_P
 {
@@ -359,46 +309,12 @@ public static P operator *(P first, P second) // MUL_PP_P
     for (int i = 0; i < smaller.Ms.Count(); i++)
     {
         now = smaller.Ms[i];
-        result = result.MUL_PQ_P(now.coef);
-        result = result.MUL_Pxk_P(now.degree);
     }
     return result;
 }
 public static P operator /(P first, P second) // DIV_PP_P
 {
-    P dividend = first.Clone();
-    P result = null;
-    P mnoj = null;
-    M now;
-    M smaller_now;
-    M dividend_now;
-    int i = 0;
-    if (dividend.Ms.Count() >= second.Ms.Count())
-    {
-        while (dividend.Ms.Count() < second.Ms.Count())
-        {
-            dividend_now = dividend.Ms[0];
-            smaller_now = second.Ms[i];
-            now.coef = dividend_now.coef / smaller_now.coef;
-            now.degree = dividend_now.degree - smaller_now.degree;
-            result.Ms.Add(now);
-            mnoj.Ms.Add(now);
-            dividend -= (second * mnoj);
-            mnoj.Ms.RemoveAt(0);
-            i++;
-        }
-    }
-    else
-    {
-        M nol;
-        List<string> zero = new List<string>();
-        zero.Add("0");
-        N q = new N(zero);
-        nol.coef = (Z)q;
-        nol.degree = q;
-        result.Ms.Add(nol);
-    }
-    return result;
+            return null;
 }
 
 public static P operator %(P first, P second) // MOD_PP_p
@@ -407,97 +323,25 @@ public static P operator %(P first, P second) // MOD_PP_p
     result -= (first / second);
     return result;
 }
-/*
 public static implicit operator List<List<string>[]>(P value)
 {
-    List<List<string>[]> S = new List<List<string>[]>();
-    List<string> []temp = new List<string>[2];
-    List<string> t = new List<string>();
-    List<string> t2 = new List<string>();
-    for (int i=0; i < value.Ms.Count;i++)
-    {
-        temp[0] = new List<string>();
-        temp[1] = new List<string>();
-        t = value.Ms[i].coef;
-        t2 = value.Ms[i].degree;
-        for (int j = 0; j < t.Count; j++)
-            temp[0].Add(t[j]);
-        for (int j = 0; j < t2.Count; j++)
-            temp[1].Add(t2[j]);
-        S.Add(temp);
-    }
-    return S;
+            return null;
 }
 
 
 public static implicit operator List<string>(P value)
 {
-    List<string> list = new List<string>();
-    for(int i = 0; i < value.Ms.Count; i++)
-    {
-        List<string> num = new List<string>(), denum = new List<string>(), zero = new List<string>();
-        num.Add("1"); denum.Add("1"); zero.Add("0");
-        if (value.Ms[i].coef.COM(new Q(num, denum)) != 0)
-        {
-            if (value.Ms[i].coef.POZ_Q_D == 1) ;
-            else if (i > 0) list.Add(" +");
-            for (int j = 0; j < ((List<string>)value.Ms[i].coef).Count; j++)
-            {
-                list.Add(((List<string>)value.Ms[i].coef)[j]);
-            }
-        }
-        if (value.Ms[i].degree.COM(new N(num)) == 0) list.Add("x");
-        else
-        {
-            if (value.Ms[i].degree.COM(new N(zero)) != 0)
-            {
-                list.Add("x^");
-                for (int j = 0; j < ((List<string>)value.Ms[i].degree).Count; j++)
-                {
-                    list.Add(((List<string>)value.Ms[i].degree)[j]);
-                }
-            }
-        }
-        if (value.Ms[i].coef.COM(new Q(num, denum)) == 0 && value.Ms[i].degree.COM(new N(zero)) == 0)
-            if (i != 0)
-            {
-                list.Add(" + 1");
-            }
-            else
-            {
-                list.Add("1");
-            }
-        if (value.Ms[i].coef.COM(-new Q(num, denum)) == 0 && value.Ms[i].degree.COM(new N(zero)) == 0)
-            list.Add(" - 1");
-    }
-    return list;
+            return null;
 }
 
 
-public static explicit operator Q(P value)//сломано
+public static explicit operator C(P value)//сломано
 {
-    if (value.isDown)
-    {
-        List<string> S = new List<string>();
-        List<string> n = new List<string>();
-        List<string> d = new List<string>();
-
-        S = value.Ms[0].coef;
-        int i;
-        for (i = 0; S[i] != "/"; i++)
-            n.Add(S[i]);
-        for (i += 1; i < S.Count; i++)
-            d.Add(S[i]);
-
-        return new Q(n, d);
-
-    }
-    else
-        return null;
+            return null;
 }
 
 
-
+        /*
 
 #endregion
 
@@ -644,14 +488,14 @@ private P NMR_P_P()
     return result;
 }
 
+            */
 
 public P Clone() // Александр Баталин 9370//
 {
-    P clone = new P(new Q(new Z(new N(new List<string>()))));
-    clone.Ms = new List<M>(Ms);
-    return clone;
+    return null;
 }
 
+                    /*
 
 public override bool Equals(object obj)
 {
@@ -741,3 +585,4 @@ public override bool Equals(object obj)
         #endregion
     }
 }
+#endregion
