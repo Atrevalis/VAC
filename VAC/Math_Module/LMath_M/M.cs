@@ -143,6 +143,24 @@ namespace LMath
 
         public override bool Equals(object obj)
         {
+            if (obj.GetType() == GetType() && this != null && obj != null)
+            {
+                M sec = obj as M;
+                if(h == sec.h && w == sec.w)
+                {
+                    for(int i = 0; i < h; i++)
+                    {
+                        for(int j = 0; j < w; j++)
+                        {
+                            if(!elements[i,j].Equals(sec.elements[i,j]))
+                            {
+                                return false;
+                            }
+                        }
+                    }
+                    return true;
+                }
+            }
             return false;
         }
 
@@ -156,7 +174,15 @@ namespace LMath
         /// </summary>
         public M Clone() // Александр Баталин 9370//есть тесты
         {
-            return null;
+            M clone = new M(h, w);
+            for (int i = 0; i < h; i++)
+            {
+                for (int j = 0; j < w; j++)
+                {
+                    clone.elements[i, j] = elements[i, j].Clone();
+                }
+            }
+            return clone;
         }
 
         #endregion
@@ -181,7 +207,7 @@ namespace LMath
         {
             get
             {
-                return false;
+               return  h == 1 && w == 1 ? true : false;
             }
         }
 
@@ -189,7 +215,15 @@ namespace LMath
         {
             get
             {
-                return Clone();
+                M clone = new M(h, w);
+                for (int i = 0; i < h; i++)
+                {
+                    for (int j = 0; j < w; j++)
+                    {
+                        clone.elements[i, j] = elements[i, j].ABS as P;
+                    }
+                }
+                return clone;
             }
         }
 
@@ -197,7 +231,7 @@ namespace LMath
         {
             get
             {
-                return Clone();
+                return null;
             }
         }
 
@@ -205,7 +239,7 @@ namespace LMath
         {
             get
             {
-                return null;
+                return -this;
             }
         }
 
@@ -221,7 +255,15 @@ namespace LMath
         {
             get
             {
-                return null;
+                M clone = new M(h, w);
+                for (int i = 0; i < h; i++)
+                {
+                    for (int j = 0; j < w; j++)
+                    {
+                        clone.elements[i, j] = elements[i, j].DER as P;
+                    }
+                }
+                return clone;
             }
         }
 
@@ -229,7 +271,15 @@ namespace LMath
         {
             get
             {
-                return null;
+                M clone = new M(h, w);
+                for (int i = 0; i < h; i++)
+                {
+                    for (int j = 0; j < w; j++)
+                    {
+                        clone.elements[i, j] = elements[i, j].ANT as P;
+                    }
+                }
+                return clone;
             }
         }
 
@@ -245,32 +295,36 @@ namespace LMath
 
         public override Math_Field SUB(Math_Field second)
         {
-            return null;
+            return this - (second as M);
         }
 
         public override Math_Field MUL(Math_Field second)
         {
-            return null;
+            return this * (second as M);
         }
 
         public override Math_Field Dawn()
         {
+            if(isDown)
+            {
+                return elements[0, 0].Clone();
+            }
             return this;
         }
 
         public override byte COM(Math_Field second)
         {
-            return 1;
+            return Equals(second) ? (byte)0 : (byte)4;
         }
 
         public override Math_Field DIV(Math_Field second)
         {
-            return null;
+            return this / (second as M);
         }
 
         public override Math_Field MOD(Math_Field second)
         {
-            return null;
+            return this % (second as M);
         }
 
         public override Math_Field GCF(Math_Field second)
@@ -280,7 +334,7 @@ namespace LMath
 
         public override Math_Field ADD(Math_Field second)
         {
-            return null;
+            return this + (second as M);
         }
 
         public override List<string> ToListstring()
@@ -290,12 +344,28 @@ namespace LMath
 
         public override Math_Field CEI(Math_Field first, Math_Field second)
         {
-            return null;
+            M clone = new M(h, w);
+            for (int i = 0; i < h; i++)
+            {
+                for (int j = 0; j < w; j++)
+                {
+                   clone.elements[i, j] = (ANT.RES((second as M).elements[i,j]) as P) - (ANT.RES((first as M).elements[i,j]) as P);
+                }
+            }
+            return clone;
         }
 
         public override Math_Field RES(Math_Field value)
         {
-            return null;
+            M clone = new M(h, w);
+            for (int i = 0; i < h; i++)
+            {
+                for (int j = 0; j < w; j++)
+                {
+                    clone.elements[i, j] = RES(value as P) as P;
+                }
+            }
+            return clone;
         }
         #endregion        
 
