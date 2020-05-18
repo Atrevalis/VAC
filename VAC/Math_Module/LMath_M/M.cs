@@ -139,7 +139,11 @@ namespace LMath
 
         public static M operator /(M first, M second)//    //Есть тесты
         {
-            return null;
+            M clone = first.Clone();
+            M del = second.Reverse();
+            if (del == null) return null;
+            clone *= del;
+            return clone;
         }
 
         public static M operator %(M first, M second)//есть тесты
