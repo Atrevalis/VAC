@@ -22,6 +22,12 @@ namespace LMath
             image = new Q();
         }
 
+        public C(int d)
+        {
+            real = new Q(d);
+            image = new Q();
+        }
+
         #endregion
 
         #region Поля
@@ -125,6 +131,16 @@ namespace LMath
         public static Math_Field Antiderivative_event_do(Math_Field value)
         {
             return ((C)(value as Q)).ANT;
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (obj.GetType() == GetType() && this != null && obj != null)
+            {
+                C sec = obj as C;
+                if (real.Equals(sec.real) && image.Equals(sec.image)) return true;
+            }
+            return false;
         }
 
         #endregion

@@ -113,7 +113,14 @@ namespace LMath
         public static Z operator -(Z value) // MUL_ZM_Z Евгений Куликов 9370//есть тесты
         {
             Z Clone = value.Clone();
-            Clone.isN = !Clone.isN;
+            if (Clone.COM(new Z()) == 0)
+            {
+                Clone.isN = true;
+            }
+            else
+            {
+                Clone.isN = !Clone.isN;
+            }
             return Clone;
         }
 
@@ -234,7 +241,7 @@ namespace LMath
             result.Abs = baze.Abs ^ degree;
             if (baze.isN == false)
             {
-                if (degree.COM(temp) == 1)
+                if ((degree % temp).COM(new N()) != 0)
                 {
                     result.isN = false;
                     return result;
@@ -248,6 +255,18 @@ namespace LMath
             else
             {
                 return result;
+            }
+        }
+
+        public static Z operator ^(Z first, Z second)
+        {
+            if(second.isDown)
+            {
+                return first ^ ((N)(second));
+            }
+            else
+            {
+                return null;
             }
         }
 

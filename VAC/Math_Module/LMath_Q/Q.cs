@@ -36,6 +36,12 @@ namespace LMath
             Denominator = new Z(1);
         }
 
+        public Q(int d)
+        {
+            Numerator = new Z(d);
+            Denominator = new Z(1);
+        }
+
         #endregion
 
         #region Поля
@@ -108,6 +114,7 @@ namespace LMath
 
         public static Q operator +(Q first, Q second) // ADD_QQ_Q //есть тесты
         {
+            Q clone = second.Clone();
             Q Sum = first.Clone();
             Z ComDen = first.Denominator.Clone();
             if (first.Denominator.COM(second.Denominator) == 0)
@@ -119,26 +126,10 @@ namespace LMath
             else
             {
                 ComDen = (first.Denominator.LCM(second.Denominator) as Z);
-                if (first.Denominator.COM(ComDen) == 0)
-                {
-                    Sum.Denominator = first.Denominator;
-                    second.Numerator *= (first.Denominator / second.Denominator);
-                    Sum.Numerator = first.Numerator + second.Numerator;
-                }
-                if (second.Denominator.COM(ComDen) == 0)
-                {
-                    Sum.Denominator = second.Denominator;
-                    first.Numerator *= (second.Denominator / first.Denominator);
-                    Sum.Numerator = first.Numerator + second.Numerator;
-                }
-                if (first.Denominator.COM(ComDen) != 0 && second.Denominator.COM(ComDen) != 0)
-                {
-                    Sum.Denominator = ComDen;
-                    first.Numerator *= (ComDen / first.Denominator);
-                    second.Numerator *= (ComDen / second.Denominator);
-                    Sum.Numerator = first.Numerator + second.Numerator;
-                }
-                Sum.RED_Q_Q();
+                clone.Numerator *= (ComDen / clone.Denominator);
+                Sum.Numerator *= (ComDen / Sum.Denominator);
+                Sum.Numerator += clone.Numerator;
+                Sum.Denominator = ComDen;
                 return Sum;
             }
         }
@@ -162,15 +153,17 @@ namespace LMath
 
         public static Q operator /(Q first, Q second) // DIV_QQ_Q // есть тесты
         {
-            Q divider = null;
+            Q divider = second.Clone();
             Q result = first.Clone();
-            divider.Denominator = second.Numerator;
-            divider.Numerator = second.Denominator;
-            if (divider.Numerator.isDown != second.Numerator.isDown)
+            divider.Denominator = second.Numerator.Clone();
+            divider.Numerator = second.Denominator.Clone();
+            if (divider.Denominator.isDown == false)
             {
-                divider = - divider;
+                divider.Numerator = - divider.Numerator;
+                divider.Denominator = -divider.Denominator;
             }
             result *= divider;
+            if (result.Denominator.COM(new Z()) == 0) return null;
             result.RED_Q_Q();
             return result;
         }
@@ -185,7 +178,15 @@ namespace LMath
 
         public static Q operator ^(Q first, Z second)
         {
-            return null;
+            Q result = first.Clone();
+            if(second.POZ_Z_D == 1)
+            {
+                result.Numerator = first.Denominator.Clone();
+                result.Denominator = first.Numerator.Clone();
+            }
+            result.Numerator = result.Numerator ^ second;
+            result.Denominator = result.Denominator ^ second;
+            return result;
         }
 
         public static implicit operator List<string>(Q value)//есть тесты

@@ -742,6 +742,7 @@ namespace Math_Module_Test
             input.Add("-");
             input.Add("89");
             input1.Add("11");
+            output.Add("-");
             output.Add("2");
             output.Add("775");
             output.Add("173");

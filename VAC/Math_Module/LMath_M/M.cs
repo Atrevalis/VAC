@@ -48,6 +48,19 @@ namespace LMath
             h = y;
         }
 
+        public M(int x, int y, int d)
+        {
+            elements = new P[y, x];
+            for (int i = 0; i < y; i++)
+            {
+                for (int j = 0; j < x; j++)
+                {
+                    elements[i, j] = new P(d);
+                }
+            }
+            h = y;
+        }
+
         #endregion
 
         #region Свойства
@@ -183,6 +196,11 @@ namespace LMath
                 }
             }
             return clone;
+        }
+
+        public M Reverse()
+        {
+            return null;
         }
 
         #endregion

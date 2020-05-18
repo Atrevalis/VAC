@@ -55,7 +55,7 @@ namespace Math_Module_Test
             Q x = new Q(inputNumerator1, inputDenominator1);
             Q i = new Q(inputNumerator, inputDenominator);
             Q t = new Q(outputNumerator, outputDenominator);
-            Q res = x - i;
+            Q res = i - x;
             Assert.AreEqual(t, res);
         }
 
@@ -116,7 +116,8 @@ namespace Math_Module_Test
             Q x = new Q(inputNumerator, inputDenominator);
             Q i = new Q(inputNumerator1, inputDenominator1);
             Q t = new Q(outputNumerator, outputDenominator);
-            Assert.AreEqual(t, x - i);
+            Q res = i + x;
+            Assert.AreEqual(t, res);
         }
 
         [TestMethod]
@@ -148,7 +149,8 @@ namespace Math_Module_Test
             Q x = new Q(inputNumerator, inputDenominator);
             Q i = new Q(inputNumerator1, inputDenominator1);
             Q t = new Q(outputNumerator, outputDenominator);
-            Assert.AreEqual(t, x - i);
+            Q res = x + i;
+            Assert.AreEqual(t, res);
         }
 
         [TestMethod]
@@ -651,7 +653,8 @@ namespace Math_Module_Test
             Q x = new Q(inputNumerator, inputDenominator);
             Q i = new Q(inputNumerator1, inputDenominator1);
             Q t = new Q(outputNumerator, outputDenominator);
-            Assert.AreEqual(t, x / i);
+            Q res = x / i;
+            Assert.AreEqual(t, res);
         }
 
         [TestMethod]
@@ -738,7 +741,7 @@ namespace Math_Module_Test
             List<string> outputDenominator = new List<string>();
             inputNumerator.Add("0");
             inputDenominator.Add("938");
-            inputNumerator.Add("21");
+            input.Add("21");
             outputNumerator.Add("0");
             outputDenominator.Add("1");
             Q x = new Q(inputNumerator, inputDenominator);
@@ -757,7 +760,7 @@ namespace Math_Module_Test
             List<string> outputDenominator = new List<string>();
             inputNumerator.Add("237");
             inputDenominator.Add("938");
-            inputNumerator.Add("0");
+            input.Add("0");
             outputNumerator.Add("1");
             outputDenominator.Add("1");
             Q x = new Q(inputNumerator, inputDenominator);
@@ -776,7 +779,7 @@ namespace Math_Module_Test
             List<string> outputDenominator = new List<string>();
             inputNumerator.Add("237");
             inputDenominator.Add("938");
-            inputNumerator.Add("3");
+            input.Add("3");
             outputNumerator.Add("13");
             outputNumerator.Add("312");
             outputNumerator.Add("053");
@@ -800,7 +803,7 @@ namespace Math_Module_Test
             inputNumerator.Add("-");
             inputNumerator.Add("237");
             inputDenominator.Add("938");
-            inputNumerator.Add("3");
+            input.Add("3");
             outputNumerator.Add("-");
             outputNumerator.Add("13");
             outputNumerator.Add("312");
@@ -811,7 +814,8 @@ namespace Math_Module_Test
             Q x = new Q(inputNumerator, inputDenominator);
             Z i = new Z(input);
             Q t = new Q(outputNumerator, outputDenominator);
-            Assert.AreEqual(t, x ^ i);
+            Q res = x ^ i;
+            Assert.AreEqual(t, res);
         }
 
         [TestMethod]
@@ -825,7 +829,7 @@ namespace Math_Module_Test
             inputNumerator.Add("-");
             inputNumerator.Add("237");
             inputDenominator.Add("938");
-            inputNumerator.Add("4");
+            input.Add("4");
             outputNumerator.Add("3");
             outputNumerator.Add("154");
             outputNumerator.Add("956");

@@ -22,6 +22,20 @@ namespace LMath
     public class P : Math_Field
     {
 
+        public P(int d)
+        {
+            M m = new M(new C(d), new C());
+            Ms = new List<M>();
+            Ms.Add(m);
+        }
+
+        public P()
+        {
+            M m = new M(new C(0), new C());
+            Ms = new List<M>();
+            Ms.Add(m);
+        }
+
         public static P operator -(P value)
         {
             return null;

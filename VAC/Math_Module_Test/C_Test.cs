@@ -312,6 +312,7 @@ namespace Math_Module_Test
             C x = new C(xr, xi);
             C t = new C(tr, ti);
             C r = new C(rr, ri);
+            C res = x + t;
             Assert.AreEqual(r, x + t);
         }
 
@@ -417,9 +418,11 @@ namespace Math_Module_Test
             C x = new C(xr, xi);
             C t = new C(tr, ti);
             C r = new C(rr, ri);
-            Assert.AreEqual(r, x + t);
+            C res = x + t;
+            Assert.AreEqual(r, res);
         }
 
+        [TestMethod]
         public void PlusTest4()
         {
             List<string> inputNumeratorreal = new List<string>();
