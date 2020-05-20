@@ -15,7 +15,7 @@ namespace Visual_Module
         Main_Window main;
         public Proper(Main_Window main_)
         {
-            InitializeComponent();
+            InitializeComponent(main_.first, main_.second, main_.therd, main_.text);
             textBox1.Text = External_Controller.Controller.input;
             textBox2.Text = External_Controller.Controller.output;
             checkBox1.Checked = External_Controller.Controller.Auto;

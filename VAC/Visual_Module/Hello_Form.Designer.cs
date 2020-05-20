@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Drawing;
 
 namespace Visual_Module
 {
@@ -29,7 +30,7 @@ namespace Visual_Module
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent()
+        private void InitializeComponent(Color first, Color second, Color therd, Color text)
         {
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -40,7 +41,7 @@ namespace Visual_Module
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(132)))), ((int)(((byte)(127)))));
+            this.button1.BackColor = first;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button1.Location = new System.Drawing.Point(32, 42);
             this.button1.Name = "button1";
@@ -52,7 +53,7 @@ namespace Visual_Module
             // 
             // button2
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(132)))), ((int)(((byte)(127)))));
+            this.button2.BackColor = first;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button2.Location = new System.Drawing.Point(32, 194);
             this.button2.Name = "button2";
@@ -64,7 +65,7 @@ namespace Visual_Module
             // 
             // button3
             // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(132)))), ((int)(((byte)(127)))));
+            this.button3.BackColor = first;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button3.Location = new System.Drawing.Point(314, 348);
             this.button3.Name = "button3";
@@ -87,7 +88,7 @@ namespace Visual_Module
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(193)))), ((int)(((byte)(156)))));
+            this.BackColor = second;
             this.ClientSize = new System.Drawing.Size(399, 395);
             this.ControlBox = false;
             this.Controls.Add(this.pictureBox1);

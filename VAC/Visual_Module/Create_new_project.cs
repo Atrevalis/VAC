@@ -17,7 +17,7 @@ namespace Visual_Module
         public Create_new_project(Main_Window main_, bool butt3)
         {
             main = main_;
-            InitializeComponent();
+            InitializeComponent(main_.first, main_.second, main_.therd, main_.text);
             if (!butt3)
             {
                 button3.Text = "Выход";

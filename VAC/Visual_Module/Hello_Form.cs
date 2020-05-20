@@ -18,7 +18,7 @@ namespace Visual_Module
         public Hello_Form(Main_Window main_, string[] args)
         {
             arg = args;
-            InitializeComponent();
+            InitializeComponent(main_.first, main_.second, main_.therd, main_.text);
             main = main_;
             ClientSize = new System.Drawing.Size(800, 440);
             pictureBox1.Image = Image.FromFile(Application.StartupPath + "\\Resources\\Image\\Logo.jpg");

@@ -25,12 +25,21 @@ namespace Visual_Module
         static Point Mouse_pos = new Point(0, 0);
         static bool panel_move = false;
         static float zoom = 1;
+        public Color first, second, therd, text;
         public Main_Window(string[] args)
         {
             arg = args;
-            InitializeComponent();
             FileStream file = new FileStream(Application.StartupPath + "\\Config.txt", FileMode.Open);
             StreamReader reader = new StreamReader(file);
+            string color = reader.ReadLine();
+            first = Color.FromArgb(Convert.ToInt32(color.Split()[0]), Convert.ToInt32(color.Split()[1]), Convert.ToInt32(color.Split()[2]));
+            color = reader.ReadLine();
+            second = Color.FromArgb(Convert.ToInt32(color.Split()[0]), Convert.ToInt32(color.Split()[1]), Convert.ToInt32(color.Split()[2]));
+            color = reader.ReadLine();
+            therd = Color.FromArgb(Convert.ToInt32(color.Split()[0]), Convert.ToInt32(color.Split()[1]), Convert.ToInt32(color.Split()[2]));
+            color = reader.ReadLine();
+            text = Color.FromArgb(Convert.ToInt32(color.Split()[0]), Convert.ToInt32(color.Split()[1]), Convert.ToInt32(color.Split()[2]));
+            InitializeComponent(first, second, therd, text);
             string[] config_symbol = reader.ReadLine().Split(' ');
             string config = reader.ReadToEnd();
             reader.Close();
@@ -56,11 +65,12 @@ namespace Visual_Module
                 if (first_config[i * 2][first_config[i * 2].Length - 1] != '#')
                 {
                     ToolStripMenuItem new_tool = new ToolStripMenuItem();
-                    new_tool.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(132)))), ((int)(((byte)(127)))));
+                    new_tool.BackColor = first;
                     new_tool.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
                     new_tool.Name = "normal";
                     new_tool.Size = new System.Drawing.Size(60, 22);
                     new_tool.Text = first_config[i * 2];
+                    new_tool.ForeColor = text;
                     if (parent == null)
                     {
                         menuStrip1.Items.Insert(1 + i, new_tool) ;
@@ -76,8 +86,9 @@ namespace Visual_Module
                 else
                 {
                     ToolStripMenuItem new_tool = new ToolStripMenuItem();
-                    new_tool.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(132)))), ((int)(((byte)(127)))));
+                    new_tool.BackColor = first;
                     new_tool.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+                    new_tool.ForeColor = text;
                     new_tool.Name = Convert.ToString(count);
                     count++;
                     new_tool.Size = new System.Drawing.Size(60, 22);
@@ -100,7 +111,7 @@ namespace Visual_Module
         {
             int count = Convert.ToInt32((sender as ToolStripMenuItem).Name);
             string name_main = config_info[count][0], type = config_info[count][1], name_vis = config_info[count][2];
-            Noda noda = Nods_bilder.Create(config_info[count][3], this, panel1);
+            Noda noda = Nods_bilder.Create(config_info[count][3], this, panel1, first, therd, text);
             string[] help_info = null;
             Controller.Create_new_Nod(name_main, type, noda, ref help_info);
             noda.label.Text = name_vis;
@@ -144,7 +155,7 @@ namespace Visual_Module
                 {
                     case "if":
                         {
-                            MVS_Controller.if_operator working_Data = new MVS_Controller.if_operator(this, panel1);
+                            MVS_Controller.if_operator working_Data = new MVS_Controller.if_operator(this, panel1, first, therd, this.text);
                             string[] text = null;
                             Controller.Create_new_Nod(Controller.load_s[i].name, "if_operator", working_Data, ref text);
                             working_Data.label.Text = Controller.load_s[i].text;
@@ -154,11 +165,12 @@ namespace Visual_Module
                             working_Data.BringToFront();
                             working_Data.Location = new Point(Controller.load_s[i].x, Controller.load_s[i].y);
                             working_Data.Size = new Size(Controller.load_s[i].Whight, Controller.load_s[i].Height);
+
                         }
                         break;
                     case "Result":
                         {
-                            MVS_Controller.Result working_Data = new MVS_Controller.Result(this, panel1);
+                            MVS_Controller.Result working_Data = new MVS_Controller.Result(this, panel1, first, therd, this.text);
                             string[] text = null;
                             Controller.Create_new_Nod(Controller.load_s[i].name, "Result", working_Data, ref text);
                             working_Data.label.Text = Controller.load_s[i].text;
@@ -171,7 +183,7 @@ namespace Visual_Module
                         break;
                     case "operator":
                         {
-                            MVS_Controller.Working_data working_Data = new MVS_Controller.Working_data(this, panel1);
+                            MVS_Controller.Working_data working_Data = new MVS_Controller.Working_data(this, panel1, first, therd, this.text);
                             string[] text = null;
                             Controller.Create_new_Nod(Controller.load_s[i].name, Controller.load_s[i].text.Split('!')[1], working_Data, ref text);
                             working_Data.label.Text = Controller.load_s[i].text.Split('!')[0];
@@ -184,7 +196,7 @@ namespace Visual_Module
                         break;
                     case "Data":
                         {
-                            MVS_Controller.Working_data working_Data = new MVS_Controller.Working_data(this, panel1);
+                            MVS_Controller.Working_data working_Data = new MVS_Controller.Working_data(this, panel1, first, therd, this.text);
                             string[] text = null;
                             Controller.Create_new_Nod(Controller.load_s[i].name, "Data", working_Data, ref text);
                             working_Data.label.Text = Controller.load_s[i].text;
@@ -391,7 +403,7 @@ namespace Visual_Module
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
             Graphics graphics = e.Graphics;
-            Pen pen = new Pen(Color.FromArgb(50, 50, 50), 3);
+            Pen pen = new Pen(therd, 3);
             pen.EndCap = LineCap.ArrowAnchor;
             pen.StartCap = LineCap.Round;
             for (int i = 0; i < Controller.working_Dates.Count; i++)

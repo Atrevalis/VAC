@@ -1,4 +1,7 @@
-﻿namespace Visual_Module
+﻿using System.Drawing;
+
+
+namespace Visual_Module
 {
     partial class Create_new_project
     {
@@ -26,7 +29,7 @@
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent()
+        private void InitializeComponent(Color first, Color second, Color therd, Color text)
         {
             this.Name_of_project = new System.Windows.Forms.TextBox();
             this.path_of_project = new System.Windows.Forms.TextBox();
@@ -85,7 +88,7 @@
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(132)))), ((int)(((byte)(127)))));
+            this.button1.BackColor = first;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button1.Location = new System.Drawing.Point(269, 230);
             this.button1.Name = "button1";
@@ -96,7 +99,7 @@
             // 
             // button2
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(132)))), ((int)(((byte)(127)))));
+            this.button2.BackColor = first;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button2.Location = new System.Drawing.Point(251, 338);
             this.button2.Name = "button2";
@@ -108,7 +111,7 @@
             // 
             // button3
             // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(132)))), ((int)(((byte)(127)))));
+            this.button3.BackColor = first;
             this.button3.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button3.Location = new System.Drawing.Point(180, 338);
@@ -134,7 +137,7 @@
             this.AcceptButton = this.button2;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(193)))), ((int)(((byte)(156)))));
+            this.BackColor = second;
             this.CancelButton = this.button3;
             this.ClientSize = new System.Drawing.Size(328, 389);
             this.ControlBox = false;

@@ -200,7 +200,7 @@ namespace LMath
             N one = new N(odin);
             if (second.POZ_Z_D != 0)
             {
-                if (first.Abs.COM(second.Abs) == 2)
+                if (first.Abs.COM(second.Abs) != 1)
                 {
                     if (first.isN == true && second.isN == true)
                     {
@@ -221,7 +221,7 @@ namespace LMath
                     return (N)Trash;
                 }
 
-                else return pog;
+                else return (N)Trash;
             }
             else return null;
         
