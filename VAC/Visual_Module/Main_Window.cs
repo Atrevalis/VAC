@@ -13,7 +13,8 @@ using External_Controller;
 using Interpretation_Controller;
 using System.Diagnostics;
 using System.IO;
-
+using System.Media;
+using System.Threading;
 
 namespace Visual_Module
 {
@@ -26,8 +27,13 @@ namespace Visual_Module
         static bool panel_move = false;
         static float zoom = 1;
         public Color first, second, therd, text;
+        static int mus_index;
+        static string[] mus_name;
+        static SoundPlayer player = new SoundPlayer();
+        Thread thread;
         public Main_Window(string[] args)
         {
+            FormClosing += new FormClosingEventHandler(Close_Event);
             arg = args;
             FileStream file = new FileStream(Application.StartupPath + "\\Config.txt", FileMode.Open);
             StreamReader reader = new StreamReader(file);
@@ -40,6 +46,7 @@ namespace Visual_Module
             color = reader.ReadLine();
             text = Color.FromArgb(Convert.ToInt32(color.Split()[0]), Convert.ToInt32(color.Split()[1]), Convert.ToInt32(color.Split()[2]));
             InitializeComponent(first, second, therd, text);
+            mus_index = Convert.ToInt32(reader.ReadLine());
             string[] config_symbol = reader.ReadLine().Split(' ');
             string config = reader.ReadToEnd();
             reader.Close();
@@ -53,9 +60,42 @@ namespace Visual_Module
             string[] first_config = config.Split(config_symbol[0][0]);
             int count = 0;
             RE(first_config, ref count, null, config_symbol, 1);
+            if (mus_index != 0)
+            {
+                mus_name = Directory.GetFiles(Application.StartupPath + "\\Resources\\Music");
+                thread = new Thread(Mus);
+                thread.Start();
+            }
             timer1.Start();
 
         }
+
+        void Mus()
+        {
+                while (true)
+                {
+                    Random random = new Random();
+                    if (mus_index == 1)
+                    {
+                        for (int i = 0; i < mus_name.Length; i++)
+                        {
+                            player.SoundLocation = mus_name[i];
+                            player.PlaySync();
+                        }
+                    }
+                    else
+                    {
+                        player.SoundLocation = mus_name[random.Next(0, mus_name.Length)];
+                        player.PlaySync();
+                    }
+                }
+        }
+
+        void Close_Event(object sender, FormClosingEventArgs e)
+        {
+            Environment.Exit(0);
+        }
+
         private void RE(string[] first_config, ref int count, ToolStripMenuItem parent, string[] config_symbol, int length )
         {
             
