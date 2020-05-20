@@ -13,7 +13,6 @@ namespace MVS_Controller
     public partial class Noda : UserControl
     {
         public string name_of_type;
-        protected static Image butt_image = Image.FromFile(Application.StartupPath + "\\Resources\\Image\\Start.png");
         public static Button up_conected = null;
         public static Noda down_conected = null;
         public static Button conect_nod = null;
@@ -92,14 +91,14 @@ namespace MVS_Controller
                         {
                             if(conect_nod.Parent == sender)
                             {
-                                conect_nod.BackgroundImage = butt_image;
+                                conect_nod.BackColor = first;
                                 conect_nod = null;
                             }
                             else
                             {
                                 up_conected = conect_nod;
                                 down_conected = sender as Noda;
-                                conect_nod.BackgroundImage = butt_image;
+                                conect_nod.BackColor = first;
                                 conect_nod = null;
                             }
                         }

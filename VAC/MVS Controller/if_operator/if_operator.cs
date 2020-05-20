@@ -19,10 +19,11 @@ namespace MVS_Controller
             name_of_type = "if";
             InitializeComponent();
             SizeChanged += new EventHandler(SizeChange);
-            this.first = first;
+            if_operator.first = first;
+            if_operator.therd = therd;
         }
 
-        Color first;
+        static Color first , therd;
 
         public void Butt_ini(string[] args)
         {
@@ -35,7 +36,7 @@ namespace MVS_Controller
                 down_contacts[i].BackgroundImageLayout = ImageLayout.Stretch;
                 down_contacts[i].Size = new Size((int)(Width * 0.16), Height/args.Length);
                 down_contacts[i].Location = new Point((int)(Width - (Width * 0.16)), i*(Height/args.Length));
-                down_contacts[i].BackgroundImage = butt_image;
+                down_contacts[i].BackColor = first;
                 down_contacts[i].BackColor = first;
                 down_contacts[i].Click += new EventHandler(Connect_start);
                 down_contacts[i].Text = args[i];
@@ -61,18 +62,18 @@ namespace MVS_Controller
             {
                 if (conect_nod == null)
                 {
-                    (sender as Button).BackgroundImage = null;
+                    (sender as Button).BackColor = therd;
                     conect_nod = (sender as Button);
                 }
                 else
                 {
-                    conect_nod.BackgroundImage = butt_image;
+                    conect_nod.BackColor = first;
                     conect_nod = null;
                 }
             }
             else
             {
-                (sender as Button).BackgroundImage = butt_image;
+                (sender as Button).BackColor = first;
                 conect_nod = null;
             }
         }
