@@ -14,7 +14,7 @@ namespace MVS_Controller
     public partial class Working_data : Noda
     {
         public Button down_contacts = new Button();
-        public Working_data(Form parent, Panel panel) : base(parent, panel)
+        public Working_data(Form parent, Panel panel, Color first, Color therd, Color text) : base(parent, panel, first, therd, text)
         {
             name_of_type = "WD";
             InitializeComponent();
@@ -25,7 +25,7 @@ namespace MVS_Controller
             down_contacts.Location = new Point((int)(Width - (Width*0.16)), 0);
             down_contacts.Size = new Size((int)(Width * 0.16), Height);
             down_contacts.BackgroundImage = butt_image;
-            down_contacts.BackColor = Color.Gray;
+            down_contacts.BackColor = first;
             down_contacts.Click += new EventHandler(Connect_start);
             down_contacts.Show();
         }

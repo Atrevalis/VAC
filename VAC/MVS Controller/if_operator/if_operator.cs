@@ -14,12 +14,15 @@ namespace MVS_Controller
     public partial class if_operator : Noda
     {
         public Button[] down_contacts;
-        public if_operator(Form parent, Panel panel) : base(parent, panel)
+        public if_operator(Form parent, Panel panel, Color first, Color therd, Color text) : base(parent, panel, first, therd, text)
         {
             name_of_type = "if";
             InitializeComponent();
             SizeChanged += new EventHandler(SizeChange);
+            this.first = first;
         }
+
+        Color first;
 
         public void Butt_ini(string[] args)
         {
@@ -33,7 +36,7 @@ namespace MVS_Controller
                 down_contacts[i].Size = new Size((int)(Width * 0.16), Height/args.Length);
                 down_contacts[i].Location = new Point((int)(Width - (Width * 0.16)), i*(Height/args.Length));
                 down_contacts[i].BackgroundImage = butt_image;
-                down_contacts[i].BackColor = Color.Gray;
+                down_contacts[i].BackColor = first;
                 down_contacts[i].Click += new EventHandler(Connect_start);
                 down_contacts[i].Text = args[i];
                 down_contacts[i].Font = new System.Drawing.Font("Trebuchet MS", down_contacts[i].Height > down_contacts[i].Width ? down_contacts[i].Width / 3.5f : down_contacts[i].Height / 3.5f, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));

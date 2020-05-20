@@ -12,7 +12,7 @@ namespace MVS_Controller
 {
     public partial class Result : Noda
     {
-        public Result(Form parent, Panel panel) : base(parent, panel)
+        public Result(Form parent, Panel panel, Color first,  Color therd, Color text) : base(parent, panel, first, therd, text)
         {
             name_of_type = "Res";
             InitializeComponent();

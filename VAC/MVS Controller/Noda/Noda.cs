@@ -24,13 +24,17 @@ namespace MVS_Controller
         static private Noda Loc_change = null;
         static private Point Mouse_pos = new Point(0, 0);
         public static bool Paintt = false;
+        static Color first, therd, text;
 
-        public Noda(Form parent, Panel panel)
+        public Noda(Form parent, Panel panel, Color first, Color therd, Color text)
         {
+            Noda.first = first;
+            Noda.therd = therd;
+            Noda.text = text;
             InitializeComponent();
             Height = 100;
             Width = 100;
-            BackColor = Color.FromArgb(50, 50, 50);
+            BackColor = therd;
             Location = new Point(parent.Width/2 - 50 - panel.Location.X, parent.Height/2 - 50 - panel.Location.Y);
             MouseDown += new MouseEventHandler(Noda_click);
             MouseUp += new MouseEventHandler(Noda_up);
@@ -41,7 +45,7 @@ namespace MVS_Controller
             label.Location = new Point((int)(Width*0.16), (int)(Height * 0.25));
             label.Size = new Size((int)(Width * 0.62), Height/2);
             label.Font = new System.Drawing.Font("Trebuchet MS", label.Height>label.Width? label.Width/3.5f:label.Height/3.5f, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            label.ForeColor = Color.White;
+            label.ForeColor = text;
             label.TextAlign = ContentAlignment.TopCenter;
             Controls.Add(label);
             label.MouseDown += new MouseEventHandler(Label_click);
@@ -66,7 +70,7 @@ namespace MVS_Controller
                         {
                             if (Active == null)
                             {
-                                (sender as Noda).BackColor = Color.FromArgb(200, 200, 200);
+                                (sender as Noda).BackColor = first;
                                 Active = sender as Noda;
                             }
                             else
@@ -74,13 +78,13 @@ namespace MVS_Controller
                                 if (Active == sender as Noda)
                                 {
                                     Active = null;
-                                    (sender as Noda).BackColor = Color.FromArgb(50, 50, 50);
+                                    (sender as Noda).BackColor = therd;
                                 }
                                 else
                                 {
-                                    Active.BackColor = Color.FromArgb(50, 50, 50);
+                                    Active.BackColor = therd;
                                     Active = sender as Noda;
-                                    (sender as Noda).BackColor = Color.FromArgb(200, 200, 200);
+                                    (sender as Noda).BackColor = first;
                                 }
                             }
                         }
