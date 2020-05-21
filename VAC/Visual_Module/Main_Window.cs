@@ -62,9 +62,13 @@ namespace Visual_Module
             RE(first_config, ref count, null, config_symbol, 1);
             if (mus_index != 0)
             {
-                mus_name = Directory.GetFiles(Application.StartupPath + "\\Resources\\Music");
-                thread = new Thread(Mus);
-                thread.Start();
+                try
+                {
+                    mus_name = Directory.GetFiles(Application.StartupPath + "\\Resources\\Music");
+                    thread = new Thread(Mus);
+                    thread.Start();
+                }
+                catch { }
             }
             timer1.Start();
 
