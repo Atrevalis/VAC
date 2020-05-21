@@ -30,7 +30,9 @@ namespace Visual_Module
         static int mus_index;
         static string[] mus_name;
         static SoundPlayer player = new SoundPlayer();
-        Thread thread;
+        delegate void My_refresh();
+        My_refresh My_Refresh;
+
         public Main_Window(string[] args)
         {
             FormClosing += new FormClosingEventHandler(Close_Event);
@@ -65,13 +67,14 @@ namespace Visual_Module
                 try
                 {
                     mus_name = Directory.GetFiles(Application.StartupPath + "\\Resources\\Music");
-                    thread = new Thread(Mus);
+                    Thread thread = new Thread(Mus);
                     thread.Start();
                 }
                 catch { }
             }
-            timer1.Start();
-
+            My_Refresh = new My_refresh(Refresh);
+            Thread timer = new Thread(timer1_Tick);
+            timer.Start();
         }
 
         void Mus()
@@ -339,44 +342,46 @@ namespace Visual_Module
                 panel1.Location = new Point(panel1.Location.X + e.Delta, panel1.Location.Y);
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
+        private void timer1_Tick()
         {
-            if(Noda.down_conected != null && Noda.up_conected != null)
+            while (true)
             {
-                Controller.new_Conect(Noda.up_conected, Noda.down_conected);
-                Noda.down_conected = null;
-                Noda.up_conected = null;
-                Noda.Paintt = true;
-            }
-            if(Noda.enter != null)
-            {
-                string s = "";
-                for(int i = 0; i < Controller.nods.Count; i++)
+                if (Noda.down_conected != null && Noda.up_conected != null)
                 {
-                    if(Controller.nods[i].Visul == Noda.enter)
+                    Controller.new_Conect(Noda.up_conected, Noda.down_conected);
+                    Noda.down_conected = null;
+                    Noda.up_conected = null;
+                    Noda.Paintt = true;
+                }
+                if (Noda.enter != null)
+                {
+                    string s = "";
+                    for (int i = 0; i < Controller.nods.Count; i++)
                     {
-                        s += "Нода № " + (i + 1);
-                        switch(Controller.nods[i].information.type)
+                        if (Controller.nods[i].Visul == Noda.enter)
                         {
-                            case "if":
-                                {
-                                    s += ", Зависит от нод № ";
-                                    for(int j = 0; j < (Controller.nods[i].information as External_module.if_operator).up_connection.Count; j++)
+                            s += "Нода № " + (i + 1);
+                            switch (Controller.nods[i].information.type)
+                            {
+                                case "if":
                                     {
-                                        for(int k = 0; k < Controller.nods.Count; k++)
+                                        s += ", Зависит от нод № ";
+                                        for (int j = 0; j < (Controller.nods[i].information as External_module.if_operator).up_connection.Count; j++)
                                         {
-                                            if((Controller.nods[i].information as External_module.if_operator).up_connection[j] == Controller.nods[k].information)
+                                            for (int k = 0; k < Controller.nods.Count; k++)
                                             {
-                                                s += (k + 1) + ((j+1< (Controller.nods[i].information as External_module.if_operator).up_connection.Count) ? ", " : "");
-                                                break;
+                                                if ((Controller.nods[i].information as External_module.if_operator).up_connection[j] == Controller.nods[k].information)
+                                                {
+                                                    s += (k + 1) + ((j + 1 < (Controller.nods[i].information as External_module.if_operator).up_connection.Count) ? ", " : "");
+                                                    break;
+                                                }
                                             }
                                         }
                                     }
-                                }
-                                break;
-                            case "Result":
-                                {
-                                    s += ", Зависит от ноды №  ";
+                                    break;
+                                case "Result":
+                                    {
+                                        s += ", Зависит от ноды №  ";
                                         for (int k = 0; k < Controller.nods.Count; k++)
                                         {
                                             if ((Controller.nods[i].information as External_module.Result).up_Conected == Controller.nods[k].information)
@@ -385,62 +390,63 @@ namespace Visual_Module
                                                 break;
                                             }
                                         }
-                                        for(int k = 0; k < Controller.results.Count; k++)
+                                        for (int k = 0; k < Controller.results.Count; k++)
                                         {
-                                            if((Controller.nods[i].information as External_module.Result) == Controller.results[k].information)
+                                            if ((Controller.nods[i].information as External_module.Result) == Controller.results[k].information)
                                             {
-                                                s += "№ выхода для выода " + (k+1);
-                                            }
-                                        }
-                                }
-                                break;
-                            case "operator":
-                                {
-                                    s += ", Зависит от нод № ";
-                                    for (int j = 0; j < (Controller.nods[i].information as External_module.Operators).up_Conection.Count; j++)
-                                    {
-                                        for (int k = 0; k < Controller.nods.Count; k++)
-                                        {
-                                            if ((Controller.nods[i].information as External_module.Operators).up_Conection[j] == Controller.nods[k].information)
-                                            {
-                                                s += (k + 1) + ((j + 1 < (Controller.nods[i].information as External_module.Operators).up_Conection.Count) ? ", " : "");
-                                                break;
+                                                s += "№ выхода для выода " + (k + 1);
                                             }
                                         }
                                     }
-                                }
-                                break;
-                            case "Data":
-                                {
-                                    for(int j = 0; j < Controller.dates.Count; j++)
+                                    break;
+                                case "operator":
                                     {
-                                        if ((Controller.nods[i].information as External_module.Data) == Controller.dates[j].information)
+                                        s += ", Зависит от нод № ";
+                                        for (int j = 0; j < (Controller.nods[i].information as External_module.Operators).up_Conection.Count; j++)
                                         {
-                                            s += ", № входа данных " + (j + 1);
+                                            for (int k = 0; k < Controller.nods.Count; k++)
+                                            {
+                                                if ((Controller.nods[i].information as External_module.Operators).up_Conection[j] == Controller.nods[k].information)
+                                                {
+                                                    s += (k + 1) + ((j + 1 < (Controller.nods[i].information as External_module.Operators).up_Conection.Count) ? ", " : "");
+                                                    break;
+                                                }
+                                            }
                                         }
                                     }
-                                }
-                                break;
-                        }
-                        break;
+                                    break;
+                                case "Data":
+                                    {
+                                        for (int j = 0; j < Controller.dates.Count; j++)
+                                        {
+                                            if ((Controller.nods[i].information as External_module.Data) == Controller.dates[j].information)
+                                            {
+                                                s += ", № входа данных " + (j + 1);
+                                            }
+                                        }
+                                    }
+                                    break;
+                            }
+                            break;
 
+                        }
                     }
+                    toolStripStatusLabel1.Text = s;
                 }
-                toolStripStatusLabel1.Text = s;
-            }
-            else
-            {
-                toolStripStatusLabel1.Text = "";
-            }
-            if (Noda.Paintt)
-            {
-                Refresh();
-                Noda.Paintt = false;
-            }
-            if(Interpretator.progress != progress)
-            {
-                progress = Interpretator.progress;
-                toolStripProgressBar1.Value = progress;
+                else
+                {
+                    toolStripStatusLabel1.Text = "";
+                }
+                if (Noda.Paintt)
+                {
+                    Invoke(My_Refresh);
+                    Noda.Paintt = false;
+                }
+                if (Interpretator.progress != progress)
+                {
+                    progress = Interpretator.progress;
+                    toolStripProgressBar1.Value = progress;
+                }
             }
         }
 

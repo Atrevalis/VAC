@@ -152,7 +152,7 @@ namespace MVS_Controller
             {
                 if(Loc_change != null)
                 {
-                    nod.Location = new Point(nod.Location.X + (int)(delta.X* 0.999999), nod.Location.Y + (int)(delta.Y*0.999999));
+                    nod.Location = new Point(nod.Location.X + (int)(delta.X* 0.5), nod.Location.Y + (int)(delta.Y*0.5   ));
                     Paintt = true;
                 }
             }
