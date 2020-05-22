@@ -85,14 +85,14 @@ namespace LMath
 
         #region Перегрузки
 
-        public static M operator -(M value)
+        public static M operator -(M value)//избавится от корявости (когда P заработает)
         {
             M m = value.Clone();
             for(int i = 0; i < m.h; i++)
             {
                 for(int j = 0; j < m.w; j++)
                 {
-                    m.elements[i, j] = -m.elements[i, j];
+                    m.elements[i, j] -= m.elements[i, j] + m.elements[i, j];
                 }
             }
             return m;
