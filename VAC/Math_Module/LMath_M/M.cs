@@ -204,7 +204,35 @@ namespace LMath
 
         public M Reverse()
         {
-            return null;
+            if (h != w)
+            {
+                return null;
+            }
+            M oneness = new M(h, w, 1);
+            P now;
+            P elem = new P();
+            P zero = new P();
+            M original = this.Clone();
+            for (int i = 0; i < h; i++)
+            {
+                now = original.elements[i, i];
+                for (int k = 0; k < h; k++)
+                {
+                    for (int j = 0; j < w; j++)
+                    {
+                        if ((elem.COM(zero) == 0) && (original.elements[k, j].COM(zero) != 0))
+                        {
+                            elem = original.elements[k, j];
+                        }
+                        original.elements[i, j] /= now;
+                        oneness.elements[i, j] /= now;
+                        original.elements[k, j] -= original.elements[i, j] * elem;
+                        oneness.elements[k, j] -= oneness.elements[i, j] * elem;
+                    }
+                    elem = zero;
+                }
+            }
+            return oneness;
         }
 
         #endregion
