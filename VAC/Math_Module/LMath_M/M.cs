@@ -220,7 +220,7 @@ namespace LMath
                 {
                     for (int j = 0; j < w; j++)
                     {
-                        if ((elem.COM(zero) == 0) && (original.elements[k, j].COM(zero) != 0))
+                        if ((elem.COM(zero) == 0) && (original.elements[k, j].COM(zero) != 0) && (j >= i))
                         {
                             elem = original.elements[k, j];
                         }
