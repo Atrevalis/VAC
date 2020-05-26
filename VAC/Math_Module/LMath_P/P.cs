@@ -22,7 +22,7 @@ namespace LMath
     {
         #region Поля
 
-        private List<M>
+        private List<M> Ms;
 
         #endregion
 
@@ -42,7 +42,7 @@ namespace LMath
             Ms.Add(m);
         }
 
-        /* исправить
+        
         public P(List<List<string>[]> s)
         {
             List<string> n = new List<string>();
@@ -58,17 +58,17 @@ namespace LMath
                 for (k += 1; k < s[i][j].Count; k++)
                     d.Add(s[i][j][k]);
 
-                test.coef = new Q(n, d);
-                test.degree = new N(s[i][j + 1]);
+                //test.coef = new C(n, d);
+                //test.degree = new C(s[i][j + 1]);
                 Ms.Add(test);
                 n.Clear();
                 d.Clear();
             }
-        }*/
+        }
 
-            /* исправить
         public P(List<M> M)
         {
+            /*
             try
             {
                 Ms = new List<M>();
@@ -100,19 +100,19 @@ namespace LMath
                     Ms.Add(M[i]);
             }
             catch { throw; }
-        }*/
+            */
+        }
 
 
         #endregion
 
         #region Свойства
 
-        List<M> Ms;
         public override int id
         {
             get
             {
-                return 4;
+                return 5;
             }
         }
 
@@ -120,15 +120,11 @@ namespace LMath
         {
             get
             {
-                List<string> S1 = new List<string>();
-                S1.Add("0"); 
-                List<string> S2 = new List<string>();
-                S2.Add("1");
-                C a;// = new C(S1, S2);
-                //if (Ms.Count == 1 && Ms[0].degree == a)
+                if(Ms.Count == 1 && Ms[0].degree.COM(new C()) == 0)
+                {
                     return true;
-                //else
-                   // return false;
+                }
+                return false;
             }
         }
 
@@ -206,9 +202,7 @@ namespace LMath
         {
             get
             {
-                M now;
-                now = this.Ms[0];
-                return now.coef;
+                return Ms[0].coef.Clone();
             }
         }
 
@@ -216,9 +210,7 @@ namespace LMath
         {
             get
             {
-                M now;
-                now = this.Ms[0];
-                return now.degree;
+                return Ms[0].degree.Clone();
             }
         }
 
@@ -226,11 +218,10 @@ namespace LMath
         {
             get
             {
-                P clone = null; //Clone();
+                P clone = Clone(); 
                 for(int i = 0; i < Ms.Count; i++)
                 {
-                    C now = clone.Ms[i].coef;
-                    now = Ms[i].coef.ABS as C;
+                    Ms[i] = new M(Ms[i].coef.ABS as C, Ms[i].degree.Clone());
                 }
                 return clone;
             }
@@ -240,26 +231,20 @@ namespace LMath
         {
             get
             {
-                P result = null;//this.Clone();
-                List<string> zero = new List<string>();
-                zero.Add("0");
-                List<string> one = new List<string>();
-                one.Add("1");
-                C usl = null; // = new C(zero, one);
-                if (result.Ms[Ms.Count() - 1].degree.COM(usl) == 0)
-                {
-                    result.Ms.RemoveAt(Ms.Count() - 1);
-                }
-                List<string> odin = new List<string>();
-                odin.Add("1");
-                one = null; // new C(odin, odin);
+                P result = null;//tClone();
+                C usl = new C(1, 0, true);
                 M now;
-                for (int i = result.Ms.Count() - 1; i > 0; i--)
+                for (int i = result.Ms.Count - 1; i > 0; i--)
                 {
+                    if (result.Ms[i].degree.COM(usl) == 0)
+                    {
+                        result.Ms.RemoveAt(i);
+                        continue;
+                    }
                     result.Ms.Insert(i, Ms[i]);
                     now = result.Ms[i];
-                    //now.coef *= now.degree;
-                    //now.degree -= new Q(one, one);
+                    now.coef *= now.degree;
+                    now.degree -= new C(1, 0, true);
                     result.Ms[i] = now;
                     result.Ms.RemoveAt(i + 1);
                 }
@@ -271,11 +256,10 @@ namespace LMath
         {
             get
             {
-                P clone = null;//Clone();
+                P clone = Clone();
                 for(int i = 0; i < clone.Ms.Count; i++)
                 {
-                    C clones = clone.Ms[i].coef; 
-                    //clones = -clone.Ms[i].coef;
+                    Ms[i] = new M(-Ms[i].coef, Ms[i].degree.Clone());
                 }
                 return clone;
             }
@@ -287,7 +271,25 @@ namespace LMath
 
         public static P operator +(P first, P second) // ADD_PP_P
         {
-            P result;
+            P result = first.Clone();
+            for(int i = 0; i < second.Ms.Count; i++)
+            {
+                for(int j = 0; j < result.Ms.Count; j++)
+                {
+                    if(second.Ms[i].degree.COM(result.Ms[j].degree) != 2)
+                    {
+                        if(second.Ms[i].degree.COM(result.Ms[j].degree) == 0)
+                        {
+                            result.Ms[j] = new M(result.Ms[j].coef + second.Ms[j].coef, result.Ms[j].degree);
+                        }
+                        else
+                        {
+                            result.Ms.Insert(j, new M(second.Ms[i].coef, second.Ms[i].degree));
+                        }
+                        break;
+                    }
+                }
+            }
             return null;
         }
 

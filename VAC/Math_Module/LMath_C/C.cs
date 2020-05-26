@@ -28,6 +28,12 @@ namespace LMath
             image = new Q();
         }
 
+        public C(int r, int i, bool t)
+        {
+            real = new Q(r);
+            image = new Q(i);
+        }
+
         #endregion
 
         #region Поля
