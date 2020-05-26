@@ -119,14 +119,57 @@ namespace LMath
             return value.real.Clone();
         }
 
-        #endregion
+        public static C operator ^(C first, Q second)
+        {
+            C clone = first.Clone();
+            if (second.isDown)
+            {
+                switch (second.COM(new Q()))
+                {
+                    case 0:
+                        {
+                            return new C(1);
+                        }
+                    case 1:
+                        {
+                            clone.real = first.real ^ new Q(-1);
+                            clone.image = first.image ^ new Q(-1);
+                            goto case 2;
+                        }
+                    case 2:
+                        {
+                            for (Q i = new Q(); i.COM(second.ABS as Q) == 1; i += new Q(1))
+                            {
+                                clone *= clone;
+                            }
+                        }
+                        break;
+                }
+                return clone;
+            }
+            else
+            {
+                return null;
+            }
+        }
 
-        #region Методы
+        public static C operator ^(C first, C second)
+        {
+            if(second.isDown)
+            {
+                return first ^ (Q)second;
+            }
+            return null;
+        }
 
-        /// <summary>
-        /// Создает точную копию данного объекта
-        /// </summary>
-        public C Clone() 
+    #endregion
+
+    #region Методы
+
+    /// <summary>
+    /// Создает точную копию данного объекта
+    /// </summary>
+    public C Clone() 
         {
             C result = new C();
             result.real = real.Clone();

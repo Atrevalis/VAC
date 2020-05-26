@@ -189,6 +189,15 @@ namespace LMath
             return result;
         }
 
+        public static Q operator ^(Q first, Q second)
+        {
+            if(second.isDown)
+            {
+                return first ^ (Z)second;
+            }
+            return null;
+        }
+
         public static implicit operator List<string>(Q value)//есть тесты
         {
             List<string> one = new List<string>();

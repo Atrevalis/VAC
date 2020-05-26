@@ -128,15 +128,16 @@ namespace LMath
             }
         }
 
-        /*
-        public List<Q> root
+        
+        public List<C> root
         {
             get
             {
-                List<Q> otvet = null;
+                /*
+                List<C> otvet = null;
                 P now = this.Clone();
                 M tek = now.Ms[0];
-                N nok = tek.coef.Den;
+                C nok = tek.coef.Den;
                 for (int i = 1; i <= (now.Ms.Count - 1); i++)
                 {
                     tek = now.Ms[i];
@@ -192,11 +193,12 @@ namespace LMath
                         }
                     }
                 }
-                return otvet;
+                */
+                return null;//otvet;
             }
         }
 
-            */
+            
 
         public override Math_Field LED // return Q
         {
@@ -269,6 +271,16 @@ namespace LMath
 
         #region Перегрузки
 
+        public static P operator -(P value)
+        {
+            P clone = value.Clone();
+            for(int i = 0; i < clone.Ms.Count; i++)
+            {
+                clone.Ms[i] = new M(-clone.Ms[i].coef, clone.Ms[i].degree);
+            }
+            return clone;
+        }
+
         public static P operator +(P first, P second) // ADD_PP_P
         {
             P result = first.Clone();
@@ -295,7 +307,7 @@ namespace LMath
 
         public static P operator -(P first, P second) // SUB_PP_P
         {
-            return null;
+            return first + (-second);
         }
 
         public static P operator *(P first, P second) // MUL_PP_P
@@ -342,8 +354,17 @@ namespace LMath
             return null;
         }
 
+        public static implicit operator P(C value)
+        {
+            return null;
+        }
+
         public static explicit operator C(P value)//сломано
         {
+            if(value.isDown)
+            {
+                return value.Ms[0].coef.Clone();
+            }
             return null;
         }
 
@@ -351,21 +372,16 @@ namespace LMath
 
         #region Методы
 
-        /* исправить
         public static byte COM_PP_D(P first, P second)
         {
             M odin;
             M nol;
-            List<string> zero = new List<string>();
-            zero.Add("0");
-            N q = new N(zero);
+            C q = new C();
             odin.degree = q;
             nol.degree = q;
-            nol.coef = (Z)q;
-            List<string> one = new List<string>();
-            one.Add("1");
-            N l = new N(one);
-            odin.coef = (Z)l;
+            nol.coef = q;
+            C l = new C();
+            odin.coef = l;
             P menche = null;
             menche.Ms.Add(nol);
             P bolshe = null;
@@ -389,10 +405,10 @@ namespace LMath
             {
                 return 2;
             }
-        }*/
+        }
 
-            /* исправить
-        private P MUL_PQ_P(Q value)
+
+        private P MUL_PQ_P(C value)
         {
             P mulcoef = Clone();
             M now;
@@ -403,10 +419,9 @@ namespace LMath
                 mulcoef.Ms[i] = now;
             }
             return mulcoef;
-        }*/
+        }
         
-        /* исправить
-        private P MUL_Pxk_P(N value)
+        private P MUL_Pxk_P(C value)
         {
             P muldeg = Clone();
             M now;
@@ -417,9 +432,8 @@ namespace LMath
                 muldeg.Ms[i] = now;
             }
             return muldeg;
-        }*/
+        }
 
-            /* исправить
         public static P GCF_PP_P(P first, P second)
         {
             P result = first.Clone();
@@ -427,10 +441,8 @@ namespace LMath
             P mod = first.Clone();
             mod = first % second;
             M nol;
-            List<string> zero = new List<string>();
-            zero.Add("0");
-            N q = new N(zero);
-            nol.coef = (Z)q;
+            C q = new C();
+            nol.coef = q;
             nol.degree = q;
             pog.Ms.Add(nol);
             if (COM_PP_D(mod, pog) == 0)
@@ -447,13 +459,11 @@ namespace LMath
                 }
             }
             return result;
-        }*/
-
-            /* исправить
+        }
         private P NMR_P_P()
         {
-            List<Q> roots = this.root;
-            List<Q> answer = null;
+            List<C> roots = this.root;
+            List<C> answer = null;
             P result = null;
             int i = 0;
             int j;
@@ -474,14 +484,10 @@ namespace LMath
                 answer.Add(roots[i]);
                 i++;
             }
-            List<string> zero = new List<string>();
-            zero.Add("0");
-            N q = new N(zero);
-            List<string> one = new List<string>();
-            one.Add("1");
-            N l = new N(one);
+            C q = new C();
+            C l = new C(1);
             M mnoj;
-            mnoj.coef = (Z)l;
+            mnoj.coef = l;
             mnoj.degree = l;
             result.Ms.Add(mnoj);
             mnoj.coef = answer[0];
@@ -495,11 +501,16 @@ namespace LMath
                 result *= mnoj1;
             }
             return result;
-        }*/
+        }
 
         public P Clone() // Александр Баталин 9370//
         {
-           return null;
+            P clone = new P();
+            for(int i = 0; i < Ms.Count; i++)
+            {
+                clone.Ms.Add(new M(Ms[i].coef.Clone(),Ms[i].degree.Clone()));
+            }
+           return clone;
         }
 
         public override bool Equals(object obj)
@@ -520,22 +531,22 @@ namespace LMath
         #region Общие методы и свойства
         public override Math_Field ADD(Math_Field second)
         {
-            return null; //this + (second as P);
+            return this + (second as P);
         }
 
         public override Math_Field MOD(Math_Field second)
         {
-            return null; //this % (second as P);
+            return this % (second as P);
         }
 
         public override Math_Field DIV(Math_Field second)
         {
-            return null; //this / (second as P);
+            return this / (second as P);
         }
 
         public override Math_Field GCF(Math_Field second)
         {
-            return null; //GCF_PP_P(this, second as P);
+            return GCF_PP_P(this, second as P);
         }
 
         public override Math_Field LCM(Math_Field second)
@@ -545,44 +556,56 @@ namespace LMath
 
         public override Math_Field MUL(Math_Field second)
         {
-            return null; //this * (second as P);
+            return this * (second as P);
         }
 
         public override Math_Field RES(Math_Field value)
         {
-            throw new NotImplementedException();
+            C result = new C();
+            for(int i = 0; i < Ms.Count; i++)
+            {
+                result += Ms[i].coef * ((value as C) ^ Ms[i].degree);
+            }
+            return result;
         }
 
         public override byte COM(Math_Field second)
         {
-            return 0; //COM_PP_D(this, second as P);
+            return COM_PP_D(this, second as P);
         }
 
         public override Math_Field SUB(Math_Field second)
         {
-            return null; //this - (second as P);
+            return this - (second as P);
         }
 
         public override Math_Field Dawn()
         {
-            return null; //(Q)this;
+            return (C)this;
         }
 
         public override List<string> ToListstring()
         {
-            return null; //this;
+            return this;
         }
 
-        public override Math_Field ANT => throw new NotImplementedException();
+        public override Math_Field ANT
+        {
+            get
+            {
+                P clone = Clone();
+                for(int i = 0; i < Ms.Count; i++)
+                {
+
+                    Ms[i] = new M(Ms[i].coef / Ms[i].degree + new C(1), Ms[i].degree + new C(1));
+                }
+                return clone;
+            }
+        }
 
         public static Math_Field Antiderivative_event_do(Math_Field value)
         {
             return ((P)(value as C)).ANT;
-        }
-
-        public static implicit operator P(C value)
-        {
-            return null;
         }
 
         public override Math_Field CEI(Math_Field first, Math_Field second)
