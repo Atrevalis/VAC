@@ -108,7 +108,7 @@ namespace LMath
 
         #region Свойства
 
-        public override int id
+        public override int id//можно я не буду писать под это тест?я
         {
             get
             {
@@ -116,7 +116,7 @@ namespace LMath
             }
         }
 
-        public override bool isDown
+        public override bool isDown//
         {
             get
             {

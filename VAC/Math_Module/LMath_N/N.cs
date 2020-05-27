@@ -12,14 +12,14 @@ namespace LMath
         /// <summary>
         /// Значение числа
         /// </summary>
-        private List<uint> znach;
+        private List<uint> value;
 
         /// <summary>
-        /// Максимальное число, храняшееся в одном элементе <c>znach</c>
+        /// Максимальное число, храняшееся в одном элементе <c>value</c>
         /// </summary>
         private const uint uint_size = 999;
         /// <summary>
-        /// Максимальное количество разрядов, храняшееся в одном элементе <c>znach</c>
+        /// Максимальное количество разрядов, храняшееся в одном элементе <c>value</c>
         /// </summary>
         public const uint uint_size_div = 3;
 
@@ -33,11 +33,11 @@ namespace LMath
         /// <param name="s">Строка разбитая по <c>uint_size_div</c> элементов</param>
         public N(List<string> s) // Александр Рассохин 9370
         { 
-            znach = new List<uint>();
+            value = new List<uint>();
             try
             {
                 for (int i = s.Count - 1; i >= 0; i--)
-                    znach.Add(Convert.ToUInt32(s[i]));
+                    value.Add(Convert.ToUInt32(s[i]));
             }
             catch
             {
@@ -47,14 +47,14 @@ namespace LMath
 
         public N()
         {
-            znach = new List<uint>();
-            znach.Add(0);
+            value = new List<uint>();
+            value.Add(0);
         }
 
         public N(uint i)
         {
-            znach = new List<uint>();
-            znach.Add(i);
+            value = new List<uint>();
+            value.Add(i);
         }
 
         #endregion
@@ -68,7 +68,7 @@ namespace LMath
         {
             get
             {
-                if ((znach.Count == 1)&&(znach[0] == 0))
+                if ((value.Count == 1)&&(value[0] == 0))
                 {
                     return true;
                 }
@@ -85,19 +85,19 @@ namespace LMath
 
         public static N operator ++(N value) // Александр Баталин 9370 / Есть тесты
         {
-           for (int i = 0; i < value.znach.Count; i++)
+           for (int i = 0; i < value.value.Count; i++)
            {
-                if (value.znach[i] == uint_size)
+                if (value.value[i] == uint_size)
                 {
-                    value.znach[i] = 0;
+                    value.value[i] = 0;
                 }
                 else
                 {
-                    value.znach[i]++;
+                    value.value[i]++;
                     return value;
                 }
            }
-            value.znach.Add(1);
+            value.value.Add(1);
             return value;
         }
 
@@ -115,19 +115,19 @@ namespace LMath
                 bigger = first.Clone();
                 smaller = second.Clone();
             }
-            for (int i = 0; i < smaller.znach.Count; i++)
+            for (int i = 0; i < smaller.value.Count; i++)
             {
-                bigger.znach[i] = bigger.znach[i] + smaller.znach[i];
-                if (bigger.znach[i] > uint_size)
+                bigger.value[i] = bigger.value[i] + smaller.value[i];
+                if (bigger.value[i] > uint_size)
                 {
-                    bigger.znach[i] = bigger.znach[i] - uint_size - 1;
-                    if (i != (bigger.znach.Count - 1))
+                    bigger.value[i] = bigger.value[i] - uint_size - 1;
+                    if (i != (bigger.value.Count - 1))
                     {
-                        bigger.znach[i + 1] += 1;
+                        bigger.value[i + 1] += 1;
                     }
                     else
                     {
-                        bigger.znach.Add(1);
+                        bigger.value.Add(1);
                     }
                 }
             }
@@ -152,26 +152,26 @@ namespace LMath
                     bigger = first.Clone();
                     break;
             }
-            for (int i = (second.znach.Count - 1); i >= 0; i--)
+            for (int i = (second.value.Count - 1); i >= 0; i--)
             {
-                if (bigger.znach[i] < second.znach[i])    //i-ая строка большего поля меньше
+                if (bigger.value[i] < second.value[i])    //i-ая строка большего поля меньше
                 {
-                    bigger.znach[i] = bigger.znach[i] + uint_size + 1 - second.znach[i];      //вычитаем из i-ой строки большего поля i-ую строку меньшего
+                    bigger.value[i] = bigger.value[i] + uint_size + 1 - second.value[i];      //вычитаем из i-ой строки большего поля i-ую строку меньшего
                     int j;
-                    for (j = (i + 1); bigger.znach[j] == 0; j++)        //находим строки значениея которых равны нулю
+                    for (j = (i + 1); bigger.value[j] == 0; j++)        //находим строки значениея которых равны нулю
                     {
-                        bigger.znach[j] = uint_size;      //забираем один разряд, недостаточный для вычитания i-ой строки 
+                        bigger.value[j] = uint_size;      //забираем один разряд, недостаточный для вычитания i-ой строки 
                     }
-                    bigger.znach[j] -= 1;
+                    bigger.value[j] -= 1;
                 }
                 else
                 {
-                    bigger.znach[i] = bigger.znach[i] - second.znach[i];
+                    bigger.value[i] = bigger.value[i] - second.value[i];
                 }
             }
-            while (bigger.znach[bigger.znach.Count - 1] == 0)      //проверка на наличия в начале поля незначащего нуля
+            while (bigger.value[bigger.value.Count - 1] == 0)      //проверка на наличия в начале поля незначащего нуля
             {
-                bigger.znach.RemoveAt(bigger.znach.Count - 1);
+                bigger.value.RemoveAt(bigger.value.Count - 1);
             }
             return bigger;
         }
@@ -180,15 +180,15 @@ namespace LMath
         {
             N product = new N();
             N value = new N();
-            for (int i = 0; i < second.znach.Count; i++) //Перебираем все элементы 2-ого поля
+            for (int i = 0; i < second.value.Count; i++) //Перебираем все элементы 2-ого поля
             {
-                if ((second.znach[i] == 0) && (i != second.znach.Count - 1))
+                if ((second.value[i] == 0) && (i != second.value.Count - 1))
                 {
-                    product.znach.Insert(0, 0);
+                    product.value.Insert(0, 0);
                     for (int q = 0; q < uint_size_div; q++) value++;
                     continue;
                 }
-                uint now = second.znach[i];
+                uint now = second.value[i];
                 int j = 0;
                 while (now != 0)    //Перебираем все цифры элемента
                 {
@@ -203,9 +203,9 @@ namespace LMath
                     value++;
                 }
             }
-            for(int i = product.znach.Count - 1; i > 0; i--)
+            for(int i = product.value.Count - 1; i > 0; i--)
             {
-                if (product.znach[i] == 0) product.znach.RemoveAt(i);
+                if (product.value[i] == 0) product.value.RemoveAt(i);
                 else break;
             }
             return product;
@@ -290,7 +290,7 @@ namespace LMath
             }
             while (degree.COM(temp) == 2 || degree.COM(temp) == 0)
             {
-                if (degree.znach[0] % two == 1)
+                if (degree.value[0] % two == 1)
                 {
                     degree -= one;
                     result *= baze;
@@ -311,17 +311,17 @@ namespace LMath
             List<string> S = new List<string>();
             System.Text.StringBuilder temp = new System.Text.StringBuilder();  // временная переменная для записи разрядов
 
-            for (int i = value.znach.Count - 1; i >= 0; i--)            // Цикл идет с конца списка до первого элемента
+            for (int i = value.value.Count - 1; i >= 0; i--)            // Цикл идет с конца списка до первого элемента
             {
-                temp.Append(Convert.ToString(value.znach[i]));          // Запись элемента списка во временную переменную
+                temp.Append(Convert.ToString(value.value[i]));          // Запись элемента списка во временную переменную
                 int size = temp.Length; 
-                if (size != uint_size_div && i != value.znach.Count - 1) // Если кол-во разрядов меньше чем нужно   
+                if (size != uint_size_div && i != value.value.Count - 1) // Если кол-во разрядов меньше чем нужно   
                 {
                     temp.Clear();
                     for (int k = 0; k<uint_size_div - size; k++)        // Добавление нулей для заполнения разрядов
                         temp.Append("0");
 
-                    temp.Append(Convert.ToString(value.znach[i]));  
+                    temp.Append(Convert.ToString(value.value[i]));  
                 }
                 S.Add(Convert.ToString(temp));  // Присваивание временной переменной элементу списка
                 temp.Clear();
@@ -334,7 +334,7 @@ namespace LMath
         {
             if (obj.GetType() == GetType() && this != null && obj != null)
             {
-                if(znach.SequenceEqual((obj as N).znach)) return true;
+                if(value.SequenceEqual((obj as N).value)) return true;
             }
             return false;
         }
@@ -353,17 +353,17 @@ namespace LMath
         {
             N k = Clone(); 
             uint g = 0;
-            for (int i = 0; i < znach.Count; i++)
+            for (int i = 0; i < this.value.Count; i++)
             {
-                k.znach[i] = k.znach[i] * value + g;
-                g = k.znach[i] / (uint_size + 1);
+                k.value[i] = k.value[i] * value + g;
+                g = k.value[i] / (uint_size + 1);
                 if (g != 0)
                 {
-                    k.znach[i] -= (uint_size + 1) * g;
+                    k.value[i] -= (uint_size + 1) * g;
                 }
-                if ((i == znach.Count - 1) && (g != 0))
+                if ((i == this.value.Count - 1) && (g != 0))
                 {
-                    k.znach.Add(g);
+                    k.value.Add(g);
                 }
             }
             return k;
@@ -382,19 +382,19 @@ namespace LMath
             int count = 0;
             while (value.COM(usdn) != 1)
             {
-                k.znach.Insert(0, 0);
+                k.value.Insert(0, 0);
                 value -= usdn;
                 count++;
             }
             string change = "";
-            uint uvalue = value.znach[0];
+            uint uvalue = value.value[0];
             for(int i = 0; i < uvalue; i++)
             {
                 change += "0";
             }
-            for (int i = count; i < k.znach.Count; i++)
+            for (int i = count; i < k.value.Count; i++)
             {
-                string now = Convert.ToString(k.znach[i]);
+                string now = Convert.ToString(k.value[i]);
                 while (now.Length < uint_size_div)
                 {
                     now = "0" + now;
@@ -404,10 +404,10 @@ namespace LMath
                 now.CopyTo(0, stupid, 0, Convert.ToInt32(uvalue));
                 change = new string(stupid);
                 now = now.Remove(0, Convert.ToInt32(uvalue));
-                k.znach[i] = Convert.ToUInt32(now);
-                if (i + 1 == k.znach.Count && change.Split('0').Length - 1 != uvalue)
+                k.value[i] = Convert.ToUInt32(now);
+                if (i + 1 == k.value.Count && change.Split('0').Length - 1 != uvalue)
                 {
-                    k.znach.Add(0);
+                    k.value.Add(0);
                 }
             }
             return k; 
@@ -464,13 +464,13 @@ namespace LMath
             ten.Add("1");
             N o = new N(ten);
             N element = new N(ten);
-            int f = divided.znach.Count - 1;
-            string step = Convert.ToString(divided.znach[f]);
+            int f = divided.value.Count - 1;
+            string step = Convert.ToString(divided.value[f]);
             while (smaller.COM(divider) == 1)
             {
                 for (int m = 0; m < step.Length; m++)
                 {
-                    element.znach[0] = Convert.ToUInt32(Convert.ToString(step[m]));
+                    element.value[0] = Convert.ToUInt32(Convert.ToString(step[m]));
                     smaller = smaller.MUL_Nk_N(o) + element;
                     if (smaller.COM(divider) == 2)
                     {
@@ -482,18 +482,18 @@ namespace LMath
                     break;
                 }
                 f--;
-                step = Convert.ToString(divided.znach[f]);
+                step = Convert.ToString(divided.value[f]);
                 while (step.Length < uint_size_div)
                 {
                     step = "0" + step;
                 }
             }
             N result = new N(zero);
-            string w = Convert.ToString(smaller.znach.Count - 1);
+            string w = Convert.ToString(smaller.value.Count - 1);
             List<string> rez2 = new List<string>();
             rez2.Add(w);
             N razm1 = new N(rez2);
-            string r = Convert.ToString(Convert.ToString(smaller.znach[smaller.znach.Count - 1]).Length);
+            string r = Convert.ToString(Convert.ToString(smaller.value[smaller.value.Count - 1]).Length);
             List<string> rez3 = new List<string>();
             rez3.Add(r);
             N razm2 = new N(rez3);
@@ -502,11 +502,11 @@ namespace LMath
                 smaller -= divider;
                 result++;
             }
-            string q = Convert.ToString(divided.znach.Count - 1);
+            string q = Convert.ToString(divided.value.Count - 1);
             List<string> rez = new List<string>();
             rez.Add(q);
             N value = new N(rez);
-            string p = Convert.ToString(Convert.ToString(divided.znach[divided.znach.Count - 1]).Length);
+            string p = Convert.ToString(Convert.ToString(divided.value[divided.value.Count - 1]).Length);
             List<string> rez1 = new List<string>();
             rez1.Add(p);
             N razm = new N(rez1);
@@ -522,7 +522,7 @@ namespace LMath
         public N Clone() // Александр Баталин 9370//есть тесты
         {
             N clone = new N(new List<string>());
-            clone.znach = new List<uint>(znach);
+            clone.value = new List<uint>(value);
             return clone;
         }
 
@@ -638,19 +638,19 @@ namespace LMath
 
         public override byte COM(Math_Field second)
         {
-            if (znach.Count > (second as N).znach.Count)
+            if (value.Count > (second as N).value.Count)
             {
                 return 2;
             }
-            if (znach.Count < (second as N).znach.Count)
+            if (value.Count < (second as N).value.Count)
             {
                 return 1;
             }
-            for (int i = znach.Count - 1; i >= 0; i--)
+            for (int i = value.Count - 1; i >= 0; i--)
             {
-                if (znach[i] <= (second as N).znach[i])
+                if (value[i] <= (second as N).value[i])
                 {
-                    if (znach[i] != (second as N).znach[i])
+                    if (value[i] != (second as N).value[i])
                     {
                         return 1;
                     }

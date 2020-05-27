@@ -57,6 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="P_Test.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Math_Module\LMath_C\LMath_C.csproj">
