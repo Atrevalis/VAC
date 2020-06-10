@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Interpretator_config
 {
-    public class Class1
+    public class Config
     {
     }
 }

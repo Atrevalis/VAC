@@ -45,6 +45,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "External_Module", "External
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LMath_M", "Math_Module\LMath_M\LMath_M.csproj", "{0D664EF4-C7B4-469F-ACD1-45DBA9475D0B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interpretator_config", "Interpretator_config\Interpretator_config.csproj", "{009C0177-B73C-4239-88DC-BF30D481BD54}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -123,6 +125,10 @@ Global
 		{0D664EF4-C7B4-469F-ACD1-45DBA9475D0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0D664EF4-C7B4-469F-ACD1-45DBA9475D0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0D664EF4-C7B4-469F-ACD1-45DBA9475D0B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{009C0177-B73C-4239-88DC-BF30D481BD54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{009C0177-B73C-4239-88DC-BF30D481BD54}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{009C0177-B73C-4239-88DC-BF30D481BD54}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{009C0177-B73C-4239-88DC-BF30D481BD54}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
