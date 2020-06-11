@@ -584,6 +584,11 @@ namespace LMath
             return (C)this;
         }
 
+        public static P Create(string s)
+        {
+            return null;
+        }
+
         public override List<string> ToListstring()
         {
             return this;

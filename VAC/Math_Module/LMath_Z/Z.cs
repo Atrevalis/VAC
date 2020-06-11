@@ -426,6 +426,16 @@ namespace LMath
             return this * (second as Z);
         }
 
+        public static Z Create(string s)
+        {
+            List<string> dat = new List<string>();
+            for (int j = s.Length - 1, q = 1; j >= 0; j -= (int)N.uint_size_div, q++)
+            {
+                dat.Insert(0, s.Substring(s.Length - (int)(N.uint_size_div) * q >= 0 ? s.Length - (int)(N.uint_size_div) * q : 0, s.Length - (int)(N.uint_size_div) * q >= 0 ? (int)N.uint_size_div : s.Length % (int)N.uint_size_div));
+            }
+            return new Z(dat);
+        }
+
         public override Math_Field Dawn()
         {
             return (N)this;

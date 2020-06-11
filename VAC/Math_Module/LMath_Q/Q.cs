@@ -396,6 +396,24 @@ namespace LMath
             return (Z)this;
         }
 
+        public static Q Create(string s)
+        {
+            string first = s.Split('/')[0];
+            string second;
+            try
+            {
+                second = s.Split('/')[1];
+            }
+            catch
+            {
+                second = "1";
+            }
+            Q result = new Q();
+            result.Numerator = Z.Create(first);
+            result.Denominator = Z.Create(second);
+            return result;
+        }
+
         public override Math_Field SUB(Math_Field second)
         {
             return this - (second as Q);
