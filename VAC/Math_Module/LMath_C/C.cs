@@ -164,7 +164,7 @@ namespace LMath
 
     #endregion
 
-    #region Методы
+        #region Методы
 
     /// <summary>
     /// Создает точную копию данного объекта
@@ -286,6 +286,64 @@ namespace LMath
             }
             return this;
         }
+
+        public static C Create(string s)
+        {
+            bool isI = false;
+            C result = new C();
+            for (int i = 1; i < s.Length; i++)
+            {
+                if (s[i] == 'i') isI = true;
+                if (s[i] == '+' || s[i] == '-')
+                {
+                    s = s.Replace(" ", "");
+                    bool flag1 = s[0] != '-';
+                    bool flag2 = true;
+                    if (flag1)
+                    {
+                        s = s.Remove(0, 1);
+                    }
+                    for (int j = 0; j < s.Length; j++)
+                    {
+                        if (s[j] == '-')
+                        {
+                            flag2 = false;
+                            s = s.Replace('-', '+');
+                            break;
+                        }
+                    }
+                    string[] first = s.Split('+');
+                    if (first[0][0] == 'i' || first[0][first[0].Length - 1] == 'i')
+                    {
+                        first[0] = first[0].Replace("i", "");
+                        result.image = Q.Create(first[0]);
+                        if (!flag1) result.image = -result.image;
+                        result.real = Q.Create(first[1]);
+                        if (!flag2) result.real = -result.real;
+                    }
+                    else
+                    {
+                        first[1] = first[1].Replace("i", "");
+                        result.image = Q.Create(first[1]);
+                        if (!flag2) result.image = -result.image;
+                        result.real = Q.Create(first[0]);
+                        if (!flag1) result.real = -result.real;
+                    }
+                    return result;
+                }
+            }
+            if (isI)
+            {
+                s = s.Replace("i", "");
+                result.image = Q.Create(s);
+            }
+            else
+            {
+                result.real = Q.Create(s);
+            }
+            return result;
+        }
+
 
         public override Math_Field SUB(Math_Field second)
         {

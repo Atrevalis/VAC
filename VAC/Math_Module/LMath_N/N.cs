@@ -45,6 +45,7 @@ namespace LMath
             }
         }
 
+
         public N()
         {
             value = new List<uint>();
@@ -634,6 +635,16 @@ namespace LMath
         public override Math_Field Dawn()
         {
             return this;
+        }
+
+        public static N Create(string s)
+        {
+            List<string> dat = new List<string>();
+            for (int j = s.Length - 1, q = 1; j >= 0; j -= (int)N.uint_size_div, q++)
+            {
+                dat.Insert(0, s.Substring(s.Length - (int)(N.uint_size_div) * q >= 0 ? s.Length - (int)(N.uint_size_div) * q : 0, s.Length - (int)(N.uint_size_div) * q >= 0 ? (int)N.uint_size_div : s.Length % (int)N.uint_size_div));
+            }
+            return new N(dat);
         }
 
         public override byte COM(Math_Field second)
