@@ -155,21 +155,21 @@ namespace LMath
 
         public static C operator ^(C first, C second)
         {
-            if(second.isDown)
+            if (second.isDown)
             {
                 return first ^ (Q)second;
             }
             return null;
         }
 
-    #endregion
+        #endregion
 
         #region Методы
 
-    /// <summary>
-    /// Создает точную копию данного объекта
-    /// </summary>
-    public C Clone() 
+        /// <summary>
+        /// Создает точную копию данного объекта
+        /// </summary>
+        public C Clone()
         {
             C result = new C();
             result.real = real.Clone();
@@ -212,12 +212,12 @@ namespace LMath
                 return 4;
             }
         }
-        public override bool isDown 
+        public override bool isDown
         {
             get
             {
                 Q zero = new Q();
-                if(image.COM(zero)==0)
+                if (image.COM(zero) == 0)
                 {
                     return true;
                 }
@@ -233,12 +233,12 @@ namespace LMath
             get;
         }
 
-        public override Math_Field UNT 
+        public override Math_Field UNT
         {
-            get 
+            get
             {
                 return -this;
-            } 
+            }
         }
 
         public override Math_Field DER
@@ -280,7 +280,7 @@ namespace LMath
 
         public override Math_Field Dawn()
         {
-            if(isDown)
+            if (isDown)
             {
                 return (Q)(this);
             }
@@ -290,7 +290,18 @@ namespace LMath
         public static C Create(string s)
         {
             bool isI = false;
+            bool obrP = false;
             C result = new C();
+            for (int i = 1; i < s.Length; i++)
+            {
+                if (s[i] == '(')
+                {
+                    obrP = true;
+                    s = s.Remove(0, 2);
+                    s = s.Remove(s.Length - 1, 1);
+                    break;
+                }
+            }
             for (int i = 1; i < s.Length; i++)
             {
                 if (s[i] == 'i') isI = true;
@@ -340,6 +351,11 @@ namespace LMath
             else
             {
                 result.real = Q.Create(s);
+            }
+            if (obrP)
+            {
+                result.real = -result.real;
+                result.image = -result.image;
             }
             return result;
         }
@@ -392,12 +408,12 @@ namespace LMath
         public override List<string> ToListstring()
         {
             List<string> s = real.ToListstring();
-            if(image.COM(new Q())!=1)
+            if (image.COM(new Q()) != 1)
             {
                 s.Add(" + ");
             }
             List<string> s2 = image.ToListstring();
-            for(int i = 0; i < s2.Count; i++)
+            for (int i = 0; i < s2.Count; i++)
             {
                 s.Add(s2[i]);
             }

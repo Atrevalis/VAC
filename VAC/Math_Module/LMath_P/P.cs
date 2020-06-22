@@ -27,7 +27,7 @@ namespace LMath
         #endregion
 
         #region Конструкторы
-        
+
         public P(int d)
         {
             M m = new M(new C(d), new C());
@@ -42,7 +42,7 @@ namespace LMath
             Ms.Add(m);
         }
 
-        
+
         public P(List<List<string>[]> s)
         {
             List<string> n = new List<string>();
@@ -73,7 +73,6 @@ namespace LMath
             {
                 Ms = new List<M>();
                 M t;
-
                 int check;
                 for (int i = 0; i < M.Count; i++)
                 {
@@ -87,7 +86,6 @@ namespace LMath
                         else if (N.COM_NN_D(M[check].degree, M[j].degree) == 0)
                             continue;
                     }
-
                     if (check != i)
                     {
                         t = new M(M[i].coef, M[i].degree);
@@ -95,7 +93,6 @@ namespace LMath
                         M[check] = t;
                     }
                 }
-
                 for (int i = 0; i < M.Count; i++)
                     Ms.Add(M[i]);
             }
@@ -120,7 +117,7 @@ namespace LMath
         {
             get
             {
-                if(Ms.Count == 1 && Ms[0].degree.COM(new C()) == 0)
+                if (Ms.Count == 1 && Ms[0].degree.COM(new C()) == 0)
                 {
                     return true;
                 }
@@ -128,7 +125,7 @@ namespace LMath
             }
         }
 
-        
+
         public List<C> root
         {
             get
@@ -198,7 +195,7 @@ namespace LMath
             }
         }
 
-            
+
 
         public override Math_Field LED // return Q
         {
@@ -220,8 +217,8 @@ namespace LMath
         {
             get
             {
-                P clone = Clone(); 
-                for(int i = 0; i < Ms.Count; i++)
+                P clone = Clone();
+                for (int i = 0; i < Ms.Count; i++)
                 {
                     Ms[i] = new M(Ms[i].coef.ABS as C, Ms[i].degree.Clone());
                 }
@@ -259,7 +256,7 @@ namespace LMath
             get
             {
                 P clone = Clone();
-                for(int i = 0; i < clone.Ms.Count; i++)
+                for (int i = 0; i < clone.Ms.Count; i++)
                 {
                     Ms[i] = new M(-Ms[i].coef, Ms[i].degree.Clone());
                 }
@@ -274,7 +271,7 @@ namespace LMath
         public static P operator -(P value)
         {
             P clone = value.Clone();
-            for(int i = 0; i < clone.Ms.Count; i++)
+            for (int i = 0; i < clone.Ms.Count; i++)
             {
                 clone.Ms[i] = new M(-clone.Ms[i].coef, clone.Ms[i].degree);
             }
@@ -284,13 +281,13 @@ namespace LMath
         public static P operator +(P first, P second) // ADD_PP_P
         {
             P result = first.Clone();
-            for(int i = 0; i < second.Ms.Count; i++)
+            for (int i = 0; i < second.Ms.Count; i++)
             {
-                for(int j = 0; j < result.Ms.Count; j++)
+                for (int j = 0; j < result.Ms.Count; j++)
                 {
-                    if(second.Ms[i].degree.COM(result.Ms[j].degree) != 2)
+                    if (second.Ms[i].degree.COM(result.Ms[j].degree) != 2)
                     {
-                        if(second.Ms[i].degree.COM(result.Ms[j].degree) == 0)
+                        if (second.Ms[i].degree.COM(result.Ms[j].degree) == 0)
                         {
                             result.Ms[j] = new M(result.Ms[j].coef + second.Ms[j].coef, result.Ms[j].degree);
                         }
@@ -339,14 +336,14 @@ namespace LMath
 
         public static P operator %(P first, P second) // MOD_PP_p
         {
-           P result = first.Clone();
-          result -= (first / second);
-          return result;
+            P result = first.Clone();
+            result -= (first / second);
+            return result;
         }
 
         public static implicit operator List<List<string>[]>(P value)
         {
-                 return null;
+            return null;
         }
 
         public static implicit operator List<string>(P value)
@@ -361,7 +358,7 @@ namespace LMath
 
         public static explicit operator C(P value)//сломано
         {
-            if(value.isDown)
+            if (value.isDown)
             {
                 return value.Ms[0].coef.Clone();
             }
@@ -420,7 +417,7 @@ namespace LMath
             }
             return mulcoef;
         }
-        
+
         private P MUL_Pxk_P(C value)
         {
             P muldeg = Clone();
@@ -506,11 +503,11 @@ namespace LMath
         public P Clone() // Александр Баталин 9370//
         {
             P clone = new P();
-            for(int i = 0; i < Ms.Count; i++)
+            for (int i = 0; i < Ms.Count; i++)
             {
-                clone.Ms.Add(new M(Ms[i].coef.Clone(),Ms[i].degree.Clone()));
+                clone.Ms.Add(new M(Ms[i].coef.Clone(), Ms[i].degree.Clone()));
             }
-           return clone;
+            return clone;
         }
 
         public override bool Equals(object obj)
@@ -562,7 +559,7 @@ namespace LMath
         public override Math_Field RES(Math_Field value)
         {
             C result = new C();
-            for(int i = 0; i < Ms.Count; i++)
+            for (int i = 0; i < Ms.Count; i++)
             {
                 result += Ms[i].coef * ((value as C) ^ Ms[i].degree);
             }
@@ -586,7 +583,137 @@ namespace LMath
 
         public static P Create(string s)
         {
-            return null;
+            List<int[]> skobochki = new List<int[]>();
+            List<int[]> otpdox = new List<int[]>();
+            List<int[]> otstepdox = new List<int[]>();
+            s = s.Replace(" ", "");
+            P result = new P();
+            C coef = new C();
+            C degree = new C();
+            string temp = null;
+            for (int i = 0; i < s.Length; i++)
+            {
+                if (s[i] == '(')
+                {
+                    skobochki.Add(new int[2]);
+                    skobochki[skobochki.Count - 1][0] = i;
+                }
+                if (s[i] == ')')
+                {
+                    skobochki[skobochki.Count - 1][1] = i;
+                }
+                if (s[i] == 'x' && (s.Length - 1 == i || s[i + 1] != '^'))
+                {
+                    s = s.Insert(i, "^1");
+                }
+                if (s[i] == ')' && (s.Length - 1 == i || s[i + 1] != 'x'))
+                {
+                    s = s.Insert(i, "x^0");
+                }
+            }
+            for (int i = 0; i < skobochki.Count; i++)
+            {
+                temp = null;
+                string tempbezmip = null;
+                for (int j = 0; j < s.Length; j++)
+                {
+                    if (skobochki[skobochki.Count - i][0] > j && skobochki[skobochki.Count - i][1] < j)
+                    {
+                        temp = temp.Insert(temp.Length - 1, s[j].ToString());
+                    }
+                }
+                tempbezmip = temp;
+                tempbezmip = tempbezmip.Replace('-', '&');
+                tempbezmip = tempbezmip.Replace('+', '#');
+                s = s.Replace(temp, tempbezmip);
+            }
+
+            s = s.Replace("-", "+-");
+
+            for (int i = 0; i < s.Length; i++)
+            {
+                if (s[i] == '^')
+                {
+                    otstepdox.Add(new int[2]);
+                    otstepdox[otstepdox.Count - 1][0] = i;
+                }
+                if (s[i] == '+')
+                {
+                    otpdox.Add(new int[2]);
+                    otpdox[otpdox.Count - 1][0] = i;
+                    otstepdox[otstepdox.Count - 1][1] = i;
+                }
+                if (s[i] == 'x')
+                {
+                    otpdox[otpdox.Count - 1][1] = i;
+                }
+            }
+
+            s = s.Replace('&', '-');
+            s = s.Replace('#', '+');
+
+            for (int i = 0; i < s.Length; i++)
+            {
+                if (s[0] == 'x')
+                {
+                    coef = C.Create("1");
+                    temp = null;
+                    for (int j = 0; j < s.Length; j++)
+                    {
+                        if (otstepdox[0][0] > j && otstepdox[0][1] < j)
+                        {
+                            temp.Insert(temp.Length - 1, s[j].ToString());
+                        }
+                    }
+                    degree = C.Create(temp);
+                    result.Ms.Add(new M(coef, degree));
+                }
+                if (s[0] != '(' && s[0] != 'x')
+                {
+                    temp = null;
+                    for (int j = 0; j < s.Length; j++)
+                    {
+                        if (otstepdox[0][0] - 1 < j)
+                        {
+                            temp.Insert(temp.Length - 1, s[j].ToString());
+                        }
+                    }
+                    coef = C.Create(temp);
+                    temp = null;
+                    for (int j = 0; j < s.Length; j++)
+                    {
+                        if (otstepdox[0][0] > j && otstepdox[0][1] < j)
+                        {
+                            temp.Insert(temp.Length - 1, s[j].ToString());
+                        }
+                    }
+                    degree = C.Create(temp);
+                    result.Ms.Add(new M(coef, degree));
+                }
+            }
+            for (int i = 0; i < otpdox.Count; i++)
+            {
+                temp = null;
+                for (int j = 0; j < s.Length; j++)
+                {
+                    if (otstepdox[otstepdox.Count - (i + 1)][0] > j && otstepdox[otstepdox.Count - (i + 1)][1] < j)
+                    {
+                        temp.Insert(temp.Length - 1, s[j].ToString());
+                    }
+                }
+                degree = C.Create(temp);
+                temp = null;
+                for (int j = 0; j < s.Length; j++)
+                {
+                    if (otpdox[otpdox.Count - (i + 1)][0] > j && otpdox[otpdox.Count - (i + 1)][1] < j)
+                    {
+                        temp.Insert(temp.Length - 1, s[j].ToString());
+                    }
+                }
+                coef = C.Create(temp);
+                result.Ms.Add(new M(coef, degree));
+            }
+            return result;
         }
 
         public override List<string> ToListstring()
@@ -599,7 +726,7 @@ namespace LMath
             get
             {
                 P clone = Clone();
-                for(int i = 0; i < Ms.Count; i++)
+                for (int i = 0; i < Ms.Count; i++)
                 {
 
                     Ms[i] = new M(Ms[i].coef / Ms[i].degree + new C(1), Ms[i].degree + new C(1));
