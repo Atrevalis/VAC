@@ -5,6 +5,7 @@ using System.IO;
 using System.Windows.Forms;
 using System.Collections.Generic;
 using External_module;
+using Interpretator_config;
 
 namespace Interpretation_Controller
 {
@@ -76,7 +77,7 @@ namespace Interpretation_Controller
                     {
                         s = reader.ReadLine();
                         if (s == null) throw new Exception();
-
+                        Data.Add(new Working_data(Config.builder(Controller.working_Dates[i].information.name,s), Controller.working_Dates[i]));
                     }
                     else
                     {
