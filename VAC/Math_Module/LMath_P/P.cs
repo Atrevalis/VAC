@@ -354,6 +354,7 @@ namespace LMath
             return null;
         }
 
+
         public static implicit operator P(C value)
         {
             return null;
