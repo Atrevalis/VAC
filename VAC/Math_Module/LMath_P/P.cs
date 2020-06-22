@@ -586,7 +586,137 @@ namespace LMath
 
         public static P Create(string s)
         {
-            return null;
+            List<int[]> skobochki = new List<int[]>();
+            List<int[]> otpdox = new List<int[]>();
+            List<int[]> otstepdox = new List<int[]>();
+            s = s.Replace(" ", "");
+            P result = new P();
+            C coef = new C();
+            C degree = new C();
+            string temp = null;
+            for (int i = 0; i < s.Length; i++)
+            {
+                if (s[i] == '(')
+                {
+                    skobochki.Add(new int[2]);
+                    skobochki[skobochki.Count - 1][0] = i;
+                }
+                if (s[i] == ')')
+                {
+                    skobochki[skobochki.Count - 1][1] = i;
+                }
+                if (s[i] == 'x' && (s.Length - 1 == i || s[i + 1] != '^'))
+                {
+                    s = s.Insert(i, "^1");
+                }
+                if (s[i] == ')' && (s.Length - 1 == i || s[i + 1] != 'x'))
+                {
+                    s = s.Insert(i, "x^0");
+                }
+            }
+            for (int i = 0; i < skobochki.Count; i++)
+            {
+                temp = null;
+                string tempbezmip = null;
+                for (int j = 0; j < s.Length; j++)
+                {
+                    if (skobochki[skobochki.Count - i][0] > j && skobochki[skobochki.Count - i][1] < j)
+                    {
+                        temp = temp.Insert(temp.Length - 1, s[j].ToString());
+                    }
+                }
+                tempbezmip = temp;
+                tempbezmip = tempbezmip.Replace('-', '&');
+                tempbezmip = tempbezmip.Replace('+', '#');
+                s = s.Replace(temp, tempbezmip);
+            }
+
+            s = s.Replace("-", "+-");
+
+            for (int i = 0; i < s.Length; i++)
+            {
+                if (s[i] == '^')
+                {
+                    otstepdox.Add(new int[2]);
+                    otstepdox[otstepdox.Count - 1][0] = i;
+                }
+                if (s[i] == '+')
+                {
+                    otpdox.Add(new int[2]);
+                    otpdox[otpdox.Count - 1][0] = i;
+                    otstepdox[otstepdox.Count - 1][1] = i;
+                }
+                if (s[i] == 'x')
+                {
+                    otpdox[otpdox.Count - 1][1] = i;
+                }
+            }
+
+            s = s.Replace('&', '-');
+            s = s.Replace('#', '+');
+
+            for (int i = 0; i < s.Length; i++)
+            {
+                if (s[0] == 'x')
+                {
+                    coef = C.Create("1");
+                    temp = null;
+                    for (int j = 0; j < s.Length; j++)
+                    {
+                        if (otstepdox[0][0] > j && otstepdox[0][1] < j)
+                        {
+                            temp.Insert(temp.Length - 1, s[j].ToString());
+                        }
+                    }
+                    degree = C.Create(temp);
+                    result.Ms.Add(new M(coef, degree));
+                }
+                if (s[0] != '(' && s[0] != 'x')
+                {
+                    temp = null;
+                    for (int j = 0; j < s.Length; j++)
+                    {
+                        if (otstepdox[0][0] - 1 < j)
+                        {
+                            temp.Insert(temp.Length - 1, s[j].ToString());
+                        }
+                    }
+                    coef = C.Create(temp);
+                    temp = null;
+                    for (int j = 0; j < s.Length; j++)
+                    {
+                        if (otstepdox[0][0] > j && otstepdox[0][1] < j)
+                        {
+                            temp.Insert(temp.Length - 1, s[j].ToString());
+                        }
+                    }
+                    degree = C.Create(temp);
+                    result.Ms.Add(new M(coef, degree));
+                }
+            }
+            for (int i = 0; i < otpdox.Count; i++)
+            {
+                temp = null;
+                for (int j = 0; j < s.Length; j++)
+                {
+                    if (otstepdox[otstepdox.Count - (i + 1)][0] > j && otstepdox[otstepdox.Count - (i + 1)][1] < j)
+                    {
+                        temp.Insert(temp.Length - 1, s[j].ToString());
+                    }
+                }
+                degree = C.Create(temp);
+                temp = null;
+                for (int j = 0; j < s.Length; j++)
+                {
+                    if (otpdox[otpdox.Count - (i + 1)][0] > j && otpdox[otpdox.Count - (i + 1)][1] < j)
+                    {
+                        temp.Insert(temp.Length - 1, s[j].ToString());
+                    }
+                }
+                coef = C.Create(temp);
+                result.Ms.Add(new M(coef, degree));
+            }
+            return result;
         }
 
         public override List<string> ToListstring()
