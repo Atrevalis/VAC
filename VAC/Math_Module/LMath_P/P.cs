@@ -66,7 +66,6 @@ namespace LMath
 
         private P(List<M> M)
         {
-            /*
             try
             {
                 Ms = new List<M>();
@@ -77,11 +76,11 @@ namespace LMath
                     check = i;
                     for (int j = i; j < M.Count; j++)
                     {
-                        if (Q.COM_NN_D(M[check].degree, M[j].degree) == 2)
+                        if (M[check].degree.COM(M[j].degree) == 2)
                             continue;
-                        else if (N.COM_NN_D(M[check].degree, M[j].degree) == 1)
+                        else if (M[check].degree.COM(M[j].degree) == 1)
                             check = j;
-                        else if (N.COM_NN_D(M[check].degree, M[j].degree) == 0)
+                        else if (M[check].degree.COM(M[j].degree) == 0)
                             continue;
                     }
                     if (check != i)
@@ -95,7 +94,6 @@ namespace LMath
                     Ms.Add(M[i]);
             }
             catch { throw; }
-            */
         }
 
 

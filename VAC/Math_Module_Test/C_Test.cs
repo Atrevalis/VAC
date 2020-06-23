@@ -1515,7 +1515,7 @@ namespace Math_Module_Test
             List<string> outputDenominatorreal = new List<string>();
             List<string> outputNumeratorimage = new List<string>();
             List<string> outputDenominatorimage = new List<string>();
-            string input = "(12/13)i-2";
+            string input = "12/13i-2";
             outputNumeratorreal.Add("-");
             outputNumeratorreal.Add("2");
             outputDenominatorreal.Add("1");
@@ -1536,7 +1536,7 @@ namespace Math_Module_Test
             List<string> outputDenominatorreal = new List<string>();
             List<string> outputNumeratorimage = new List<string>();
             List<string> outputDenominatorimage = new List<string>();
-            string input = "(12/13)i";
+            string input = "12/13i";
             outputNumeratorreal.Add("0");
             outputDenominatorreal.Add("1");
 

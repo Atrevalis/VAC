@@ -310,7 +310,7 @@ namespace LMath
                     s = s.Replace(" ", "");
                     bool flag1 = s[0] != '-';
                     bool flag2 = true;
-                    if (flag1)
+                    if (!flag1)
                     {
                         s = s.Remove(0, 1);
                     }

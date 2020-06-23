@@ -849,7 +849,7 @@ namespace Math_Module_Test
             input.Add("1");
             input.Add("123");
             N n = new N(input);
-            N nClone = n.Clone();
+            N nClone = n.Clone() as N;
             Assert.AreEqual(nClone, n);
         }
         [TestMethod]
@@ -859,7 +859,7 @@ namespace Math_Module_Test
             input.Add("234");
             input.Add("157");
             N n = new N(input);
-            N nClone = n.Clone();
+            N nClone = n.Clone() as N;
             Assert.AreEqual(false, n == nClone);
         }
         [TestMethod]

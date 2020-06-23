@@ -707,7 +707,7 @@ namespace Math_Module_Test
             inputDenominator.Add("1");
             inputDenominator.Add("867");
             Q x = new Q(inputNumerator,inputDenominator);
-            Q i = x.Clone();
+            Q i = x.Clone() as Q;
             Q t = new Q(inputNumerator,inputDenominator);
             Assert.AreEqual(t,i);
         }
@@ -724,7 +724,7 @@ namespace Math_Module_Test
             inputDenominator.Add("1");
             inputDenominator.Add("867");
             Q x = new Q(inputNumerator, inputDenominator);
-            Q i = x.Clone();
+            Q i = x.Clone() as Q;
             Q t = new Q(inputNumerator, inputDenominator);
             Assert.AreEqual(t, x);
         }
