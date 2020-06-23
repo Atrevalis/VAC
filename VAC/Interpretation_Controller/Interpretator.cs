@@ -226,7 +226,7 @@ namespace Interpretation_Controller
                             if (Data[j].data == null)
                             {
                                 DFS_for_WD(Data[j]);
-                                if(Data[j].data == null)
+                                if (Data[j].data == null)
                                 {
                                     Data[j].isTrue = false;
                                 }
@@ -257,69 +257,7 @@ namespace Interpretation_Controller
                         Count++;
                     }
                 }
-                switch (if_.info.information.name)
-                {
-                    case "COM_NN_D":
-                        {
-                            if (Math_Field.idCOM(Data[indexes[0]].data, Data[indexes[1]].data))
-                            {
-                                Math_Field.id_to_normal(Data[indexes[0]].data, ref Data[indexes[1]].data);
-                                switch (Data[indexes[0]].data.COM(Data[indexes[1]].data))
-                                {
-                                    case 1:
-                                        {
-                                            if_.path = 0;
-                                        }
-                                        break;
-                                    case 0:
-                                        {
-                                            if_.path = 1;
-                                        }
-                                        break;
-                                    case 2:
-                                        {
-                                            if_.path = 2;
-                                        }
-                                        break;
-                                }
-                            }
-                            else
-                            {
-                                Math_Field.id_to_normal(Data[indexes[1]].data, ref Data[indexes[0]].data);
-                                switch (Data[indexes[1]].data.COM(Data[indexes[0]].data))
-                                {
-                                    case 2:
-                                        {
-                                            if_.path = 0;
-                                        }
-                                        break;
-                                    case 0:
-                                        {
-                                            if_.path = 1;
-                                        }
-                                        break;
-                                    case 1:
-                                        {
-                                            if_.path = 2;
-                                        }
-                                        break;
-                                }
-                            }
-                            return;
-                        }
-                    case "isDown":
-                        {
-                            if (Data[indexes[0]].data.isDown)
-                            {
-                                if_.path = 0;
-                            }
-                            else
-                            {
-                                if_.path = 1;
-                            }
-                            return;
-                        }
-                }
+                if_.path = Config.logic(if_.info.information.name, opearnds);
             }
             catch
             {
