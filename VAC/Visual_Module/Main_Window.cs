@@ -532,7 +532,10 @@ namespace Visual_Module
 
         private void справкаToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Process.Start(Application.StartupPath + "\\Resources\\Spravka.docx");
+            Info info = new Info(this);
+            info.Show();
+            Enabled = false;
+            //Process.Start(Application.StartupPath + "\\Resources\\Spravka.docx");
         }
     }
 }
