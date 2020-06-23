@@ -37,9 +37,7 @@ namespace LMath
 
         public P()
         {
-            M m = new M(new C(0), new C());
             Ms = new List<M>();
-            Ms.Add(m);
         }
 
 
