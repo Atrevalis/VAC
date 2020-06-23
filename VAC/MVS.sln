@@ -47,6 +47,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LMath_M", "Math_Module\LMat
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interpretator_config", "Interpretator_config\Interpretator_config.csproj", "{009C0177-B73C-4239-88DC-BF30D481BD54}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dot", "MVS Controller\Dot\Dot.csproj", "{385D97CF-610B-4B67-9198-668DC06164CD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -129,6 +131,10 @@ Global
 		{009C0177-B73C-4239-88DC-BF30D481BD54}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{009C0177-B73C-4239-88DC-BF30D481BD54}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{009C0177-B73C-4239-88DC-BF30D481BD54}.Release|Any CPU.Build.0 = Release|Any CPU
+		{385D97CF-610B-4B67-9198-668DC06164CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{385D97CF-610B-4B67-9198-668DC06164CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{385D97CF-610B-4B67-9198-668DC06164CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{385D97CF-610B-4B67-9198-668DC06164CD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -147,6 +153,7 @@ Global
 		{92AE2898-4956-4708-B952-7B375490F028} = {9FEFC412-FF6E-419B-8563-82E0B610F2AA}
 		{96BC5D8E-8AFB-4BAD-9E2A-8B827C0F6BF0} = {9FEFC412-FF6E-419B-8563-82E0B610F2AA}
 		{0D664EF4-C7B4-469F-ACD1-45DBA9475D0B} = {394F5948-3486-4E35-82CA-2338CDA1627F}
+		{385D97CF-610B-4B67-9198-668DC06164CD} = {9FEFC412-FF6E-419B-8563-82E0B610F2AA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D4296727-164D-47F4-BC08-E6CB25D3F101}

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Dot
 {
-    public partial class UserControl1: UserControl
+    public partial class Dot: UserControl
     {
-        public UserControl1()
+        public Dot()
         {
             InitializeComponent();
         }

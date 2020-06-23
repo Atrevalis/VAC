@@ -1,6 +1,6 @@
 ﻿namespace Dot
 {
-    partial class UserControl1
+    partial class Dot
     {
         /// <summary>
         /// Обязательная переменная конструктора.
