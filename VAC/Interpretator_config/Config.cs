@@ -39,14 +39,14 @@ namespace Interpretator_config
                         return c;
                     }
 
-                    /*case "M":
+                    case "M":
                     {
                     M m = M.Create(input);
                     return m;
 
                     }
                     default:
-                    { break; }*/
+                    { break; }
             }
             return null;
         }

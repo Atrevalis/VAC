@@ -235,7 +235,7 @@ namespace LMath
             return oneness;
         }
 
-        public static P Create(string s)
+        public static M Create(string s)
         {
             return null;
         }

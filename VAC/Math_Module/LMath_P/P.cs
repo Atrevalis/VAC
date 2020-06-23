@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LMath
 {
-    public struct M
+    struct M
     {
         public C coef;
         public C degree;
@@ -66,7 +66,7 @@ namespace LMath
             }
         }
 
-        public P(List<M> M)
+        private P(List<M> M)
         {
             /*
             try
