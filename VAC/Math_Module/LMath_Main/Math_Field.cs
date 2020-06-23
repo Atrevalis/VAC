@@ -123,6 +123,13 @@ namespace LMath
         /// <returns></returns>
         abstract public Math_Field MOD(Math_Field second);
 
+        /// <summary>
+        /// Находит остаток от деления текущего элемента на аргумент
+        /// </summary>
+        /// <param name="second">Делитель</param>
+        /// <returns></returns>
+        abstract public Math_Field REM(Math_Field second);
+
 
         /// <summary>
         /// Складывает текущий элемент и аргумент

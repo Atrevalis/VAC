@@ -424,6 +424,11 @@ namespace LMath
             return this % (second as Q);
         }
 
+        public override Math_Field REM(Math_Field second)
+        {
+            return null;
+        }
+
         public override byte COM(Math_Field second)
         {
             Q per2 = second as Q;

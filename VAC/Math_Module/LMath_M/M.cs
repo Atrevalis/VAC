@@ -235,6 +235,11 @@ namespace LMath
             return oneness;
         }
 
+        public static P Create(string s)
+        {
+            return null;
+        }
+
         #endregion
 
         #region Событие
@@ -375,6 +380,11 @@ namespace LMath
         public override Math_Field MOD(Math_Field second)
         {
             return this % (second as M);
+        }
+
+        public override Math_Field REM(Math_Field second)
+        {
+            return null;
         }
 
         public override Math_Field GCF(Math_Field second)

@@ -376,6 +376,11 @@ namespace LMath
             return new C();
         }
 
+        public override Math_Field REM(Math_Field second)
+        {
+            return null;
+        }
+
         public override Math_Field ADD(Math_Field second)
         {
             return this + (second as C);

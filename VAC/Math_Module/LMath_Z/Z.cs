@@ -501,6 +501,11 @@ namespace LMath
             return this % (second as Z);
         }
 
+        public override Math_Field REM(Math_Field second)
+        {
+            return null;
+        }
+
         public override Math_Field GCF(Math_Field second)
         {
             // N f = this.Abs.GCF((second as Z).Abs);

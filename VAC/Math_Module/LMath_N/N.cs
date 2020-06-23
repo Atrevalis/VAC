@@ -684,6 +684,11 @@ namespace LMath
             return this % (second as N);
         }
 
+        public override Math_Field REM(Math_Field second)
+        {
+            return null;
+        }
+
         public override Math_Field GCF(Math_Field second)
         {
             N a = Clone();

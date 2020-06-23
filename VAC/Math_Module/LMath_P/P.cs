@@ -536,6 +536,11 @@ namespace LMath
             return this % (second as P);
         }
 
+        public override Math_Field REM(Math_Field second)
+        {
+            return null;
+        }
+
         public override Math_Field DIV(Math_Field second)
         {
             return this / (second as P);
