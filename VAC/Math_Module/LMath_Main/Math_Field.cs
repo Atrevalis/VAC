@@ -117,7 +117,7 @@ namespace LMath
 
 
         /// <summary>
-        /// Находит остаток от деления текущего элемента на аргумент
+        /// Находит модуло от деления текущего элемента на аргумент
         /// </summary>
         /// <param name="second">Делитель</param>
         /// <returns></returns>
@@ -177,6 +177,12 @@ namespace LMath
         /// </summary>
         abstract public List<string> ToListstring();
 
+        /// <summary>
+        /// Вычисление определенного интеграла
+        /// </summary>
+        /// <param name="first">Нижний предел интегрирования</param>
+        /// <param name="second">Верхний предел интегрирования</param>
+        /// <returns></returns>
         abstract public Math_Field CEI(Math_Field first, Math_Field second);
         /// <summary>
         /// Значение в точке
