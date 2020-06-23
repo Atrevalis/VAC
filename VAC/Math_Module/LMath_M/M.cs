@@ -87,7 +87,7 @@ namespace LMath
 
         public static M operator -(M value)//избавится от корявости (когда P заработает)
         {
-            M m = value.Clone();
+            M m = value.Clone() as M;
             for(int i = 0; i < m.h; i++)
             {
                 for(int j = 0; j < m.w; j++)
@@ -100,7 +100,7 @@ namespace LMath
 
         public static M operator +(M first, M second) // Шлемин Роман 9370 Есть тесты
         {
-            M m = first.Clone();
+            M m = first.Clone() as M;
             for (int i = 0; i < m.h; i++)
             {
                 for (int j = 0; j < m.w; j++)
@@ -139,7 +139,7 @@ namespace LMath
 
         public static M operator /(M first, M second)//    //Есть тесты
         {
-            M clone = first.Clone();
+            M clone = first.Clone() as M;
             M del = second.Reverse();
             if (del == null) return null;
             clone *= del;
@@ -189,14 +189,14 @@ namespace LMath
         /// <summary>
         /// Создает точную копию данного объекта
         /// </summary>
-        public M Clone() // Александр Баталин 9370//есть тесты
+        public override Math_Field Clone() // Александр Баталин 9370//есть тесты
         {
             M clone = new M(h, w);
             for (int i = 0; i < h; i++)
             {
                 for (int j = 0; j < w; j++)
                 {
-                    clone.elements[i, j] = elements[i, j].Clone();
+                    clone.elements[i, j] = elements[i, j].Clone() as P;
                 }
             }
             return clone;
@@ -212,7 +212,7 @@ namespace LMath
             P now;
             P elem = new P();
             P zero = new P();
-            M original = this.Clone();
+            M original = this.Clone() as M;
             for (int i = 0; i < h; i++)
             {
                 now = original.elements[i, i];

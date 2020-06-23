@@ -239,6 +239,24 @@ namespace Interpretation_Controller
                         }
                     }
                 }
+                Math_Field[] opearnds = new Math_Field[indexes.Count];
+                int Count = 0;
+                for (int i = 0; i < indexes.Count; i++)
+                {
+                    if (Data[indexes[i]].isTrue)
+                    {
+                        if (Math_Field.idCOM(Data[indexes[0]].data, Data[indexes[i]].data))
+                        {
+                            Math_Field.id_to_normal(Data[indexes[0]].data, ref Data[indexes[i]].data);
+                        }
+                        else
+                        {
+                            Math_Field.id_to_normal(Data[indexes[i]].data, ref Data[indexes[0]].data);
+                        }
+                        opearnds[Count] = Data[indexes[i]].data;
+                        Count++;
+                    }
+                }
                 switch (if_.info.information.name)
                 {
                     case "COM_NN_D":
@@ -383,49 +401,7 @@ namespace Interpretation_Controller
                 }
                 if(w.Count_of_up_connection == 1)
                 {
-                    switch(wd.info.information.name)
-                    {
-                        case "ABS":
-                            {
-                                wd.data = Data[indexes[0]].data.ABS;
-                            }
-                            break;
-                        case "(-1)":
-                            {
-                                wd.data = Data[indexes[0]].data.UNT;
-                            }
-                            break;
-                        case "DIF":
-                            {
-                                wd.data = Data[indexes[0]].data.DER;
-                            }
-                            break;
-                        case "LED":
-                            {
-                                wd.data = Data[indexes[0]].data.LED;
-                            }
-                            break;
-                        case "deg":
-                            {
-                                wd.data = Data[indexes[0]].data.DEG;
-                            }
-                            break;
-                        case "Down":
-                            {
-                                wd.data = Data[indexes[0]].data.Dawn();
-                            }
-                            break;
-                        case "up":
-                            {
-                                wd.data = Data[indexes[0]].data.External_Up();
-                            }
-                            break;
-                        default:
-                            {
-                                wd.isTrue = false;
-                            }
-                            break;
-                    }
+                    wd.data = Config.operands(wd.info.information.name, new Math_Field[] { Data[indexes[0]].data });
                 }
                 else
                 {
@@ -439,24 +415,7 @@ namespace Interpretation_Controller
                         {
                             Math_Field.id_to_normal(Data[indexes[1]].data, ref Data[indexes[0]].data);
                         }
-                        switch(wd.info.information.name)
-                        {
-                            case "-":
-                                {
-                                    wd.data = Data[indexes[0]].data.SUB(Data[indexes[1]].data);
-                                }
-                                break;
-                            case "/":
-                                {
-                                    wd.data = Data[indexes[0]].data.DIV(Data[indexes[1]].data);
-                                }
-                                break;
-                            case "%":
-                                {
-                                    wd.data = Data[indexes[0]].data.MOD(Data[indexes[1]].data);
-                                }
-                                break;
-                        }
+                        wd.data = Config.operands(wd.info.information.name, new Math_Field[] { Data[indexes[0]].data, Data[indexes[1]].data });
                     }
                     else
                     {
@@ -472,11 +431,13 @@ namespace Interpretation_Controller
                         if(fall != -1)
                         {
                             wd.data = Data[indexes[fall]].data;
+                            Math_Field[] opearnds = new Math_Field[indexes.Count];
+                            int Count = 0;
                             for(int i = fall + 1; i < indexes.Count; i++)
                             {
-                                if(Data[indexes[i]].isTrue)
+                                if (Data[indexes[i]].isTrue)
                                 {
-                                    if(Math_Field.idCOM(wd.data, Data[indexes[i]].data))
+                                    if (Math_Field.idCOM(wd.data, Data[indexes[i]].data))
                                     {
                                         Math_Field.id_to_normal(wd.data, ref Data[indexes[i]].data);
                                     }
@@ -484,31 +445,12 @@ namespace Interpretation_Controller
                                     {
                                         Math_Field.id_to_normal(Data[indexes[i]].data, ref wd.data);
                                     }
-                                    switch(wd.info.information.name)
-                                    {
-                                        case "+":
-                                            {
-                                                wd.data = wd.data.ADD(Data[indexes[i]].data);
-                                            }
-                                            break;
-                                        case "*":
-                                            {
-                                                wd.data = wd.data.MUL(Data[indexes[i]].data);
-                                            }
-                                            break;
-                                        case "НОД":
-                                            {
-                                                wd.data = wd.data.GCF(Data[indexes[i]].data);
-                                            }
-                                            break;
-                                        case "НОК":
-                                            {
-                                                wd.data = wd.data.LCM(Data[indexes[i]].data);
-                                            }
-                                            break;
-                                    }
+                                    opearnds[Count] = Data[indexes[i]].data;
+                                    Count++;
                                 }
                             }
+                            Array.Resize(ref opearnds, Count+1);
+                            wd.data = Config.operands(wd.info.information.name, opearnds);
                         }
                         else
                         {

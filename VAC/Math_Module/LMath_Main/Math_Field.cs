@@ -188,5 +188,7 @@ namespace LMath
         /// Значение в точке
         /// </summary>
         abstract public Math_Field RES(Math_Field value);
+
+        abstract public Math_Field Clone();
     }
 }

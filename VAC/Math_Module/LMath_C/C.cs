@@ -12,8 +12,8 @@ namespace LMath
 
         public C(Q r, Q i)
         {
-            real = r.Clone();
-            image = i.Clone();
+            real = r.Clone() as Q;
+            image = i.Clone() as Q;
         }
 
         public C()
@@ -54,7 +54,7 @@ namespace LMath
         {
             get
             {
-                C c = Clone();
+                C c = Clone() as C;
                 c.image = -c.image;
                 return c;
             }
@@ -66,7 +66,7 @@ namespace LMath
 
         public static C operator -(C value)
         {
-            C clone = value.Clone();
+            C clone = value.Clone() as C;
             clone.real = -clone.real;
             clone.image = -clone.image;
             return clone;
@@ -74,8 +74,8 @@ namespace LMath
 
         public static C operator +(C first, C second)
         {
-            C clone1 = first.Clone();
-            C clone2 = second.Clone();
+            C clone1 = first.Clone() as C;
+            C clone2 = second.Clone() as C;
             clone1.real += clone2.real;
             clone1.image += clone2.image;
             return clone1;
@@ -83,14 +83,14 @@ namespace LMath
 
         public static C operator -(C first, C second)
         {
-            C clone1 = first.Clone();
-            C clone2 = second.Clone();
+            C clone1 = first.Clone() as C;
+            C clone2 = second.Clone() as C;
             return clone1 + (-clone2);
         }
 
         public static C operator *(C first, C second)
         {
-            C clone1 = first.Clone();
+            C clone1 = first.Clone() as C;
             clone1.real = first.real * second.real - first.image * second.image;
             clone1.image = first.real * second.image + first.image * second.real;
             return clone1;
@@ -98,8 +98,8 @@ namespace LMath
 
         public static C operator /(C first, C second)
         {
-            C clone1 = first.Clone();
-            C clone2 = second.Clone();
+            C clone1 = first.Clone() as C;
+            C clone2 = second.Clone() as C;
             clone2.image = -clone2.image;
             clone1 *= clone2;
             clone1.real /= clone2.real * clone2.real + clone2.image * clone2.image;
@@ -110,18 +110,18 @@ namespace LMath
         public static implicit operator C(Q value)
         {
             C result = new C();
-            result.real = value.Clone();
+            result.real = value.Clone() as Q;
             return result;
         }
 
         public static explicit operator Q(C value)
         {
-            return value.real.Clone();
+            return value.real.Clone() as Q;
         }
 
         public static C operator ^(C first, Q second)
         {
-            C clone = first.Clone();
+            C clone = first.Clone() as C;
             if (second.isDown)
             {
                 switch (second.COM(new Q()))
@@ -169,11 +169,11 @@ namespace LMath
         /// <summary>
         /// Создает точную копию данного объекта
         /// </summary>
-        public C Clone()
+        public override Math_Field Clone()
         {
             C result = new C();
-            result.real = real.Clone();
-            result.image = image.Clone();
+            result.real = real.Clone() as Q;
+            result.image = image.Clone() as Q;
             return result;
         }
 

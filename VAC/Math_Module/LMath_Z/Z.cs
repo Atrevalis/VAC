@@ -112,7 +112,7 @@ namespace LMath
 
         public static Z operator -(Z value) // MUL_ZM_Z Евгений Куликов 9370//есть тесты
         {
-            Z Clone = value.Clone();
+            Z Clone = value.Clone() as Z;
             if (Clone.COM(new Z()) == 0)
             {
                 Clone.isN = true;
@@ -126,7 +126,7 @@ namespace LMath
 
         public static Z operator +(Z first, Z second) // ADD_ZZ_Z Александр Баталин 9370//есть тесты
         {
-            Z sum = first.Clone();
+            Z sum = first.Clone() as Z;
             List<string> s = new List<string>();
             s.Add("0");
             N temp = new N(s);
@@ -158,7 +158,7 @@ namespace LMath
 
         public static Z operator *(Z first, Z second) // MUL_ZZ_Z//есть тесты
         {
-            Z mult = first.Clone();
+            Z mult = first.Clone() as Z;
             mult.Abs *= second.Abs;
             if (first.isN != second.isN)
             {
@@ -173,7 +173,7 @@ namespace LMath
 
         public static Z operator /(Z first, Z second) // DIV_ZZ_Z //есть тесты
         {
-            Z res = first.Clone(); //задём временную переменную
+            Z res = first.Clone() as Z; //задём временную переменную
             List<string> s = new List<string>();
             s.Add("0");
             N temp = new N(s);
@@ -191,7 +191,7 @@ namespace LMath
 
         public static N operator %(Z first, Z second) // MOD_ZZ_Z //есть тесты
         {
-            Z Trash = first.Clone();
+            Z Trash = first.Clone() as Z;
             List<string> nol = new List<string>();
             nol.Add("0");
             N pog = new N(nol);
@@ -229,8 +229,8 @@ namespace LMath
 
         public static Z operator ^(Z first, N second)
         {
-            Z baze = first.Clone();
-            N degree = second.Clone();
+            Z baze = first.Clone() as Z;
+            N degree = second.Clone() as N;
             List<string> s = new List<string>();
             List<string> r = new List<string>();
             s.Add("2");
@@ -294,7 +294,7 @@ namespace LMath
             if (!value.isDown)
                 return null;
             else
-                return value.Abs.Clone();
+                return value.Abs.Clone() as N;
         }
 
         public static implicit operator Z(N value)
@@ -319,9 +319,9 @@ namespace LMath
         /// <summary>
         /// Создает точную копию объекта
         /// </summary>
-        public Z Clone() // Александр Баталин 9370 //есть тесты
+        public override Math_Field Clone() // Александр Баталин 9370 //есть тесты
         {
-            Z clone = new Z(Abs.Clone());
+            Z clone = new Z(Abs.Clone() as N);
             clone.isN = isN; 
             return clone;
         }
@@ -443,7 +443,7 @@ namespace LMath
 
         public override byte COM(Math_Field second)
         {
-            Z per1 = this.Clone();
+            Z per1 = this.Clone() as Z;
             Z per2 = second as Z;
             byte srav = per1.Abs.COM(per2.Abs);
             if (per1.isDown != per2.isDown)

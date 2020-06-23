@@ -108,13 +108,13 @@ namespace LMath
             N smaller;
             if (first.COM(second) != 2)
             {
-                bigger = second.Clone();
-                smaller = first.Clone();
+                bigger = second.Clone() as N;
+                smaller = first.Clone() as N;
             }
             else
             {
-                bigger = first.Clone();
-                smaller = second.Clone();
+                bigger = first.Clone() as N;
+                smaller = second.Clone() as N;
             }
             for (int i = 0; i < smaller.value.Count; i++)
             {
@@ -150,7 +150,7 @@ namespace LMath
                 case 1:
                     return null;
                 case 2:
-                    bigger = first.Clone();
+                    bigger = first.Clone() as N;
                     break;
             }
             for (int i = (second.value.Count - 1); i >= 0; i--)
@@ -224,7 +224,7 @@ namespace LMath
                 {
                     if (!(second.NZER_N_B))
                     {
-                        N result = first.Clone(); //создаем временную переменную
+                        N result = first.Clone() as N; //создаем временную переменную
                         while (result.COM(second) != 1) //пока первое больше второго выполняем цикл
                         {
                             div = DIV_NN_Dk(result, second); //наращиваем div первыми цифрами деления
@@ -268,8 +268,8 @@ namespace LMath
 
         public static N operator ^(N first, N second)
         {
-            N baze = first.Clone();
-            N degree = second.Clone();
+            N baze = first.Clone() as N;
+            N degree = second.Clone() as N;
             List<string> z = new List<string>();
             List<string> r = new List<string>();
             List<string> s = new List<string>();
@@ -352,7 +352,7 @@ namespace LMath
         /// <param name="value">Цифра</param>
         private N MUL_ND_N(byte value) //Дмитрий Панченко 9370 //тест есть(закоммичен)
         {
-            N k = Clone(); 
+            N k = Clone() as N; 
             uint g = 0;
             for (int i = 0; i < this.value.Count; i++)
             {
@@ -379,7 +379,7 @@ namespace LMath
         {
             List<string> s = new List<string>();
             s.Add(Convert.ToString(uint_size_div));
-            N k = this.Clone(), usdn = new N(s);
+            N k = this.Clone() as N, usdn = new N(s);
             int count = 0;
             while (value.COM(usdn) != 1)
             {
@@ -450,12 +450,12 @@ namespace LMath
                     N equal = new N(one);
                     return equal;
                 case 1:
-                    divided = second.Clone();
-                    divider = first.Clone();
+                    divided = second.Clone() as N;
+                    divider = first.Clone() as N;
                     break;
                 case 2:
-                    divider = second.Clone();
-                    divided = first.Clone();
+                    divider = second.Clone() as N;
+                    divided = first.Clone() as N;
                     break;
             }
             List<string> zero = new List<string>();
@@ -520,7 +520,7 @@ namespace LMath
         /// <summary>
         /// Создает точную копию данного объекта
         /// </summary>
-        public N Clone() // Александр Баталин 9370//есть тесты
+        public override Math_Field Clone() // Александр Баталин 9370//есть тесты
         {
             N clone = new N(new List<string>());
             clone.value = new List<uint>(value);
@@ -616,8 +616,8 @@ namespace LMath
 
         public override Math_Field LCM(Math_Field second)
         {
-            N a = Clone();
-            N b = (second as N).Clone();
+            N a = Clone() as N;
+            N b = (second as N).Clone() as N;
             N result = a * b / (a.GCF(b) as N);
             return result;
         }
@@ -691,8 +691,8 @@ namespace LMath
 
         public override Math_Field GCF(Math_Field second)
         {
-            N a = Clone();
-            N b = (second as N).Clone();
+            N a = Clone() as N;
+            N b = (second as N).Clone() as N;
             while (!(a.NZER_N_B) && !(b.NZER_N_B))
             {
                 if (a.COM(b) != 1)

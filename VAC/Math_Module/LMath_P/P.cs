@@ -217,10 +217,10 @@ namespace LMath
         {
             get
             {
-                P clone = Clone();
+                P clone = Clone() as P;
                 for (int i = 0; i < Ms.Count; i++)
                 {
-                    Ms[i] = new M(Ms[i].coef.ABS as C, Ms[i].degree.Clone());
+                    Ms[i] = new M(Ms[i].coef.ABS as C, Ms[i].degree.Clone() as C);
                 }
                 return clone;
             }
@@ -255,10 +255,10 @@ namespace LMath
         {
             get
             {
-                P clone = Clone();
+                P clone = Clone() as P;
                 for (int i = 0; i < clone.Ms.Count; i++)
                 {
-                    Ms[i] = new M(-Ms[i].coef, Ms[i].degree.Clone());
+                    Ms[i] = new M(-Ms[i].coef, Ms[i].degree.Clone() as C);
                 }
                 return clone;
             }
@@ -270,7 +270,7 @@ namespace LMath
 
         public static P operator -(P value)
         {
-            P clone = value.Clone();
+            P clone = value.Clone() as P;
             for (int i = 0; i < clone.Ms.Count; i++)
             {
                 clone.Ms[i] = new M(-clone.Ms[i].coef, clone.Ms[i].degree);
@@ -280,7 +280,7 @@ namespace LMath
 
         public static P operator +(P first, P second) // ADD_PP_P
         {
-            P result = first.Clone();
+            P result = first.Clone() as P;
             for (int i = 0; i < second.Ms.Count; i++)
             {
                 for (int j = 0; j < result.Ms.Count; j++)
@@ -313,13 +313,13 @@ namespace LMath
             P smaller;
             if (first.Ms.Count() < second.Ms.Count())
             {
-                result = second.Clone();
-                smaller = first.Clone();
+                result = second.Clone() as P;
+                smaller = first.Clone() as P;
             }
             else
             {
-                result = first.Clone();
-                smaller = second.Clone();
+                result = first.Clone() as P;
+                smaller = second.Clone() as P;
             }
             M now;
             for (int i = 0; i < smaller.Ms.Count(); i++)
@@ -336,7 +336,7 @@ namespace LMath
 
         public static P operator %(P first, P second) // MOD_PP_p
         {
-            P result = first.Clone();
+            P result = first.Clone() as P;
             result -= (first / second);
             return result;
         }
@@ -360,7 +360,7 @@ namespace LMath
         {
             if (value.isDown)
             {
-                return value.Ms[0].coef.Clone();
+                return value.Ms[0].coef.Clone() as C;
             }
             return null;
         }
@@ -407,7 +407,7 @@ namespace LMath
 
         private P MUL_PQ_P(C value)
         {
-            P mulcoef = Clone();
+            P mulcoef = Clone() as P;
             M now;
             for (int i = 0; i < mulcoef.Ms.Count; i++)
             {
@@ -420,7 +420,7 @@ namespace LMath
 
         private P MUL_Pxk_P(C value)
         {
-            P muldeg = Clone();
+            P muldeg = Clone() as P;
             M now;
             for (int i = 0; i < muldeg.Ms.Count; i++)
             {
@@ -433,9 +433,9 @@ namespace LMath
 
         public static P GCF_PP_P(P first, P second)
         {
-            P result = first.Clone();
+            P result = first.Clone() as P;
             P pog = null;
-            P mod = first.Clone();
+            P mod = first.Clone() as P;
             mod = first % second;
             M nol;
             C q = new C();
@@ -490,7 +490,7 @@ namespace LMath
             mnoj.coef = answer[0];
             mnoj.degree = q;
             result.Ms.Add(mnoj);
-            P mnoj1 = result.Clone();
+            P mnoj1 = result.Clone() as P;
             for (int m = 1; m <= (answer.Count - 1); m++)
             {
                 mnoj.coef = answer[m];
@@ -500,12 +500,12 @@ namespace LMath
             return result;
         }
 
-        public P Clone() // Александр Баталин 9370//
+        public override Math_Field Clone() // Александр Баталин 9370//
         {
             P clone = new P();
             for (int i = 0; i < Ms.Count; i++)
             {
-                clone.Ms.Add(new M(Ms[i].coef.Clone(), Ms[i].degree.Clone()));
+                clone.Ms.Add(new M(Ms[i].coef.Clone() as C, Ms[i].degree.Clone() as C));
             }
             return clone;
         }
@@ -730,7 +730,7 @@ namespace LMath
         {
             get
             {
-                P clone = Clone();
+                P clone = Clone() as P;
                 for (int i = 0; i < Ms.Count; i++)
                 {
 

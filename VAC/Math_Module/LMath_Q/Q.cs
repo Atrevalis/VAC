@@ -107,16 +107,16 @@ namespace LMath
 
         public static Q operator -(Q value) // MUL_QM_Q //есть тесты
         {
-            Q Clone = value.Clone();
+            Q Clone = value.Clone() as Q;
             Clone.Numerator = -Clone.Numerator;
             return Clone; 
         }
 
         public static Q operator +(Q first, Q second) // ADD_QQ_Q //есть тесты
         {
-            Q clone = second.Clone();
-            Q Sum = first.Clone();
-            Z ComDen = first.Denominator.Clone();
+            Q clone = second.Clone() as Q;
+            Q Sum = first.Clone() as Q;
+            Z ComDen = first.Denominator.Clone() as Z;
             if (first.Denominator.COM(second.Denominator) == 0)
             {
                 Sum.Numerator = first.Numerator + second.Numerator;
@@ -144,7 +144,7 @@ namespace LMath
 
         public static Q operator *(Q first, Q second) // MUL_QQ_Q //есть тесты
         {
-            Q result = first.Clone();
+            Q result = first.Clone() as Q;
             result.Denominator *= second.Denominator;
             result.Numerator *= second.Numerator;
             result.RED_Q_Q();
@@ -153,10 +153,10 @@ namespace LMath
 
         public static Q operator /(Q first, Q second) // DIV_QQ_Q // есть тесты
         {
-            Q divider = second.Clone();
-            Q result = first.Clone();
-            divider.Denominator = second.Numerator.Clone();
-            divider.Numerator = second.Denominator.Clone();
+            Q divider = second.Clone() as Q;
+            Q result = first.Clone() as Q;
+            divider.Denominator = second.Numerator.Clone() as Z;
+            divider.Numerator = second.Denominator.Clone() as Z;
             if (divider.Denominator.isDown == false)
             {
                 divider.Numerator = - divider.Numerator;
@@ -178,11 +178,11 @@ namespace LMath
 
         public static Q operator ^(Q first, Z second)
         {
-            Q result = first.Clone();
+            Q result = first.Clone() as Q;
             if(second.POZ_Z_D == 1)
             {
-                result.Numerator = first.Denominator.Clone();
-                result.Denominator = first.Numerator.Clone();
+                result.Numerator = first.Denominator.Clone() as Z;
+                result.Denominator = first.Numerator.Clone() as Z;
             }
             result.Numerator = result.Numerator ^ second;
             result.Denominator = result.Denominator ^ second;
@@ -220,7 +220,7 @@ namespace LMath
         {
             if (value.isDown)
             {
-                return  value.Numerator.Clone();
+                return  value.Numerator.Clone() as Z;
             }
             else
             {
@@ -263,9 +263,9 @@ namespace LMath
         /// <summary>
         /// Создает точную копию данного объекта
         /// </summary>
-        public Q Clone() // Александр Баталин 9370//есть тесты
+        public override Math_Field Clone() // Александр Баталин 9370//есть тесты
         {
-            Q clone = new Q(Numerator.Clone(), Denominator.Clone());
+            Q clone = new Q(Numerator.Clone() as Z, Denominator.Clone() as Z);
             return clone;
         }
 
@@ -313,7 +313,7 @@ namespace LMath
         {
             get
             {
-                Q clone = Clone();
+                Q clone = Clone() as Q;
                 clone.Numerator = clone.Numerator.ABS as Z;
                 return clone;
             }
@@ -432,7 +432,7 @@ namespace LMath
         public override byte COM(Math_Field second)
         {
             Q per2 = second as Q;
-            Q per1 = Clone();
+            Q per1 = Clone() as Q;
             Z nok;
             nok = (Z)per2.Denominator.LCM(per1.Denominator);
             per2.Numerator *= (nok / per2.Denominator);
