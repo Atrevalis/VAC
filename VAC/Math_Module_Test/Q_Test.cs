@@ -658,7 +658,6 @@ namespace Math_Module_Test
         }
 
         [TestMethod]
-
         public void RemainderTestZero1()
 		{
             List<string> inputNumerator = new List<string>();     
@@ -675,6 +674,25 @@ namespace Math_Module_Test
             Q i = new Q(inputNumerator1, inputDenominator1);
             N t = new N(output);
             Assert.AreEqual(t, x % i);
+        }
+
+        [TestMethod]
+        public void ModTest()
+        {
+            List<string> inputNumerator = new List<string>();
+            List<string> inputDenominator = new List<string>();
+            List<string> inputNumerator1 = new List<string>();
+            List<string> inputDenominator1 = new List<string>();
+            List<string> output = new List<string>();
+            inputNumerator.Add("12");
+            inputDenominator.Add("51");
+            inputNumerator1.Add("1");
+            inputDenominator1.Add("5");
+            output.Add("0");
+            Q x = new Q(inputNumerator, inputDenominator);
+            Q i = new Q(inputNumerator1, inputDenominator1);
+            N t = new N(output);
+            Assert.AreEqual(t, x.MOD(i));
         }
 
         [TestMethod]
@@ -842,6 +860,35 @@ namespace Math_Module_Test
             Z i = new Z(input);
             Q t = new Q(outputNumerator, outputDenominator);
             Assert.AreEqual(t, x ^ i);
+        }
+
+        [TestMethod]
+        public void CreateTest1()
+        {
+            List<string> outputNumerator = new List<string>();
+            List<string> outputDenominator = new List<string>();
+            string input = "-245/376";
+            outputNumerator.Add("-");
+            outputNumerator.Add("245");
+            outputDenominator.Add("376");
+            Q n = Q.Create(input);
+            Q t = new Q(outputNumerator, outputDenominator);
+            Assert.AreEqual(t, n);
+        }
+
+        [TestMethod]
+        public void CreateTest2()
+        {
+            List<string> outputNumerator = new List<string>();
+            List<string> outputDenominator = new List<string>();
+            string input = "24535/37676";
+            outputNumerator.Add("24");
+            outputNumerator.Add("535");
+            outputDenominator.Add("37");
+            outputDenominator.Add("676");
+            Q n = Q.Create(input);
+            Q t = new Q(outputNumerator, outputDenominator);
+            Assert.AreEqual(t, n);
         }
 
         /*

@@ -569,6 +569,7 @@ namespace Math_Module_Test
             input.Add("287");
             input1.Add("273");
             input1.Add("571");
+            output.Add("-");
             output.Add("126");
             output.Add("997");
             Z n = new Z(input);
@@ -588,8 +589,8 @@ namespace Math_Module_Test
             input1.Add("-");
             input1.Add("273");
             input1.Add("571");
-            output.Add("146");
-            output.Add("574");
+            output.Add("126");
+            output.Add("997");
             Z n = new Z(input);
             Z i = new Z(input1);
             Z t = new Z(output);
@@ -608,8 +609,9 @@ namespace Math_Module_Test
             input1.Add("-");
             input1.Add("273");
             input1.Add("571");
-            output.Add("146");
-            output.Add("574");
+            output.Add("-");
+            output.Add("126");
+            output.Add("997");
             Z n = new Z(input);
             Z i = new Z(input1);
             Z t = new Z(output);
@@ -914,6 +916,166 @@ namespace Math_Module_Test
             input.Add("1");
             Z z = new Z(input);
             Assert.AreEqual(false, z.isDown);
+        }
+
+        [TestMethod]
+        public void ModZeroTest1()
+        {
+            List<string> input = new List<string>();
+            List<string> input1 = new List<string>();
+            input.Add("-");
+            input.Add("758");
+            input.Add("168");
+            input1.Add("0");
+            Z n = new Z(input);
+            Z i = new Z(input1);
+            Assert.AreEqual(null, n.MOD(i));
+        }
+
+        [TestMethod]
+        public void ModZeroTest2()
+        {
+            List<string> input = new List<string>();
+            List<string> input1 = new List<string>();
+            input.Add("-");
+            input.Add("758");
+            input.Add("168");
+            input1.Add("0");
+            Z n = new Z(input1);
+            Z i = new Z(input);
+            Assert.AreEqual(n, n.MOD(i));
+        }
+
+        [TestMethod]
+        public void ModTest1()
+        {
+            List<string> input = new List<string>();
+            List<string> input1 = new List<string>();
+            List<string> output = new List<string>();
+            input.Add("145");
+            input.Add("565");
+            input1.Add("386");
+            output.Add("43");
+            Z n = new Z(input);
+            Z i = new Z(input1);
+            Z t = new Z(output);
+            Assert.AreEqual(t, n.MOD(i));
+        }
+
+        [TestMethod]
+        public void ModTest2()
+        {
+            List<string> input = new List<string>();
+            List<string> input1 = new List<string>();
+            List<string> output = new List<string>();
+            input.Add("1");
+            input.Add("673");
+            input1.Add("1");
+            input1.Add("673");
+            output.Add("0");
+            Z n = new Z(input);
+            Z i = new Z(input1);
+            Z t = new Z(output);
+            Assert.AreEqual(t, n.MOD(i));
+        }
+
+        [TestMethod]
+        public void ModTest3()
+        {
+            List<string> input = new List<string>();
+            List<string> input1 = new List<string>();
+            List<string> output = new List<string>();
+            input.Add("-");
+            input.Add("967");
+            input.Add("287");
+            input1.Add("273");
+            input1.Add("571");
+            output.Add("146");
+            output.Add("574");
+            Z n = new Z(input);
+            Z i = new Z(input1);
+            Z t = new Z(output);
+            Assert.AreEqual(t, n.MOD(i));
+        }
+
+        [TestMethod]
+        public void ModTest4()
+        {
+            List<string> input = new List<string>();
+            List<string> input1 = new List<string>();
+            List<string> output = new List<string>();
+            input.Add("967");
+            input.Add("287");
+            input1.Add("-");
+            input1.Add("273");
+            input1.Add("571");
+            output.Add("126");
+            output.Add("997");
+            Z n = new Z(input);
+            Z i = new Z(input1);
+            Z t = new Z(output);
+            Assert.AreEqual(t, n.MOD(i));
+        }
+
+        [TestMethod]
+        public void ModTest5()
+        {
+            List<string> input = new List<string>();
+            List<string> input1 = new List<string>();
+            List<string> output = new List<string>();
+            input.Add("-");
+            input.Add("967");
+            input.Add("287");
+            input1.Add("-");
+            input1.Add("273");
+            input1.Add("571");
+            output.Add("146");
+            output.Add("574");
+            Z n = new Z(input);
+            Z i = new Z(input1);
+            Z t = new Z(output);
+            Assert.AreEqual(t, n % i);
+        }
+
+        [TestMethod]
+        public void ModTest6()
+        {
+            List<string> input = new List<string>();
+            List<string> input1 = new List<string>();
+            List<string> output = new List<string>();
+            input.Add("7");
+            input.Add("287");
+            input1.Add("273");
+            input1.Add("571");
+            output.Add("7");
+            output.Add("287");
+            Z n = new Z(input);
+            Z i = new Z(input1);
+            Z t = new Z(output);
+            Assert.AreEqual(t, n.MOD(i));
+        }
+
+        [TestMethod]
+        public void CreateTest1()
+        {
+            List<string> output = new List<string>();
+            string input = "-245";
+            output.Add("-");
+            output.Add("245");
+            Z n = Z.Create(input);
+            Z t = new Z(output);
+            Assert.AreEqual(t, n);
+        }
+
+        [TestMethod]
+        public void CreateTest2()
+        {
+            List<string> output = new List<string>();
+            string input = "245";
+            output.Add("245");
+            Z n = Z.Create(input);
+            Z t = new Z(output);
+            Assert.AreEqual(t, n);
         }
 
         /*
