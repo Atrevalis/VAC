@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using LMath;
 namespace Interpretator_config
 {
-    public class Config
+    public static class Config
     {
         public static Math_Field builder(string name, string input)
         {// конструктор экземпляров классов по входным данным
@@ -154,6 +154,32 @@ namespace Interpretator_config
             return null;
         }
 
+        public static byte logic(string name, Math_Field[] input)
+        {
+            switch (name) {
+                case "COM_NN_D":
+                    {
+                        switch (input[0].COM(input[1])) {
+                            case 0: { return 1; }
+                            case 1: { return 2; }
+                            case 2: { return 0; }
+                        }
+                        break;
+                        
+                    }
+                case "isDown":
+                    {
+                        if (input[0].isDown)
+                        {
+                            return 0;
+                        }
+                        return 1;
+
+                    }
+            }
+            return 4;
+
+        }
     }
 }
 
