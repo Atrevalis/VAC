@@ -290,18 +290,7 @@ namespace LMath
         public static C Create(string s)
         {
             bool isI = false;
-            bool obrP = false;
             C result = new C();
-            for (int i = 1; i < s.Length; i++)
-            {
-                if (s[i] == '(')
-                {
-                    obrP = true;
-                    s = s.Remove(0, 2);
-                    s = s.Remove(s.Length - 1, 1);
-                    break;
-                }
-            }
             for (int i = 1; i < s.Length; i++)
             {
                 if (s[i] == 'i') isI = true;
@@ -352,12 +341,8 @@ namespace LMath
             {
                 result.real = Q.Create(s);
             }
-            if (obrP)
-            {
-                result.real = -result.real;
-                result.image = -result.image;
-            }
             return result;
+
         }
 
 

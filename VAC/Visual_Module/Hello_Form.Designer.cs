@@ -41,6 +41,7 @@ namespace Visual_Module
             // 
             // button1
             // 
+            this.button1.ForeColor = text;
             this.button1.BackColor = first;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button1.Location = new System.Drawing.Point(32, 42);
@@ -53,6 +54,7 @@ namespace Visual_Module
             // 
             // button2
             // 
+            this.button2.ForeColor = text;
             this.button2.BackColor = first;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button2.Location = new System.Drawing.Point(32, 194);
@@ -65,6 +67,7 @@ namespace Visual_Module
             // 
             // button3
             // 
+            this.button3.ForeColor = text;
             this.button3.BackColor = first;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button3.Location = new System.Drawing.Point(314, 348);
