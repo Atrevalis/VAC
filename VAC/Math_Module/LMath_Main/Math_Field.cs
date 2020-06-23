@@ -185,7 +185,7 @@ namespace LMath
         /// <returns></returns>
         abstract public Math_Field CEI(Math_Field first, Math_Field second);
         /// <summary>
-        /// Значение в точке
+        /// Значение в точке(Вычисление значения функции)
         /// </summary>
         abstract public Math_Field RES(Math_Field value);
 

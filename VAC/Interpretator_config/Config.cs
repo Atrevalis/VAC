@@ -41,52 +41,116 @@ namespace Interpretator_config
 
                     case "M":
                     {
-                    M m = M.Create(input);
+                     M m = M.Create(input);
                     return m;
 
                     }
+
                     default:
                     { break; }
+
+                   
+
             }
             return null;
         }
 
         public static Math_Field operands(string name, Math_Field[] input)
         {
-            /* switch (name)
+            Math_Field interval;
+            switch (name)
             {
-            case "ABS":
-            {
+                case "ABS"://унарные операторы
+                    { return input[0].ABS; }
+                case "(-1)":
+                    {
+                        return input[0].UNT;
+                    }
+                case "DIF":
+                    {
+                        return input[0].DER;
+                    }
+                case "LED":
+                    {
+                        return input[0].LED;
+                    }
+                case "deg":
+                    {
+                        return input[0].DEG;
+                    }
 
+                case "Down":
+                    {
+                        return input[0].Dawn();
+                    }
+                case "up":
+                    {
+                        return input[0].External_Up();
+                    }//унарные операторы
+                case "-"://бинарные операторы
+                    {
+                        return input[0].SUB(input[1]);
+                    }
+                case "/":
+                    {
+                        return input[0].DIV(input[1]);
+                    }
+                case "%":
+                    {
+                        return input[0].REM(input[1]);
+                    }
+                case "MOD":
+                    {
+                        return input[0].MOD(input[1]);
+                    }
+                case "RES":
+                    {
+                        return input[0].RES(input[1]);
+                    }//бинарные операторы
+
+                case "CEI"://тернарные операторы
+                    {
+                        return input[0].CEI(input[1], input[2]);
+                    }
+                case "+"://n-нарные операторы
+                    {
+                        
+                        interval = input[0];
+                        for (int i = 1; i < input.Length; i++)
+                        {
+                                interval = interval.ADD(input[i]);
+                        }
+                        return interval;
+                        
+                    }
+                case "*":
+                    {
+                        interval = input[0];
+                        for (int i = 1; i < input.Length; i++)
+                        {
+                            interval = interval.MUL(input[i]);
+                        }
+                        return interval;
+                    }
+                case "НОД":
+                    {
+                        interval = input[0];
+                        for (int i = 1; i < input.Length; i++)
+                        {
+                            interval = interval.GCF(input[i]);
+                        }
+                        return interval;
+                    }
+                case "НОК"://n-нарные операторы
+                    {
+                        interval = input[0];
+                        for (int i = 1; i < input.Length; i++)
+                        {
+                            interval = interval.LCM(input[i]);
+                        }
+                        return interval;
+                    }
             }
-            case "(-1)":
-            {
-
-            }
-            case "DIF":
-            {
-
-            }
-            case "LED":
-            {
-
-            }
-            case "deg":
-            {
-
-            }
-
-            case "Down":
-            {
-
-            }
-            case "up":
-            {
-
-            }
-            default:
-            { break; }
-            }*/
             return null;
         }
 
