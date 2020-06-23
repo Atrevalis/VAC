@@ -1461,5 +1461,112 @@ namespace Math_Module_Test
             C r = new C(rr, ri);
             Assert.AreEqual(r, x ^ t);
         }
+
+        [TestMethod]
+        public void ModTest()
+        {
+            List<string> inputNumeratorreal = new List<string>();
+            List<string> inputDenominatorreal = new List<string>();
+            List<string> inputNumeratorimage = new List<string>();
+            List<string> inputDenominatorimage = new List<string>();
+            List<string> inputNumeratorreal1 = new List<string>();
+            List<string> inputDenominatorreal1 = new List<string>();
+            List<string> inputNumeratorimage1 = new List<string>();
+            List<string> inputDenominatorimage1 = new List<string>();
+            List<string> outputNumeratorreal = new List<string>();
+            List<string> outputDenominatorreal = new List<string>();
+            List<string> outputNumeratorimage = new List<string>();
+            List<string> outputDenominatorimage = new List<string>();
+            inputNumeratorreal.Add("123");
+            inputDenominatorreal.Add("134");
+
+            inputNumeratorimage.Add("236");
+            inputDenominatorimage.Add("134");
+            inputDenominatorimage.Add("302");
+
+            inputNumeratorreal1.Add("134");
+            inputDenominatorreal1.Add("123");
+
+            inputNumeratorimage1.Add("234");
+            inputDenominatorimage1.Add("1");
+            inputDenominatorimage1.Add("302");
+
+            outputNumeratorreal.Add("0");
+            outputDenominatorreal.Add("1");
+
+            outputNumeratorimage.Add("0");
+            outputDenominatorimage.Add("1");
+            Q xr = new Q(inputNumeratorreal, inputDenominatorreal);
+            Q xi = new Q(inputNumeratorimage, inputDenominatorimage);
+            Q tr = new Q(inputNumeratorreal1, inputDenominatorreal1);
+            Q ti = new Q(inputNumeratorimage1, inputDenominatorimage1);
+            Q rr = new Q(outputNumeratorreal, outputDenominatorreal);
+            Q ri = new Q(outputNumeratorimage, outputDenominatorimage);
+            C x = new C(xr, xi);
+            C t = new C(tr, ti);
+            C r = new C(rr, ri);
+            Assert.AreEqual(r, x.MOD(t));
+        }
+
+        [TestMethod]
+        public void CreateTest1()
+        {
+            List<string> outputNumeratorreal = new List<string>();
+            List<string> outputDenominatorreal = new List<string>();
+            List<string> outputNumeratorimage = new List<string>();
+            List<string> outputDenominatorimage = new List<string>();
+            string input = "(12/13)i-2";
+            outputNumeratorreal.Add("-");
+            outputNumeratorreal.Add("2");
+            outputDenominatorreal.Add("1");
+
+            outputNumeratorimage.Add("12");
+            outputDenominatorimage.Add("13");
+            C n = C.Create(input);
+            Q rr = new Q(outputNumeratorreal, outputDenominatorreal);
+            Q ri = new Q(outputNumeratorimage, outputDenominatorimage);
+            C r = new C(rr, ri);
+            Assert.AreEqual(r, n);
+        }
+
+        [TestMethod]
+        public void CreateTest2()
+        {
+            List<string> outputNumeratorreal = new List<string>();
+            List<string> outputDenominatorreal = new List<string>();
+            List<string> outputNumeratorimage = new List<string>();
+            List<string> outputDenominatorimage = new List<string>();
+            string input = "(12/13)i";
+            outputNumeratorreal.Add("0");
+            outputDenominatorreal.Add("1");
+
+            outputNumeratorimage.Add("12");
+            outputDenominatorimage.Add("13");
+            C n = C.Create(input);
+            Q rr = new Q(outputNumeratorreal, outputDenominatorreal);
+            Q ri = new Q(outputNumeratorimage, outputDenominatorimage);
+            C r = new C(rr, ri);
+            Assert.AreEqual(r, n);
+        }
+
+        [TestMethod]
+        public void CreateTest3()
+        {
+            List<string> outputNumeratorreal = new List<string>();
+            List<string> outputDenominatorreal = new List<string>();
+            List<string> outputNumeratorimage = new List<string>();
+            List<string> outputDenominatorimage = new List<string>();
+            string input = "12/13";
+            outputNumeratorreal.Add("12");
+            outputDenominatorreal.Add("13");
+
+            outputNumeratorimage.Add("0");
+            outputDenominatorimage.Add("1");
+            C n = C.Create(input);
+            Q rr = new Q(outputNumeratorreal, outputDenominatorreal);
+            Q ri = new Q(outputNumeratorimage, outputDenominatorimage);
+            C r = new C(rr, ri);
+            Assert.AreEqual(r, n);
+        }
     }
 }
