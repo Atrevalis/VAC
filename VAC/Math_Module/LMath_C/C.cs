@@ -297,9 +297,9 @@ namespace LMath
                 if (s[i] == '+' || s[i] == '-')
                 {
                     s = s.Replace(" ", "");
-                    bool flag1 = s[0] != '-';
+                    bool flag1 = s[0] == '-';
                     bool flag2 = true;
-                    if (flag1)
+                    if (!flag1)
                     {
                         s = s.Remove(0, 1);
                     }
@@ -317,7 +317,7 @@ namespace LMath
                     {
                         first[0] = first[0].Replace("i", "");
                         result.image = Q.Create(first[0]);
-                        if (!flag1) result.image = -result.image;
+                        if (flag1) result.image = -result.image;
                         result.real = Q.Create(first[1]);
                         if (!flag2) result.real = -result.real;
                     }
@@ -327,7 +327,7 @@ namespace LMath
                         result.image = Q.Create(first[1]);
                         if (!flag2) result.image = -result.image;
                         result.real = Q.Create(first[0]);
-                        if (!flag1) result.real = -result.real;
+                        if (flag1) result.real = -result.real;
                     }
                     return result;
                 }
@@ -342,7 +342,6 @@ namespace LMath
                 result.real = Q.Create(s);
             }
             return result;
-
         }
 
 
