@@ -188,7 +188,7 @@ namespace MVS_Controller
 
         private static void Label_Mouse_Move(object sender, MouseEventArgs e)
         {
-            Noda_MoseMove((sender as Label).Parent, e);
+            ((sender as Label).Parent as Noda).Noda_MoseMove((sender as Label).Parent, e);
         }
 
         private static void Label_Mouse_Enter(object sender, EventArgs e)

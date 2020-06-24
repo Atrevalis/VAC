@@ -130,6 +130,10 @@
 		isDown ~ if_operator ~ isDown ~ if
 	 "
 }
+Визуальная`точка
+#{
+	Dot ~ Dot ~  ~ Dot
+ }
 Результат
 #{
 	Result ~ Result ~ Вывод ~ Res

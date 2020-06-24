@@ -21,7 +21,7 @@ namespace MVS_Controller
             InitializeComponent();
             Size = new Size(10,10);
             System.Drawing.Drawing2D.GraphicsPath path = new System.Drawing.Drawing2D.GraphicsPath();
-            path.AddEllipse(0, 0, 50, 40);// сам поэксперементируй.
+            path.AddEllipse(0, 0, 10, 10);// сам поэксперементируй.
             Region rgn = new Region(path);
             Region = rgn;
 
