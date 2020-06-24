@@ -388,7 +388,8 @@ namespace LMath
 
         public override Math_Field LCM(Math_Field second)
         {
-            return null;
+            Q result = Create("0");
+            return result;
         }
 
         public override Math_Field Dawn()

@@ -383,7 +383,8 @@ namespace LMath
 
         public override Math_Field LCM(Math_Field second)
         {
-            return null;
+            C result = Create("0");
+            return result;
         }
 
         public override byte COM(Math_Field second)
