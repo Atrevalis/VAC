@@ -891,6 +891,28 @@ namespace Math_Module_Test
             Assert.AreEqual(t, n);
         }
 
+        [TestMethod]
+        public void LCMTest()
+        {
+            string input1 = "123/153";
+            string input2 = "245/1234";
+            string output = "0/1";
+            Q n = Q.Create(input1);
+            Q i = Q.Create(input2);
+            Q t = Q.Create(output);
+            Assert.AreEqual(t, n.LCM(i));
+        }
+
+        [TestMethod]
+        public void GCFTest()
+        {
+            string input1 = "123/153";
+            string input2 = "245/1234";
+            Q n = Q.Create(input1);
+            Q i = Q.Create(input2);
+            Assert.AreEqual(null, n.GCF(i));
+        }
+
         /*
         [TestMethod]
         public void RESTest()

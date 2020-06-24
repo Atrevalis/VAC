@@ -1515,7 +1515,7 @@ namespace Math_Module_Test
             List<string> outputDenominatorreal = new List<string>();
             List<string> outputNumeratorimage = new List<string>();
             List<string> outputDenominatorimage = new List<string>();
-            string input = "12/13i-2";
+            string input = "12/13i - 2";
             outputNumeratorreal.Add("-");
             outputNumeratorreal.Add("2");
             outputDenominatorreal.Add("1");
@@ -1568,5 +1568,28 @@ namespace Math_Module_Test
             C r = new C(rr, ri);
             Assert.AreEqual(r, n);
         }
+
+        [TestMethod]
+        public void LCMTest()
+        {
+            string input1 = "123/153 + 783/2454i";
+            string input2 = "245/1234";
+            string output = "0";
+            Q n = Q.Create(input1);
+            Q i = Q.Create(input2);
+            Q t = Q.Create(output);
+            Assert.AreEqual(t, n.LCM(i));
+        }
+
+        [TestMethod]
+        public void GCFTest()
+        {
+            string input1 = "123/153 + 276/3567i";
+            string input2 = "245/1234";
+            Q n = Q.Create(input1);
+            Q i = Q.Create(input2);
+            Assert.AreEqual(null, n.GCF(i));
+        }
+
     }
 }
