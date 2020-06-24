@@ -20,8 +20,8 @@ namespace MVS_Controller
         static public Noda Active = null;
         static private Noda Size_change = null;
         static public Noda enter = null;
-        static private Noda Loc_change = null;
-        static private Point Mouse_pos = new Point(0, 0);
+        static protected Noda Loc_change = null;
+        static protected Point Mouse_pos = new Point(0, 0);
         public static bool Paintt = false;
         static Color first, therd, text;
 
@@ -140,7 +140,7 @@ namespace MVS_Controller
             enter = null;
         }
 
-        private static void Noda_MoseMove(object sender, MouseEventArgs e)
+        protected virtual void Noda_MoseMove(object sender, MouseEventArgs e)
         {
             Point delta = new Point((e.Location.X - Mouse_pos.X), (e.Location.Y - Mouse_pos.Y));
             Noda nod = sender as Noda;

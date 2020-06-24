@@ -1,4 +1,5 @@
-﻿namespace Dot
+﻿namespace MVS_Controller
+
 {
     partial class Dot
     {
@@ -29,8 +30,8 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+           this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;// две нерабочие строчки специально для тебя Игорь
+           this.ClientSize = new System.Drawing.Size(800, 450);// с почтением Илья говнокодер со стажем
         }
 
         #endregion

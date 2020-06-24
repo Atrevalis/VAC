@@ -21,6 +21,8 @@ namespace MVS_Controller
                     return new if_operator(parent, panel, first, therd, text);
                 case "Res":
                     return new Result(parent, panel, first, therd, text);
+                case "Dot":
+                    return new Dot(parent, panel, first, therd, text);
                 default:
                     MessageBox.Show("Ошибка конфигурации: Неверное название типа ноды", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return null;
