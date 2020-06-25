@@ -683,15 +683,13 @@ namespace Math_Module_Test
             List<string> inputDenominator = new List<string>();
             List<string> inputNumerator1 = new List<string>();
             List<string> inputDenominator1 = new List<string>();
-            List<string> output = new List<string>();
             inputNumerator.Add("12");
             inputDenominator.Add("51");
             inputNumerator1.Add("1");
             inputDenominator1.Add("5");
-            output.Add("0");
             Q x = new Q(inputNumerator, inputDenominator);
             Q i = new Q(inputNumerator1, inputDenominator1);
-            N t = new N(output);
+            Q t = Q.Create("0");
             Assert.AreEqual(t, x.MOD(i));
         }
 

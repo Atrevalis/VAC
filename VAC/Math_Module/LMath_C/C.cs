@@ -107,6 +107,11 @@ namespace LMath
             return clone1;
         }
 
+        public static C operator %(C first, C second)
+        {
+            return C.Create("0");
+        }
+
         public static implicit operator C(Q value)
         {
             C result = new C();
@@ -357,7 +362,7 @@ namespace LMath
 
         public override Math_Field MOD(Math_Field second)
         {
-            return new C();
+            return C.Create("0");
         }
 
         public override Math_Field REM(Math_Field second)
