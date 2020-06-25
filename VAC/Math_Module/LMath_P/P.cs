@@ -337,10 +337,6 @@ namespace LMath
             return result;
         }
 
-        public static implicit operator List<List<string>[]>(P value)
-        {
-            return null;
-        }
 
         public static implicit operator List<string>(P value)
         {
@@ -349,7 +345,11 @@ namespace LMath
 
         public static implicit operator P(C value)
         {
-            return null;
+            P result = new P();
+            M monom = new M();
+            monom.coef = value.Clone() as C;
+            result.Ms.Add(monom);
+            return result;
         }
 
         public static explicit operator C(P value)//сломано
