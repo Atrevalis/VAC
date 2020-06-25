@@ -650,9 +650,24 @@ namespace LMath
                     degree = C.Create(s.Substring(startindex, endindex - startindex));
                     i = endindex + 1;
                     int a = 0;
+                    bool stupid_user = false;
                     for (; a < result.Ms.Count; a++)
                     {
+                        if(degree.COM(result.Ms[a].degree) == 0)
+                        {
+                            stupid_user = true;
+                            break;
+                        }
                         if (degree.COM(result.Ms[a].degree) == 2) break;
+                    }
+                    if (stupid_user)
+                    {
+                        result.Ms[a] = new M(coef + result.Ms[a].coef, degree);
+                    }
+                    else
+                    {
+                        if (a == result.Ms.Count) result.Ms.Add(new M(coef, degree));
+                        else result.Ms.Insert(a, new M(coef, degree));
                     }
                 }
             }

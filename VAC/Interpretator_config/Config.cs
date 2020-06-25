@@ -10,49 +10,53 @@ namespace Interpretator_config
     {
         public static Math_Field builder(string name, string input)
         {// конструктор экземпляров классов по входным данным
-
-            switch (name)
+            try
             {
-                case "N":
-                    {
-                        N n = N.Create(input);
-                        return n;
-                    }
-                case "Z":
-                    {
-                        Z z = Z.Create(input);
-                        return z;
-                    }
-                case "Q":
-                    {
-                        Q q = Q.Create(input);
-                        return q;
-                    }
-                case "P":
-                    {
-                        P p = P.Create(input);
-                        return p;
-                    }
-                case "C":
-                    {
-                        C c = C.Create(input);
-                        return c;
-                    }
+
+                switch (name)
+                {
+                    case "N":
+                        {
+                            N n = N.Create(input);
+                            return n;
+                        }
+                    case "Z":
+                        {
+                            Z z = Z.Create(input);
+                            return z;
+                        }
+                    case "Q":
+                        {
+                            Q q = Q.Create(input);
+                            return q;
+                        }
+                    case "P":
+                        {
+                            P p = P.Create(input);
+                            return p;
+                        }
+                    case "C":
+                        {
+                            C c = C.Create(input);
+                            return c;
+                        }
 
                     case "M":
-                    {
-                     M m = M.Create(input);
-                    return m;
+                        {
+                            M m = M.Create(input);
+                            return m;
 
-                    }
+                        }
 
                     default:
-                    { break; }
+                        { break; }
 
-                   
 
+
+                }
+                return null;
             }
-            return null;
+            catch { throw; }
         }
 
         public static Math_Field operands(string name, Math_Field[] input)
