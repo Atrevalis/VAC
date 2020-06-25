@@ -535,7 +535,6 @@ namespace Visual_Module
             Info info = new Info(this);
             info.Show();
             Enabled = false;
-            //Process.Start(Application.StartupPath + "\\Resources\\Spravka.docx");
         }
     }
 }
