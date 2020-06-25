@@ -305,22 +305,35 @@ namespace LMath
 
         public static P operator *(P first, P second) // MUL_PP_P
         {
-            P result;
-            P smaller;
-            if (first.Ms.Count() < second.Ms.Count())
-            {
-                result = second.Clone() as P;
-                smaller = first.Clone() as P;
-            }
-            else
-            {
-                result = first.Clone() as P;
-                smaller = second.Clone() as P;
-            }
-            M now;
-            for (int i = 0; i < smaller.Ms.Count(); i++)
-            {
-                now = smaller.Ms[i];
+            bool exit = false;
+           P result = new P();
+           C coef ;
+           C degree;
+
+            for (int i = 0; i < first.Ms.Count; i++)
+            { 
+                for (int j = 0; j < second.Ms.Count; j++)
+                {
+                    coef = first.Ms[i].coef * second.Ms[j].coef;
+                    degree = first.Ms[i].degree + second.Ms[j].degree;
+                    for(int k = 0;k<result.Ms.Count;k++)
+                    {
+                        if (result.Ms[k].degree.COM(coef) == 0 )
+                        {
+                            result.Ms[k] = new M(result.Ms[k].coef + coef, degree);
+                            exit = true;
+                            break;
+                        }
+                        if(result.Ms[k].degree.COM(coef) == 1)
+                        {
+                            result.Ms.Insert(k, new M(coef, degree));
+                            exit = true;
+                            break;
+                        }
+                    }
+                    if (exit) { continue; }
+                    result.Ms.Add(new M(coef, degree));
+                }
             }
             return result;
         }

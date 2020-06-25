@@ -54,6 +54,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Q_Test.cs" />
     <Compile Include="Z_Test.cs" />
+    <Compile Include="M_Test.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

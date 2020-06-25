@@ -11,7 +11,7 @@ namespace Math_Module_Test
         [TestMethod]
         public void MinusTest1()
         {
-            string input = new string;
+            string input;
             List<string> outputNumeratorreal = new List<string>();
             List<string> outputDenominatorreal = new List<string>();
             List<string> outputNumeratorimage = new List<string>();
