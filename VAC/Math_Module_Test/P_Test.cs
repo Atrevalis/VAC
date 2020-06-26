@@ -29,5 +29,10 @@ namespace Math_Module_Test
             C r = new C(rr, ri);
             Assert.AreEqual(r, null);
         }
+        [TestMethod]
+        public void CreateTest1()
+        {
+
+        }
     }
 }

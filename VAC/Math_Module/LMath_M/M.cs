@@ -85,7 +85,7 @@ namespace LMath
 
         #region Перегрузки
 
-        public static M operator -(M value)//избавится от корявости (когда P заработает)
+        public static M operator -(M value)//избавится от корявости (когда P заработает)// есть тесты
         {
             M m = value.Clone() as M;
             for(int i = 0; i < m.h; i++)
@@ -364,11 +364,11 @@ namespace LMath
 
         public static M Create(string s)
         {
-            string[] str = s.Split('_');
-            M result = new M(str[0].Split('|').Length, str.Length);
+            string[] str = s.Split('|');
+            M result = new M(str[0].Split('_').Length, str.Length);
             for (int y = 0; y < result.h; y++)
             {
-                string[] elements = str[y].Split('|');
+                string[] elements = str[y].Split('_');
                 for (int x = 0; x < result.elements.Length/result.h; x++)
                 {
                     result.elements[y, x] = P.Create(elements[x]);
