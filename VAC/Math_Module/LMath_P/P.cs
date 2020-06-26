@@ -542,7 +542,20 @@ namespace LMath
 
         public override Math_Field MOD(Math_Field second)
         {
-            return this % (second as P);
+            P res = this % (second as P);
+            P zero = Create("0");
+            if ((res.LED).COM(zero.LED) == 1)
+            {
+                if(((P)second.LED).COM(zero.LED) == 1)
+                {
+                    res += -(P)second;
+                }
+                else
+                {
+                    res += (P)second;
+                }
+            }
+            return res;
         }
 
         public override Math_Field REM(Math_Field second)

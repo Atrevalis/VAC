@@ -189,42 +189,15 @@ namespace LMath
                 return null;
         }
 
-        public static N operator %(Z first, Z second) // MOD_ZZ_Z //есть тесты
+        public static Z operator %(Z first, Z second) // MOD_ZZ_Z //есть тесты
         {
-            Z Trash = first.Clone() as Z;
-            List<string> nol = new List<string>();
-            nol.Add("0");
-            N pog = new N(nol);
-            List<string> odin = new List<string>();
-            odin.Add("1");
-            N one = new N(odin);
-            if (second.POZ_Z_D != 0)
+            if (second.POZ_Z_D == 0)
             {
-                if (first.Abs.COM(second.Abs) != 1)
-                {
-                    if (first.isN == true && second.isN == true)
-                    {
-                        Trash = first - (first / second) * second;
-                    }
-                    if (first.isN == true && second.isN == false)
-                    {
-                        Trash = first - (first / second) * second;
-                    }
-                    if (first.isN == false && second.isN == false)
-                    {
-                        Trash = first - ((first / second) + one) * second;
-                    }
-                    if (first.isN == false && second.isN == true)
-                    {
-                        Trash = first - ((first / second) - one) * second;
-                    }
-                    return (N)Trash;
-                }
-
-                else return (N)Trash;
+                return null;
             }
-            else return null;
-        
+            Z res = first.Clone() as Z;
+            res -= second * (first / second);
+            return res;
         }
 
         public static Z operator ^(Z first, N second)
@@ -498,7 +471,19 @@ namespace LMath
 
         public override Math_Field MOD(Math_Field second)
         {
-            return this % (second as Z);
+            Z res = this % (second as Z);
+            if (res.POZ_Z_D == 1)
+            {
+                if (((Z)second).POZ_Z_D == 1)
+                {
+                    res += -(Z)second;
+                }
+                else
+                {
+                    res += (Z)second;
+                }
+            }
+            return res;
         }
 
         public override Math_Field REM(Math_Field second)

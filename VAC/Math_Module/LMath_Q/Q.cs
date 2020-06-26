@@ -170,9 +170,7 @@ namespace LMath
 
         public static Z operator %(Q first, Q second)//есть тесты
         {
-            List<string> nol = new List<string>();
-            nol.Add("0");
-            Z pog = new Z(nol);
+            Z pog = Z.Create("0");
             return pog;
         }
 
@@ -422,7 +420,7 @@ namespace LMath
 
         public override Math_Field MOD(Math_Field second)
         {
-            return this % (second as Q);
+            return Create("0");
         }
 
         public override Math_Field REM(Math_Field second)
