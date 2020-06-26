@@ -112,6 +112,31 @@ namespace LMath
             return C.Create("0");
         }
 
+        public static implicit operator List<string>(C value)
+        {
+            List<string> result = new List<string>();
+            List<string> temp = new List<string>();
+            Q image = value.image;
+            Q real = value.real;
+            Q zero = Q.Create("0");
+            if (real.COM(zero) != 1)
+            {
+                temp = value.real;
+                result.AddRange(temp);
+            }
+            if (image.COM(zero) == 2 || image.COM(zero) == 1)
+            {
+                if (real.COM(zero) != 1)
+                {
+                    result.Add("+");
+                }
+                temp = value.image;
+                result.AddRange(temp);
+                result.Add("i");
+            }
+            return result;
+        }
+
         public static implicit operator C(Q value)
         {
             C result = new C();

@@ -353,7 +353,35 @@ namespace LMath
 
         public static implicit operator List<string>(P value)
         {
-            return null;
+            List<string> result = new List<string>();
+            List<string> temp = new List<string>();
+            C zero = C.Create("0");
+            C coef = new C();
+            C degree = new C();
+            for (int i = 0; i < value.Ms.Count - 1; i++)
+            {
+                coef = value.Ms[i].coef;
+                degree = value.Ms[i].degree;
+                if (coef.COM(zero) != 0)
+                {
+                    if (i != 1)
+                    {
+                        result.Add("+");
+                    }
+                    temp = coef;
+                    result.Add("(");
+                    result.AddRange(temp);
+                    result.Add(")");
+                }
+                if (coef.COM(zero) == 0)
+                {
+                    continue;
+                }
+                result.Add("x^");
+                temp = degree;
+                result.AddRange(temp);
+            }
+            return result;
         }
 
         public static implicit operator P(C value)
@@ -365,7 +393,7 @@ namespace LMath
             return result;
         }
 
-        public static explicit operator C(P value)//сломано
+        public static explicit operator C(P value)
         {
             if (value.isDown)
             {
