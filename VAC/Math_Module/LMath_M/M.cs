@@ -235,11 +235,6 @@ namespace LMath
             return oneness;
         }
 
-        public static M Create(string s)
-        {
-            return null;
-        }
-
         #endregion
 
         #region Событие
@@ -365,6 +360,21 @@ namespace LMath
                 return elements[0, 0].Clone();
             }
             return this;
+        }
+
+        public static M Create(string s)
+        {
+            string[] str = s.Split('_');
+            M result = new M(str[0].Split('|').Length, str.Length);
+            for (int y = 0; y < result.h; y++)
+            {
+                string[] elements = str[y].Split('|');
+                for (int x = 0; x < result.elements.Length/result.h; x++)
+                {
+                    result.elements[y, x] = P.Create(elements[x]);
+                }
+            }
+            return result;
         }
 
         public override byte COM(Math_Field second)
