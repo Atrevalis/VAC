@@ -25,19 +25,15 @@
                     }
                 case 3:
                     {
-                        return null;
+                        return (C)(value as Q);
                     }
                 case 4:
                     {
-                        return null;
+                        return (P)(value as C);
                     }
                 case 5:
                     {
-                        return null;
-                    }
-                case 6:
-                    {
-                        return value;
+                        return (M)(value as P);
                     }
                 default:
                     {

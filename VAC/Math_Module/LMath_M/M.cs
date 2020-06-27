@@ -172,6 +172,15 @@ namespace LMath
             return null;
         }
 
+        public static explicit operator P(M value) // Александр Рассохин 9370//есть тесты
+        {
+            return null;
+        }
+
+        public static implicit operator M(P value) // Александр Рассохин 9370//есть тесты
+        {
+            return null;
+        }
 
         public override bool Equals(object obj)
         {
