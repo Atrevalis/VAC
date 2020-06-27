@@ -75,6 +75,7 @@ namespace Visual_Module
             this.label1.Size = new System.Drawing.Size(98, 18);
             this.label1.TabIndex = 3;
             this.label1.Text = "Имя проекта";
+            this.label1.ForeColor = text;
             // 
             // label2
             // 
@@ -85,6 +86,7 @@ namespace Visual_Module
             this.label2.Size = new System.Drawing.Size(41, 18);
             this.label2.TabIndex = 4;
             this.label2.Text = "Путь";
+            this.label2.ForeColor = text;
             // 
             // button1
             // 
@@ -96,6 +98,7 @@ namespace Visual_Module
             this.button1.TabIndex = 5;
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.ForeColor = text;
             // 
             // button2
             // 
@@ -108,6 +111,7 @@ namespace Visual_Module
             this.button2.Text = "Создать";
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.button2.ForeColor = text;
             // 
             // button3
             // 
@@ -121,6 +125,7 @@ namespace Visual_Module
             this.button3.Text = "Назад";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.button3.ForeColor = text;
             // 
             // label3
             // 

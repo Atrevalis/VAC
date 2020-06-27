@@ -63,11 +63,10 @@ namespace Visual_Module
             // 
             this.pictureBox1.Location = new System.Drawing.Point(16, 25);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(32, 18);
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Tile;
-            this.pictureBox1.Size = new System.Drawing.Size(462, 303);
+            this.pictureBox1.Size = new System.Drawing.Size(1000, 1000);
             // 
             // panel2
             // 

@@ -78,13 +78,18 @@ namespace Visual_Module
             {
                 pictureBox1.Image.Dispose();
                 pictureBox1.Image = null;
+                pictureBox1.Size = new Size(1, 1);
             }
             for (int i = 0; i < datas.Count; i++)
             {
                 if(name == datas[i].name)
                 {
                     label1.Text = datas[i].text;
-                    if (datas[i].image_number != 0) pictureBox1.Image = Image.FromFile(Application.StartupPath + "\\Resources\\Spravka\\" + datas[i].image_number + ".jpg");
+                    if (datas[i].image_number != 0)
+                    {
+                        pictureBox1.Size = new Size(1000, 1000);
+                        pictureBox1.Image = Image.FromFile(Application.StartupPath + "\\Resources\\Spravka\\" + datas[i].image_number + ".jpg");
+                    }
                     pictureBox1.Location = new Point(pictureBox1.Location.X, label1.Location.Y + label1.Height + 10);
                     break;
                 }
