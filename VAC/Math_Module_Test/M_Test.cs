@@ -92,6 +92,70 @@ namespace Math_Module_Test
             M output = M.Create(num);
             Assert.AreEqual(output, input - input2);
         }
+
+        [TestMethod]
+        public void RemTest1()
+        {
+            string num1 = "0|0|0";
+            string num2 = "1_2|4_5|7_8";
+            M input = M.Create(num1);
+            M input2 = M.Create(num2);
+            Assert.AreEqual(null, input.REM(input2));
+        }
+
+        [TestMethod]
+        public void RemTest2()
+        {
+            string num1 = "0_0_0|0_0_0|0_0_0";
+            string num2 = "1_2_3|4_5_6|7_8_9";
+            string num = "0";
+            M input = M.Create(num1);
+            M input2 = M.Create(num2);
+            M output = M.Create(num);
+            Assert.AreEqual(output, input.REM(input2));
+        }
+
+        [TestMethod]
+        public void RemTest3()
+        {
+            string num1 = "0_0_0|0_0_0|0_0_0";
+            string num2 = "0_2_3|4_0_6|7_8_0";
+            M input = M.Create(num1);
+            M input2 = M.Create(num2);
+            Assert.AreEqual(null, input.REM(input2));
+        }
+
+        [TestMethod]
+        public void MODTest1()
+        {
+            string num1 = "0|0|0";
+            string num2 = "1_2|4_5|7_8";
+            M input = M.Create(num1);
+            M input2 = M.Create(num2);
+            Assert.AreEqual(null, input.MOD(input2));
+        }
+
+        [TestMethod]
+        public void MODTest2()
+        {
+            string num1 = "0_0_0|0_0_0|0_0_0";
+            string num2 = "1_2_3|4_5_6|7_8_9";
+            string num = "0";
+            M input = M.Create(num1);
+            M input2 = M.Create(num2);
+            M output = M.Create(num);
+            Assert.AreEqual(output, input.MOD(input2));
+        }
+
+        [TestMethod]
+        public void MODTest3()
+        {
+            string num1 = "0_0_0|0_0_0|0_0_0";
+            string num2 = "0_2_3|4_0_6|7_8_0";
+            M input = M.Create(num1);
+            M input2 = M.Create(num2);
+            Assert.AreEqual(null, input.MOD(input2));
+=======
         [TestMethod]
         public void binMultTest1()
 
