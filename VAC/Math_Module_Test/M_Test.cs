@@ -155,7 +155,8 @@ namespace Math_Module_Test
             M input = M.Create(num1);
             M input2 = M.Create(num2);
             Assert.AreEqual(null, input.MOD(input2));
-=======
+        }
+
         [TestMethod]
         public void binMultTest1()
 
@@ -186,7 +187,7 @@ namespace Math_Module_Test
             string num1 = "2_0|0_2|2_0";
             string num2 = "2_0_2|0_2_0";
             string num = "4_0_4|0_4_0|4_0_4";
-            M input = M.Create(num1);
+            M input1 = M.Create(num1);
             M input2 = M.Create(num2);
             M output = M.Create(num1);
             Assert.AreEqual(output, input1 * input2);
@@ -198,7 +199,7 @@ namespace Math_Module_Test
             string num1 = "2_0|0_2|2_0";
             string num2 = "2_0_2|0_2_0";
             string num = "8_0|0_4";
-            M input = M.Create(num1);
+            M input1 = M.Create(num1);
             M input2 = M.Create(num2);
             M output = M.Create(num1);
             Assert.AreEqual(output, input1 * input2);
@@ -211,7 +212,7 @@ namespace Math_Module_Test
             string num1 = "2_0|0_2|2_0";
             string num2 = "0_0_0|0_0_0";
             string num = "8_0|0_4";
-            M input = M.Create(num1);
+            M input1 = M.Create(num1);
             M input2 = M.Create(num2);
             Assert.AreEqual(null, input1 / input2);
         }
@@ -221,9 +222,9 @@ namespace Math_Module_Test
         {
             string num1 = "0_0_0|0_0_0";
             string num2 = "1_2_2|2_1_2|2_2_1";//"-6/10_4/10_4/10|4/10_-6/10_4/10|4/10_4/10_-6/10"
-            M input = M.Create(num1);
+            M input1 = M.Create(num1);
             M input2 = M.Create(num2);
-            Assert.AreEqual(input, input1 / input2);
+            Assert.AreEqual(null, input1 / input2);
         }
     }
 
