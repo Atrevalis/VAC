@@ -471,6 +471,10 @@ namespace LMath
 
         public override Math_Field MOD(Math_Field second)
         {
+            if (((Z)second).POZ_Z_D == 0)
+            {
+                return null;
+            }
             Z res = this % (second as Z);
             if (res.POZ_Z_D == 1)
             {
@@ -488,7 +492,7 @@ namespace LMath
 
         public override Math_Field REM(Math_Field second)
         {
-            return null;
+            return this % (second as Z);
         }
 
         public override Math_Field GCF(Math_Field second)

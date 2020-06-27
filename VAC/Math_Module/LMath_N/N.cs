@@ -686,7 +686,7 @@ namespace LMath
 
         public override Math_Field REM(Math_Field second)
         {
-            return null;
+            return this % (second as N);
         }
 
         public override Math_Field GCF(Math_Field second)
