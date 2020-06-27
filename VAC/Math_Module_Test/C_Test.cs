@@ -1575,9 +1575,9 @@ namespace Math_Module_Test
             string input1 = "123/153 + 783/2454i";
             string input2 = "245/1234";
             string output = "0";
-            Q n = Q.Create(input1);
-            Q i = Q.Create(input2);
-            Q t = Q.Create(output);
+            C n = C.Create(input1);
+            C i = C.Create(input2);
+            C t = C.Create(output);
             Assert.AreEqual(t, n.LCM(i));
         }
 
@@ -1586,10 +1586,31 @@ namespace Math_Module_Test
         {
             string input1 = "123/153 + 276/3567i";
             string input2 = "245/1234";
-            Q n = Q.Create(input1);
-            Q i = Q.Create(input2);
+            C n = C.Create(input1);
+            C i = C.Create(input2);
             Assert.AreEqual(null, n.GCF(i));
         }
 
+        [TestMethod]
+        public void MODTest()
+        {
+            string input1 = "123/153 + 276/3567i";
+            string input2 = "245/1234";
+            C n = C.Create(input1);
+            C i = C.Create(input2);
+            C t = new C();
+            Assert.AreEqual(t, n.MOD(i));
+        }
+
+        [TestMethod]
+        public void REMTest()
+        {
+            string input1 = "123/153 + 276/3567i";
+            string input2 = "245/1234";
+            C n = C.Create(input1);
+            C i = C.Create(input2);
+            C t = new C();
+            Assert.AreEqual(t, n.REM(i));
+        }
     }
 }
