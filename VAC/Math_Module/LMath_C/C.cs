@@ -109,8 +109,7 @@ namespace LMath
 
         public static C operator %(C first, C second)
         {
-            C res = new C(0);
-            return res;
+            return new C();
         }
 
         public static implicit operator List<string>(C value)
