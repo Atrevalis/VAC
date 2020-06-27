@@ -148,7 +148,22 @@ namespace LMath
 
         public static M operator %(M first, M second)//есть тесты
         {
-            return null;
+            if (first.w == second.h)
+            {
+                if (second.Reverse() == null)
+                {
+                    return null;
+                }
+                else
+                {
+                    M res = new M(1, 1, 0);
+                    return res;
+                }
+            }
+            else
+            {
+                return null;
+            }
         }
 
 
@@ -394,7 +409,7 @@ namespace LMath
 
         public override Math_Field REM(Math_Field second)
         {
-            return null;
+            return this % (second as M);
         }
 
         public override Math_Field GCF(Math_Field second)

@@ -990,8 +990,8 @@ namespace Math_Module_Test
             input.Add("287");
             input1.Add("273");
             input1.Add("571");
-            output.Add("146");
-            output.Add("574");
+            output.Add("126");
+            output.Add("997");
             Z n = new Z(input);
             Z i = new Z(input1);
             Z t = new Z(output);
@@ -1009,8 +1009,8 @@ namespace Math_Module_Test
             input1.Add("-");
             input1.Add("273");
             input1.Add("571");
-            output.Add("126");
-            output.Add("997");
+            output.Add("146");
+            output.Add("574");
             Z n = new Z(input);
             Z i = new Z(input1);
             Z t = new Z(output);
@@ -1029,12 +1029,12 @@ namespace Math_Module_Test
             input1.Add("-");
             input1.Add("273");
             input1.Add("571");
-            output.Add("146");
-            output.Add("574");
+            output.Add("126");
+            output.Add("997");
             Z n = new Z(input);
             Z i = new Z(input1);
             Z t = new Z(output);
-            Assert.AreEqual(t, n % i);
+            Assert.AreEqual(t, n.MOD(i));
         }
 
         [TestMethod]

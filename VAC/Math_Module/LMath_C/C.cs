@@ -109,7 +109,8 @@ namespace LMath
 
         public static C operator %(C first, C second)
         {
-            return C.Create("0");
+            C res = new C(0);
+            return res;
         }
 
         public static implicit operator List<string>(C value)
@@ -387,12 +388,13 @@ namespace LMath
 
         public override Math_Field MOD(Math_Field second)
         {
-            return C.Create("0");
+            C res = new C(0);
+            return res;
         }
 
         public override Math_Field REM(Math_Field second)
         {
-            return null;
+            return this % (second as C);
         }
 
         public override Math_Field ADD(Math_Field second)

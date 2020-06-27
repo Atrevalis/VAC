@@ -420,12 +420,13 @@ namespace LMath
 
         public override Math_Field MOD(Math_Field second)
         {
-            return Create("0");
+            Q res = new Q(0);
+            return res;
         }
 
         public override Math_Field REM(Math_Field second)
         {
-            return null;
+            return this % (second as Q);
         }
 
         public override byte COM(Math_Field second)
