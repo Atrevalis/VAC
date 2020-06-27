@@ -123,10 +123,6 @@
       <Project>{111c4c42-787b-4808-b378-06205bd79ba1}</Project>
       <Name>External_Controller</Name>
     </ProjectReference>
-    <ProjectReference Include="..\External_Module\External_Module.csproj">
-      <Project>{f719c6eb-59db-4a45-89ee-bfa88e5b996d}</Project>
-      <Name>External_Module</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Interpretation_Controller\Interpretation_Controller.csproj">
       <Project>{835dc3c4-9ef4-4c02-b01f-ae821807f73b}</Project>
       <Name>Interpretation_Controller</Name>

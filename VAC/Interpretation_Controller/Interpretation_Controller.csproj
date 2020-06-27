@@ -50,10 +50,6 @@
       <Project>{111c4c42-787b-4808-b378-06205bd79ba1}</Project>
       <Name>External_Controller</Name>
     </ProjectReference>
-    <ProjectReference Include="..\External_Module\External_Module.csproj">
-      <Project>{f719c6eb-59db-4a45-89ee-bfa88e5b996d}</Project>
-      <Name>External_Module</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Interpretator_config\Interpretator_config.csproj">
       <Project>{009c0177-b73c-4239-88dc-bf30d481bd54}</Project>
       <Name>Interpretator_config</Name>
