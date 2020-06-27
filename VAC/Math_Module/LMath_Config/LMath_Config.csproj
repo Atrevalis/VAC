@@ -54,6 +54,10 @@
       <Project>{3def3843-4999-4fe0-ad14-9c7ea8b16042}</Project>
       <Name>LMath_Main</Name>
     </ProjectReference>
+    <ProjectReference Include="..\LMath_M\LMath_M.csproj">
+      <Project>{0d664ef4-c7b4-469f-acd1-45dba9475d0b}</Project>
+      <Name>LMath_M</Name>
+    </ProjectReference>
     <ProjectReference Include="..\LMath_N\LMath_N.csproj">
       <Project>{d463b3fb-d1e2-4eec-afa1-f0bda5cab91b}</Project>
       <Name>LMath_N</Name>
