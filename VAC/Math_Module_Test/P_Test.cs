@@ -9,30 +9,27 @@ namespace Math_Module_Test
     public class P_Test
     {
         [TestMethod]
-        public void MinusTest1()
+        public void MODTest1()
         {
-            string input;
-            List<string> outputNumeratorreal = new List<string>();
-            List<string> outputDenominatorreal = new List<string>();
-            List<string> outputNumeratorimage = new List<string>();
-            List<string> outputDenominatorimage = new List<string>();
-            input = "";
-            outputNumeratorreal.Add("0");
-            outputDenominatorreal.Add("1");
-            outputDenominatorreal.Add("877");
-
-            outputNumeratorimage.Add("234");
-            outputDenominatorimage.Add("1");
-            outputDenominatorimage.Add("302");
-            Q rr = new Q(outputNumeratorreal, outputDenominatorreal);
-            Q ri = new Q(outputNumeratorimage, outputDenominatorimage);
-            C r = new C(rr, ri);
-            Assert.AreEqual(r, null);
+            string input = "-13x^5+(12i+2)x^2-100x^3+12ix+32";
+            string input2 = "x-1";
+            string output = "143";
+            P input1 = P.Create(input);
+            P input3 = P.Create(input2);
+            P output1 = P.Create(output);
+            Assert.AreEqual(output1, input1.MOD(input3));
         }
-        [TestMethod]
-        public void CreateTest1()
-        {
 
+        [TestMethod]
+        public void REMTest1()
+        {
+            string input = "-13x^5+(12i+2)x^2-100x^3+12ix+32";
+            string input2 = "x-1";
+            string output = "143";
+            P input1 = P.Create(input);
+            P input3 = P.Create(input2);
+            P output1 = P.Create(output);
+            Assert.AreEqual(output1, input1.REM(input3));
         }
     }
 }
