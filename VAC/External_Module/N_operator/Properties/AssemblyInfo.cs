@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // Общие сведения об этой сборке предоставляются следующим набором
 // набора атрибутов. Измените значения этих атрибутов для изменения сведений,
 // связанные со сборкой.
-[assembly: AssemblyTitle("Bin_operator")]
+[assembly: AssemblyTitle("N_operator")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Bin_operator")]
+[assembly: AssemblyProduct("N_operator")]
 [assembly: AssemblyCopyright("Copyright ©  2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // Следующий GUID служит для идентификации библиотеки типов, если этот проект будет видимым для COM
-[assembly: Guid("34af4e8b-fa37-4dc1-8f11-d0b5c877b429")]
+[assembly: Guid("966db952-2465-4bd8-9fd8-3a1d78a523f4")]
 
 // Сведения о версии сборки состоят из указанных ниже четырех значений:
 //

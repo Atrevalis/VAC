@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>34af4e8b-fa37-4dc1-8f11-d0b5c877b429</ProjectGuid>
+    <ProjectGuid>72ccaf7d-01c1-422b-ba1d-bba6b14841ab</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Bin_operator</RootNamespace>
-    <AssemblyName>Bin_operator</AssemblyName>
+    <RootNamespace>if_operator</RootNamespace>
+    <AssemblyName>if_operator</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>

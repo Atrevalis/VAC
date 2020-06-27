@@ -44,7 +44,7 @@ namespace External_module
                         {
                             if_.exits[i] = new List<Noda>();
                         }
-                        args = new string[] { "true", "false"};
+                        args = new string[] { "t", "f"};
                         if_.names_of_exits = args;
                         if_.Name = name;
                     }
