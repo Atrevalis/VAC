@@ -571,7 +571,7 @@ namespace LMath
         public override Math_Field MOD(Math_Field second)
         {
             P res = this % (second as P);
-            P zero = new P(0);
+            P zero = new P();
             if ((res.LED).COM(zero.LED) == 1)
             {
                 if(((P)second.LED).COM(zero.LED) == 1)

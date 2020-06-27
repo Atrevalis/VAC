@@ -388,8 +388,7 @@ namespace LMath
 
         public override Math_Field MOD(Math_Field second)
         {
-            C res = new C(0);
-            return res;
+            return new C();
         }
 
         public override Math_Field REM(Math_Field second)

@@ -420,8 +420,7 @@ namespace LMath
 
         public override Math_Field MOD(Math_Field second)
         {
-            Q res = new Q(0);
-            return res;
+            return new Q();
         }
 
         public override Math_Field REM(Math_Field second)
