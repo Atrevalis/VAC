@@ -20,7 +20,7 @@ namespace External_Controller
         public static List<Bin_operator> bin_Operators = new List<Bin_operator>();
         public static List<if_operator> if_Operators = new List<if_operator>();
         public static List<N_operator> N_Operators = new List<N_operator>();
-        public static List<Noda> nods = new List<Noda>();
+        public static List<Bilder.Noda_C> nods = new List<Bilder.Noda_C>();
         public static List<Result> results = new List<Result>();
         public static List<Uno_operator> uno_Operators = new List<Uno_operator>();
         public static List<Working_data> working_Dates = new List<Working_data>();
@@ -39,87 +39,12 @@ namespace External_Controller
             {
                 Control nod = nods[i].Visul as Control;
                 writer.WriteLine(nod.Location.X + " " + nod.Location.Y + " " + nod.Width + " " + nod.Height);
-                if (nods[i].information.type != "operator")
-                {
-                    writer.WriteLine(nods[i].information.type + " " + nods[i].information.name + " " + (nods[i].Visul as MVS_Controller.Noda).label.Text);
-                }
-                else
-                {
-                    switch((nods[i].information as External_module.Operators).Count_of_up_connection)
-                    {
-                        case -1:
-                            {
-                                writer.WriteLine(nods[i].information.type + " " + nods[i].information.name + " " + (nods[i].Visul as MVS_Controller.Noda).label.Text + "!N_operator");
-                            }
-                            break;
-                        case 1:
-                            {
-                                writer.WriteLine(nods[i].information.type + " " + nods[i].information.name + " " + (nods[i].Visul as MVS_Controller.Noda).label.Text + "!Uno_operator");
-                            }
-                            break;
-                        case 2:
-                            {
-                                writer.WriteLine(nods[i].information.type + " " + nods[i].information.name + " " + (nods[i].Visul as MVS_Controller.Noda).label.Text + "!Bin_operator");
-                            }
-                            break;
-                    }
-                }
+                Bilder.Saver1(writer, nods[i].information, (nods[i].Visul as MVS_Controller.Noda).label.Text);
             }
             writer.WriteLine();
             for(int i = 0; i < nods.Count; i++)
             {
-                switch(nods[i].information.type)
-                {
-                    case "Data":
-                        {
-                            for(int j = 0; j < (nods[i].information as External_module.Data).down_Contacted.Count; j++)
-                            {
-                                for(int k = 0; k < nods.Count; k++)
-                                {
-                                    if(nods[k].information == (nods[i].information as External_module.Data).down_Contacted[j])
-                                    {
-                                        writer.Write(k + " ");
-                                    }
-                                }
-                            }
-                            writer.WriteLine();
-                        }
-                        break;
-                    case "if":
-                        {
-                            for (int j = 0; j < (nods[i].information as External_module.if_operator).exits.Length; j++)
-                            {
-                                for (int q = 0; q < (nods[i].information as External_module.if_operator).exits[j].Count; q++)
-                                {
-                                    for (int k = 0; k < nods.Count; k++)
-                                    {
-                                        if (nods[k].information == (nods[i].information as External_module.if_operator).exits[j][q])
-                                        {
-                                            writer.Write(k + " ");
-                                        }
-                                    }
-                                }
-                                writer.Write("!");
-                            }
-                            writer.WriteLine();
-                        }
-                        break;
-                    case "operator":
-                        {
-                            for (int j = 0; j < (nods[i].information as External_module.Operators).down_Contacted.Count; j++)
-                            {
-                                for (int k = 0; k < nods.Count; k++)
-                                {
-                                    if (nods[k].information == (nods[i].information as External_module.Operators).down_Contacted[j])
-                                    {
-                                        writer.Write(k + " ");
-                                    }
-                                }
-                            }
-                            writer.WriteLine();
-                        }
-                        break;
-                }
+                Bilder.Saver2(writer, nods, i);
             }
             writer.Close();
             file.Close();
@@ -264,7 +189,7 @@ namespace External_Controller
                     {
                         dates.Add(new Data(Bilder.Bild_Data(name), Visual_nod));
                         working_Dates.Add(new Working_data(dates[dates.Count - 1].information, Visual_nod));
-                        nods.Add(new Noda(dates[dates.Count - 1].information, Visual_nod));
+                        nods.Add(new Bilder.Noda_C(dates[dates.Count - 1].information, Visual_nod));
                     }
                     break;
                 case "Bin_operator":
@@ -272,7 +197,7 @@ namespace External_Controller
                         bin_Operators.Add(new Bin_operator(Bilder.Bild_bin_op(name), Visual_nod));
                         operators.Add(new Operators(bin_Operators[bin_Operators.Count - 1].information, Visual_nod));
                         working_Dates.Add(new Working_data(bin_Operators[bin_Operators.Count - 1].information, Visual_nod));
-                        nods.Add(new Noda(bin_Operators[bin_Operators.Count - 1].information, Visual_nod));
+                        nods.Add(new Bilder.Noda_C(bin_Operators[bin_Operators.Count - 1].information, Visual_nod));
                     }
                     break;
                 case "Uno_operator":
@@ -280,7 +205,7 @@ namespace External_Controller
                         uno_Operators.Add(new Uno_operator(Bilder.Bild_uno_op(name), Visual_nod));
                         operators.Add(new Operators(uno_Operators[uno_Operators.Count - 1].information, Visual_nod));
                         working_Dates.Add(new Working_data(uno_Operators[uno_Operators.Count - 1].information, Visual_nod));
-                        nods.Add(new Noda(uno_Operators[uno_Operators.Count - 1].information, Visual_nod));
+                        nods.Add(new Bilder.Noda_C(uno_Operators[uno_Operators.Count - 1].information, Visual_nod));
                     }
                     break;
                 case "N_operator":
@@ -288,19 +213,19 @@ namespace External_Controller
                         N_Operators.Add(new N_operator(Bilder.Bild_n_op(name), Visual_nod));
                         operators.Add(new Operators(N_Operators[N_Operators.Count - 1].information, Visual_nod));
                         working_Dates.Add(new Working_data(N_Operators[N_Operators.Count - 1].information, Visual_nod));
-                        nods.Add(new Noda(N_Operators[N_Operators.Count - 1].information, Visual_nod));
+                        nods.Add(new Bilder.Noda_C(N_Operators[N_Operators.Count - 1].information, Visual_nod));
                     }
                     break;
                 case "if_operator":
                     {
                         if_Operators.Add(new if_operator(Bilder.Bild_if_Operator(name, ref ags), Visual_nod));
-                        nods.Add(new Noda(if_Operators[if_Operators.Count - 1].information, Visual_nod));
+                        nods.Add(new Bilder.Noda_C(if_Operators[if_Operators.Count - 1].information, Visual_nod));
                     }
                     break;
                 case "Result":
                     {
                         results.Add(new Result(new External_module.Result(), Visual_nod));
-                        nods.Add(new Noda(results[results.Count - 1].information, Visual_nod));
+                        nods.Add(new Bilder.Noda_C(results[results.Count - 1].information, Visual_nod));
                     }
                     break;
 
@@ -452,18 +377,6 @@ namespace External_Controller
             public object Visul;
 
             public N_operator(External_module.N_operator data, object e)
-            {
-                information = data;
-                Visul = e;
-            }
-        }
-
-        public struct Noda
-        {
-            public External_module.Noda information;
-            public object Visul;
-
-            public Noda(External_module.Noda data, object e)
             {
                 information = data;
                 Visul = e;

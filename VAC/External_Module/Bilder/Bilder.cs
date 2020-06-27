@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,6 +9,18 @@ namespace External_module
 {
     public static class Bilder
     {
+        public struct Noda_C
+        {
+            public External_module.Noda information;
+            public object Visul;
+
+            public Noda_C(External_module.Noda data, object e)
+            {
+                information = data;
+                Visul = e;
+            }
+        }
+
         static public Data Bild_Data(string arg)
         {
             Data data = new Data();
@@ -77,6 +90,91 @@ namespace External_module
             n.type = "operator";
             n.name_of_operators = value;
             return n;
+        }
+
+        public static void Saver1(StreamWriter writer, Noda noda, string text)
+        {
+            if (noda.type != "operator")
+            {
+                writer.WriteLine(noda.type + " " + noda.name + " " + text);
+            }
+            else
+            {
+                switch ((noda as External_module.Operators).Count_of_up_connection)
+                {
+                    case -1:
+                        {
+                            writer.WriteLine(noda.type + " " + noda.name + " " + text + "!N_operator");
+                        }
+                        break;
+                    case 1:
+                        {
+                            writer.WriteLine(noda.type + " " + noda.name + " " + text + "!Uno_operator");
+                        }
+                        break;
+                    case 2:
+                        {
+                            writer.WriteLine(noda.type + " " + noda.name + " " + text + "!Bin_operator");
+                        }
+                        break;
+                }
+            }
+        }
+
+        public static void Saver2(StreamWriter writer, List<Noda_C> nods, int i)
+        {
+            switch (nods[i].information.type)
+            {
+                case "Data":
+                    {
+                        for (int j = 0; j < (nods[i].information as Data).down_Contacted.Count; j++)
+                        {
+                            for (int k = 0; k < nods.Count; k++)
+                            {
+                                if (nods[k].information == (nods[i].information as Data).down_Contacted[j])
+                                {
+                                    writer.Write(k + " ");
+                                }
+                            }
+                        }
+                        writer.WriteLine();
+                    }
+                    break;
+                case "if":
+                    {
+                        for (int j = 0; j < (nods[i].information as if_operator).exits.Length; j++)
+                        {
+                            for (int q = 0; q < (nods[i].information as if_operator).exits[j].Count; q++)
+                            {
+                                for (int k = 0; k < nods.Count; k++)
+                                {
+                                    if (nods[k].information == (nods[i].information as if_operator).exits[j][q])
+                                    {
+                                        writer.Write(k + " ");
+                                    }
+                                }
+                            }
+                            writer.Write("!");
+                        }
+                        writer.WriteLine();
+                    }
+                    break;
+                case "operator":
+                    {
+                        for (int j = 0; j < (nods[i].information as Operators).down_Contacted.Count; j++)
+                        {
+                            for (int k = 0; k < nods.Count; k++)
+                            {
+                                if (nods[k].information == (nods[i].information as Operators).down_Contacted[j])
+                                {
+                                    writer.Write(k + " ");
+                                }
+                            }
+                        }
+                        writer.WriteLine();
+                    }
+                    break;
+            }
         }
 
     }
