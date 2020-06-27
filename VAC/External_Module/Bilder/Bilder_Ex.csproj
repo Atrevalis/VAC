@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{966DB952-2465-4BD8-9FD8-3A1D78A523F4}</ProjectGuid>
+    <ProjectGuid>{3F2DFFCD-0AE7-4FBB-B92C-FF5E7B39ED85}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>N_operator</RootNamespace>
-    <AssemblyName>N_operator</AssemblyName>
+    <RootNamespace>Bilder</RootNamespace>
+    <AssemblyName>Bilder</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -41,21 +41,48 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="N_operator.cs" />
+    <Compile Include="Bilder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Noda\Noda.csproj">
-      <Project>{cf8fb4d9-907f-458c-b67b-838df1969ca0}</Project>
-      <Name>Noda</Name>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Bin_operator\Bin_operator_Ex.csproj">
+      <Project>{34af4e8b-fa37-4dc1-8f11-d0b5c877b429}</Project>
+      <Name>Bin_operator_Ex</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Operators\Operators.csproj">
+    <ProjectReference Include="..\Data\Data_Ex.csproj">
+      <Project>{177e0306-ea67-4f35-b041-32383f088f3f}</Project>
+      <Name>Data_Ex</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\if_operator_Ex\if_operator_Ex.csproj">
+      <Project>{58f08502-eeed-4ca0-a736-1ba90319f7ba}</Project>
+      <Name>if_operator_Ex</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Noda_Ex\Noda_Ex.csproj">
+      <Project>{c6f6da13-aaa9-4ed6-bb50-a34dcee381d0}</Project>
+      <Name>Noda_Ex</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\N_operator\N_operator_Ex.csproj">
+      <Project>{966db952-2465-4bd8-9fd8-3a1d78a523f4}</Project>
+      <Name>N_operator_Ex</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Operators\Operators_Ex.csproj">
       <Project>{9040d903-5ea4-4f62-87f1-614490b34213}</Project>
-      <Name>Operators</Name>
+      <Name>Operators_Ex</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Working_data\Working_data.csproj">
-      <Project>{3c72b157-0e96-4b54-a8cf-aca43ea45cfd}</Project>
-      <Name>Working_data</Name>
+    <ProjectReference Include="..\Result_Ex\Result_Ex.csproj">
+      <Project>{d600e835-b755-4d50-b9bc-0525a59442d7}</Project>
+      <Name>Result_Ex</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Uno_opearator\Uno_opearator_Ex.csproj">
+      <Project>{42c3d9ce-695e-483b-8e2e-3e140d516d3e}</Project>
+      <Name>Uno_opearator_Ex</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Working_data_Ex\Working_data_Ex.csproj">
+      <Project>{83989dff-3634-4ddc-aa44-091c407cc458}</Project>
+      <Name>Working_data_Ex</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

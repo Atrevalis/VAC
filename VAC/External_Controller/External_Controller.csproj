@@ -47,9 +47,45 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\External_Module\External_Module.csproj">
-      <Project>{f719c6eb-59db-4a45-89ee-bfa88e5b996d}</Project>
-      <Name>External_Module</Name>
+    <ProjectReference Include="..\External_Module\Bilder\Bilder_Ex.csproj">
+      <Project>{3f2dffcd-0ae7-4fbb-b92c-ff5e7b39ed85}</Project>
+      <Name>Bilder_Ex</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\External_Module\Bin_operator\Bin_operator_Ex.csproj">
+      <Project>{34af4e8b-fa37-4dc1-8f11-d0b5c877b429}</Project>
+      <Name>Bin_operator_Ex</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\External_Module\Data\Data_Ex.csproj">
+      <Project>{177e0306-ea67-4f35-b041-32383f088f3f}</Project>
+      <Name>Data_Ex</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\External_Module\if_operator_Ex\if_operator_Ex.csproj">
+      <Project>{58f08502-eeed-4ca0-a736-1ba90319f7ba}</Project>
+      <Name>if_operator_Ex</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\External_Module\Noda_Ex\Noda_Ex.csproj">
+      <Project>{c6f6da13-aaa9-4ed6-bb50-a34dcee381d0}</Project>
+      <Name>Noda_Ex</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\External_Module\N_operator\N_operator_Ex.csproj">
+      <Project>{966db952-2465-4bd8-9fd8-3a1d78a523f4}</Project>
+      <Name>N_operator_Ex</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\External_Module\Operators\Operators_Ex.csproj">
+      <Project>{9040d903-5ea4-4f62-87f1-614490b34213}</Project>
+      <Name>Operators_Ex</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\External_Module\Result_Ex\Result_Ex.csproj">
+      <Project>{d600e835-b755-4d50-b9bc-0525a59442d7}</Project>
+      <Name>Result_Ex</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\External_Module\Uno_opearator\Uno_opearator_Ex.csproj">
+      <Project>{42c3d9ce-695e-483b-8e2e-3e140d516d3e}</Project>
+      <Name>Uno_opearator_Ex</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\External_Module\Working_data_Ex\Working_data_Ex.csproj">
+      <Project>{83989dff-3634-4ddc-aa44-091c407cc458}</Project>
+      <Name>Working_data_Ex</Name>
     </ProjectReference>
     <ProjectReference Include="..\MVS Controller\if_operator\if_operator.csproj">
       <Project>{55ffadee-8fbe-4877-8c13-fa70b0535d57}</Project>

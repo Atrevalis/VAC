@@ -25,7 +25,7 @@ namespace External_module
         {
             get
             {
-                if(up_connection == null)
+                if (up_connection == null)
                 {
                     return true;
                 }
@@ -91,9 +91,9 @@ namespace External_module
                 up_connection = null;
                 return;
             }
-            for(int i = 0; i < if_Operators.Count; i++)
+            for (int i = 0; i < if_Operators.Count; i++)
             {
-                if(elements == if_Operators[i])
+                if (elements == if_Operators[i])
                 {
                     if_Operators.RemoveAt(i);
                     return;

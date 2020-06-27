@@ -22,7 +22,7 @@ namespace External_module
         {
             set
             {
-                if(!ReferenceEquals(value.GetType(), Type.GetType("Data") ))
+                if (!ReferenceEquals(value.GetType(), Type.GetType("Data")))
                 {
                     down_contacts.Add(value);
                 }
@@ -47,7 +47,7 @@ namespace External_module
 
         public override void Delete()
         {
-            while(down_contacts.Count != 0)
+            while (down_contacts.Count != 0)
             {
                 down_contacts.RemoveAt(0);
             }
@@ -55,9 +55,9 @@ namespace External_module
 
         public override void Delete_Element(Noda noda)
         {
-            for(int i = 0; i < down_contacts.Count; i++)
+            for (int i = 0; i < down_contacts.Count; i++)
             {
-                if(noda == down_contacts[i])
+                if (noda == down_contacts[i])
                 {
                     down_contacts.RemoveAt(i);
                     return;

@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{72CCAF7D-01C1-422B-BA1D-BBA6B14841AB}</ProjectGuid>
+    <ProjectGuid>{83989DFF-3634-4DDC-AA44-091C407CC458}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>if_operator</RootNamespace>
-    <AssemblyName>if_operator</AssemblyName>
+    <RootNamespace>Working_data_Ex</RootNamespace>
+    <AssemblyName>Working_data_Ex</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -41,17 +41,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="if_operator.cs" />
+    <Compile Include="Working_data.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Noda\Noda.csproj">
-      <Project>{cf8fb4d9-907f-458c-b67b-838df1969ca0}</Project>
-      <Name>Noda</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Working_data\Working_data.csproj">
-      <Project>{3c72b157-0e96-4b54-a8cf-aca43ea45cfd}</Project>
-      <Name>Working_data</Name>
+    <ProjectReference Include="..\Noda_Ex\Noda_Ex.csproj">
+      <Project>{c6f6da13-aaa9-4ed6-bb50-a34dcee381d0}</Project>
+      <Name>Noda_Ex</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

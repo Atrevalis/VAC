@@ -51,7 +51,7 @@ namespace External_module
 
         public void Up_connected(Working_data data)
         {
-            if(up_connection.Count < count_of_up_connection)
+            if (up_connection.Count < count_of_up_connection)
             {
                 up_connection.Add(data);
             }
@@ -70,8 +70,8 @@ namespace External_module
             get
             {
                 bool isTrue;
-                for(int i = 0; i < exits.Length; i++) 
-                    if(exits[i].Count != 0)
+                for (int i = 0; i < exits.Length; i++)
+                    if (exits[i].Count != 0)
                     {
                         return false;
                     }
@@ -82,7 +82,7 @@ namespace External_module
         public override void Delete()
         {
             while (up_connection.Count != 0) up_connection.RemoveAt(0);
-            for(int i = 0; i < exits.Length; i++)
+            for (int i = 0; i < exits.Length; i++)
             {
                 while (exits[i].Count != 0) exits[i].RemoveAt(0);
             }
@@ -90,19 +90,19 @@ namespace External_module
 
         public override void Delete_Element(Noda elements)
         {
-            for(int i = 0; i < up_connection.Count; i++)
+            for (int i = 0; i < up_connection.Count; i++)
             {
-                if(elements == up_connection[i])
+                if (elements == up_connection[i])
                 {
                     up_connection.RemoveAt(i);
                     return;
                 }
             }
-            for(int i = 0; i < exits.Length; i++)
+            for (int i = 0; i < exits.Length; i++)
             {
-                for(int j = 0; j < exits[i].Count; j++)
+                for (int j = 0; j < exits[i].Count; j++)
                 {
-                    if(elements == exits[i][j])
+                    if (elements == exits[i][j])
                     {
                         exits[i].RemoveAt(j);
                         return;
