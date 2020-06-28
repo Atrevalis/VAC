@@ -45,6 +45,16 @@ namespace Math_Module_Test
         }
 
         [TestMethod]
+        public void DIVTest2()
+        {
+            P input1 = P.Create("(23)x^2+1");
+            P input2 = P.Create("x-1");
+            P output1 = P.Create("23x+23");
+            Assert.AreEqual(output1, input1.DIV(input2));
+        }
+
+
+        [TestMethod]
         public void MULTest1()
         {
             string input = "-13x^5+(12i-5)x^2";
@@ -55,5 +65,55 @@ namespace Math_Module_Test
             P output1 = P.Create(output);
             Assert.AreEqual(output1, input1.MUL(input3));
         }
+
+        [TestMethod]
+        public void PTTestPC()
+        {
+            P input1 = P.Create("12/3i+5");
+            C output1 = C.Create("12/3i+5");
+            C pc = (C)input1;
+            Assert.AreEqual(output1, pc);
+        }
+
+        [TestMethod]
+        public void PTTestCP()
+        {
+            C input1 = C.Create("12/3i+5");
+            P output1 = P.Create("12/3i+5"); 
+            P pc = (P)input1;
+            Assert.AreEqual(output1, pc);
+        }
+
+        [TestMethod]
+        public void PTTestPListString()
+        {
+            P input= P.Create("12x^2+20x");
+            List<string> output = new List<string>();
+            List<string> result = new List<string>();
+            output.Add("12x");
+            output.Add("^2+");
+            output.Add("20x");
+            result = input;
+            Assert.AreEqual(result, input);
+        }
+
+        [TestMethod]
+        public void GFCTest1()
+        {
+            P input1 = P.Create("8x^2+4");
+            P input2 = P.Create("2");
+            P output1 = P.Create("2");
+            Assert.AreEqual(output1, input1.GCF(input2));
+        }
+
+        [TestMethod]
+        public void LCMTest1()
+        {
+            P input1 = P.Create("8x^2+4");
+            P input2 = P.Create("2");
+            P output1 = P.Create("8x^2+4");
+            Assert.AreEqual(output1, input1.LCM(input2));
+        }
     }
 }
+
