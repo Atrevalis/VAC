@@ -83,7 +83,7 @@ namespace External_Controller
             int i = 0;
             while(!reader.EndOfStream)
             {
-                if (nods[i].information.type == "if")
+                if (Bilder.Loader(nods[i].information))
                 {
                     string[] ex = reader.ReadLine().Split('!');
                     for (int k = 0; k < ex.Length; k++)

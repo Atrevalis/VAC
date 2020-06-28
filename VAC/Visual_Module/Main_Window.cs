@@ -460,7 +460,7 @@ namespace Visual_Module
             {
                 for (int j = 0; j < Controller.working_Dates[i].information.down_Contacted.Count; j++)
                 {
-                    MVS_Controller.Working_data data = Controller.working_Dates[i].Visul as MVS_Controller.Working_data;
+                    Noda data = Controller.working_Dates[i].Visul as Noda;
                     Noda noda = null;
                     for (int k = 0; k < Controller.nods.Count; k++)
                     {

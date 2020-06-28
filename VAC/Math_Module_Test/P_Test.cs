@@ -80,7 +80,7 @@ namespace Math_Module_Test
         {
             C input1 = C.Create("12/3i+5");
             P output1 = P.Create("12/3i+5"); 
-            P pc = (P)input1;
+            P pc = input1;
             Assert.AreEqual(output1, pc);
         }
 

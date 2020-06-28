@@ -45,9 +45,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadata Include="Connected Services\" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\Bin_operator\Bin_operator_Ex.csproj">
       <Project>{34af4e8b-fa37-4dc1-8f11-d0b5c877b429}</Project>
       <Name>Bin_operator_Ex</Name>

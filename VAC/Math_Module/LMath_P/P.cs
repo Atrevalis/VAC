@@ -432,8 +432,7 @@ namespace LMath
         public static implicit operator P(C value)
         {
             P result = new P();
-            M monom = new M(null, new C());
-            monom.coef = value.Clone() as C;
+            M monom = new M(value.Clone() as C, new C());
             result.Ms.Add(monom);
             return result;
         }
@@ -597,7 +596,12 @@ namespace LMath
             if (obj.GetType() == GetType() && this != null && obj != null)
             {
                 P sec = obj as P;
-                if (Ms.Equals(sec.Ms)) return true;
+                if (Ms.Count == sec.Ms.Count)
+                {
+                    for(int i = 0; i < Ms.Count; i++)
+                    if (!Ms[i].Equals(sec.Ms[i])) return false;
+                    return true;
+                }
             }
             return false;
         }

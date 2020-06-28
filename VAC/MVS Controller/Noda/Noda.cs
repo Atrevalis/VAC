@@ -13,9 +13,9 @@ namespace MVS_Controller
     public partial class Noda : UserControl
     {
         public string name_of_type;
-        public static Button up_conected = null;
+        public static Control up_conected = null;
         public static Noda down_conected = null;
-        public static Button conect_nod = null;
+        public static Control conect_nod = null;
         public Label label = new Label(); 
         static public Noda Active = null;
         static private Noda Size_change = null;
@@ -53,7 +53,7 @@ namespace MVS_Controller
             label.MouseEnter += new EventHandler(Label_Mouse_Enter);
         }
 
-        private static void  Noda_click(object sender, MouseEventArgs e)
+        protected virtual void  Noda_click(object sender, MouseEventArgs e)
         {
             switch(e.Button)
             {
@@ -176,9 +176,9 @@ namespace MVS_Controller
             }
         }
 
-        private static void Label_click(object sender, MouseEventArgs e)
+        protected virtual void Label_click(object sender, MouseEventArgs e)
         {
-            Noda_click((sender as Label).Parent, e);
+            ((sender as Label).Parent as Noda).Noda_click((sender as Label).Parent, e);
         }
 
         private static void Label_up(object sender, MouseEventArgs e)

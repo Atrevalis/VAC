@@ -409,6 +409,7 @@ namespace LMath
             Q result = new Q();
             result.Numerator = Z.Create(first);
             result.Denominator = Z.Create(second);
+            result.RED_Q_Q();
             return result;
         }
 

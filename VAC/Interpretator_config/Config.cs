@@ -87,6 +87,10 @@ namespace Interpretator_config
                     {
                         return input[0].Dawn();
                     }
+                case "Dot":
+                    {
+                        return input[0];
+                    }
                 case "up":
                     {
                         return input[0].External_Up();

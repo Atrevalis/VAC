@@ -13,15 +13,19 @@ namespace MVS_Controller
 {
     public partial class Dot: Noda
     {
-        
-        public Dot(Form parent, Panel panel, Color first, Color therd, Color text) : base(parent, panel, first, therd, text)
-        {
+        static Color first, therd;
 
+
+        public Dot(Form parent, Panel panel, Color f, Color t, Color te) : base(parent, panel, f, t, te)
+        {
+            first = f;
+            therd = t;
             name_of_type = "Dot";
             InitializeComponent();
             Size = new Size(10,10);
             System.Drawing.Drawing2D.GraphicsPath path = new System.Drawing.Drawing2D.GraphicsPath();
-            path.AddEllipse(0, 0, 10, 10);// сам поэксперементируй.
+            Click += new EventHandler(Connect_start);
+            path.AddEllipse(0, 0, 10, 10);
             Region rgn = new Region(path);
             Region = rgn;
 
@@ -38,7 +42,34 @@ namespace MVS_Controller
             
             Mouse_pos = e.Location;
         }
-        
+
+        private static void Connect_start(object sender, EventArgs e)
+        {
+            if (conect_nod != (sender as Control))
+            {
+                if (conect_nod == null)
+                {
+                    (sender as Dot).BackColor = therd;
+                    conect_nod = (sender as Dot).label;
+                }
+                else
+                {
+                    conect_nod.BackColor = first;
+                    conect_nod = null;
+                }
+            }
+            else
+            {
+                (sender as Dot).BackColor = first;
+                conect_nod = null;
+            }
+        }
+
+        protected override void Label_click(object sender, MouseEventArgs e)
+        {
+            base.Label_click(sender, e);
+            Connect_start((sender as Control).Parent, e);
+        }
     }
     
 }

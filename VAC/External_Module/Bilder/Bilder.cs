@@ -166,9 +166,9 @@ namespace External_module
             }
         }
 
-        public static void Loader()
+        public static bool Loader(Noda noda)
         {
-
+            return noda.type == "if" ? true : false;
         }
 
 
