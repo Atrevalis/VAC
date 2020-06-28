@@ -11,7 +11,22 @@ namespace Math_Module_Test
         [TestMethod]
         public void CreateTest1()
         {
-
+            P input1 = new P(123);
+            P input2 = new P(234);
+            P input3 = new P(345);
+            P input4 = new P(456);
+            P input5 = new P(567);
+            P input6 = new P(678);
+            List<P> matrix = new List<P>();
+            matrix.Add(input1);
+            matrix.Add(input2);
+            matrix.Add(input3);
+            matrix.Add(input4);
+            matrix.Add(input5);
+            matrix.Add(input6);
+            M output = new M(2, 3, matrix);
+            M input = M.Create("123_234|345_456|567_678");
+            Assert.AreEqual(output, input);
         }
 
         [TestMethod]
