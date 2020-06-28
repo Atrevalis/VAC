@@ -1612,5 +1612,44 @@ namespace Math_Module_Test
             C t = new C();
             Assert.AreEqual(t, n.REM(i));
         }
+
+        [TestMethod]
+        public void PTTestQC()
+        {
+            Q input1 = Q.Create("23/11");
+            C output1 = C.Create("23/11");
+            C qc = (C)input1;
+            Assert.AreEqual(output1, qc);
+        }
+
+        [TestMethod]
+        public void PTTestCQ()
+        {
+            C input1 = C.Create("23/11");
+            Q output1 = Q.Create("23/11");
+            Q cq = (Q)input1;
+            Assert.AreEqual(output1, cq);
+        }
+
+        [TestMethod]
+        public void PTTestCListString()
+        {
+            C input = C.Create("25/3+i");
+            List<string> output = new List<string>();
+            List<string> result = new List<string>();
+            output.Add("25/");
+            output.Add("3+i");
+            result = input;
+            Assert.AreEqual(result, input);
+        }
+
+        [TestMethod]
+        public void DegreeTestNotQ()
+        {
+            C input1 = C.Create("23/11+i");
+            C input2 = C.Create("23/10-3i");
+            C output = input1 ^ input2;
+            Assert.AreEqual(null, output);
+        }
     }
 }

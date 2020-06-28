@@ -226,6 +226,42 @@ namespace Math_Module_Test
             M input2 = M.Create(num2);
             Assert.AreEqual(null, input1 / input2);
         }
+
+        [TestMethod]
+        public void PTTestPM()
+        {
+            P input1 = P.Create("23/11x^2");
+            M output1 = M.Create("23/11^2");
+            M pm = input1;
+            Assert.AreEqual(output1, pm);
+        }
+
+        [TestMethod]
+        public void PTTestMP()
+        {
+            M input1 = M.Create("23/11x^2");
+            P output1 = P.Create("23/11x^2");
+            P mp = (P)input1;
+            Assert.AreEqual(output1, mp);
+        }
+
+        [TestMethod]
+        public void PTTestMListString()
+        {
+            M input = M.Create("3_2_1|1_1_1|1_2_3");
+            List<string> output = new List<string>();
+            List<string> result = new List<string>();
+            output.Add("3_2");
+            output.Add("_1|");
+            output.Add("1_1");
+            output.Add("_1|");
+            output.Add("1_2");
+            output.Add("_3");
+            result = input;
+            Assert.AreEqual(result, input);
+        }
+
+
     }
 
 }
