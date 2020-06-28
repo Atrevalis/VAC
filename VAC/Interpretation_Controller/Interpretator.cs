@@ -14,12 +14,12 @@ namespace Interpretation_Controller
     {
         public Math_Field data;
 
-        public Controller.Working_data info;
+        public Bilder.Working_data_C info;
 
         public bool isTrue = true;
 
 
-        public Working_data(Math_Field field, Controller.Working_data inf)
+        public Working_data(Math_Field field, Bilder.Working_data_C inf)
         {
             data = field;
             info = inf;
@@ -29,11 +29,11 @@ namespace Interpretation_Controller
     public class if_operator
     {
 
-        public Controller.if_operator info;
+        public Bilder.if_operator_C info;
 
         public int path;
 
-        public if_operator(Controller.if_operator inf)
+        public if_operator(Bilder.if_operator_C inf)
         {
             info = inf;
             path = -1;

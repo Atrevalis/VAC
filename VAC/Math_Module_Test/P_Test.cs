@@ -47,7 +47,7 @@ namespace Math_Module_Test
         [TestMethod]
         public void DIVTest2()
         {
-            P input1 = P.Create("(23)x^2+1");
+            P input1 = P.Create("23x^2+1");
             P input2 = P.Create("x-1");
             P output1 = P.Create("23x+23");
             Assert.AreEqual(output1, input1.DIV(input2));

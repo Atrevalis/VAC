@@ -9,17 +9,6 @@ namespace External_module
 {
     public static class Bilder
     {
-        public struct Noda_C
-        {
-            public External_module.Noda information;
-            public object Visul;
-
-            public Noda_C(External_module.Noda data, object e)
-            {
-                information = data;
-                Visul = e;
-            }
-        }
 
         static public Data Bild_Data(string arg)
         {
@@ -176,6 +165,124 @@ namespace External_module
                     break;
             }
         }
+
+        public static void Loader()
+        {
+
+        }
+
+
+        #region Структуры
+
+        public struct Noda_C
+        {
+            public Noda information;
+            public object Visul;
+
+            public Noda_C(Noda data, object e)
+            {
+                information = data;
+                Visul = e;
+            }
+        }
+
+        public struct Data_C
+        {
+            public External_module.Data information;
+            public object Visul;
+
+            public Data_C(External_module.Data data, object e)
+            {
+                information = data;
+                Visul = e;
+            }
+        }
+
+        public struct Operators_C
+        {
+            public External_module.Operators information;
+            public object Visul;
+
+            public Operators_C(External_module.Operators data, object e)
+            {
+                information = data;
+                Visul = e;
+            }
+        }
+
+        public struct Bin_operator_C
+        {
+            public External_module.Bin_operator information;
+            public object Visul;
+
+            public Bin_operator_C(External_module.Bin_operator data, object e)
+            {
+                information = data;
+                Visul = e;
+            }
+        }
+
+        public struct if_operator_C
+        {
+            public External_module.if_operator information;
+            public object Visul;
+
+            public if_operator_C(External_module.if_operator data, object e)
+            {
+                information = data;
+                Visul = e;
+            }
+        }
+
+        public struct N_operator_C
+        {
+            public External_module.N_operator information;
+            public object Visul;
+
+            public N_operator_C(External_module.N_operator data, object e)
+            {
+                information = data;
+                Visul = e;
+            }
+        }
+
+        public struct Result_C
+        {
+            public External_module.Result information;
+            public object Visul;
+
+            public Result_C(External_module.Result data, object e)
+            {
+                information = data;
+                Visul = e;
+            }
+        }
+
+        public struct Uno_operator_C
+        {
+            public External_module.Uno_operator information;
+            public object Visul;
+
+            public Uno_operator_C(External_module.Uno_operator data, object e)
+            {
+                information = data;
+                Visul = e;
+            }
+        }
+
+        public struct Working_data_C
+        {
+            public External_module.Working_data information;
+            public object Visul;
+
+            public Working_data_C(External_module.Working_data data, object e)
+            {
+                information = data;
+                Visul = e;
+            }
+        }
+
+        #endregion
 
     }
 }

@@ -123,6 +123,34 @@
       <Project>{111c4c42-787b-4808-b378-06205bd79ba1}</Project>
       <Name>External_Controller</Name>
     </ProjectReference>
+    <ProjectReference Include="..\External_Module\Bilder\Bilder_Ex.csproj">
+      <Project>{3f2dffcd-0ae7-4fbb-b92c-ff5e7b39ed85}</Project>
+      <Name>Bilder_Ex</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\External_Module\Data\Data_Ex.csproj">
+      <Project>{177e0306-ea67-4f35-b041-32383f088f3f}</Project>
+      <Name>Data_Ex</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\External_Module\if_operator_Ex\if_operator_Ex.csproj">
+      <Project>{58f08502-eeed-4ca0-a736-1ba90319f7ba}</Project>
+      <Name>if_operator_Ex</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\External_Module\Noda_Ex\Noda_Ex.csproj">
+      <Project>{c6f6da13-aaa9-4ed6-bb50-a34dcee381d0}</Project>
+      <Name>Noda_Ex</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\External_Module\Operators\Operators_Ex.csproj">
+      <Project>{9040d903-5ea4-4f62-87f1-614490b34213}</Project>
+      <Name>Operators_Ex</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\External_Module\Result_Ex\Result_Ex.csproj">
+      <Project>{d600e835-b755-4d50-b9bc-0525a59442d7}</Project>
+      <Name>Result_Ex</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\External_Module\Working_data_Ex\Working_data_Ex.csproj">
+      <Project>{83989dff-3634-4ddc-aa44-091c407cc458}</Project>
+      <Name>Working_data_Ex</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Interpretation_Controller\Interpretation_Controller.csproj">
       <Project>{835dc3c4-9ef4-4c02-b01f-ae821807f73b}</Project>
       <Name>Interpretation_Controller</Name>

@@ -46,7 +46,7 @@ namespace LMath
             List<string> n = new List<string>();
             List<string> d = new List<string>();
             List<string> temp = new List<string>();
-            M test = new M();
+            //M test = new M(null, null);
             int j = 0;
             int k;
             for (int i = 0; i < s.Count; i++)
@@ -58,7 +58,7 @@ namespace LMath
 
                 //test.coef = new C(n, d);
                 //test.degree = new C(s[i][j + 1]);
-                Ms.Add(test);
+                //Ms.Add(test);
                 n.Clear();
                 d.Clear();
             }
@@ -340,7 +340,7 @@ namespace LMath
 
         public static P operator /(P first, P second) // DIV_PP_P
         {
-            M mult = new M();
+            M mult = new M(null,null);
             P temp = new P();
             P result = new P();
             result = first;
@@ -432,7 +432,7 @@ namespace LMath
         public static implicit operator P(C value)
         {
             P result = new P();
-            M monom = new M();
+            M monom = new M(null, new C());
             monom.coef = value.Clone() as C;
             result.Ms.Add(monom);
             return result;
@@ -453,8 +453,8 @@ namespace LMath
 
         public static byte COM_PP_D(P first, P second)
         {
-            M odin;
-            M nol;
+            M odin = new M();
+            M nol = new M();
             C q = new C();
             odin.degree = q;
             nol.degree = q;
@@ -519,7 +519,7 @@ namespace LMath
             P pog = null;
             P mod = first.Clone() as P;
             mod = first % second;
-            M nol;
+            M nol = new M();
             C q = new C();
             nol.coef = q;
             nol.degree = q;
@@ -565,7 +565,7 @@ namespace LMath
             }
             C q = new C();
             C l = new C(1);
-            M mnoj;
+            M mnoj = new M();
             mnoj.coef = l;
             mnoj.degree = l;
             result.Ms.Add(mnoj);
@@ -686,7 +686,6 @@ namespace LMath
             List<int[]> bracketsplace = new List<int[]>();
             s = s.Replace(" ", "");
             P result = new P();
-            string temp = "";
             for (int i = 0; i < s.Length; i++)
             {
                 if (s[i] == '(')
@@ -710,10 +709,10 @@ namespace LMath
             int j = 0;
             for (int i = 0; i < s.Length; i++)
             {
-                C coef, degree;
+                C coef = null, degree;
                 int startindex = 0, endindex = 0;
-                while (i > bracketsplace[j][1] && j < bracketsplace.Count) j++;
-                if (i > bracketsplace[j][0])
+                while (j < bracketsplace.Count && i > bracketsplace[j][1]) j++;
+                if (j < bracketsplace.Count && i > bracketsplace[j][0])
                 {
                     coef = C.Create(s.Substring(i, bracketsplace[j][1] - i));
                     if (bracketsplace[j][0] >= 1 && s[bracketsplace[j][0] - 1] == '-')
@@ -726,28 +725,34 @@ namespace LMath
                 {
                     int k = i;
                     byte count = 0;
-                    while (k < s.Length && s[k] >= '0' && s[k] <= '9' || s[k] == '/' || s[k] == 'i')
+                    while (k < s.Length && (s[k] >= '0' && s[k] <= '9' || s[k] == '/' || s[k] == 'i' || (s[k] == '-' && k == i)))
                     {
                         if (s[k] == '/') count++;
                         if (count > 1) throw new Exception();
                         k++;
-                        if (s[k] == 'i') break;
+                        if (k < s.Length && s[k] == 'i')
+                        {
+                            k++;
+                            break;
+                        }
                     }
-                    coef = C.Create(s.Substring(i, k - i - 1));
-                    if (s[k] != 'x') s = s.Insert(k, "x^0");
-                    else if (k == s.Length) s += "x^0";
-                    startindex = k + 2;
+                    if (k-i>0)
+                    {   coef = C.Create(s.Substring(i, k - i));
+                        if (k < s.Length && s[k] != 'x') s = s.Insert(k, "x^0");
+                        else if (k == s.Length) s += "x^0";
+                        startindex = k + 2;
+                    }
                 }
                 if (coef != null)
                 {
                     endindex = startindex;
-                    while (s[endindex] >= '0' && s[endindex] <= '9' || s[endindex] == '/' || s[endindex] == 'i' || (s[endindex] == '-' && endindex == startindex))
+                    while (endindex < s.Length && (s[endindex] >= '0' && s[endindex] <= '9' || s[endindex] == '/' || s[endindex] == 'i' || (s[endindex] == '-' && endindex == startindex)))
                     {
                         if (s[endindex] == '/' || s[endindex] == 'i') throw new Exception();
                         endindex++;
                     }
                     degree = C.Create(s.Substring(startindex, endindex - startindex));
-                    i = endindex + 1;
+                    i = endindex-1;
                     int a = 0;
                     bool stupid_user = false;
                     for (; a < result.Ms.Count; a++)
@@ -757,7 +762,7 @@ namespace LMath
                             stupid_user = true;
                             break;
                         }
-                        if (degree.COM(result.Ms[a].degree) == 2) break;
+                        if (degree.Dawn().COM(result.Ms[a].degree.Dawn()) == 1) break;
                     }
                     if (stupid_user)
                     {
@@ -765,8 +770,12 @@ namespace LMath
                     }
                     else
                     {
-                        if (a == result.Ms.Count) result.Ms.Add(new M(coef, degree));
-                        else result.Ms.Insert(a, new M(coef, degree));
+                        M n = new M(coef, degree);
+                        if (a == result.Ms.Count) 
+                            result.Ms.Add(n);
+                        else 
+                            result.Ms.Insert(a, n);
+
                     }
                 }
             }
