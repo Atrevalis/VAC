@@ -340,7 +340,52 @@ namespace LMath
 
         public static P operator /(P first, P second) // DIV_PP_P
         {
-            return null;
+            M mult = new M();
+            P temp = new P();
+            P result = new P();
+            result = first;
+            while (true)
+            {
+                temp = null;
+                while (first.Ms[first.Ms.Count].coef != second.Ms[second.Ms.Count].coef)
+                {
+                    if (first.Ms[first.Ms.Count].coef.COM(second.Ms[second.Ms.Count].coef) != 0)
+                    {
+                        C I = C.Create("0");
+                        C one = C.Create("1");
+                        while (((first.Ms[first.Ms.Count].coef * second.Ms[second.Ms.Count].coef) - second.Ms[second.Ms.Count].coef * I).COM(first.Ms[first.Ms.Count].coef) == 0)
+                        {
+                            I += one;
+                        }
+                        mult.coef = I;
+                    }
+                    else if (first.Ms[first.Ms.Count].coef.COM(second.Ms[second.Ms.Count].coef) == 0)
+                    {
+                        mult.coef = C.Create("1");
+                        break;
+                    }
+                }
+                while (first.Ms[first.Ms.Count].degree != second.Ms[second.Ms.Count].degree)
+                {
+                    if (first.Ms[first.Ms.Count].degree.COM(second.Ms[second.Ms.Count].degree) == 2)
+                    {
+                        mult.degree = first.Ms[first.Ms.Count].degree - second.Ms[second.Ms.Count].degree;
+                        break;
+                    }
+                    else if (first.Ms[first.Ms.Count].degree.COM(second.Ms[second.Ms.Count].degree) == 0)
+                    {
+                        mult.degree = C.Create("0");
+                        break;
+                    }
+                    else
+                    {
+                        return result;
+                    }
+                }
+                temp.Ms.Add(mult);
+                result.Ms.Add(mult);
+                first = first - (second * temp);
+            }
         }
 
         public static P operator %(P first, P second) // MOD_PP_p
@@ -603,7 +648,7 @@ namespace LMath
 
         public override Math_Field LCM(Math_Field second)
         {
-            return null;
+            return (this * (second as P))/GCF_PP_P(this, (second as P));
         }
 
         public override Math_Field MUL(Math_Field second)
@@ -655,11 +700,11 @@ namespace LMath
                 }
                 if (s[i] == 'x' && (s.Length - 1 == i || s[i + 1] != '^'))
                 {
-                    s = s.Insert(i, "^1");
+                    s = s.Insert(i+1, "^1");
                 }
                 if (s[i] == ')' && (s.Length - 1 == i || s[i + 1] != 'x'))
                 {
-                    s = s.Insert(i, "x^0");
+                    s = s.Insert(i+1, "x^0");
                 }
             }
             int j = 0;
