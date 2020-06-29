@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LMath
 {
-    struct M
+    class M
     {
         public C coef;
         public C degree;
@@ -15,6 +15,12 @@ namespace LMath
         {
             coef = c;
             degree = s;
+        }
+
+        public M()
+        {
+            coef = new C();
+            degree = new C();
         }
     }
 
@@ -707,6 +713,11 @@ namespace LMath
                             break;
                         }
                     }
+                    if(s[i] == 'x' && (i == 0 || s[i-1]<='0' || s[i-1]>= '9'))
+                    {
+                        s = s.Insert(i, "1");
+                        k++;
+                    }
                     if (k-i>0)
                     {   coef = C.Create(s.Substring(i, k - i));
                         if (k < s.Length && s[k] != 'x') s = s.Insert(k, "x^0");
@@ -733,7 +744,8 @@ namespace LMath
                             stupid_user = true;
                             break;
                         }
-                        if (degree.Dawn().COM(result.Ms[a].degree.Dawn()) == 1) break;
+                        if (degree.Dawn().COM(result.Ms[a].degree.Dawn()) == 1)
+                            break;
                     }
                     if (stupid_user)
                     {
@@ -741,12 +753,19 @@ namespace LMath
                     }
                     else
                     {
-                        M n = new M(coef, degree);
-                        if (a == result.Ms.Count) 
+                        M n = new M();
+                        n.coef = coef;
+                        n.degree = degree;
+                        if (a == result.Ms.Count)
+                        {
                             result.Ms.Add(n);
-                        else 
+                        }
+                        else
+                        {
                             result.Ms.Insert(a, n);
-
+                        }
+                        result.Ms[a].coef = coef;
+                        result.Ms[a].degree = degree;
                     }
                 }
             }
