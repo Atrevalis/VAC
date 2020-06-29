@@ -147,7 +147,7 @@ namespace Math_Module_Test
             string num2 = "1_2|4_5|7_8";
             M input = M.Create(num1);
             M input2 = M.Create(num2);
-            Assert.AreEqual(null, input.MOD(input2));
+            Assert.AreEqual(input, input.MOD(input2));
         }
 
         [TestMethod]
@@ -225,8 +225,7 @@ namespace Math_Module_Test
 
         {
             string num1 = "2_0|0_2|2_0";
-            string num2 = "0_0_0|0_0_0";
-            string num = "8_0|0_4";
+            string num2 = "0_0_0|0_0_0|0_0_0";
             M input1 = M.Create(num1);
             M input2 = M.Create(num2);
             Assert.AreEqual(null, input1 / input2);
@@ -235,12 +234,55 @@ namespace Math_Module_Test
         public void binDevTest2()
 
         {
-            string num1 = "0_0_0|0_0_0";
+            string num1 = "0_0_0|0_0_0|0_0_0";
             string num2 = "1_2_2|2_1_2|2_2_1";//"-6/10_4/10_4/10|4/10_-6/10_4/10|4/10_4/10_-6/10"
             M input1 = M.Create(num1);
             M input2 = M.Create(num2);
-            Assert.AreEqual(null, input1 / input2);
+            Assert.AreEqual(input1, input1 / input2);
         }
+        [TestMethod]
+        public void procTest1()
+
+        {
+            string num1 = "2_0|0_2|2_0";
+            string num2 = "1_2|2_1";
+            string num = "0";
+            M input1 = M.Create(num1);
+            M input2 = M.Create(num2);
+            M output = M.Create(num);
+            Assert.AreEqual(output, input1 % input2);
+        }
+        [TestMethod]
+        public void procTest2()
+
+        {
+            string num1 = "2_0|0_2|2_0";
+            string num2 = "0_0|2_1";
+            M input1 = M.Create(num1);
+            M input2 = M.Create(num2);
+            Assert.AreEqual(null, input1 % input2);
+        }
+        [TestMethod]
+        public void ReversTest1()
+
+        {
+            string num = "-6/10_4/10_4/10|4/10_-6/10_4/10|4/10_4/10_-6/10";
+            string num1 = "1_2_2|2_1_2|2_2_1";
+            M input = M.Create(num1);
+            M output = M.Create(num);
+            Assert.AreEqual(output, M.Reverse());
+
+        }
+        [TestMethod]
+        public void ReverseTest2()
+
+        {
+            string num = "-6/10_4/10_4/10|4/10_-6/10_4/10|4/10_4/10_-6/10";
+            string num1 = "1_2_2|2_1_2|2_2_1";
+            M input = M.Create(num1);
+            M output = M.Create(num);
+        }
+
 
         [TestMethod]
         public void PTTestPM()
