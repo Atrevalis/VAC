@@ -197,7 +197,7 @@ namespace LMath
         {
             get
             {
-                return Ms[0].coef.Clone();
+                return Ms[Ms.Count - 1].coef.Clone();
             }
         }
 
@@ -205,7 +205,7 @@ namespace LMath
         {
             get
             {
-                return Ms[0].degree.Clone();
+                return Ms[Ms.Count - 1].degree.Clone();
             }
         }
 
@@ -295,7 +295,7 @@ namespace LMath
                     }
                 }
             }
-            return null;
+            return result;
         }
 
         public static P operator -(P first, P second) // SUB_PP_P
@@ -340,52 +340,19 @@ namespace LMath
 
         public static P operator /(P first, P second) // DIV_PP_P
         {
-            M mult = new M(null,null);
-            P temp = new P();
             P result = new P();
-            result = first;
+            P ostatok = first.Clone() as P;
             while (true)
             {
-                temp = null;
-                while (first.Ms[first.Ms.Count].coef != second.Ms[second.Ms.Count].coef)
-                {
-                    if (first.Ms[first.Ms.Count].coef.COM(second.Ms[second.Ms.Count].coef) != 0)
-                    {
-                        C I = C.Create("0");
-                        C one = C.Create("1");
-                        while (((first.Ms[first.Ms.Count].coef * second.Ms[second.Ms.Count].coef) - second.Ms[second.Ms.Count].coef * I).COM(first.Ms[first.Ms.Count].coef) == 0)
-                        {
-                            I += one;
-                        }
-                        mult.coef = I;
-                    }
-                    else if (first.Ms[first.Ms.Count].coef.COM(second.Ms[second.Ms.Count].coef) == 0)
-                    {
-                        mult.coef = C.Create("1");
-                        break;
-                    }
-                }
-                while (first.Ms[first.Ms.Count].degree != second.Ms[second.Ms.Count].degree)
-                {
-                    if (first.Ms[first.Ms.Count].degree.COM(second.Ms[second.Ms.Count].degree) == 2)
-                    {
-                        mult.degree = first.Ms[first.Ms.Count].degree - second.Ms[second.Ms.Count].degree;
-                        break;
-                    }
-                    else if (first.Ms[first.Ms.Count].degree.COM(second.Ms[second.Ms.Count].degree) == 0)
-                    {
-                        mult.degree = C.Create("0");
-                        break;
-                    }
-                    else
-                    {
-                        return result;
-                    }
-                }
+                if (ostatok.DEG.COM(second.DEG) == 1) break;
+                P temp = new P();
+                C x = ostatok.DEG.SUB(second.DEG) as C, y = second.LED.DIV(ostatok.LED) as C;
+                M mult = new M(second.LED.DIV(ostatok.LED) as C, ostatok.DEG.SUB(second.DEG) as C);
                 temp.Ms.Add(mult);
                 result.Ms.Add(mult);
-                first = first - (second * temp);
+                ostatok = ostatok - (second * temp);
             }
+            return result;
         }
 
         public static P operator %(P first, P second) // MOD_PP_p
