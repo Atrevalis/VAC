@@ -100,6 +100,9 @@ namespace LMath
         {
             C clone1 = first.Clone() as C;
             C clone2 = second.Clone() as C;
+            C zero = new C();
+            if (zero.COM(clone2) == 0)
+                return null;
             clone2.image = -clone2.image;
             clone1 *= clone2;
             clone1.real /= clone2.real * clone2.real + clone2.image * clone2.image;

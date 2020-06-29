@@ -372,106 +372,18 @@ namespace Math_Module_Test
         [TestMethod]
         public void PlusTest3()
         {
-            List<string> inputNumeratorreal = new List<string>();
-            List<string> inputDenominatorreal = new List<string>();
-            List<string> inputNumeratorimage = new List<string>();
-            List<string> inputDenominatorimage = new List<string>();
-            List<string> inputNumeratorreal1 = new List<string>();
-            List<string> inputDenominatorreal1 = new List<string>();
-            List<string> inputNumeratorimage1 = new List<string>();
-            List<string> inputDenominatorimage1 = new List<string>();
-            List<string> outputNumeratorreal = new List<string>();
-            List<string> outputDenominatorreal = new List<string>();
-            List<string> outputNumeratorimage = new List<string>();
-            List<string> outputDenominatorimage = new List<string>();
-            inputNumeratorreal.Add("-");
-            inputNumeratorreal.Add("123");
-            inputDenominatorreal.Add("134");
-
-            inputNumeratorimage.Add("236");
-            inputDenominatorimage.Add("134");
-            inputDenominatorimage.Add("302");
-
-            inputNumeratorreal1.Add("234");
-            inputDenominatorreal1.Add("1");
-            inputDenominatorreal1.Add("302");
-
-            inputNumeratorimage1.Add("234");
-            inputDenominatorimage1.Add("1");
-            inputDenominatorimage1.Add("302");
-
-            outputNumeratorreal.Add("-");
-            outputNumeratorreal.Add("705");
-            outputDenominatorreal.Add("868");
-
-            outputNumeratorimage.Add("377");
-            outputNumeratorimage.Add("785");
-            outputDenominatorimage.Add("2");
-            outputDenominatorimage.Add("081");
-            outputDenominatorimage.Add("681");
-            Q xr = new Q(inputNumeratorreal, inputDenominatorreal);
-            Q xi = new Q(inputNumeratorimage, inputDenominatorimage);
-            Q tr = new Q(inputNumeratorreal1, inputDenominatorreal1);
-            Q ti = new Q(inputNumeratorimage1, inputDenominatorimage1);
-            Q rr = new Q(outputNumeratorreal, outputDenominatorreal);
-            Q ri = new Q(outputNumeratorimage, outputDenominatorimage);
-            C x = new C(xr, xi);
-            C t = new C(tr, ti);
-            C r = new C(rr, ri);
-            C res = x + t;
-            Assert.AreEqual(r, res);
+            C x = C.Create("-123/134+236/134302i");
+            C t = C.Create("234/1302+234/1302i");
+            C r = C.Create("-21465/29078+377785/2081681i");
+            Assert.AreEqual(r, x + t);
         }
 
         [TestMethod]
         public void PlusTest4()
         {
-            List<string> inputNumeratorreal = new List<string>();
-            List<string> inputDenominatorreal = new List<string>();
-            List<string> inputNumeratorimage = new List<string>();
-            List<string> inputDenominatorimage = new List<string>();
-            List<string> inputNumeratorreal1 = new List<string>();
-            List<string> inputDenominatorreal1 = new List<string>();
-            List<string> inputNumeratorimage1 = new List<string>();
-            List<string> inputDenominatorimage1 = new List<string>();
-            List<string> outputNumeratorreal = new List<string>();
-            List<string> outputDenominatorreal = new List<string>();
-            List<string> outputNumeratorimage = new List<string>();
-            List<string> outputDenominatorimage = new List<string>();
-            inputNumeratorreal.Add("-");
-            inputNumeratorreal.Add("123");
-            inputDenominatorreal.Add("134");
-
-            inputNumeratorimage.Add("-");
-            inputNumeratorimage.Add("236");
-            inputDenominatorimage.Add("134");
-            inputDenominatorimage.Add("302");
-
-            inputNumeratorreal1.Add("234");
-            inputDenominatorreal1.Add("1");
-            inputDenominatorreal1.Add("302");
-
-            inputNumeratorimage1.Add("234");
-            inputDenominatorimage1.Add("1");
-            inputDenominatorimage1.Add("302");
-
-            outputNumeratorreal.Add("-");
-            outputNumeratorreal.Add("705");
-            outputDenominatorreal.Add("868");
-
-            outputNumeratorimage.Add("370");
-            outputNumeratorimage.Add("469");
-            outputDenominatorimage.Add("2");
-            outputDenominatorimage.Add("081");
-            outputDenominatorimage.Add("681");
-            Q xr = new Q(inputNumeratorreal, inputDenominatorreal);
-            Q xi = new Q(inputNumeratorimage, inputDenominatorimage);
-            Q tr = new Q(inputNumeratorreal1, inputDenominatorreal1);
-            Q ti = new Q(inputNumeratorimage1, inputDenominatorimage1);
-            Q rr = new Q(outputNumeratorreal, outputDenominatorreal);
-            Q ri = new Q(outputNumeratorimage, outputDenominatorimage);
-            C x = new C(xr, xi);
-            C t = new C(tr, ti);
-            C r = new C(rr, ri);
+            C x = C.Create("-123/134-236/134302i");
+            C t = C.Create("234/1302+234/1302i");
+            C r = C.Create("-21465/29078+370469/2081681i");
             Assert.AreEqual(r, x + t);
         }
 
@@ -579,51 +491,9 @@ namespace Math_Module_Test
         [TestMethod]
         public void MinusTest1()
         {
-            List<string> inputNumeratorreal = new List<string>();
-            List<string> inputDenominatorreal = new List<string>();
-            List<string> inputNumeratorimage = new List<string>();
-            List<string> inputDenominatorimage = new List<string>();
-            List<string> inputNumeratorreal1 = new List<string>();
-            List<string> inputDenominatorreal1 = new List<string>();
-            List<string> inputNumeratorimage1 = new List<string>();
-            List<string> inputDenominatorimage1 = new List<string>();
-            List<string> outputNumeratorreal = new List<string>();
-            List<string> outputDenominatorreal = new List<string>();
-            List<string> outputNumeratorimage = new List<string>();
-            List<string> outputDenominatorimage = new List<string>();
-            inputNumeratorreal.Add("123");
-            inputDenominatorreal.Add("134");
-
-            inputNumeratorimage.Add("236");
-            inputDenominatorimage.Add("134");
-            inputDenominatorimage.Add("302");
-
-            inputNumeratorreal1.Add("234");
-            inputDenominatorreal1.Add("1");
-            inputDenominatorreal1.Add("302");
-
-            inputNumeratorimage1.Add("234");
-            inputDenominatorimage1.Add("1");
-            inputDenominatorimage1.Add("302");
-
-            outputNumeratorreal.Add("705");
-            outputDenominatorreal.Add("868");
-
-            outputNumeratorimage.Add("-");
-            outputNumeratorimage.Add("370");
-            outputNumeratorimage.Add("469");
-            outputDenominatorimage.Add("2");
-            outputDenominatorimage.Add("081");
-            outputDenominatorimage.Add("681");
-            Q xr = new Q(inputNumeratorreal, inputDenominatorreal);
-            Q xi = new Q(inputNumeratorimage, inputDenominatorimage);
-            Q tr = new Q(inputNumeratorreal1, inputDenominatorreal1);
-            Q ti = new Q(inputNumeratorimage1, inputDenominatorimage1);
-            Q rr = new Q(outputNumeratorreal, outputDenominatorreal);
-            Q ri = new Q(outputNumeratorimage, outputDenominatorimage);
-            C x = new C(xr, xi);
-            C t = new C(tr, ti);
-            C r = new C(rr, ri);
+            C x = C.Create("123/134+236/134302i");
+            C t = C.Create("234/1302+234/1302i");
+            C r = C.Create("21465/29078-370469/2081681i");
             Assert.AreEqual(r, x - t);
         }
 
@@ -685,110 +555,18 @@ namespace Math_Module_Test
         [TestMethod]
         public void MinusTest3()
         {
-            List<string> inputNumeratorreal = new List<string>();
-            List<string> inputDenominatorreal = new List<string>();
-            List<string> inputNumeratorimage = new List<string>();
-            List<string> inputDenominatorimage = new List<string>();
-            List<string> inputNumeratorreal1 = new List<string>();
-            List<string> inputDenominatorreal1 = new List<string>();
-            List<string> inputNumeratorimage1 = new List<string>();
-            List<string> inputDenominatorimage1 = new List<string>();
-            List<string> outputNumeratorreal = new List<string>();
-            List<string> outputDenominatorreal = new List<string>();
-            List<string> outputNumeratorimage = new List<string>();
-            List<string> outputDenominatorimage = new List<string>();
-            inputNumeratorreal.Add("-");
-            inputNumeratorreal.Add("123");
-            inputDenominatorreal.Add("134");
-
-            inputNumeratorimage.Add("236");
-            inputDenominatorimage.Add("134");
-            inputDenominatorimage.Add("302");
-
-            inputNumeratorreal1.Add("-");
-            inputNumeratorreal1.Add("234");
-            inputDenominatorreal1.Add("1");
-            inputDenominatorreal1.Add("302");
-
-            inputNumeratorimage1.Add("-");
-            inputNumeratorimage1.Add("234");
-            inputDenominatorimage1.Add("1");
-            inputDenominatorimage1.Add("302");
-
-            outputNumeratorreal.Add("-");
-            outputNumeratorreal.Add("705");
-            outputDenominatorreal.Add("868");
-
-            outputNumeratorimage.Add("377");
-            outputNumeratorimage.Add("785");
-            outputDenominatorimage.Add("2");
-            outputDenominatorimage.Add("081");
-            outputDenominatorimage.Add("681");
-            Q xr = new Q(inputNumeratorreal, inputDenominatorreal);
-            Q xi = new Q(inputNumeratorimage, inputDenominatorimage);
-            Q tr = new Q(inputNumeratorreal1, inputDenominatorreal1);
-            Q ti = new Q(inputNumeratorimage1, inputDenominatorimage1);
-            Q rr = new Q(outputNumeratorreal, outputDenominatorreal);
-            Q ri = new Q(outputNumeratorimage, outputDenominatorimage);
-            C x = new C(xr, xi);
-            C t = new C(tr, ti);
-            C r = new C(rr, ri);
-            C res = x - t;
-            Assert.AreEqual(r, res);
+            C x = C.Create("-123/134+236/134302i");
+            C t = C.Create("-234/1302-234/1302i");
+            C r = C.Create("-21465/29078+377785/2081681i");
+            Assert.AreEqual(r, x - t);
         }
 
         [TestMethod]
         public void MinusTest4()
         {
-            List<string> inputNumeratorreal = new List<string>();
-            List<string> inputDenominatorreal = new List<string>();
-            List<string> inputNumeratorimage = new List<string>();
-            List<string> inputDenominatorimage = new List<string>();
-            List<string> inputNumeratorreal1 = new List<string>();
-            List<string> inputDenominatorreal1 = new List<string>();
-            List<string> inputNumeratorimage1 = new List<string>();
-            List<string> inputDenominatorimage1 = new List<string>();
-            List<string> outputNumeratorreal = new List<string>();
-            List<string> outputDenominatorreal = new List<string>();
-            List<string> outputNumeratorimage = new List<string>();
-            List<string> outputDenominatorimage = new List<string>();
-            inputNumeratorreal.Add("-");
-            inputNumeratorreal.Add("123");
-            inputDenominatorreal.Add("134");
-
-            inputNumeratorimage.Add("-");
-            inputNumeratorimage.Add("236");
-            inputDenominatorimage.Add("134");
-            inputDenominatorimage.Add("302");
-
-            inputNumeratorreal1.Add("-");
-            inputNumeratorreal1.Add("234");
-            inputDenominatorreal1.Add("1");
-            inputDenominatorreal1.Add("302");
-
-            inputNumeratorimage1.Add("-");
-            inputNumeratorimage1.Add("234");
-            inputDenominatorimage1.Add("1");
-            inputDenominatorimage1.Add("302");
-
-            outputNumeratorreal.Add("-");
-            outputNumeratorreal.Add("705");
-            outputDenominatorreal.Add("868");
-
-            outputNumeratorimage.Add("370");
-            outputNumeratorimage.Add("469");
-            outputDenominatorimage.Add("2");
-            outputDenominatorimage.Add("081");
-            outputDenominatorimage.Add("681");
-            Q xr = new Q(inputNumeratorreal, inputDenominatorreal);
-            Q xi = new Q(inputNumeratorimage, inputDenominatorimage);
-            Q tr = new Q(inputNumeratorreal1, inputDenominatorreal1);
-            Q ti = new Q(inputNumeratorimage1, inputDenominatorimage1);
-            Q rr = new Q(outputNumeratorreal, outputDenominatorreal);
-            Q ri = new Q(outputNumeratorimage, outputDenominatorimage);
-            C x = new C(xr, xi);
-            C t = new C(tr, ti);
-            C r = new C(rr, ri);
+            C x = C.Create("-123/134-236/134302i");
+            C t = C.Create("-234/1302-234/1302i");
+            C r = C.Create("-21465/29078+370469/2081681i");
             Assert.AreEqual(r, x - t);
         }
 
@@ -1011,138 +789,26 @@ namespace Math_Module_Test
         [TestMethod]
         public void MultiplicationTest3()
         {
-            List<string> inputNumeratorreal = new List<string>();
-            List<string> inputDenominatorreal = new List<string>();
-            List<string> inputNumeratorimage = new List<string>();
-            List<string> inputDenominatorimage = new List<string>();
-            List<string> inputNumeratorreal1 = new List<string>();
-            List<string> inputDenominatorreal1 = new List<string>();
-            List<string> inputNumeratorimage1 = new List<string>();
-            List<string> inputDenominatorimage1 = new List<string>();
-            List<string> outputNumeratorreal = new List<string>();
-            List<string> outputDenominatorreal = new List<string>();
-            List<string> outputNumeratorimage = new List<string>();
-            List<string> outputDenominatorimage = new List<string>();
-            inputNumeratorreal.Add("123");
-            inputDenominatorreal.Add("134");
-
-            inputNumeratorimage.Add("236");
-            inputDenominatorimage.Add("134");
-            inputDenominatorimage.Add("302");
-
-            inputNumeratorreal1.Add("134");
-            inputDenominatorreal1.Add("123");
-
-            inputNumeratorimage1.Add("234");
-            inputDenominatorimage1.Add("1");
-            inputDenominatorimage1.Add("302");
-
-            outputNumeratorreal.Add("14");
-            outputNumeratorreal.Add("567");
-            outputNumeratorreal.Add("165");
-            outputDenominatorreal.Add("14");
-            outputDenominatorreal.Add("571");
-            outputDenominatorreal.Add("767");
-
-            outputNumeratorimage.Add("817");
-            outputNumeratorimage.Add("978");
-            outputNumeratorimage.Add("633");
-            outputDenominatorimage.Add("4");
-            outputDenominatorimage.Add("901");
-            outputDenominatorimage.Add("466");
-            outputDenominatorimage.Add("606");
-            Q xr = new Q(inputNumeratorreal, inputDenominatorreal);
-            Q xi = new Q(inputNumeratorimage, inputDenominatorimage);
-            Q tr = new Q(inputNumeratorreal1, inputDenominatorreal1);
-            Q ti = new Q(inputNumeratorimage1, inputDenominatorimage1);
-            Q rr = new Q(outputNumeratorreal, outputDenominatorreal);
-            Q ri = new Q(outputNumeratorimage, outputDenominatorimage);
-            C x = new C(xr, xi);
-            C t = new C(tr, ti);
-            C r = new C(rr, ri);
+            C x = C.Create("123/134+236/134302i");
+            C t = C.Create("134/123+234/1302i");
+            C r = C.Create("14567165/14571767+817978633/4901466606i");
             Assert.AreEqual(r, x * t);
         }
 
         [TestMethod]
         public void DivTestZero1()
         {
-            List<string> inputNumeratorreal = new List<string>();
-            List<string> inputDenominatorreal = new List<string>();
-            List<string> inputNumeratorimage = new List<string>();
-            List<string> inputDenominatorimage = new List<string>();
-            List<string> inputNumeratorreal1 = new List<string>();
-            List<string> inputDenominatorreal1 = new List<string>();
-            List<string> inputNumeratorimage1 = new List<string>();
-            List<string> inputDenominatorimage1 = new List<string>();
-            List<string> outputNumeratorreal = new List<string>();
-            List<string> outputDenominatorreal = new List<string>();
-            List<string> outputNumeratorimage = new List<string>();
-            List<string> outputDenominatorimage = new List<string>();
-            inputNumeratorreal.Add("123");
-            inputDenominatorreal.Add("134");
-
-            inputNumeratorimage.Add("236");
-            inputDenominatorimage.Add("134");
-            inputDenominatorimage.Add("302");
-
-            inputNumeratorreal1.Add("0");
-            inputDenominatorreal1.Add("1");
-
-            inputNumeratorimage1.Add("234");
-            inputDenominatorimage1.Add("1");
-            inputDenominatorimage1.Add("302");
-
-            outputNumeratorreal.Add("3");
-            outputNumeratorreal.Add("658");
-            outputDenominatorreal.Add("374");
-            outputDenominatorreal.Add("127");
-
-            outputNumeratorimage.Add("-");
-            outputNumeratorimage.Add("9");
-            outputNumeratorimage.Add("897");
-            outputDenominatorimage.Add("1");
-            outputDenominatorimage.Add("742");
-            Q xr = new Q(inputNumeratorreal, inputDenominatorreal);
-            Q xi = new Q(inputNumeratorimage, inputDenominatorimage);
-            Q tr = new Q(inputNumeratorreal1, inputDenominatorreal1);
-            Q ti = new Q(inputNumeratorimage1, inputDenominatorimage1);
-            Q rr = new Q(outputNumeratorreal, outputDenominatorreal);
-            Q ri = new Q(outputNumeratorimage, outputDenominatorimage);
-            C x = new C(xr, xi);
-            C t = new C(tr, ti);
-            C r = new C(rr, ri);
+            C x = C.Create("123/134+236/134302i");
+            C t = C.Create("0+234/1302i");
+            C r = C.Create("3658/374127-8897/1742i");
             Assert.AreEqual(r, x / t);
         }
 
         [TestMethod]
         public void DivTestZero2()
         {
-            List<string> inputNumeratorreal = new List<string>();
-            List<string> inputDenominatorreal = new List<string>();
-            List<string> inputNumeratorimage = new List<string>();
-            List<string> inputDenominatorimage = new List<string>();
-            List<string> inputNumeratorreal1 = new List<string>();
-            List<string> inputDenominatorreal1 = new List<string>();
-            List<string> inputNumeratorimage1 = new List<string>();
-            List<string> inputDenominatorimage1 = new List<string>();
-            inputNumeratorreal.Add("123");
-            inputDenominatorreal.Add("134");
-
-            inputNumeratorimage.Add("236");
-            inputDenominatorimage.Add("134");
-            inputDenominatorimage.Add("302");
-
-            inputNumeratorreal1.Add("0");
-            inputDenominatorreal1.Add("1");
-
-            inputNumeratorimage1.Add("0");
-            inputDenominatorimage1.Add("1");
-            Q xr = new Q(inputNumeratorreal, inputDenominatorreal);
-            Q xi = new Q(inputNumeratorimage, inputDenominatorimage);
-            Q tr = new Q(inputNumeratorreal1, inputDenominatorreal1);
-            Q ti = new Q(inputNumeratorimage1, inputDenominatorimage1);
-            C x = new C(xr, xi);
-            C t = new C(tr, ti);
+            C x = C.Create("123/134+236/134302i");
+            C t = C.Create("0");
             Assert.AreEqual(null, x / t);
         }
 
@@ -1212,65 +878,9 @@ namespace Math_Module_Test
         [TestMethod]
         public void DivTest2()
         {
-            List<string> inputNumeratorreal = new List<string>();
-            List<string> inputDenominatorreal = new List<string>();
-            List<string> inputNumeratorimage = new List<string>();
-            List<string> inputDenominatorimage = new List<string>();
-            List<string> inputNumeratorreal1 = new List<string>();
-            List<string> inputDenominatorreal1 = new List<string>();
-            List<string> inputNumeratorimage1 = new List<string>();
-            List<string> inputDenominatorimage1 = new List<string>();
-            List<string> outputNumeratorreal = new List<string>();
-            List<string> outputDenominatorreal = new List<string>();
-            List<string> outputNumeratorimage = new List<string>();
-            List<string> outputDenominatorimage = new List<string>();
-            inputNumeratorreal.Add("123");
-            inputDenominatorreal.Add("134");
-            inputDenominatorreal.Add("134");
-
-            inputNumeratorimage.Add("236");
-            inputDenominatorimage.Add("134");
-            inputDenominatorimage.Add("302");
-
-            inputNumeratorreal1.Add("123");
-            inputDenominatorreal1.Add("167");
-
-            inputNumeratorimage1.Add("234");
-            inputDenominatorimage1.Add("1");
-            inputDenominatorimage1.Add("302");
-
-            outputNumeratorreal.Add("79");
-            outputNumeratorreal.Add("761");
-            outputNumeratorreal.Add("004");
-            outputNumeratorreal.Add("216");
-            outputNumeratorreal.Add("063");
-            outputDenominatorreal.Add("46");
-            outputDenominatorreal.Add("251");
-            outputDenominatorreal.Add("135");
-            outputDenominatorreal.Add("696");
-            outputDenominatorreal.Add("780");
-            outputDenominatorreal.Add("300");
-
-            outputNumeratorimage.Add("6");
-            outputNumeratorimage.Add("991");
-            outputNumeratorimage.Add("140");
-            outputNumeratorimage.Add("859");
-            outputNumeratorimage.Add("807");
-            outputDenominatorimage.Add("3");
-            outputDenominatorimage.Add("556");
-            outputDenominatorimage.Add("779");
-            outputDenominatorimage.Add("668");
-            outputDenominatorimage.Add("983");
-            outputDenominatorimage.Add("100");
-            Q xr = new Q(inputNumeratorreal, inputDenominatorreal);
-            Q xi = new Q(inputNumeratorimage, inputDenominatorimage);
-            Q tr = new Q(inputNumeratorreal1, inputDenominatorreal1);
-            Q ti = new Q(inputNumeratorimage1, inputDenominatorimage1);
-            Q rr = new Q(outputNumeratorreal, outputDenominatorreal);
-            Q ri = new Q(outputNumeratorimage, outputDenominatorimage);
-            C x = new C(xr, xi);
-            C t = new C(tr, ti);
-            C r = new C(rr, ri);
+            C x = C.Create("123/134134+236/134302i");
+            C t = C.Create("123/167+234/1302i");
+            C r = C.Create("79761004216063/46251135696780300+6991140859807/3557779668983100i");
             Assert.AreEqual(r, x / t);
         }
 
@@ -1341,38 +951,9 @@ namespace Math_Module_Test
         [TestMethod]
         public void DegreeTestZero1()
         {
-            List<string> inputNumeratorreal = new List<string>();
-            List<string> inputDenominatorreal = new List<string>();
-            List<string> inputNumeratorimage = new List<string>();
-            List<string> inputDenominatorimage = new List<string>();
-            List<string> inputNumeratorDegree = new List<string>();
-            List<string> inputDenominatorDegree = new List<string>();
-            List<string> outputNumeratorreal = new List<string>();
-            List<string> outputDenominatorreal = new List<string>();
-            List<string> outputNumeratorimage = new List<string>();
-            List<string> outputDenominatorimage = new List<string>();
-            inputNumeratorreal.Add("123");
-            inputDenominatorreal.Add("134");
-
-            inputNumeratorimage.Add("236");
-            inputDenominatorimage.Add("134");
-            inputDenominatorimage.Add("302");
-
-            inputNumeratorDegree.Add("0");
-            inputDenominatorDegree.Add("1");
-
-            outputNumeratorreal.Add("1");
-            outputDenominatorreal.Add("1");
-
-            outputNumeratorimage.Add("1");
-            outputDenominatorimage.Add("1");
-            Q xr = new Q(inputNumeratorreal, inputDenominatorreal);
-            Q xi = new Q(inputNumeratorimage, inputDenominatorimage);
-            Q t = new Q(inputNumeratorDegree, inputDenominatorDegree);
-            Q rr = new Q(outputNumeratorreal, outputDenominatorreal);
-            Q ri = new Q(outputNumeratorimage, outputDenominatorimage);
-            C x = new C(xr, xi);
-            C r = new C(rr, ri);
+            C x = C.Create("123/134134+236/134302i");
+            Q t = Q.Create("0");
+            C r = C.Create("1");
             Assert.AreEqual(r, x ^ t);
         }
 
