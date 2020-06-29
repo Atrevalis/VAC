@@ -21,6 +21,28 @@ namespace Math_Module_Test
         }
 
         [TestMethod]
+        public void MODTestZero1()
+        {
+            string input = "0";
+            string input2 = "x-1";
+            string output = "0";
+            P input1 = P.Create(input);
+            P input3 = P.Create(input2);
+            P output1 = P.Create(output);
+            Assert.AreEqual(output1, input1.MOD(input3));
+        }
+
+        [TestMethod]
+        public void MODTestZero2()
+        {
+            string input = "-13x^5+(12i+2)x^2-100x^3+12ix+32";
+            string input2 = "0";
+            P input1 = P.Create(input);
+            P input3 = P.Create(input2);
+            Assert.AreEqual(null, input1.MOD(input3));
+        }
+
+        [TestMethod]
         public void REMTest1()
         {
             string input = "-13x^5+(12i+2)x^2-100x^3+12ix+32";
@@ -30,6 +52,28 @@ namespace Math_Module_Test
             P input3 = P.Create(input2);
             P output1 = P.Create(output);
             Assert.AreEqual(output1, input1.REM(input3));
+        }
+
+        [TestMethod]
+        public void REMTestZero1()
+        {
+            string input = "0";
+            string input2 = "x-1";
+            string output = "0";
+            P input1 = P.Create(input);
+            P input3 = P.Create(input2);
+            P output1 = P.Create(output);
+            Assert.AreEqual(output1, input1.REM(input3));
+        }
+
+        [TestMethod]
+        public void REMTestZero2()
+        {
+            string input = "-13x^5+(12i+2)x^2-100x^3+12ix+32";
+            string input2 = "0";
+            P input1 = P.Create(input);
+            P input3 = P.Create(input2);
+            Assert.AreEqual(null, input1.REM(input3));
         }
 
         [TestMethod]
@@ -53,6 +97,22 @@ namespace Math_Module_Test
             Assert.AreEqual(output1, input1.DIV(input2));
         }
 
+        [TestMethod]
+        public void DIVTestZero1()
+        {
+            P input1 = P.Create("0");
+            P input2 = P.Create("23x^2+1");
+            P output1 = P.Create("0");
+            Assert.AreEqual(output1, input1.DIV(input2));
+        }
+
+        [TestMethod]
+        public void DIVTestZero2()
+        {
+            P input1 = P.Create("23x^2+1");
+            P input2 = P.Create("0");
+            Assert.AreEqual(null, input1.DIV(input2));
+        }
 
         [TestMethod]
         public void MULTest1()
@@ -64,6 +124,88 @@ namespace Math_Module_Test
             P input3 = P.Create(input2);
             P output1 = P.Create(output);
             Assert.AreEqual(output1, input1.MUL(input3));
+        }
+
+        [TestMethod]
+        public void MULTestZero1()
+        {
+            string input = "-13x^5+(12i-5)x^2";
+            string input2 = "0";
+            string output = "0";
+            P input1 = P.Create(input);
+            P input3 = P.Create(input2);
+            P output1 = P.Create(output);
+            Assert.AreEqual(output1, input1.MUL(input3));
+        }
+
+        [TestMethod]
+        public void UnarMinusTest1()
+        {
+            string input = "-13x^5+(12i+2)x^2-100x^3+12ix+32";
+            string output = "13x^5-(12i+2)x^2+100x^3-12ix-32";
+            P input1 = P.Create(input);
+            P output1 = P.Create(output);
+            Assert.AreEqual(output1, -input1);
+        }
+
+        [TestMethod]
+        public void PlusTest1()
+        {
+            string input = "-13x^5+(12i-5)x^2";
+            string input2 = "13x^5-(12i-4)x^2+12ix+32";
+            string output = "-x^2+12ix+32";
+            P input1 = P.Create(input);
+            P input3 = P.Create(input2);
+            P output1 = P.Create(output);
+            Assert.AreEqual(output1, input1.ADD(input3));
+        }
+
+        [TestMethod]
+        public void PlusTestZero1()
+        {
+            string input = "-13x^5+(12i-5)x^2";
+            string input2 = "0";
+            string output = "-13x^5+(12i-5)x^2";
+            P input1 = P.Create(input);
+            P input3 = P.Create(input2);
+            P output1 = P.Create(output);
+            Assert.AreEqual(output1, input1.ADD(input3));
+        }
+
+        [TestMethod]
+        public void MinusTest1()
+        {
+            string input = "-13x^5+(12i-5)x^2";
+            string input2 = "13x^5-(12i-4)x^2+12ix+32";
+            string output = "-26x^5+(24i-9)x^2-12ix-32";
+            P input1 = P.Create(input);
+            P input3 = P.Create(input2);
+            P output1 = P.Create(output);
+            Assert.AreEqual(output1, input1.SUB(input3));
+        }
+
+        [TestMethod]
+        public void MinusTestZero1()
+        {
+            string input = "-13x^5+(12i-5)x^2";
+            string input2 = "0";
+            string output = "-13x^5+(12i-5)x^2";
+            P input1 = P.Create(input);
+            P input3 = P.Create(input2);
+            P output1 = P.Create(output);
+            Assert.AreEqual(output1, input1.SUB(input3));
+        }
+
+        [TestMethod]
+        public void MinusTestZero2()
+        {
+            string input = "0";
+            string input2 = "-13x^5+(12i-5)x^2";
+            string output = "13x^5-(12i-4)x^2";
+            P input1 = P.Create(input);
+            P input3 = P.Create(input2);
+            P output1 = P.Create(output);
+            Assert.AreEqual(output1, input1.SUB(input3));
         }
 
         [TestMethod]
