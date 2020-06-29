@@ -324,9 +324,22 @@ namespace LMath
         {
             bool isI = false;
             C result = new C();
+            for (int i = 0; i < s.Length; i++)
+            {
+                if (s[i] == 'i')
+                {
+                    if (s[i-1] >= '9' || s[i-1] <= '0')
+                    {
+                        s = s.Insert(i, "1");
+                    }
+                }
+            }
             for (int i = 1; i < s.Length; i++)
             {
-                if (s[i] == 'i') isI = true;
+                if (s[i] == 'i')
+                {
+                    isI = true;
+                }
                 if (s[i] == '+' || s[i] == '-')
                 {
                     s = s.Replace(" ", "");

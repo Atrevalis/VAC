@@ -1221,7 +1221,7 @@ namespace Math_Module_Test
             output.Add("25/");
             output.Add("3+i");
             result = input;
-            Assert.AreEqual(result, input);
+            Assert.AreEqual(result, output);
         }
 
         [TestMethod]
