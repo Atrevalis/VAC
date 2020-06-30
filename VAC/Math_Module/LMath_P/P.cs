@@ -290,7 +290,7 @@ namespace LMath
                     {
                         if (second.Ms[i].degree.Dawn().COM(result.Ms[j].degree.Dawn()) == 0)
                         {
-                            result.Ms[j] = new M(result.Ms[j].coef + second.Ms[j].coef, result.Ms[j].degree);
+                            result.Ms[j] = new M(result.Ms[j].coef + second.Ms[i].coef, result.Ms[j].degree);
                         }
                         else
                         {
@@ -322,7 +322,6 @@ namespace LMath
                 firstextra = firstextra.MUL_Pxk_P(second.Ms[i].degree);
                 result += firstextra;
             }
-            result.Free_for_zero();
             return result;
         }
 
@@ -415,6 +414,10 @@ namespace LMath
                     Ms.RemoveAt(i);
                     i--;
                 }
+            }
+            if(Ms.Count == 0)
+            {
+                Ms.Add(new M(new C(), new C()));
             }
         }
 
