@@ -252,7 +252,7 @@ namespace External_Controller
                     }
                     else
                     {
-                        (second_obj as External_module.Operators).up_Conected = first_obj as External_module.Working_data;
+                        (second_obj as Operators).up_Conected = first_obj as External_module.Working_data;
                     }
                 }
                 else
