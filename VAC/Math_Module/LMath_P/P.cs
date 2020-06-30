@@ -316,8 +316,8 @@ namespace LMath
             for (int i = 0; i < second.Ms.Count; i++)
             {
                 firstextra = first;
-                firstextra.MUL_PQ_P(second.Ms[i].coef);
-                firstextra.MUL_Pxk_P(second.Ms[i].degree);
+                firstextra = firstextra.MUL_PQ_P(second.Ms[i].coef);
+                firstextra = firstextra.MUL_Pxk_P(second.Ms[i].degree);
                 result += firstextra;
             }
             return result;
