@@ -317,11 +317,12 @@ namespace LMath
             P firstextra;
             for (int i = 0; i < second.Ms.Count; i++)
             {
-                firstextra = first;
+                firstextra = first.Clone() as P;
                 firstextra = firstextra.MUL_PQ_P(second.Ms[i].coef);
                 firstextra = firstextra.MUL_Pxk_P(second.Ms[i].degree);
                 result += firstextra;
             }
+            result.Free_for_zero();
             return result;
         }
 
@@ -419,49 +420,24 @@ namespace LMath
 
         public static byte COM_PP_D(P first, P second)
         {
-            M odin = new M();
-            M nol = new M();
-            C q = new C();
-            odin.degree = q;
-            nol.degree = q;
-            nol.coef = q;
-            C l = new C();
-            odin.coef = l;
-            P menche = null;
-            menche.Ms.Add(nol);
-            P bolshe = null;
-            bolshe.Ms.Add(odin);
-            if ((first / second) == menche)
-            {
-                return 1;
-            }
-            if ((first / second) == bolshe)
-            {
-                if ((first % second) == menche)
+            if (first.Ms.Count == second.Ms.Count) {
+                for (int i = 0;i< first.Ms.Count;i++)
                 {
-                    return 0;
+                    if (first.Ms[i].coef != second.Ms[i].coef || first.Ms[i].degree != second.Ms[i].degree) {return 4;}
                 }
-                else
-                {
-                    return 2;
-                }
+                return 0;
             }
-            else
-            {
-                return 2;
-            }
+            return 4;
+
         }
 
 
         private P MUL_PQ_P(C value)
         {
             P mulcoef = Clone() as P;
-            M now;
             for (int i = 0; i < mulcoef.Ms.Count; i++)
             {
-                now = mulcoef.Ms[i];
-                now.coef *= value;
-                mulcoef.Ms[i] = now;
+                mulcoef.Ms[i].coef *= value;
             }
             return mulcoef;
         }
@@ -469,12 +445,9 @@ namespace LMath
         private P MUL_Pxk_P(C value)
         {
             P muldeg = Clone() as P;
-            M now;
             for (int i = 0; i < muldeg.Ms.Count; i++)
             {
-                now = muldeg.Ms[i];
-                now.degree += value;
-                muldeg.Ms[i] = now;
+                muldeg.Ms[i].degree += value;
             }
             return muldeg;
         }
