@@ -362,13 +362,13 @@ namespace LMath
             C zero = C.Create("0");
             C coef = new C();
             C degree = new C();
-            for (int i = 0; i < value.Ms.Count - 1; i++)
+            for (int i = value.Ms.Count - 1; i > -1; i--)
             {
                 coef = value.Ms[i].coef;
                 degree = value.Ms[i].degree;
                 if (coef.COM(zero) != 0)
                 {
-                    if (i != 1)
+                    if (i != value.Ms.Count - 1)
                     {
                         result.Add("+");
                     }

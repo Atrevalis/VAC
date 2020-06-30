@@ -233,12 +233,17 @@ namespace Math_Module_Test
             P input= P.Create("12x^2+20x");
             List<string> output = new List<string>();
             List<string> result = new List<string>();
+            output.Add("(");
             output.Add("12");
+            output.Add(")");
             output.Add("x^");
             output.Add("2");
             output.Add("+");
+            output.Add("(");
             output.Add("20");
-            output.Add("x");
+            output.Add(")");
+            output.Add("x^");
+            output.Add("1");
             result = input;
             CollectionAssert.AreEqual(result, output);
         }

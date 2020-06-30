@@ -169,17 +169,44 @@ namespace LMath
 
         public static implicit operator List<string>(M value) // Александр Рассохин 9370//есть тесты
         {
-            return null;
+            List<string> result = new List<string>();
+            List<string> temp = new List<string>();
+            for (int i = 0; i < value.h; i++)
+            {
+                for (int j = 0; j < value.w; j++)
+                {
+                    temp = value.elements[i, j];
+                    result.AddRange(temp);
+                    if (j != value.w - 1)
+                    {
+                        result.Add("_");
+                    }
+                }
+                if (i != value.h - 1) 
+                { 
+                    result.Add("|");
+                }
+            }
+            return result;
+
         }
 
         public static explicit operator P(M value) // Александр Рассохин 9370//есть тесты
         {
+            if (value.isDown)
+            {
+                P result = new P();
+                result = value.elements[0, 0];
+                return result;
+            }
             return null;
         }
 
         public static implicit operator M(P value) // Александр Рассохин 9370//есть тесты
         {
-            return null;
+            M result = new M(1, 1);
+            result.elements[0, 0] = value;
+            return result;
         }
 
         public override bool Equals(object obj)
