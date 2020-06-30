@@ -1171,6 +1171,35 @@ namespace Math_Module_Test
         }
 
         [TestMethod]
+        public void CreateTest5()
+        {
+            List<string> outputNumeratorreal = new List<string>();
+            List<string> outputDenominatorreal = new List<string>();
+            List<string> outputNumeratorimage = new List<string>();
+            List<string> outputDenominatorimage = new List<string>();
+            string input = "14567165/14571767+817978633/4901466606i";
+            outputNumeratorreal.Add("14");
+            outputNumeratorreal.Add("567");
+            outputNumeratorreal.Add("165");
+            outputDenominatorreal.Add("14");
+            outputDenominatorreal.Add("571");
+            outputDenominatorreal.Add("767");
+
+            outputNumeratorimage.Add("817");
+            outputNumeratorimage.Add("978");
+            outputNumeratorimage.Add("633");
+            outputDenominatorimage.Add("4");
+            outputDenominatorimage.Add("901");
+            outputDenominatorimage.Add("466");
+            outputDenominatorimage.Add("606");
+            C n = C.Create(input);
+            Q rr = new Q(outputNumeratorreal, outputDenominatorreal);
+            Q ri = new Q(outputNumeratorimage, outputDenominatorimage);
+            C r = new C(rr, ri);
+            Assert.AreEqual(r, n);
+        }
+
+        [TestMethod]
         public void LCMTest()
         {
             string input1 = "123/153 + 783/2454i";
