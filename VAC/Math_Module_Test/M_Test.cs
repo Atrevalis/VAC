@@ -147,7 +147,7 @@ namespace Math_Module_Test
             string num2 = "1_2|4_5|7_8";
             M input = M.Create(num1);
             M input2 = M.Create(num2);
-            Assert.AreEqual(input, input.MOD(input2));
+            Assert.AreEqual(null, input.MOD(input2));
         }
 
         [TestMethod]

@@ -350,7 +350,7 @@ namespace LMath
             P result = first.Clone() as P;
             P div = first / second;
             if (div == null) return null;
-            result -= (first / second)*second;
+            result -= (div)*second;
             return result;
         }
 
@@ -430,7 +430,7 @@ namespace LMath
             if (first.Ms.Count == second.Ms.Count) {
                 for (int i = 0;i< first.Ms.Count;i++)
                 {
-                    if (first.Ms[i].coef != second.Ms[i].coef || first.Ms[i].degree != second.Ms[i].degree) {return 4;}
+                    if (first.Ms[i].coef.COM(second.Ms[i].coef) != 0 || first.Ms[i].degree.COM(second.Ms[i].degree) != 0) {return 4;}
                 }
                 return 0;
             }
@@ -462,7 +462,7 @@ namespace LMath
         public static P GCF_PP_P(P first, P second)
         {
             P result = first.Clone() as P;
-            P pog = null;
+            P pog = new P();
             P mod = first.Clone() as P;
             mod = first % second;
             M nol = new M();
