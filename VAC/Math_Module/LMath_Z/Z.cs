@@ -294,7 +294,8 @@ namespace LMath
         /// </summary>
         public override Math_Field Clone() // Александр Баталин 9370 //есть тесты
         {
-            Z clone = new Z(Abs.Clone() as N);
+            Z clone = new Z();
+            clone.Abs = Abs.Clone() as N;
             clone.isN = isN; 
             return clone;
         }
@@ -330,7 +331,9 @@ namespace LMath
         {
             get
             {
-                return Abs.Clone();
+                Z result = Clone() as Z;
+                result.isN = true;
+                return result;
             }
         }
 

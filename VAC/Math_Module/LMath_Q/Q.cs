@@ -130,6 +130,7 @@ namespace LMath
                 Sum.Numerator *= (ComDen / Sum.Denominator);
                 Sum.Numerator += clone.Numerator;
                 Sum.Denominator = ComDen;
+                Sum.RED_Q_Q();
                 return Sum;
             }
         }
@@ -184,6 +185,7 @@ namespace LMath
             }
             result.Numerator = result.Numerator ^ second;
             result.Denominator = result.Denominator ^ second;
+            result.RED_Q_Q();
             return result;
         }
 

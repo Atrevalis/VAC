@@ -770,8 +770,8 @@ namespace Math_Module_Test
             output.Add("145");
             output.Add("000");
             Z z = new Z(input);
-            N n = z.ABS as N;
-            N t = new N(output);
+            Z n = z.ABS as Z;
+            Z t = new Z(output);
             Assert.AreEqual(t, n);
         }
 
@@ -783,8 +783,8 @@ namespace Math_Module_Test
             input.Add("2");
             output.Add("2");
             Z z = new Z(input);
-            N n = z.ABS as N;
-            N t = new N(output);
+            Z n = z.ABS as Z;
+            Z t = new Z(output);
             Assert.AreEqual(t, n);
         }
         

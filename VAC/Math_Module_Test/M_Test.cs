@@ -270,7 +270,7 @@ namespace Math_Module_Test
             string num1 = "1_2_2|2_1_2|2_2_1";
             M input = M.Create(num1);
             M output = M.Create(num);
-            Assert.AreEqual(output, M.Reverse());
+            Assert.AreEqual(output, input.Reverse());
 
         }
         [TestMethod]

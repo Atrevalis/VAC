@@ -175,7 +175,7 @@ namespace LMath
                         }
                     case 2:
                         {
-                            for (Q i = new Q(); i.COM(second.ABS as Q) == 1; i += new Q(1))
+                            for (Q i = new Q(); i.COM(second.ABS as Q - new Q(1)) == 1; i += new Q(1))
                             {
                                 clone *= clone;
                             }
@@ -332,7 +332,7 @@ namespace LMath
             {
                 if (s[i] == 'i')
                 {
-                    if (s[i-1] >= '9' || s[i-1] <= '0')
+                    if (s[i-1] > '9' || s[i-1] < '0')
                     {
                         s = s.Insert(i, "1");
                     }

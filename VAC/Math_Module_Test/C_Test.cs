@@ -980,15 +980,15 @@ namespace Math_Module_Test
             inputNumeratorDegree.Add("2");
             inputDenominatorDegree.Add("1");
 
-            outputNumeratorreal.Add("0");
-            outputDenominatorreal.Add("1");
+            outputNumeratorimage.Add("0");
+            outputDenominatorimage.Add("1");
 
-            outputNumeratorimage.Add("55");
-            outputNumeratorimage.Add("696");
-            outputDenominatorimage.Add("18");
-            outputDenominatorimage.Add("037");
-            outputDenominatorimage.Add("027");
-            outputDenominatorimage.Add("204");
+            outputNumeratorreal.Add("-55");
+            outputNumeratorreal.Add("696");
+            outputDenominatorreal.Add("18");
+            outputDenominatorreal.Add("037");
+            outputDenominatorreal.Add("027");
+            outputDenominatorreal.Add("204");
             Q xr = new Q(inputNumeratorreal, inputDenominatorreal);
             Q xi = new Q(inputNumeratorimage, inputDenominatorimage);
             Q t = new Q(inputNumeratorDegree, inputDenominatorDegree);
@@ -1021,7 +1021,7 @@ namespace Math_Module_Test
 
             inputNumeratorDegree.Add("2");
             inputDenominatorDegree.Add("1");
-
+            /*
             outputNumeratorreal.Add("15");
             outputNumeratorreal.Add("129");
             outputDenominatorreal.Add("17");
@@ -1032,7 +1032,24 @@ namespace Math_Module_Test
             outputDenominatorimage.Add("18");
             outputDenominatorimage.Add("037");
             outputDenominatorimage.Add("027");
-            outputDenominatorimage.Add("204");
+            outputDenominatorimage.Add("204");*/
+            outputNumeratorreal.Add("68");
+            outputNumeratorreal.Add("220");
+            outputNumeratorreal.Add("296");
+            outputNumeratorreal.Add("122");
+            outputNumeratorreal.Add("985");
+            outputDenominatorreal.Add("80");
+            outputDenominatorreal.Add("968");
+            outputDenominatorreal.Add("215");
+            outputDenominatorreal.Add("118");
+            outputDenominatorreal.Add("756");
+
+            outputNumeratorimage.Add("14");
+            outputNumeratorimage.Add("514");
+            outputDenominatorimage.Add("4");
+            outputDenominatorimage.Add("499");
+            outputDenominatorimage.Add("117");
+
             Q xr = new Q(inputNumeratorreal, inputDenominatorreal);
             Q xi = new Q(inputNumeratorimage, inputDenominatorimage);
             Q t = new Q(inputNumeratorDegree, inputDenominatorDegree);

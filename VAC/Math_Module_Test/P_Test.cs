@@ -123,7 +123,7 @@ namespace Math_Module_Test
             P input1 = P.Create(input);
             P input3 = P.Create(input2);
             P output1 = P.Create(output);
-            Assert.AreEqual(output1, input1.MUL(input3));
+            Assert.AreEqual(output1, input1*input3);
         }
 
         [TestMethod]
@@ -135,7 +135,7 @@ namespace Math_Module_Test
             P input1 = P.Create(input);
             P input3 = P.Create(input2);
             P output1 = P.Create(output);
-            Assert.AreEqual(output1, input1.MUL(input3));
+            Assert.AreEqual(output1, input1*input3);
         }
 
         [TestMethod]
