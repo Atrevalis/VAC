@@ -119,7 +119,7 @@ namespace Math_Module_Test
         {
             string input = "-13x^5+(12i-5)x^2";
             string input2 = "x^3+6i-3";
-            string output = "-13x^8+(12i-44)x^5+(-66i-57)x^2";
+            string output = "-13x^8+(34-66i)x^5+(-66i-57)x^2";
             P input1 = P.Create(input);
             P input3 = P.Create(input2);
             P output1 = P.Create(output);
@@ -157,7 +157,8 @@ namespace Math_Module_Test
             P input1 = P.Create(input);
             P input3 = P.Create(input2);
             P output1 = P.Create(output);
-            Assert.AreEqual(output1, input1.ADD(input3));
+            input1 = input1 + input3;
+            Assert.AreEqual(output1, input1);
         }
 
         [TestMethod]
@@ -169,7 +170,7 @@ namespace Math_Module_Test
             P input1 = P.Create(input);
             P input3 = P.Create(input2);
             P output1 = P.Create(output);
-            Assert.AreEqual(output1, input1.ADD(input3));
+            Assert.AreEqual(output1, input1+input3);
         }
 
         [TestMethod]
@@ -201,7 +202,7 @@ namespace Math_Module_Test
         {
             string input = "0";
             string input2 = "-13x^5+(12i-5)x^2";
-            string output = "13x^5-(12i-4)x^2";
+            string output = "13x^5-(12i-5)x^2";
             P input1 = P.Create(input);
             P input3 = P.Create(input2);
             P output1 = P.Create(output);

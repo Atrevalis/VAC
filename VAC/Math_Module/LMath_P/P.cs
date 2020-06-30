@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LMath
 {
@@ -222,7 +219,7 @@ namespace LMath
                 P clone = Clone() as P;
                 for (int i = 0; i < Ms.Count; i++)
                 {
-                    Ms[i] = new M(Ms[i].coef.ABS as C, Ms[i].degree.Clone() as C);
+                    clone.Ms[i] = new M(clone.Ms[i].coef.ABS as C, clone.Ms[i].degree.Clone() as C);
                 }
                 return clone;
             }
@@ -232,7 +229,8 @@ namespace LMath
         {
             get
             {
-                P result = null;//tClone();
+                
+                P result = Clone() as P;
                 C usl = new C(1, 0, true);
                 M now;
                 for (int i = result.Ms.Count - 1; i > 0; i--)
@@ -242,7 +240,7 @@ namespace LMath
                         result.Ms.RemoveAt(i);
                         continue;
                     }
-                    result.Ms.Insert(i, Ms[i]);
+                    result.Ms.Insert(i, result.Ms[i]);
                     now = result.Ms[i];
                     now.coef *= now.degree;
                     now.degree -= new C(1, 0, true);
@@ -260,7 +258,7 @@ namespace LMath
                 P clone = Clone() as P;
                 for (int i = 0; i < clone.Ms.Count; i++)
                 {
-                    Ms[i] = new M(-Ms[i].coef, Ms[i].degree.Clone() as C);
+                    clone.Ms[i] = new M(-Ms[i].coef, Ms[i].degree.Clone() as C);
                 }
                 return clone;
             }
@@ -285,11 +283,12 @@ namespace LMath
             P result = first.Clone() as P;
             for (int i = 0; i < second.Ms.Count; i++)
             {
+                bool tr = false;
                 for (int j = 0; j < result.Ms.Count; j++)
                 {
-                    if (second.Ms[i].degree.COM(result.Ms[j].degree) != 2)
+                    if (second.Ms[i].degree.Dawn().COM(result.Ms[j].degree.Dawn()) != 2)
                     {
-                        if (second.Ms[i].degree.COM(result.Ms[j].degree) == 0)
+                        if (second.Ms[i].degree.Dawn().COM(result.Ms[j].degree.Dawn()) == 0)
                         {
                             result.Ms[j] = new M(result.Ms[j].coef + second.Ms[j].coef, result.Ms[j].degree);
                         }
@@ -297,10 +296,13 @@ namespace LMath
                         {
                             result.Ms.Insert(j, new M(second.Ms[i].coef, second.Ms[i].degree));
                         }
+                        tr = true;
                         break;
                     }
                 }
+                if(!tr) result.Ms.Add(new M(second.Ms[i].coef, second.Ms[i].degree));
             }
+            result.Free_for_zero();
             return result;
         }
 
@@ -402,6 +404,18 @@ namespace LMath
         #endregion
 
         #region Методы
+
+        private void Free_for_zero()
+        {
+            for(int i = 0; i < Ms.Count; i++)
+            {
+                if(Ms[i].coef.COM(new C()) == 0)
+                {
+                    Ms.RemoveAt(i);
+                    i--;
+                }
+            }
+        }
 
         public static byte COM_PP_D(P first, P second)
         {
@@ -552,7 +566,7 @@ namespace LMath
                 if (Ms.Count == sec.Ms.Count)
                 {
                     for(int i = 0; i < Ms.Count; i++)
-                    if (!Ms[i].Equals(sec.Ms[i])) return false;
+                    if (!Ms[i].coef.Equals(sec.Ms[i].coef) || !Ms[i].degree.Equals(sec.Ms[i].degree)) return false;
                     return true;
                 }
             }
@@ -666,7 +680,7 @@ namespace LMath
             int j = 0;
             for (int i = 0; i < s.Length; i++)
             {
-                C coef = null, degree;
+                C coef = null, degree = null;
                 int startindex = 0, endindex = 0;
                 while (j < bracketsplace.Count && i > bracketsplace[j][1]) j++;
                 if (j < bracketsplace.Count && i > bracketsplace[j][0])
@@ -682,7 +696,8 @@ namespace LMath
                 {
                     int k = i;
                     byte count = 0;
-                    while (k < s.Length && (s[k] >= '0' && s[k] <= '9' || s[k] == '/' || s[k] == 'i' || (s[k] == '-' && k == i)))
+                    if (i < s.Length && s[i] == '-' && s[i + 1] == 'x') s = s.Insert(i+1, "1");
+                    while (k < s.Length && (s[k] >= '0' && s[k] <= '9' || s[k] == '/' || s[k] == 'i' || (s[k] == '-' && k == i && k != s.Length-1 && s[k+1] != '(')))
                     {
                         if (s[k] == '/') count++;
                         if (count > 1) throw new Exception();
@@ -734,8 +749,6 @@ namespace LMath
                     else
                     {
                         M n = new M();
-                        n.coef = coef;
-                        n.degree = degree;
                         if (a == result.Ms.Count)
                         {
                             result.Ms.Add(n);
@@ -762,10 +775,9 @@ namespace LMath
             get
             {
                 P clone = Clone() as P;
-                for (int i = 0; i < Ms.Count; i++)
+                for (int i = 0; i < clone.Ms.Count; i++)
                 {
-
-                    Ms[i] = new M(Ms[i].coef / Ms[i].degree + new C(1), Ms[i].degree + new C(1));
+                    clone.Ms[i] = new M(clone.Ms[i].coef / clone.Ms[i].degree + new C(1), clone.Ms[i].degree + new C(1));
                 }
                 return clone;
             }
