@@ -1151,6 +1151,26 @@ namespace Math_Module_Test
         }
 
         [TestMethod]
+        public void CreateTest4()
+        {
+            List<string> outputNumeratorreal = new List<string>();
+            List<string> outputDenominatorreal = new List<string>();
+            List<string> outputNumeratorimage = new List<string>();
+            List<string> outputDenominatorimage = new List<string>();
+            string input = "12/13+i";
+            outputNumeratorreal.Add("12");
+            outputDenominatorreal.Add("13");
+
+            outputNumeratorimage.Add("1");
+            outputDenominatorimage.Add("1");
+            C n = C.Create(input);
+            Q rr = new Q(outputNumeratorreal, outputDenominatorreal);
+            Q ri = new Q(outputNumeratorimage, outputDenominatorimage);
+            C r = new C(rr, ri);
+            Assert.AreEqual(r, n);
+        }
+
+        [TestMethod]
         public void LCMTest()
         {
             string input1 = "123/153 + 783/2454i";
@@ -1218,10 +1238,13 @@ namespace Math_Module_Test
             C input = C.Create("25/3+i");
             List<string> output = new List<string>();
             List<string> result = new List<string>();
-            output.Add("25/");
-            output.Add("3+i");
+            output.Add("25");
+            output.Add("/");
+            output.Add("3");
+            output.Add("+");
+            output.Add("i");
             result = input;
-            Assert.AreEqual(result, output);
+            CollectionAssert.AreEqual(result, output);
         }
 
         [TestMethod]
