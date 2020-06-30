@@ -329,24 +329,28 @@ namespace LMath
         public static P operator /(P first, P second) // DIV_PP_P
         {
             P result = new P();
+            result.Ms.Add(new M());
             P ostatok = first.Clone() as P;
+            if (second.Ms.Count == 1 && second.Ms[0].coef.COM(new C()) == 0) return null;
             while (true)
             {
-                if (ostatok.DEG.COM(second.DEG) == 1) break;
+                if (ostatok.DEG.Dawn().COM(second.DEG.Dawn()) == 1 || (ostatok.COM(new P(0)) == 0)) break;
                 P temp = new P();
-                C x = ostatok.DEG.SUB(second.DEG) as C, y = second.LED.DIV(ostatok.LED) as C;
-                M mult = new M(second.LED.DIV(ostatok.LED) as C, ostatok.DEG.SUB(second.DEG) as C);
+                M mult = new M(ostatok.LED.DIV(second.LED) as C, ostatok.DEG.SUB(second.DEG) as C);
                 temp.Ms.Add(mult);
-                result.Ms.Add(mult);
+                result.Ms.Insert(0, mult);
                 ostatok = ostatok - (second * temp);
             }
+            result.Free_for_zero();
             return result;
         }
 
         public static P operator %(P first, P second) // MOD_PP_p
         {
             P result = first.Clone() as P;
-            result -= (first / second);
+            P div = first / second;
+            if (div == null) return null;
+            result -= (first / second)*second;
             return result;
         }
 
@@ -531,6 +535,7 @@ namespace LMath
             {
                 clone.Ms.Add(new M(Ms[i].coef.Clone() as C, Ms[i].degree.Clone() as C));
             }
+            clone.Free_for_zero();
             return clone;
         }
 
@@ -562,6 +567,7 @@ namespace LMath
 
         public override Math_Field MOD(Math_Field second)
         {
+            /*
             P res = this % (second as P);
             P zero = new P();
             if ((res.LED).COM(zero.LED) == 1)
@@ -576,6 +582,8 @@ namespace LMath
                 }
             }
             return res;
+            */
+            return null;
         }
 
         public override Math_Field REM(Math_Field second)

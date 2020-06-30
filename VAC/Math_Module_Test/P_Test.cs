@@ -11,13 +11,13 @@ namespace Math_Module_Test
         [TestMethod]
         public void MODTest1()
         {
-            string input = "-13x^5+(12i+2)x^2-100x^3+12ix+32";
+            string input = "-13x^5+x^2-100x^3+12x+32";
             string input2 = "x-1";
-            string output = "143";
+            string output = "x-69";
             P input1 = P.Create(input);
             P input3 = P.Create(input2);
             P output1 = P.Create(output);
-            Assert.AreEqual(output1, input1.MOD(input3));
+            Assert.AreEqual(null, input1.MOD(input3));
         }
 
         [TestMethod]
@@ -29,7 +29,7 @@ namespace Math_Module_Test
             P input1 = P.Create(input);
             P input3 = P.Create(input2);
             P output1 = P.Create(output);
-            Assert.AreEqual(output1, input1.MOD(input3));
+            Assert.AreEqual(null, input1.MOD(input3));
         }
 
         [TestMethod]
@@ -45,9 +45,9 @@ namespace Math_Module_Test
         [TestMethod]
         public void REMTest1()
         {
-            string input = "-13x^5+(12i+2)x^2-100x^3+12ix+32";
+            string input = "-13x^5+x^2-100x^3+12x+32";
             string input2 = "x-1";
-            string output = "143";
+            string output = "-68";
             P input1 = P.Create(input);
             P input3 = P.Create(input2);
             P output1 = P.Create(output);
@@ -79,9 +79,9 @@ namespace Math_Module_Test
         [TestMethod]
         public void DIVTest1()
         {
-            string input = "-13x^5+(12i+2)x^2-100x^3+12ix+32";
+            string input = "-13x^5+x^2-100x^3+x+32";
             string input2 = "x-1";
-            string output = "-13x^4-13x^3-113x^2+(12i-111)x+111";
+            string output = "-13x^4-13x^3-113x^2-112x^1-111";
             P input1 = P.Create(input);
             P input3 = P.Create(input2);
             P output1 = P.Create(output);
@@ -233,11 +233,14 @@ namespace Math_Module_Test
             P input= P.Create("12x^2+20x");
             List<string> output = new List<string>();
             List<string> result = new List<string>();
-            output.Add("12x");
-            output.Add("^2+");
-            output.Add("20x");
+            output.Add("12");
+            output.Add("x^");
+            output.Add("2");
+            output.Add("+");
+            output.Add("20");
+            output.Add("x");
             result = input;
-            Assert.AreEqual(result, input);
+            CollectionAssert.AreEqual(result, output);
         }
 
         [TestMethod]
