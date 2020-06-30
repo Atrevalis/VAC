@@ -420,37 +420,15 @@ namespace LMath
 
         public static byte COM_PP_D(P first, P second)
         {
-            M odin = new M();
-            M nol = new M();
-            C q = new C();
-            odin.degree = q;
-            nol.degree = q;
-            nol.coef = q;
-            C l = new C();
-            odin.coef = l;
-            P menche = null;
-            menche.Ms.Add(nol);
-            P bolshe = null;
-            bolshe.Ms.Add(odin);
-            if ((first / second) == menche)
-            {
-                return 1;
-            }
-            if ((first / second) == bolshe)
-            {
-                if ((first % second) == menche)
+            if (first.Ms.Count == second.Ms.Count) {
+                for (int i = 0;i< first.Ms.Count;i++)
                 {
-                    return 0;
+                    if (first.Ms[i].coef != second.Ms[i].coef || first.Ms[i].degree != second.Ms[i].degree) {return 4;}
                 }
-                else
-                {
-                    return 2;
-                }
+                return 0;
             }
-            else
-            {
-                return 2;
-            }
+            return 4;
+
         }
 
 
