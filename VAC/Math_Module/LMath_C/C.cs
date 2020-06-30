@@ -122,6 +122,7 @@ namespace LMath
             Q image = value.image;
             Q real = value.real;
             Q zero = Q.Create("0");
+            Q one = Q.Create("1");
             if (real.COM(zero) != 1)
             {
                 temp = value.real;
@@ -134,7 +135,10 @@ namespace LMath
                     result.Add("+");
                 }
                 temp = value.image;
-                result.AddRange(temp);
+                if (value.image.COM(one) != 0)
+                {
+                    result.AddRange(temp);
+                }
                 result.Add("i");
             }
             return result;

@@ -1267,10 +1267,13 @@ namespace Math_Module_Test
             C input = C.Create("25/3+i");
             List<string> output = new List<string>();
             List<string> result = new List<string>();
-            output.Add("25/");
-            output.Add("3+i");
+            output.Add("25");
+            output.Add("/");
+            output.Add("3");
+            output.Add("+");
+            output.Add("i");
             result = input;
-            Assert.AreEqual(result, output);
+            CollectionAssert.AreEqual(result, output);
         }
 
         [TestMethod]
