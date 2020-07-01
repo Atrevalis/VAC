@@ -133,6 +133,7 @@ namespace LMath
                         }
                     }
                 }
+                return product;
             }
             return null;
         }
@@ -150,7 +151,7 @@ namespace LMath
         {
             if (first.w == second.h)
             {
-                if (second.Reverse() == null)
+                if (Det(second).COM(new P(0)) == 0)
                 {
                     return null;
                 }
@@ -266,7 +267,7 @@ namespace LMath
         /// </summary>
         public override Math_Field Clone() // Александр Баталин 9370//есть тесты
         {
-            M clone = new M(h, w);
+            M clone = new M(w, h);
             for (int i = 0; i < h; i++)
             {
                 for (int j = 0; j < w; j++)
@@ -284,22 +285,22 @@ namespace LMath
                 return null;
             }
             P one = new P(1);
-            M oneness = new M(h, w);
+            M oneness = new M(h, w, 0);
             for (int f = 0; f < h; f++)
             {
-                oneness.elements[f, f] = one;
+                oneness.elements[f, f] = one.Clone() as P;
             }
             P now;
             P elem = new P();
             P zero = new P();
             M original = this.Clone() as M;
-            if (Det(original).COM(zero) == 0)
+            if (Det(original).COM(new P(0)) == 0)
             {
                 return null;
             }
             for (int i = 0; i < h; i++)
             {
-                now = original.elements[i, i];
+                now = original.elements[i, i].Clone() as P;
                 for (int k = 0; k < w; k++)
                 {
                     original.elements[i, k] /= now;
