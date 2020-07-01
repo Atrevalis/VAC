@@ -232,6 +232,30 @@ namespace LMath
             return false;
         }
 
+        public static P Det(M value)
+        {
+            if (value.h == 1)
+            {
+                return value.elements[0, 0];
+            }
+            P result = new P();
+            P now = new P();
+            for (int i = 0; i < value.w; i++)
+            {
+                now = value.elements[0, i];
+                M temp = new M(value.h - 1, value.h - 1);
+                for (int j = 1; j < value.h; j++)
+                {
+                    for (int k = 1; k < value.w; k++)
+                    {
+                        temp.elements[j - 1, k - 1] = value.elements[j, k];
+                    }
+                }
+                now *= Det(temp);
+                result += now;
+            }
+            return result;
+        }
 
         #endregion
 
@@ -259,26 +283,42 @@ namespace LMath
             {
                 return null;
             }
-            M oneness = new M(h, w, 1);
+            P one = new P(1);
+            M oneness = new M(h, w);
+            for (int f = 0; f < h; f++)
+            {
+                oneness.elements[f, f] = one;
+            }
             P now;
             P elem = new P();
             P zero = new P();
             M original = this.Clone() as M;
+            if (Det(original).COM(zero) == 0)
+            {
+                return null;
+            }
             for (int i = 0; i < h; i++)
             {
                 now = original.elements[i, i];
+                for (int k = 0; k < w; k++)
+                {
+                    original.elements[i, k] /= now;
+                    oneness.elements[i, k] /= now;
+                }
                 for (int k = 0; k < h; k++)
                 {
+                    if (k == i)
+                    {
+                        continue;
+                    }
                     for (int j = 0; j < w; j++)
                     {
-                        if ((elem.COM(zero) == 0) && (original.elements[k, j].COM(zero) != 0) && (j >= i))
+                        if (elem.COM(zero) == 0)
                         {
-                            elem = original.elements[k, j];
+                            elem = original.elements[k, i];
                         }
-                        original.elements[i, j] /= now;
-                        oneness.elements[i, j] /= now;
-                        original.elements[k, j] -= original.elements[i, j] * elem;
-                        oneness.elements[k, j] -= oneness.elements[i, j] * elem;
+                        oneness.elements[k, j] -= elem * oneness.elements[i, j];
+                        original.elements[k, j] -= elem * original.elements[i, j];
                     }
                     elem = zero;
                 }
